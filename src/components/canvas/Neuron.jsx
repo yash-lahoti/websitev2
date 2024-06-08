@@ -21,7 +21,7 @@ const Neuron = ({ isMobile }) => {
       />
       <primitive
         object={neuron.scene}
-        scale={isMobile ? 0.5 : 0.4}
+        scale={isMobile ? 0.2 : 0.5}
         position-y={0}
         rotation-y={0}
       />
@@ -46,7 +46,7 @@ const NeuronCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
-          autoRotateSpeed={5.0}
+          autoRotateSpeed={7.0}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
