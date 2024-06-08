@@ -10,12 +10,18 @@ const Neuron = ({ isMobile }) => {
   return (
     <mesh>
       <hemisphereLight
-        intensity={0.2}
+        intensity={.6}
         groundColor='black'
-        color='#ffffff'
+        color='#fffff'
+      />
+        <directionalLight
+        intensity={7}
+        color="#fff456"
+        position={[5, 5, 5]} // Adjust the position to cast light from one side
+        castShadow
       />
       <pointLight
-        intensity={0.2}
+        intensity={.3}
         color='#ffd700'
         position={[10, 10, 10]}
       />
@@ -29,7 +35,7 @@ const Neuron = ({ isMobile }) => {
   );
 };
 
-const NeuronCanvas = () => {
+const NeuronCanvas = ({ isMobile }) => {
   return (
     <Canvas
       shadows
@@ -41,7 +47,7 @@ const NeuronCanvas = () => {
         near: 0.1,
         far: 200,
         position: [-4, 3, 6],
-      }}
+      }}x
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -51,8 +57,7 @@ const NeuronCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Neuron />
-
+        <Neuron isMobile={isMobile} />
         <Preload all />
       </Suspense>
     </Canvas>

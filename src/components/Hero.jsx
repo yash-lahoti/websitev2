@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
-import Earth from "./canvas/Earth";
+import { isMobile } from "react-device-detect";
+import NeuronCanvas from "./canvas/Neuron.jsx";
 import Neuron from "./canvas/Neuron.jsx";
 
 const Hero = () => {
@@ -44,7 +43,7 @@ const Hero = () => {
           </a>
             <br />
         </div>
-          <Neuron />
+          <NeuronCanvas isMobile={isMobile} />
       </div>
 
 
