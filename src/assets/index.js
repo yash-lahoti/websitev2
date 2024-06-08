@@ -29,7 +29,7 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import spinesight from "./spinesight.png";
-import otoai from "./otoai.png";
+import otoai from "./OTOAI.png";
 import link from "./link.png";
 
 export {
