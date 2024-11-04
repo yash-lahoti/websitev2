@@ -9,6 +9,9 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import ImageGal from "./ImageGal.jsx"
+import HomeView from "./HomeView.jsx"
+import DynamicWebpage from "./DynamicWebpage.jsx"
+
 
 
 export {
@@ -25,5 +28,7 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  ImageGal
+  ImageGal,
+  HomeView,
+  DynamicWebpage
 };

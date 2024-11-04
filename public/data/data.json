@@ -1,0 +1,312 @@
+[
+  {
+    "meta": {
+      "category": "AI Spine Contouring",
+      "title": "Spine Segmentation: Spine Function"
+    },
+    "header": {
+      "title": "Development of a Deep Learning Algorithm to Automate the Segmentation of Spinal Cord from EOS Radiographic Images",
+      "subtitle": "Advancements in Deep Learning for Spinal Imaging Analysis",
+      "author": "Yash Lahoti, MSE, Samuel K. Cho, MD, Jun S. Kim, MD",
+      "date": "October 8, 2024",
+      "subscribeButton": "Download"
+    },
+    "mainContent": {
+      "title": "Automated Segmentation and Curvature Modeling in Spinal Pathology",
+      "subtitle": "A Deep Learning Approach to Quantifying Adult Degenerative Scoliosis",
+      "description": "This article explores the use of deep learning tools in standardizing and accelerating the quantification of spinal curvature in patients with Adult Degenerative Scoliosis (ADS). By automating segmentation and curvature modeling using weight-bearing, full-length EOS X-ray images, the study aims to reduce labor-intensive manual annotation and improve consistency in spinal pathology assessments.",
+      "takeaways": [
+        "High accuracy in spinal cord segmentation, with Dice similarity coefficients of 0.92 (AP view) and 0.96 (LAT view).",
+        "Automation reduces labor-intensive manual annotations and minimizes interobserver and intraobserver variability.",
+        "Establishes a foundation for calculating advanced metrics such as Cobb Angle and Lenke Classification, enhancing clinical assessments."
+      ]
+    },
+    "statistics": [
+      {
+        "title": "Number of Patients",
+        "value": "500",
+        "description": "The study included 500 patients with weight-bearing, full-length EOS X-ray images."
+      },
+      {
+        "title": "Average DSC in AP",
+        "value": "0.92",
+        "description": "The Dice similarity coefficient in the Anteroposterior (AP) orientation."
+      },
+      {
+        "title": "Average DSC in LAT",
+        "value": "0.96",
+        "description": "The Dice similarity coefficient in the Lateral (LAT) orientation."
+      }
+    ],
+    "facts": [
+      {
+        "fact": "Manual annotation of the vertebral column is labor-intensive and introduces variability."
+      },
+      {
+        "fact": "Deep learning can standardize and accelerate spinal curvature analysis in ADS."
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/segmentation/figure-1.png",
+        "alt": "Segmentation mask-function overlay"
+      },
+      {
+        "url": "/images/segmentation/figure-2-1.png",
+        "alt": "Segmentation mask output in AP orientation"
+      },
+      {
+        "url": "/images/segmentation/figure-2-2.png",
+        "alt": "Segmentation mask output in LAT orientation"
+      }
+    ],
+    "contentSections": [
+      {
+        "heading": "Background",
+        "paragraphs": [
+          "Advancements in EOS imaging, a low-dose, weight-bearing X-ray technology, enable safer, longitudinal imaging modalities for patients with Adult Degenerative Scoliosis (ADS).",
+          "Curvature estimation is essential for quantifying the severity of ADS and planning surgical interventions. However, manual annotation is labor-intensive and variable.",
+          "Deep learning tools have the potential to standardize and rapidly analyze alignment changes throughout disease progression."
+        ]
+      },
+      {
+        "heading": "Methods",
+        "paragraphs": [
+          "The study included **500 patients** with weight-bearing, full-length EOS X-ray images in both the AP and LAT orientations.",
+          "For each orientation, **450 images** were used to train a model, and **50 radiographs** were withheld for model evaluation.",
+          "- **Stage 1:** Identifies the region of interest (ROI) encompassing the whole spine.\n- **Stage 2:** Generates a segmentation mask to identify spinal curvature.",
+          "A 10th order polynomial function was fitted to each mask to model spinal curvature."
+        ]
+      },
+      {
+        "heading": "Results",
+        "paragraphs": [
+          "The **Dice similarity coefficient (DSC)** was used to evaluate segmentation mask quality.",
+          "The average DSC was **0.92 in the AP view** and **0.96 in the LAT view**, indicating high accuracy (1 signifies perfect overlap)."
+        ]
+      },
+      {
+        "heading": "Conclusions",
+        "paragraphs": [
+          "Automated segmentation and curvature modeling provide a standardized approach to quantifying ADS pathology.",
+          "This framework serves as a precursor to generating more labor-intensive metrics such as Cobb Angle and Lenke Classification."
+        ]
+      }
+    ],
+    "references": [
+      {
+        "text": "Dice Similarity Coefficient",
+        "link": "https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient"
+      },
+      {
+        "text": "EOS Imaging Technology",
+        "link": "https://www.eos-imaging.com"
+      }
+    ]
+  }
+  ,
+  {
+    "meta": {
+      "category": "Scoliosis Classification",
+      "title": "Spine Function: Cobb Angle Matrix"
+    },
+    "header": {
+      "title": "Automated Scoliosis Classification from AI-enabled Spine Contouring and Cobb Angle Estimation",
+      "subtitle": "Advancements in AI for Scoliosis Detection and Spine Contouring",
+      "author": "Yash Lahoti, MSE; Jennifer Yu, BS; Samuel K. Cho, MD; Jun S. Kim, MD",
+      "date": "October 8, 2024",
+      "subscribeButton": "images/cobbmat/Cobb_Matrix.pptx.pdf"
+    },
+    "mainContent": {
+      "title": "Automated Scoliosis Detection and Cobb Angle Estimation",
+      "subtitle": "A Deep Learning Approach to Classifying Scoliosis Pathology",
+      "description": "This study explores the application of AI and deep learning to automate spine contouring and classify scoliosis based on Cobb Angle estimations. Utilizing weight-bearing, full-length EOS X-ray images, the model aims to streamline and standardize scoliosis classification, enhancing diagnostic accuracy and aiding personalized treatment.",
+      "takeaways": [
+        "AI-based automation reduces labor-intensive manual processes, improving consistency in scoliosis detection and spine curvature assessment.",
+        "The model demonstrates high accuracy, with precision, recall, and F1 scores over 90%, showcasing its reliability in scoliosis classification.",
+        "By generating a Cobb Angle matrix, the algorithm effectively identifies areas of spinal curvature, providing clinicians with a standardized framework for scoliosis evaluation."
+      ]
+    },
+    "statistics": [
+      {
+        "title": "Patient Sample",
+        "value": "215",
+        "description": "Collected data includes EOS X-ray images from 215 patients, with an equal split of scoliosis-positive and negative cases."
+      },
+      {
+        "title": "Precision (Test/Train)",
+        "value": "0.9062 / 0.9314",
+        "description": "High precision in scoliosis detection across both test and training datasets."
+      },
+      {
+        "title": "Recall (Test/Train)",
+        "value": "0.9057 / 0.9308",
+        "description": "High sensitivity to true positives in scoliosis detection."
+      }
+    ],
+    "facts": [
+      {
+        "fact": "EOS imaging offers low-dose, weight-bearing X-rays for scoliosis patients, making longitudinal monitoring safer."
+      },
+      {
+        "fact": "Manual Cobb Angle measurements are prone to observer variability and are time-consuming, motivating automation."
+      },
+      {
+        "fact": "Deep learning models can standardize spinal curvature estimation and reduce manual effort."
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/cobbmat/figure-1.png",
+        "alt": "Cobb Angle Matrix generated from spine function tangent intersection to classify scoliosis"
+      }
+    ],
+    "contentSections": [
+      {
+        "heading": "Background",
+        "paragraphs": [
+          "EOS imaging is a low-dose, weight-bearing X-ray technology that enhances safety and effectiveness in scoliosis imaging. Accurate spinal curvature measurement is crucial for grading scoliosis severity and determining interventions.",
+          "Traditional manual methods are time-consuming and prone to variability, which is why deep learning solutions are valuable for standardizing this process."
+        ]
+      },
+      {
+        "heading": "Methods",
+        "paragraphs": [
+          "The study included **215 patients' EOS X-ray images** from a large urban academic center, equally divided between scoliosis-positive and negative cases.",
+          "The algorithm has three stages: \n  1. Spine contour approximation, \n  2. Manual Cobb Angle matrix calculation, and \n  3. Deep-learning-based scoliosis classification using a 4-layer CNN model."
+        ]
+      },
+      {
+        "heading": "Results",
+        "paragraphs": [
+          "The model achieved strong performance, with **precision, recall, and F1 scores** above 90% across both test and training datasets.",
+          "The Cobb Angle matrix effectively captures large angle clusters, used by the CNN for scoliosis classification."
+        ]
+      },
+      {
+        "heading": "Conclusions",
+        "paragraphs": [
+          "This AI-driven pipeline offers a novel and reliable method for scoliosis detection and spinal morphology analysis, potentially reducing manual effort and increasing diagnostic accuracy.",
+          "Future improvements could automate more steps in the process, enhancing clinical usability."
+        ]
+      }
+    ],
+    "references": [
+      {
+        "text": "EOS Imaging Technology",
+        "link": "https://www.eos-imaging.com"
+      },
+      {
+        "text": "Cobb Angle Measurement",
+        "link": "https://en.wikipedia.org/wiki/Cobb_angle"
+      }
+    ]
+  }
+  ,
+  {
+    "meta": {
+      "category": "Scoliosis Classification",
+      "title": "Image + Spine Mask: RadImageNet"
+    },
+    "header": {
+      "title": "Automated Scoliosis Classification from EOS Full Body Imaging through Artificial Intelligence: A Deep Learning Approach with RadImageNet",
+      "subtitle": "AI-Powered Scoliosis Detection and Spine Curvature Analysis",
+      "author": "Yash Lahoti, MS; Jennifer Yu, BS; Samuel K. Cho, MD; Jun S. Kim, MD",
+      "date": "October 8, 2024",
+      "subscribeButton": "Download"
+    },
+    "mainContent": {
+      "title": "Scoliosis Classification and Curvature Detection with RadImageNet",
+      "subtitle": "AI in Scoliosis Pathology Detection Using EOS Imaging and RadImageNet",
+      "description": "This study leverages EOS imaging and RadImageNet to develop a deep learning model for scoliosis classification, reducing the manual labor involved in curvature measurement. By integrating advanced segmentation with fine-tuning of a pre-trained medical imaging network, the algorithm enables high accuracy in detecting spinal deformities and provides a reliable diagnostic framework for clinicians.",
+      "takeaways": [
+        "AI-based model achieves high precision and recall in detecting scoliosis, significantly reducing the need for manual curvature calculations.",
+        "The two-stage approach using U-Net for segmentation and RadImageNet for classification streamlines scoliosis detection and improves diagnostic efficiency.",
+        "Performance remains consistent across both standard images and those with hardware, making the algorithm versatile in clinical settings."
+      ]
+    },
+    "statistics": [
+      {
+        "title": "Patient Sample",
+        "value": "215",
+        "description": "Data collected from 215 patients with EOS X-ray images, balanced between scoliosis-positive and negative cases."
+      },
+      {
+        "title": "Precision (Test/Train)",
+        "value": "0.8693 / 0.9929",
+        "description": "High precision in detecting scoliosis across both test and training datasets."
+      },
+      {
+        "title": "Recall (Test/Train)",
+        "value": "0.8621 / 0.9922",
+        "description": "High sensitivity to true positives in scoliosis classification."
+      }
+    ],
+    "facts": [
+      {
+        "fact": "RadImageNet allows for improved training and testing of AI models in radiology, accelerating scoliosis detection."
+      },
+      {
+        "fact": "EOS imaging enables safer, longitudinal imaging with low-dose X-rays, critical for monitoring scoliosis progression."
+      },
+      {
+        "fact": "Manual Cobb Angle measurement is labor-intensive and subject to variability, motivating the use of deep learning solutions."
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/RIN/figure-1.png",
+        "alt": "Spine ROI Detection and Vertebral Column Segmentation using U-Net"
+      }
+    ],
+    "contentSections": [
+      {
+        "heading": "Background",
+        "paragraphs": [
+          "Advancements in EOS imaging, a low-dose, weight-bearing X-ray technology, enable safer longitudinal imaging for scoliosis patients. Curvature estimation is a key index to assess scoliosis severity and guide surgical planning, but traditional methods are time-consuming and prone to variability.",
+          "The release of RadImageNet, a model trained on a comprehensive medical imaging dataset, enhances the development of deep learning models in radiology and offers a new starting point for improved scoliosis detection."
+        ]
+      },
+      {
+        "heading": "Methods",
+        "paragraphs": [
+          "This retrospective cohort study involved **215 patients** with EOS X-ray images, equally divided between scoliosis-positive and negative cases.",
+          "- The algorithm consists of two stages: \n  1. U-Net-based segmentation mask generation to capture vertebral curvature.\n  2. Fine-tuning RadImageNet for classification of scoliosis.",
+          "- **Stage 1** focuses on spine ROI detection and generating a fusion overlay image of the mask and input image.\n- **Stage 2** fine-tunes RadImageNet on the fusion images to detect scoliosis. The model was trained for **100 epochs** with a learning rate of **10e-4**, and **30% of the dataset** was used for validation."
+        ]
+      },
+      {
+        "heading": "Results",
+        "paragraphs": [
+          "The model achieved high **precision**, **recall**, and **F1 scores** across both test and training datasets, with precision at **0.8693** (test) and **0.9929** (train), and F1 score at **0.8615** (test) and **0.9922** (train).",
+          "Incorrect predictions were observed in edge cases with Cobb angles between **8-12 degrees**. The model performed consistently for images with and without hardware."
+        ]
+      },
+      {
+        "heading": "Conclusions",
+        "paragraphs": [
+          "The deep learning pipeline described in this study is an effective and versatile tool for detecting scoliosis and spinal pathologies, providing a standardized method that can be expanded to more complex tasks like Lenke Classification.",
+          "The model's consistent performance across various image types demonstrates its robustness for clinical application, making it a valuable tool for orthopedic surgeons."
+        ]
+      }
+    ],
+    "references": [
+      {
+        "text": "RadImageNet",
+        "link": "https://arxiv.org/abs/2111.09910"
+      },
+      {
+        "text": "EOS Imaging Technology",
+        "link": "https://www.eos-imaging.com"
+      },
+      {
+        "text": "Cobb Angle Measurement",
+        "link": "https://en.wikipedia.org/wiki/Cobb_angle"
+      }
+    ]
+  }
+  
+    
+
+    
+  ]

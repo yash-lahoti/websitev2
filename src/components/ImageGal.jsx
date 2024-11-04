@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ImageGallery } from 'react-image-grid-gallery';
+import { SectionWrapper } from "../hoc";
 import { IMAGE_PATHS } from '../constants/images.js';
 
 const ImageGal = () => {
@@ -41,5 +42,4 @@ const ImageGal = () => {
     </div>
   );
 };
-
-export default ImageGal;
+export default SectionWrapper(ImageGal, "imagegal");

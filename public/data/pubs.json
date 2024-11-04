@@ -1,0 +1,57 @@
+[
+  {
+    "conference": "Sage 2023",
+    "type": "Manuscript",
+    "title": "Artificially Intelligent Billing in Spine Surgery: An Analysis of a Large Language Model",
+    "authors": "Zaidat, B., Lahoti, Y., Yu A., Mohamed K., Cho S., Kim J,"
+  },  
+  {
+      "conference": "EOA 2024",
+      "type": "Presentation",
+      "title": "Automated Scoliosis Classification from AI-enabled Spine Contouring and Cobb Angle Estimation",
+      "authors": "Lahoti, Y., Yu, J., Cho, S., Kim, J."
+    },
+    {
+      "conference": "EOA 2024",
+      "type": "Presentation",
+      "title": "Using Dynamic Time Warping to Find Patterns in Coronal Spinal Alignment",
+      "authors": "Lahoti, Y., Yu, J., Cho, S., Kim, J."
+    },
+    {
+      "conference": "CNS 2024",
+      "type": "Abstract/Poster",
+      "title": "Automated Scoliosis Classification from AI-enabled Spine Contouring",
+      "authors": "Lahoti, Y., Yu, J., Cho, S., Kim, J."
+    },
+    {
+      "conference": "NASS 2024",
+      "type": "Abstract/Poster",
+      "title": "Automated Scoliosis Classification from EOS Full Body Imaging through Artificial Intelligence: A Deep Learning Approach with RadImageNet",
+      "authors": "Lahoti, Y., Yu, J., Cho, S., Kim, J."
+    },
+    {
+      "conference": "COS 2024",
+      "type": "Abstract/Poster",
+      "title": "Using Dynamic Time Warping to Find Patterns in Sagittal Spinal Alignment",
+      "authors": "Lahoti, Y., Yu, J., Cho, S., Kim, J."
+    },
+    {
+      "conference": "EOA 2024",
+      "type": "Abstract/Poster",
+      "title": "Automated Scoliosis Classification through Classical Machine Learning Methods",
+      "authors": "Yu, J., Lahoti, Y., Cho, S., Kim, J."
+    },
+    {
+      "conference": "DDW 2024",
+      "type": "Abstract/Poster",
+      "title": "Use of an automated, deep learning software to evaluate body composition including skeletal muscle mass and visceral adiposity in patients with Inflammatory Bowel Disease",
+      "authors": "TBD"
+    },
+    {
+      "conference": "SGIM 2023",
+      "type": "Abstract/Poster",
+      "title": "Development of a Deep Learning Algorithm to Automate the Segmentation of Spinal Cord from EOS Radiographic Images",
+      "authors": "Lahoti, Y., Cho, S., Kim, J."
+    }
+  ]
+  

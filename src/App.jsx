@@ -1,8 +1,17 @@
-import { BrowserRouter } from "react-router-dom";
-
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, ImageGal } from "./components";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, ImageGal, HomeView } from "./components";
 
 const App = () => {
+  const [sampleData, setSampleData] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/data.json')
+      .then((res) => res.json())
+      .then((data) => setSampleData(data))
+      .catch((error) => console.error("Failed to fetch data:", error));
+  }, []);
+
   return (
     <BrowserRouter>
       <div className='relative z-0 bg-primary'>
@@ -12,18 +21,17 @@ const App = () => {
         </div>
         <About />
         <Experience />
-        <Tech />
+        <HomeView articles={sampleData} />
         <Works />
-        <Feedbacks />
+        <Tech />
         <div className='relative z-0'>
           <Contact />
           <ImageGal />
           <StarsCanvas />
         </div>
       </div>
-
     </BrowserRouter>
   );
-}
+};
 
 export default App;
