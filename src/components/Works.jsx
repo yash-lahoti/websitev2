@@ -17,77 +17,72 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
-      >
-        <div className='relative w-full h-[230px]'>
-          <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
-
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-            >
-              <img
-                src={link}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <ul className='mt-5 list-disc ml-5 space-y-2 text-[14px]'>
-            {description.map((item, index) => (
-              <li key={index} style={{ whiteSpace: 'normal', lineHeight: '1.5'}}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className='mt-4 flex flex-wrap gap-2'>
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
-              #{tag.name}
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className={`flex flex-wrap mb-16 rounded-lg shadow-lg border border-gray-700 overflow-hidden ${
+        index % 2 !== 0 ? "flex-row-reverse" : ""
+      }`}
+    >
+      <div className="w-full md:w-1/2 p-4 bg-gray-900">
+        <img
+          src={image}
+          alt={`${name} project image`}
+          className="w-full h-auto rounded-lg"
+        />
+      </div>
+      <div className="w-full md:w-1/2 p-6 flex flex-col justify-center bg-gray-800">
+        <h3 className="text-lg font-bold text-gray-400 mb-2">Featured Project</h3>
+        <h2 className="text-2xl font-bold text-white mb-4">{name}</h2>
+        <div className="mt-2 bg-gray-700 p-4 rounded-lg">
+          {description.map((desc, index) => (
+            <p key={index} className="text-gray-200">
+              {desc}
             </p>
           ))}
         </div>
-      </Tilt>
+        <div className="mt-4">
+          {tags.map((tag) => (
+            <span
+              key={`${name}-${tag.name}`}
+              className={`mr-2 text-[14px] ${tag.color}`}
+            >
+              #{tag.name}
+            </span>
+          ))}
+        </div>
+        <div className="mt-6">
+          <a
+            href={source_code_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 text-sm font-semibold text-white bg-teal-500 rounded-md shadow-md hover:bg-teal-600 hover:shadow-lg transition"
+          >
+            Visit Project
+          </a>
+        </div>
+      </div>
     </motion.div>
   );
 };
 
+
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Innovation Portfolio</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects</h2>
+      <motion.div variants={textVariant()} className="flex flex-col items-center">
+        <p className={`${styles.sectionSubText} text-center`}>
+          Inovation Portfolio
+        </p>
+        <div
+          className="h-[2px] bg-accent mt-4"
+          style={{ width: "600px" }} // Adjust the width as needed
+        ></div>
+        <h2 className={`${styles.sectionHeadText} text-center`}>
+          Selected Projects
+        </h2>
       </motion.div>
 
-      <div className='w-full flex'>
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
-        >
-        </motion.p>
-      </div>
-
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className="mt-20">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
@@ -96,4 +91,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "projects");

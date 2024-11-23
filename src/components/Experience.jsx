@@ -59,14 +59,20 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()} className="flex flex-col items-center">
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          Making sense of my background
         </p>
+        <div
+          className="h-[2px] bg-accent mt-4"
+          style={{ width: "500px" }} // Adjust the width as needed
+        ></div>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience.
+          TIMELINE
         </h2>
+        
       </motion.div>
+
 
       <div className='mt-20 flex flex-col'>
         <VerticalTimeline>

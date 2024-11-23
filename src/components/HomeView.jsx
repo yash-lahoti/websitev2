@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Tilt from "react-tilt";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles.js";
 import { SectionWrapper } from "../hoc/index.js";
-import DynamicWebpage from "./DynamicWebpage";
 
 const HomeView = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedArticle, setSelectedArticle] = useState(null);
   const [publications, setPublications] = useState([]);
-  const [activePublication, setActivePublication] = useState(null);
-
-  // Define a backup image URL
-  const backupImageUrl = "images/spine-lab-bg.jpeg";
+  const [activeTab, setActiveTab] = useState("Manuscripts");
 
   // Fetch publications data when component mounts
   useEffect(() => {
@@ -30,131 +23,119 @@ const HomeView = () => {
     fetchPublications();
   }, []);
 
-  const openModal = (content) => {
-    setSelectedArticle(content);
-    setIsModalOpen(true);
+  // Filter publications by active tab
+  const filteredPublications = publications.filter(
+    (pub) =>
+      (activeTab === "Manuscripts" && pub.type === "Manuscript") ||
+      (activeTab === "Presentation" && pub.type === "Presentation") ||
+      (activeTab === "Abstract/Poster" && pub.type === "Abstract/Poster")
+  );
+
+  // Highlight "Lahoti, Y" in strings
+  const highlightLahotiY = (text) => {
+    const regex = /Lahoti, Y/g;
+    return text.split(regex).reduce((acc, part, i, arr) => {
+      acc.push(<span key={`part-${i}`}>{part}</span>);
+      if (i < arr.length - 1) {
+        acc.push(
+          <span key={`highlight-${i}`} className="text-accent">
+            Lahoti, Y
+          </span>
+        );
+      }
+      return acc;
+    }, []);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedArticle(null);
-  };
-
-  const handleMouseEnter = (pub) => {
-    setActivePublication(pub); // Set active to retain display
+  // Animation variants for list items
+  const listItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
   };
 
   return (
     <div className="flex flex-col items-center text-secondary">
       <section className="w-11/12 p-8 rounded-2xl">
-        <motion.div variants={textVariant()}>
+        {/* Header */}
+        <motion.div variants={textVariant()} className="flex flex-col items-center">
           <p className={styles.sectionSubText}>Research</p>
-          <h3 className={styles.sectionHeadText}>Publications: {publications.length}</h3>
+          <div
+            className="h-[2px] bg-accent mt-4"
+            style={{ width: "600px" }} // Adjust the width as needed
+          ></div>
+          <h4 className={styles.sectionHeadText}>Publications: {publications.length}</h4>
         </motion.div>
 
-        <div className="flex flex-col sm:flex-row gap-8">
-          {/* Publications List */}
-          <motion.div
-            className="sm:w-1/2 overflow-y-scroll max-h-[700px] p-4 bg-black-200 rounded-lg shadow-md"
-            variants={fadeIn("up", "spring", 0.1, 0.5)}
-          >
-            {publications.length > 0 ? (
+        {/* Tabs */}
+        <div className="flex justify-center space-x-8 mt-6 padding-top-100">
+          {["Abstract/Poster", "Presentation", "Manuscripts"].map((tab) => (
+            <button
+              key={tab}
+              className={`px-4 py-2 rounded-lg text-lg font-semibold ${
+                activeTab === tab
+                  ? "bg-accent text-white"
+                  : "bg-gray-300 text-black"
+              }`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Publications List */}
+        <motion.div
+          className="w-full mt-6 p-4 rounded-lg shadow-md"
+          variants={fadeIn("up", "spring", 0.2, 0.5)}
+        >
+          {filteredPublications.length > 0 ? (
+            <AnimatePresence mode="wait">
               <ul className="space-y-4">
-                {publications.map((pub, index) => (
+                {filteredPublications.map((pub, index) => (
                   <motion.li
-                    key={index}
-                    className="p-4 border border-quart rounded-lg cursor-pointer"
-                    onMouseEnter={() => handleMouseEnter(pub)}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    key={pub.title} // Ensure unique key
+                    className="flex items-start space-x-4 transition"
+                    variants={listItemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <a
-                      href={pub.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent font-semibold hover:underline"
-                    >
-                      {pub.conference} - {pub.type}
-                    </a>
-                    <p className="text-secondary">{pub.title}</p>
-                    <p className="text-white-100 text-sm">{pub.authors}</p>
+                    {/* Numbering */}
+                    <span className="font-bold text-gray-500">{index + 1}.</span>
+                    {/* Content */}
+                    <div className="flex-1">
+                      <p className="font-semibold">
+                        {pub.pdf && pub.pdf.pdfUrl ? (
+                          <a
+                            href={pub.pdf.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-accent transition-colors"
+                          >
+                            {highlightLahotiY(pub.title)}
+                          </a>
+                        ) : (
+                          highlightLahotiY(pub.title)
+                        )}
+                      </p>
+                      <p className="text-secondary text-sm">
+                        {highlightLahotiY(pub.authors)}
+                      </p>
+                      {pub.conference && (
+                        <p className="text-gray-400 text-xs">{pub.conference}</p>
+                      )}
+                    </div>
                   </motion.li>
                 ))}
               </ul>
-            ) : (
-              <p>Loading publications...</p>
-            )}
-          </motion.div>
-
-          {/* Active Publication Display */}
-          <motion.div
-            className="sm:w-1/2 flex items-center justify-between relative"
-            variants={fadeIn("up", "spring", 0.1, 0.5)}
-          >
-            <Tilt options={{ max: 5, scale: 1.1, speed: 400 }} className="w-full bg-black-200 p-6 rounded-lg shadow-card relative">
-              {activePublication ? (
-                activePublication.displayType === "none" ? (
-                  // Placeholder view for items with displayType "none"
-                  <div className="flex flex-col items-center">
-                    <img src={backupImageUrl} alt="Placeholder Image" className="rounded-lg w-full h-[400px] sm:h-[400px] mb-4" />
-                    <p className="text-white-100">Hover over a publication to see details.</p>
-                  </div>
-                ) : activePublication.displayType === "article" ? (
-                  // Detailed Article View
-                  <>
-                    <img
-                      src={activePublication.article.images?.[0]?.url || backupImageUrl}
-                      alt={activePublication.article.images?.[0]?.alt || "Article Image"}
-                      className="rounded-lg w-full h-[400px] sm:h-[400px] mb-4"
-                    />
-                    <h3 className="text-xl font-semibold text-white-100">
-                      {activePublication.article.mainContent.title || "No Title Available"}
-                    </h3>
-                    <p className="text-secondary mt-2">
-                      {activePublication.article.mainContent.description || "No Description Available"}
-                    </p>
-                    <button
-                      className="mt-4 px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition"
-                      onClick={() => openModal(activePublication.article)}
-                    >
-                      Learn More
-                    </button>
-                  </>
-                ) : (
-                  // PDF View with Thumbnail Fallback
-                  <>
-                    <img
-                      src={activePublication.pdf.thumbnailUrl || backupImageUrl}
-                      alt="PDF Thumbnail"
-                      className="rounded-lg w-full h-[800px]] mb-4"
-                    />
-                    <p className="text-secondary mt-2">{activePublication.title}</p>
-                    <a
-                      href={activePublication.pdf.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition inline-block"
-                    >
-                      View PDF
-                    </a>
-                  </>
-                )
-              ) : (
-                <div className="flex flex-col items-center">
-                  <img src={backupImageUrl} alt="Placeholder Image" className="rounded-lg w-full mb-4" />
-                  <p className="text-white-100">Hover over a publication to see details.</p>
-                </div>
-              )}
-            </Tilt>
-          </motion.div>
-        </div>
+            </AnimatePresence>
+          ) : (
+            <p>No publications available for this category.</p>
+          )}
+        </motion.div>
       </section>
-
-      {/* Modal Popup */}
-      {isModalOpen && selectedArticle && <DynamicWebpage article={selectedArticle} onClose={closeModal} />}
     </div>
   );
 };

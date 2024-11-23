@@ -17,7 +17,7 @@ const Ball = (props) => {
 
   // Define points for the flask shape
   const handleClick = () => {
-    setRotationSpeed(rotationSpeed === 0 ? 0.1 : 0); // Toggle rotation speed
+    setRotationSpeed(rotationSpeed === 0 ? 1 : 0); // Toggle rotation speed
   };
 
   useFrame((state, delta) => {
@@ -25,7 +25,7 @@ const Ball = (props) => {
   });
 
   return (
-    <Float speed={1.75} rotationIntensity={5} floatIntensity={4}>
+    <Float speed={4} rotationIntensity={5} floatIntensity={4}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 10]} />
       <mesh
@@ -62,7 +62,12 @@ const BallCanvas = ({ icon }) => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls
+          autoRotate
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
         <Ball imgUrl={icon} />
       </Suspense>
 

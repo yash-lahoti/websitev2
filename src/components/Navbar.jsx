@@ -33,8 +33,8 @@ const Navbar = () => {
     const updateCountdown = () => {
       const now = new Date();
       const difference = targetDate - now;
-      const minutes = Math.floor(difference / 1000 / 60);
-      setMinutesLeft(minutes);
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+      setMinutesLeft(days);
     };
 
     updateCountdown();
@@ -74,8 +74,8 @@ const Navbar = () => {
          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Yash Lahoti &nbsp;
             <span className='sm:block hidden'>
-              | BSE, MSE, MD Loading {dots}
-              <span id="countdown">{minutesLeft}</span> minutes
+              | BAS, MSE, MD Loading {dots}
+              <span id="countdown">{minutesLeft}</span> days
             </span>
           </p>
         </Link>

@@ -27,11 +27,15 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Work",
+    title: "Timeline",
   },
   {
     id: "research",
     title: "Research",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -56,23 +60,23 @@ const services = [
 
 const technologies = [
   {
-    name: "python",
+    name: "Python",
     icon: python,
   },
   {
-    name: "django",
-    icon: django,
-  },
-  {
-    name: "pytorch",
+    name: "Pytorch",
     icon: pytorch,
   },
   {
-    name: "React JS",
+    name: "React",
     icon: reactjs,
   },
   {
-    name: "Node JS",
+    name: "Django",
+    icon: django,
+  },
+  {
+    name: "Node.js",
     icon: nodejs,
   },
   {
