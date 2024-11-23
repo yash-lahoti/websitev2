@@ -9,10 +9,11 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [minutesLeft, setMinutesLeft] = useState(0);
+  const [minutesLeft, setMinutesLeft] = useState(null);
   const [dots, setDots] = useState(".");
 
-  const targetDate = new Date('2026-5-31');
+  // Use an ISO 8601 format for compatibility with all browsers
+  const targetDate = new Date("2026-05-31T00:00:00Z");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +34,14 @@ const Navbar = () => {
     const updateCountdown = () => {
       const now = new Date();
       const difference = targetDate - now;
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
-      setMinutesLeft(days);
+
+      if (isNaN(difference) || difference < 0) {
+        // If target date is invalid or past
+        setMinutesLeft(null);
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+        setMinutesLeft(days);
+      }
     };
 
     updateCountdown();
@@ -61,26 +68,31 @@ const Navbar = () => {
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-         <p className='text-white text-[18px] font-bold cursor-pointer flex '>
+          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
+          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
             Yash Lahoti &nbsp;
-            <span className='sm:block hidden'>
+            <span className="sm:block hidden">
               | BAS, MSE, MD Loading {dots}
-              <span id="countdown">{minutesLeft}</span> days
+              {minutesLeft !== null ? (
+                <span id="countdown">{minutesLeft}</span>
+              ) : (
+                "..."
+              )}{" "}
+              days
             </span>
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -94,11 +106,11 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
             onClick={() => setToggle(!toggle)}
           />
 
@@ -107,7 +119,7 @@ const Navbar = () => {
               !toggle ? "hidden" : "flex"
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
