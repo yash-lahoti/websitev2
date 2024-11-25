@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView } from "./components";
+import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
 import LoadingComponent from './components/LoadingComponent';
 
 const App = () => {
@@ -32,6 +32,7 @@ const App = () => {
             </div>
             <About />
             <Experience />
+            <Activity />
             <HomeView articles={sampleData} />
             <Works />
             <Tech />

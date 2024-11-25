@@ -17,53 +17,85 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      className={`flex flex-wrap mb-16 rounded-lg shadow-lg border border-gray-700 overflow-hidden ${
-        index % 2 !== 0 ? "flex-row-reverse" : ""
-      }`}
+    <Tilt
+      className="w-full"
+      options={{ max: 5, scale: 1, speed: 450 }}
     >
-      <div className="w-full md:w-1/2 p-4 bg-gray-900">
-        <img
-          src={image}
-          alt={`${name} project image`}
-          className="w-full h-auto rounded-lg"
-        />
-      </div>
-      <div className="w-full md:w-1/2 p-6 flex flex-col justify-center bg-gray-800">
-        <h3 className="text-lg font-bold text-gray-400 mb-2">Featured Project</h3>
-        <h2 className="text-2xl font-bold text-white mb-4">{name}</h2>
-        <div className="mt-2 bg-gray-700 p-4 rounded-lg">
-          {description.map((desc, index) => (
-            <p key={index} className="text-gray-200">
-              {desc}
-            </p>
-          ))}
+      <motion.div
+        variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+        className={`flex flex-wrap mb-16 rounded-xl shadow-lg overflow-hidden bg-gray-800 ${
+          index % 2 !== 0 ? "flex-row-reverse" : ""
+        }`}
+      >
+        {/* Project Image */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={image}
+            alt={`${name} project`}
+            className="object-cover w-full h-full max-h-80 rounded-l-lg md:rounded-l-none md:rounded-r-lg"
+          />
         </div>
-        <div className="mt-4">
-          {tags.map((tag) => (
-            <span
-              key={`${name}-${tag.name}`}
-              className={`mr-2 text-[14px] ${tag.color}`}
+
+        {/* Project Details */}
+        <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+          <h3 className="text-lg font-semibold text-teal-500 mb-2 uppercase">
+            Featured Project
+          </h3>
+          {/* Project Name and Visit Button */}
+          <div className="flex items-center space-x-4 mb-4">
+            <h2 className="text-2xl font-bold text-white">{name}</h2>
+            <a
+              href={source_code_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-[#FFB400] hover:text-[#FFD700] transition-colors duration-200"
+              title="Visit Project"
             >
-              #{tag.name}
-            </span>
-          ))}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 10.5L21 3m-7.5 7.5v6.75A2.25 2.25 0 0111.25 18H5.25A2.25 2.25 0 013 15.75V9.75A2.25 2.25 0 015.25 7.5H12m5.25-4.5H15.75m5.25 0v3.75"
+                />
+              </svg>
+            </a>
+          </div>
+
+          {/* Project Description */}
+          <ul className="space-y-3">
+            {description.map((desc, i) => (
+              <li key={i} className="flex items-start space-x-2">
+                <span className="text-[#FFB400] font-bold">{">"}</span>
+                <span>{desc}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Tags */}
+          <div className="mt-4">
+            {tags.map((tag) => (
+              <span
+                key={`${name}-${tag.name}`}
+                className={`inline-block text-sm font-medium mr-2 py-1 px-2 rounded bg-gray-700 text-gray-300`}
+              >
+                #{tag.name}
+              </span>
+            ))}
+          </div>
         </div>
-        <div className="mt-6">
-          <a
-            href={source_code_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-4 py-2 text-sm font-semibold text-white bg-teal-500 rounded-md shadow-md hover:bg-teal-600 hover:shadow-lg transition"
-          >
-            Visit Project
-          </a>
-        </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Tilt>
   );
 };
+
+
 
 
 const Works = () => {
@@ -71,18 +103,18 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()} className="flex flex-col items-center">
         <p className={`${styles.sectionSubText} text-center`}>
-          Inovation Portfolio
+          Innovation Portfolio
         </p>
         <div
           className="h-[2px] bg-accent mt-4"
-          style={{ width: "600px" }} // Adjust the width as needed
+          style={{ width: "600px" }}
         ></div>
         <h2 className={`${styles.sectionHeadText} text-center`}>
           Selected Projects
         </h2>
       </motion.div>
 
-      <div className="mt-20">
+      <div className="mt-20 space-y-12">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
@@ -90,5 +122,6 @@ const Works = () => {
     </>
   );
 };
+
 
 export default SectionWrapper(Works, "projects");

@@ -11,6 +11,7 @@ import CanvasLoader from "./Loader";
 import ImageGal from "./ImageGal.jsx"
 import HomeView from "./HomeView.jsx"
 import DynamicWebpage from "./DynamicWebpage.jsx"
+import Activity from "./Activities.jsx"
 
 
 
@@ -30,5 +31,6 @@ export {
   StarsCanvas,
   ImageGal,
   HomeView,
-  DynamicWebpage
+  DynamicWebpage,
+  Activity
 };

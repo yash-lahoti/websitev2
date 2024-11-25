@@ -6,7 +6,7 @@ import { SectionWrapper } from "../hoc/index.js";
 
 const HomeView = () => {
   const [publications, setPublications] = useState([]);
-  const [activeTab, setActiveTab] = useState("Manuscripts");
+  const [activeTab, setActiveTab] = useState("Abstract/Poster");
 
   // Fetch publications data when component mounts
   useEffect(() => {
@@ -72,10 +72,10 @@ const HomeView = () => {
           {["Abstract/Poster", "Presentation", "Manuscripts"].map((tab) => (
             <button
               key={tab}
-              className={`px-4 py-2 rounded-lg text-lg font-semibold ${
+              className={`px-6 py-2 flex-shrink-0 rounded-t-lg text-lg font-semibold transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-accent text-white"
-                  : "bg-gray-300 text-black"
+                  ? "bg-[#FFB400] text-black"
+                  : "bg-[#333] text-white hover:bg-gray-500"
               }`}
               onClick={() => setActiveTab(tab)}
             >

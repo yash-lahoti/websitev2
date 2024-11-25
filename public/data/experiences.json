@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Chief Technology Officer",
+    "organization": "SpineSight - Targeted Healthcare Innovation Fellowship",
+    "location": "",
+    "category": "Industry/Innovation",
+    "duration": "2022 - Present",
+    "details": [
+      "Developed SpineSight, an AI platform automating MRI measurements and reducing diagnostic time by 85%.",
+      "Standardized 140+ clinical metrics with clinicians for faster, personalized spinal disease treatment."
+    ],
+    "url": ""
+  },
+  {
+    "title": "Lead AI Scientist & Research Director",
+    "organization": "Cho/Kim AI Spine Lab",
+    "location": "New York, NY",
+    "category": "Academic/Research",
+    "duration": "2022 - Present",
+    "details": [
+      "Led 15+ AI research projects, creating 3 clinical software prototypes used in Mount Sinai workflows.",
+      "Built a scoliosis database of 1,200+ cases to train AI models, enhancing surgical decision-making."
+    ],
+    "url": ""
+  },
+  {
+    "title": "Course Director and Educator",
+    "organization": "Icahn School of Medicine at Mount Sinai",
+    "location": "New York, NY",
+    "category": "Mentorship/Education",
+    "duration": "2022 - 2024",
+    "details": [
+      "Taught AI to 50+ medical students via coding workshops and F500 speaker-series lectures.",
+      "Integrated AI training into the medical curriculum, addressing ethical risks and clinical strengths."
+    ],
+    "url": ""
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "organization": "TDK InvenSense - AutoML",
+    "location": "Pittsburgh, PA",
+    "category": "Industry/Innovation",
+    "duration": "2021 - 2022",
+    "details": [
+      "Developed TinyML solution predicting cardiac pressures with 95% accuracy from ECG data.",
+      "Created fault detection models for motors, improving defective product identification by 20%."
+    ],
+    "url": "https://invensense.tdk.com/"
+  },
+  {
+    "title": "Research Engineer",
+    "organization": "Perelman School of Medicine: Neurosurgery",
+    "location": "Philadelphia, PA",
+    "category": "Academic/Research",
+    "duration": "2019 - 2021",
+    "details": [
+      "Designed 3D-printed surgical caps for brain electrode implants using pig MRI reconstructions.",
+      "Automated hippocampal recording analysis, tripling scans processed per hour with 98% accuracy."
+    ],
+    "url": "https://www.med.upenn.edu/wolflab/"
+  }
+]

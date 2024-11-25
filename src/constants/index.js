@@ -30,6 +30,10 @@ export const navLinks = [
     title: "Timeline",
   },
   {
+    id: "activity",
+    title: "Experiences",
+  },
+  {
     id: "research",
     title: "Research",
   },
