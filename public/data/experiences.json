@@ -18,22 +18,58 @@
     "category": "Academic/Research",
     "duration": "2022 - Present",
     "details": [
-      "Led 15+ AI research projects, creating 3 clinical software prototypes used in Mount Sinai workflows.",
+      "Led team of 20+ students on 15+ AI research projects, creating 3 clinical software prototypes used in Mount Sinai workflows.",
       "Built a scoliosis database of 1,200+ cases to train AI models, enhancing surgical decision-making."
     ],
     "url": ""
   },
   {
-    "title": "Course Director and Educator",
+    "title": "AI Panelist",
+    "organization": "6th Prostate Cancer Symposium & World Congress of Urologic Oncology",
+    "location": "New York, NY",
+    "category": "Academic/Research",
+    "duration": "2024",
+    "details": [
+      "Invited AI Panelist - AI and Innovations in Prostate Cancer",
+      "Topics Covered: Prostate Cancer Surgery | Incorporating Large AI Databases in Healthcare | Integration of LLM in Urologic Care and Research | AI and 3D Models for Surgical Navigation During Robotic Radical Prostatectomy"
+    ],
+    "url": "https://mountsinaiurologycme.com/"
+  },
+  {
+    "title": "Course Director",
     "organization": "Icahn School of Medicine at Mount Sinai",
     "location": "New York, NY",
     "category": "Mentorship/Education",
-    "duration": "2022 - 2024",
+    "duration": "2022 - Present",
     "details": [
       "Taught AI to 50+ medical students via coding workshops and F500 speaker-series lectures.",
       "Integrated AI training into the medical curriculum, addressing ethical risks and clinical strengths."
     ],
     "url": ""
+  },
+  {
+    "title": "STEM Academic & Admissions Consultant",
+    "organization": "Sapient Academy",
+    "location": "New York, NY",
+    "category": "Mentorship/Education",
+    "duration": "2022 - Present",
+    "details": [
+      "Taught AI to 50+ medical students via coding workshops and F500 speaker-series lectures.",
+      "Integrated AI training into the medical curriculum, addressing ethical risks and clinical strengths."
+    ],
+    "url": "https://www.sapientacademy.com/about"
+  },
+  {
+    "title": "AI/ML Python Course Instructor",
+    "organization": "Inspirit AI",
+    "location": "New York, NY",
+    "category": "Mentorship/Education",
+    "duration": "2021 - 2022",
+    "details": [
+     "Designed 3 healthcare AI projects for students: SARS-CoV-2 genome classification (NLP), skin cancer diagnosis (CNN), and facial emotion detection (CNN).",
+     "Taught Python programming and introductory AI/ML concepts to 100+ high school students."
+    ],
+    "url": "https://www.inspiritai.com/home"
   },
   {
     "title": "Machine Learning Engineer",

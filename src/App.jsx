@@ -47,7 +47,7 @@ const App = () => {
           {/* Redirect `/medicalstudent` to `/` to render the same content */}
           <Route path="/" element={<Navigate to="/medicalstudent" />} />
           {/* Catch-all route */}
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/medicalstudent" />} />
         </Routes>
       )}
     </BrowserRouter>

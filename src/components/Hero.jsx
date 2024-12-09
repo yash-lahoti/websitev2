@@ -61,8 +61,8 @@ const Hero = () => {
             Entrepreneur
           </motion.p>
           <motion.a
-            href="/documents/Yash_Lahoti_Resume_2024.pdf"
-            download="Yash_Lahoti_Resume_2024.pdf"
+            href="/documents/Yash_Lahoti_Resume_2025.pdf"
+            download="Yash_Lahoti_Resume_2025.pdf"
             variants={textVariants}
           >
             <button className="px-6 py-2 mt-4 mr-4 bg-quart text-accent rounded-lg">

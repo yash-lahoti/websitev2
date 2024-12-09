@@ -11,7 +11,6 @@ const About = () => {
       {/* Left Section - Text Content */}
       <div className="flex-1 flex flex-col justify-center">
         <motion.div variants={textVariant()}>
-          <p className={styles.sectionSubText}>Who is this guy?</p>
           <div className="flex items-center">
             <h2 className={styles.sectionHeadText}>About</h2>
             <div
