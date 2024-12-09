@@ -5,9 +5,7 @@
     "title": "Artificially Intelligent Billing in Spine Surgery: An Analysis of a Large Language Model",
     "authors": "Zaidat, B., Lahoti, Y., Yu A., Mohamed K., Cho S., Kim J,",
     "pdf": {
-        "pdfUrl": "pdfs/gpt_billing.pdf",
-        "thumbnailUrl": "pdfs/gpt_billing-page-001.jpg",
-        "description": "Click to view the full PDF of 'A New Approach to Spine Segmentation'."
+        "pdfUrl": "https://pubmed.ncbi.nlm.nih.gov/38147047/"
       }
   },  
   {
