@@ -21,13 +21,13 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter basename='/medicalstudent/'>
+    <BrowserRouter basename=''>
       {loading && <LoadingComponent duration={1500} colors={['#001f3f', '#FF851B']} />}
       {!loading && (
         <Routes>
           {/* Route for the base URL */}
           <Route
-            path="/medicalstudent/"
+            path="/medicalstudent"
             element={
               <div className="relative z-0 bg-primary">
                 <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
@@ -45,9 +45,9 @@ const App = () => {
             }
           />
           {/* Redirect `/medicalstudent` to `/` to render the same content */}
-          <Route path="/" element={<Navigate to="/medicalstudent/" />} />
+          <Route path="/" element={<Navigate to="/medicalstudent" />} />
           {/* Catch-all route */}
-          <Route path="*" element={<Navigate to="/medicalstudent/" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       )}
     </BrowserRouter>
