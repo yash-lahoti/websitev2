@@ -47,7 +47,7 @@ const NeuronCanvas = ({ isMobile }) => {
         near: 0.1,
         far: 200,
         position: [-4, 3, 6],
-      }}x
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
