@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
-import { isMobile } from "react-device-detect";
-import NeuronCanvas from "./canvas/Neuron.jsx";
 
 const Hero = () => {
   // Animation Variants
@@ -80,12 +78,6 @@ const Hero = () => {
             </motion.div>
           </div>
         </motion.div>
-
-        <div className="hidden sm:block relative pointer-events-none">
-          <div className="pointer-events-auto">
-            <NeuronCanvas isMobile={isMobile} />
-          </div>
-        </div>
       </div>
     </section>
   );
