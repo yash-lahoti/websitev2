@@ -126,6 +126,15 @@
   transform: translateZ(0);
 }
 
+/* Mobile-specific fixes to prevent background overlay issues */
+@media (max-width: 640px) {
+  .main-app-route {
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
 @keyframes mulShdSpin {
   0%,
   100% {

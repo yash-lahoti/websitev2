@@ -22,9 +22,9 @@ const Hero = () => {
   };
 
   return (
-    <section className={`relative w-full h-[95vh] min-h-[600px] mx-auto overflow-hidden`}>
+    <section className={`relative w-full h-[95vh] min-h-[600px] mx-auto overflow-hidden bg-primary bg-hero-pattern bg-cover bg-no-repeat bg-center`}>
       <div
-        className={`absolute inset-0 top-[120px] max-w-6xl mx-auto ${styles.paddingX} flex flex-col sm:flex-row items-start gap-5 z-10`}
+        className={`relative sm:absolute sm:inset-0 sm:top-[120px] pt-28 sm:pt-0 max-w-6xl mx-auto ${styles.paddingX} flex flex-col sm:flex-row items-start gap-5`}
       >
         <div className="hidden sm:flex flex-col justify-center items-center mt-5 -ml-10">
           {/* Changed color of the horizontal bar */}
@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
 
         <motion.div
-          className="flex flex-col z-20"
+          className="flex flex-col"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -81,7 +81,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <div className="hidden sm:block relative z-0 pointer-events-none">
+        <div className="hidden sm:block relative pointer-events-none">
           <div className="pointer-events-auto">
             <NeuronCanvas isMobile={isMobile} />
           </div>
