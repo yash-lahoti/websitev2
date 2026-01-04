@@ -1,6 +1,5 @@
 import React from "react";
-import Tilt from "react-tilt";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 import { styles } from "../styles";
 import { link } from "../assets";
@@ -16,13 +15,42 @@ const ProjectCard = ({
   image,
   source_code_link,
 }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-0.5, 0.5], [5, -5]);
+  const rotateY = useTransform(x, [-0.5, 0.5], [-5, 5]);
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = event.clientX - centerX;
+    const mouseY = event.clientY - centerY;
+    
+    x.set(mouseX / (rect.width / 2));
+    y.set(mouseY / (rect.height / 2));
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
-    <Tilt
+    <motion.div
       className="w-full"
-      options={{ max: 5, scale: 1, speed: 450 }}
+      style={{ perspective: "1000px" }}
     >
       <motion.div
         variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
         className={`flex flex-wrap mb-16 rounded-xl shadow-lg overflow-hidden bg-gray-800 ${
           index % 2 !== 0 ? "flex-row-reverse" : ""
         }`}
@@ -91,7 +119,7 @@ const ProjectCard = ({
           </div>
         </div>
       </motion.div>
-    </Tilt>
+    </motion.div>
   );
 };
 

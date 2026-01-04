@@ -12,7 +12,7 @@ const Neuron = ({ isMobile }) => {
       <hemisphereLight
         intensity={.6}
         groundColor='black'
-        color='#fffff'
+        color='#ffffff'
       />
         <directionalLight
         intensity={7}
