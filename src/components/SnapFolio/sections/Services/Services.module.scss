@@ -1,0 +1,53 @@
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.services {
+  .serviceCard {
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: var(--surface-color);
+    border-radius: 1rem;
+  }
+
+  .serviceCard .serviceIcon {
+    margin-bottom: 25px;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+  .serviceCard .serviceIcon i {
+    font-size: 32px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+  }
+
+  .serviceCard h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+
+  .serviceCard p {
+    color: var(--default-color);
+    transition: color 0.3s ease;
+    margin-bottom: 0;
+  }
+
+  .serviceCard:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+  }
+
+  .serviceCard:hover .serviceIcon i {
+    transform: scale(1.1);
+  }
+}
+

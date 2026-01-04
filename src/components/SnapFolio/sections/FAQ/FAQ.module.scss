@@ -1,0 +1,95 @@
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.faq {
+  padding: 80px 0;
+
+  .faqContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .faqItem {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 2%) 100%);
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.active {
+      border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .faqQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin: 0;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .faqIcon {
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+  }
+
+  .faqItem.active .faqQuestion {
+    .faqIcon {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      transform: rotate(180deg);
+    }
+
+    h4 {
+      color: var(--accent-color);
+    }
+  }
+
+  .faqAnswer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+    padding: 0 1.75rem;
+  }
+
+  .faqItem.active .faqAnswer {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 0 1.75rem 1.5rem 1.75rem;
+  }
+
+  .faqAnswer p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin: 0;
+    line-height: 1.7;
+  }
+}
+

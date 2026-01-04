@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { isMobile } from "react-device-detect";
 import NeuronCanvas from "./canvas/Neuron.jsx";
@@ -60,15 +61,24 @@ const Hero = () => {
           >
             Entrepreneur
           </motion.p>
-          <motion.a
-            href="/documents/Yash_Lahoti_Resume_2025.pdf"
-            download="Yash_Lahoti_Resume_2025.pdf"
-            variants={textVariants}
-          >
-            <button className="px-6 py-2 mt-4 mr-4 bg-quart text-accent rounded-lg">
-              Download CV
-            </button>
-          </motion.a>
+          <div className="flex flex-row">
+            <motion.a
+              href="/documents/Yash_Lahoti_Resume_2025.pdf"
+              download="Yash_Lahoti_Resume_2025.pdf"
+              variants={textVariants}
+            >
+              <button className="px-6 py-2 mt-4 mr-4 bg-quart text-accent rounded-lg">
+                Download CV
+              </button>
+            </motion.a>
+            <motion.div variants={textVariants}>
+              <Link to="/admissions-consulting">
+                <button className="px-6 py-2 mt-4 bg-quart text-accent rounded-lg">
+                  Admissions Consultant
+                </button>
+              </Link>
+            </motion.div>
+          </div>
         </motion.div>
 
         <NeuronCanvas isMobile={isMobile} />

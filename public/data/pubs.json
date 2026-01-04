@@ -7,7 +7,7 @@
     "pdf": {
         "pdfUrl": "https://pubmed.ncbi.nlm.nih.gov/38147047/"
       }
-  },  
+  },
   {
       "conference": "EOA 2024",
       "type": "Presentation",
@@ -382,7 +382,66 @@
       }
     ]
   }
-
+    },
+    {
+      "conference": "Spine",
+      "type": "Manuscript",
+      "title": "Automated Scoliosis Cobb Angle Classification in Biplanar Radiograph Imaging with Explainable Machine Learning Models",
+      "authors": "Yu, J, Lahoti, Y, McCandless, KC, Namiri, NK, Miyasaka, MS, Ahmed, H, Song, J, Corvi, JJ, Berman, DC, Cho, SK, Kim, JS",
+      "notes": "Accepted on 2/16/25",
+      "pdf": {
+        "pdfUrl": "https://journals.lww.com/spinejournal/abstract/9900/automated_scoliosis_cobb_angle_classification_in.937.aspx"
+      }
+    },
+    {
+      "conference": "American Academy of Orthopaedic Surgeons (AAOS) Annual Meeting",
+      "type": "Presentation",
+      "title": "Global Sagittal Alignment Variations with Body Mass Index in Patients",
+      "authors": "Mohamed, K., Duey, A., Yu, A., Kurapatti, M., Hoang, R., Lahoti, Y., Hoang, T., Song, J., Li, S., Cho, S. K.",
+      "date": "March 10-14th, 2025",
+      "notes": "Annual Meeting Highlights Symposium"
+    },
+    {
+      "conference": "Pennsylvania Orthopaedic Society (PAOrtho) Annual Meeting",
+      "type": "Abstract/Poster",
+      "title": "Global Sagittal Alignment Variations with Body Mass Index in Patients",
+      "authors": "Mohamed, K., Duey, A., Yu, A., Kurapatti, M., Hoang, R., Lahoti, Y., Hoang, T., Song, J., Li, S., Cho, S. K.",
+      "date": "October 9-11th, 2024"
+    },
+    {
+      "conference": "Orthopaedic Research Society (ORS) Annual Meeting",
+      "type": "Abstract/Poster",
+      "title": "Analysis of Global Sagittal Alignment Parameters in Spinal Fusion Patients with Full-Body Biplanar X-Rays",
+      "authors": "Yu, A., Duey, A., Hoang, T., Lahoti, Y., Kurapatti, M., Mohamed, K., Hoang, R., Song, J., Isleem, U., Li, S., Kim, J., Cho, S.",
+      "date": "February 7-11th, 2025"
+    },
+    {
+      "conference": "Orthopaedic Research Society (ORS) Annual Meeting",
+      "type": "Abstract/Poster",
+      "title": "Reference Global Sagittal Alignment Parameters Stratified by Age And Sex In Patients Without Spinal Deformity",
+      "authors": "Yu, A., Duey, A., Hoang, T., Lahoti, Y., Kurapatti, M., Mohamed, K., Hoang, R., Song, J., Isleem, U., Li, S., Kim, J., Cho, S.",
+      "date": "February 7-11th, 2025"
+    },
+    {
+      "conference": "Medical Student Orthopedic Society (MSOS) Conference 2025",
+      "type": "Abstract/Poster",
+      "title": "Development of a Novel Machine Learning Model to Automate Vertebral Column Segmentation Utilizing Biplanar Full-body Imaging",
+      "authors": "Lahoti, Y, Sai, S,Ahmed, W, Li, M, Rajjoub, R, Ahmed, B, Cho, S, Kim, JS",
+      "date": "April 27, 2025"
+    },
+    {
+      "conference": "Medical Student Orthopedic Society (MSOS) Conference 2025",
+      "type": "Abstract/Poster",
+      "title": "Automated Calculation and Estimation of Global Sagittal Alignment from Weight-Bearing X-Ray Imaging Using Deep Learning",
+      "authors": "Lahoti, Y, Kurapatti M, Guttikonda S, Etigunta S, Yu A, Mohamed KS, Ahmed W, Cho SK, Kim JS",
+      "date": "April 27, 2025"
+    },
+    {
+      "conference": "Medical Student Orthopedic Society (MSOS) Conference 2025",
+      "type": "Abstract/Poster",
+      "title": "Evaluating the Mistral-Nemo Language Model for Accurate Prediction of CPT Codes in Femur and Knee Procedures",
+      "authors": "Li, M, Lahoti, Y, Guttikonda, Sri, Cho, S, Kim, J",
+      "date": "April 27, 2025"
     }
   ]
   

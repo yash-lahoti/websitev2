@@ -1,0 +1,84 @@
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.pricing {
+  .pricingContainer {
+    .pricingCard {
+      background-color: var(--surface-color);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      text-align: center;
+      border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+
+      &.popular {
+        border-color: var(--accent-color);
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .packageName {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .description {
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        margin-bottom: 2rem;
+      }
+
+      .featuresList {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+        text-align: left;
+
+        li {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+          color: var(--default-color);
+
+          &::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      .ctaButton {
+        padding: 0.875rem 2rem;
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent-color), black 15%);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+

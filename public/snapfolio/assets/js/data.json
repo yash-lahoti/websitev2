@@ -1,0 +1,636 @@
+{
+  "hero": {
+    "title_top": "BS/MD Admissions",
+    "title_bottom": "Consulting Service",
+    "name": "Yash Lahoti BAS, MSE",
+    "role": "4th Year MD Candidate | Ophthalmology",
+    "description": "Help differentiate and personalize your application and narrative to stand out from the same old approach. I craft compelling stories that showcase your unique journey and potential.",
+    "primary_cta": "Request Consultation",
+    "primary_cta_link": "https://calendly.com/lahotiyash14/30min",
+    "secondary_cta": "Learn about me",
+    "secondary_cta_link": "#about"
+  },
+  "social_links": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/yash-lahoti-mse-90b477178/",
+      "icon": "bi-linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:lahotiyash14@gmail.com",
+      "icon": "bi-envelope"
+    }
+  ],
+  "about_me": {
+    "title": "About Me",
+    "subtitle": "The Engineer-Physician Approach",
+    "name": "Yash Lahoti",
+    "credentials": "MD Candidate @ Mt. Sinai | MSE Artificial Intelligence @ UPenn",
+    "profile_image": "assets/img/profile/profile-square-3.webp",
+    "bio": "I don't just edit essays; I architect narratives. With a background in AI strategy and clinical research (NY Eye and Ear), I bring an analytical rigor to the admissions process that standard advisors lack. My experience as CTO of SpineSight and my research in deep learning allows me to help applicants position themselves as future innovators in medicine.",
+    "experience_title": "Experience",
+    "experience_list": [
+    ],
+    "decorative_text": "MD / AI",
+    "tagline": "Engineer-Physician bridging AI innovation with medical excellence to transform medical school admissions consulting.",
+    "degrees": [
+      {
+        "logo": "assets/img/company/penn.png",
+        "alt": "UPenn",
+        "degree": "BAS | Biomedical Science",
+        "program": "University of Pennsylvania",
+        "link": "https://www.upenn.edu"
+      },
+      {
+        "logo": "assets/img/company/penn.png",
+        "alt": "UPenn",
+        "degree": "MSE | Electrical Engineering",
+        "program": "University of Pennsylvania",
+        "link": "https://www.seas.upenn.edu"
+      },
+      {
+        "logo": "assets/img/company/mount_sinai.png",
+        "alt": "Mt. Sinai",
+        "degree": "MD Candidate",
+        "program": "Icahn SOM",
+        "link": "https://icahn.mssm.edu"
+      }
+    ],
+    "stats_grid": [
+      {
+        "number": "500+",
+        "label": "Students Helped",
+        "icon": "bi-emoji-smile"
+      },
+      {
+        "number": "95%",
+        "label": "Acceptance Rate",
+        "icon": "bi-journal-richtext"
+      },
+      {
+        "number": "5+",
+        "label": "Years Experience",
+        "icon": "bi-headset"
+      },
+      {
+        "number": "200+",
+        "label": "Success Stories",
+        "icon": "bi-people"
+      }
+    ],
+    "contact_info": {
+      "email": "contact@example.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "New York, NY"
+    },
+    "cta_buttons": [
+      {
+        "text": "Download Resume",
+        "link": "../documents/Yash_Lahoti_Resume_2025.pdf",
+        "icon": "bi-download",
+        "style": "primary"
+      },
+      {
+        "text": "Let's Talk",
+        "link": "#contact",
+        "icon": "bi-chat-dots",
+        "style": "outline"
+      }
+    ]
+  },
+  "philosophy": {
+    "title": "My Philosophy",
+    "subtitle": "Insights into the Process",
+    "text": "Applying to medical school is no longer just about grades; it is about narrative coherence. My approach applies 'Systems Engineering' to your application. We deconstruct your life story into data points, identify the strongest thematic threads, and reassemble them into a compelling argument for your admission. We don't just check boxes; we build a case."
+  },
+  "core_services": {
+    "title": "Core Services",
+    "subtitle": "Modular offerings to fit your needs",
+    "services": [
+      {
+        "title": "School Selection",
+        "desc": "Identify and select schools that fit your personality and interests."
+      },
+      {
+        "title": "Application Strategy",
+        "desc": "Navigate the medical school application process with grace."
+      },
+      {
+        "title": "College/Med Essays",
+        "desc": "From brainstorming to crafting an outstanding personal essay."
+      },
+      {
+        "title": "Track All Deadlines",
+        "desc": "Outline a strategic long-term action plan to make sure you're on track."
+      },
+      {
+        "title": "Post-Acceptance",
+        "desc": "Guidance on post-application issues, such as waitlist navigation."
+      },
+      {
+        "title": "Interview Prep",
+        "desc": "Prepare for MMI, faculty interviews, and public speaking opportunities."
+      },
+      {
+        "title": "Letters of Rec",
+        "desc": "Strategies for obtaining stellar letters from faculty and mentors."
+      }
+    ]
+  },
+  "full_cycle": {
+    "title": "Full-Cycle Advising",
+    "subtitle": "With flexible hours, your time is YOURS.",
+    "features_title": "What's Included",
+    "features": [
+      "Match with an Expert Med School Admissions Advisor",
+      "1 Advisor who Stays with you from Start to Finish",
+      "Live Advising Sessions (Flexible Hours)",
+      "Email Access to Your Advisor Between Sessions",
+      "Complete Strategic Planning with Reminders",
+      "School List Guidance (Data-Driven)",
+      "Advising for AMCAS, AACOMAS, and TMDSAS",
+      "Guidance for Casper, Snapshot, Duet, and PREview",
+      "Personal Statement & Activity Description Feedback",
+      "Secondary Application Planning and Feedback",
+      "Mock Interviews with Recording Reviews"
+    ]
+  },
+  "long_term": {
+    "title": "Long-Term & Leadership",
+    "subtitle": "For High School & Gap Year Students",
+    "services": [
+      {
+        "title": "High School Roadmaps",
+        "items": [
+          "Entrepreneurship & Leadership Coaching",
+          "Extracurricular Development",
+          "Summer Activity Placement (Research/Internships)"
+        ],
+        "border_color": "teal"
+      },
+      {
+        "title": "Academic Leadership",
+        "description": "Looking to publish? We help you build your CV and impress faculty. Includes interview prep with Ivy League grads and SOP writing.",
+        "border_color": "teal"
+      },
+      {
+        "title": "The Project Incubator",
+        "description": "Built for students who want to launch impactful projects. Informed by my experience as a CTO and AI Strategist.",
+        "additional_text": "Work one-on-one with Yash to launch a non-profit, an app, or a research initiative. Ideal for motivated students excited to create impact.",
+        "border_color": "indigo"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Explore my work and successful medical school application strategies",
+    "filters": [
+      {
+        "label": "All Projects",
+        "filter": "*",
+        "active": true
+      },
+      {
+        "label": "Research",
+        "filter": ".filter-research"
+      },
+      {
+        "label": "Publications",
+        "filter": ".filter-publications"
+      },
+      {
+        "label": "Projects",
+        "filter": ".filter-projects"
+      }
+    ],
+    "items": [
+      {
+        "title": "Medical Research Project",
+        "category": "Research",
+        "filter": "filter-research",
+        "image": "assets/img/portfolio/portfolio-portrait-1.webp",
+        "lightbox_image": "assets/img/portfolio/portfolio-portrait-1.webp",
+        "details_link": "portfolio-details.html"
+      },
+      {
+        "title": "Clinical Study",
+        "category": "Research",
+        "filter": "filter-research",
+        "image": "assets/img/portfolio/portfolio-2.webp",
+        "lightbox_image": "assets/img/portfolio/portfolio-2.webp",
+        "details_link": "portfolio-details.html"
+      },
+      {
+        "title": "Published Paper",
+        "category": "Publications",
+        "filter": "filter-publications",
+        "image": "assets/img/portfolio/portfolio-portrait-2.webp",
+        "lightbox_image": "assets/img/portfolio/portfolio-portrait-2.webp",
+        "details_link": "portfolio-details.html"
+      },
+      {
+        "title": "AI Application",
+        "category": "Projects",
+        "filter": "filter-projects",
+        "image": "assets/img/portfolio/portfolio-portrait-4.webp",
+        "lightbox_image": "assets/img/portfolio/portfolio-portrait-4.webp",
+        "details_link": "portfolio-details.html"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch to discuss your medical school application journey",
+    "info": {
+      "title": "Contact Info",
+      "description": "Reach out to discuss how I can help you craft a compelling medical school application.",
+      "items": [
+        {
+          "type": "location",
+          "icon": "bi-geo-alt",
+          "title": "Our Location",
+          "lines": [
+            "New York, NY"
+          ]
+        },
+        {
+          "type": "phone",
+          "icon": "bi-telephone",
+          "title": "Phone Number",
+          "lines": [
+            "+1 (555) 123-4567"
+          ]
+        },
+        {
+          "type": "email",
+          "icon": "bi-envelope",
+          "title": "Email Address",
+          "lines": [
+            "contact@example.com"
+          ]
+        }
+      ]
+    },
+    "form": {
+      "title": "Get In Touch",
+      "description": "Fill out the form below and I'll get back to you as soon as possible.",
+      "action": "forms/contact.php",
+      "method": "post"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Yash Lahoti. All Rights Reserved.",
+    "sitename": "Lahoti Admissions",
+    "location": "New York, NY | dryashlahoti.com/medicalstudent",
+    "credits": {
+      "text": "Designed by",
+      "link": {
+        "text": "BootstrapMade",
+        "url": "https://bootstrapmade.com/"
+      }
+    }
+  },
+  "site": {
+    "title": "Lahoti Admissions | Engineered Results",
+    "logo_text": "Lahoti Admissions"
+  },
+  "navigation": {
+    "items": [
+      {
+        "label": "Home",
+        "link": "#hero",
+        "icon": "bi-house"
+      },
+      {
+        "label": "About",
+        "link": "#about",
+        "icon": "bi-person"
+      },
+      {
+        "label": "Philosophy",
+        "link": "#philosophy",
+        "icon": "bi-lightbulb"
+      },
+      {
+        "label": "Offerings",
+        "link": "#full-cycle",
+        "icon": "bi-arrow-repeat"
+      },
+      {
+        "label": "Pricing",
+        "link": "#pricing",
+        "icon": "bi-currency-dollar"
+      },
+      {
+        "label": "FAQ",
+        "link": "#faq",
+        "icon": "bi-question-circle"
+      },
+      {
+        "label": "Contact",
+        "link": "#contact",
+        "icon": "bi-envelope"
+      }
+    ],
+    "cta_text": "Get Started",
+    "cta_link": "#contact"
+  },
+  "stats": [
+    {
+      "label": "Students Helped",
+      "value": "500+",
+      "suffix": ""
+    },
+    {
+      "label": "Acceptance Rate",
+      "value": "95",
+      "suffix": "%"
+    },
+    {
+      "label": "Years Experience",
+      "value": "5+",
+      "suffix": ""
+    },
+    {
+      "label": "Success Stories",
+      "value": "200+",
+      "suffix": ""
+    }
+  ],
+  "trust_strip": {
+    "title": "Trusted By",
+    "items": [
+      "Mt. Sinai Medical School",
+      "UPenn Engineering",
+      "NY Eye & Ear",
+      "SpineSight"
+    ]
+  },
+  "pricing": {
+    "title": "Service Packages",
+    "subtitle": "Choose the right plan for your journey",
+    "packages": [
+      {
+        "name": "Core Services",
+        "price": "Custom",
+        "period": "",
+        "description": "Modular services tailored to your needs",
+        "features": [
+          "School Selection",
+          "Application Strategy",
+          "Essay Review",
+          "Interview Prep"
+        ],
+        "cta": "Contact Us",
+        "popular": false
+      },
+      {
+        "name": "Full-Cycle Advising",
+        "price": "Premium",
+        "period": "",
+        "description": "Complete end-to-end guidance",
+        "features": [
+          "Dedicated Advisor",
+          "Live Sessions",
+          "Email Support",
+          "Strategic Planning",
+          "Mock Interviews"
+        ],
+        "cta": "Get Started",
+        "popular": true
+      },
+      {
+        "name": "Long-Term Programs",
+        "price": "Custom",
+        "period": "",
+        "description": "For high school and gap year students",
+        "features": [
+          "Leadership Coaching",
+          "Project Incubator",
+          "Academic Development",
+          "Research Placement"
+        ],
+        "cta": "Learn More",
+        "popular": false
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know",
+    "items": [
+      {
+        "question": "How does your approach differ from other consultants?",
+        "answer": "I combine engineering rigor with medical expertise. Instead of just editing essays, I architect narratives using systems engineering principles to build a compelling case for your admission."
+      },
+      {
+        "question": "What is your acceptance rate?",
+        "answer": "Our students achieve a 95% acceptance rate to medical schools, significantly higher than the national average."
+      },
+      {
+        "question": "Do you work with all medical school application systems?",
+        "answer": "Yes, I provide guidance for AMCAS, AACOMAS, and TMDSAS applications, as well as preparation for Casper, Snapshot, Duet, and PREview assessments."
+      },
+      {
+        "question": "How long does the full-cycle advising program take?",
+        "answer": "The full-cycle program typically spans the entire application year, from initial planning through acceptance, with flexible scheduling to accommodate your timeline."
+      },
+      {
+        "question": "Can you help with post-acceptance decisions?",
+        "answer": "Absolutely. I provide guidance on waitlist navigation, school selection after acceptance, and strategic decision-making throughout the process."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Core competencies and expertise areas",
+    "categories": [
+      {
+        "title": "Medical School Admissions",
+        "skills": [
+          {
+            "name": "Application Strategy",
+            "percentage": 95,
+            "description": "Expert-level knowledge in crafting compelling medical school applications"
+          },
+          {
+            "name": "Essay Writing",
+            "percentage": 90,
+            "description": "Strong proficiency in personal statement and secondary essay development"
+          },
+          {
+            "name": "Interview Preparation",
+            "percentage": 85,
+            "description": "Experience with MMI, traditional, and panel interview coaching"
+          }
+        ]
+      },
+      {
+        "title": "Technical & Research",
+        "skills": [
+          {
+            "name": "AI & Machine Learning",
+            "percentage": 80,
+            "description": "MSE in Artificial Intelligence with research experience in deep learning"
+          },
+          {
+            "name": "Clinical Research",
+            "percentage": 75,
+            "description": "Research experience at NY Eye & Ear and medical institutions"
+          },
+          {
+            "name": "Data Analysis",
+            "percentage": 70,
+            "description": "Proficiency in statistical analysis and research methodology"
+          }
+        ]
+      }
+    ]
+  },
+  "resume": {
+    "professional_summary": "Driven medical school admissions consultant with expertise in developing strategic, personalized application narratives. Passionate about leveraging AI and systems engineering principles to help applicants stand out in the competitive medical school admissions process.",
+    "contact_info": {
+      "location": "New York, NY",
+      "email": "lahotiyash14@gmail.com",
+      "phone": "+1 (412) 608-5556",
+      "linkedin": "https://www.linkedin.com/in/yash-lahoti-mse-90b477178/"
+    },
+    "technical_skills": [
+      {
+        "name": "Application Strategy",
+        "percentage": 95
+      },
+      {
+        "name": "Essay Development",
+        "percentage": 90
+      },
+      {
+        "name": "Interview Coaching",
+        "percentage": 85
+      },
+      {
+        "name": "AI & Research",
+        "percentage": 80
+      }
+    ],
+    "experience": [
+      {
+        "title": "Medical School Admissions Consultant",
+        "company": "Lahoti Admissions",
+        "dates": "2020 - Present",
+        "description": "Provide personalized medical school admissions consulting to pre-medical students",
+        "bullet_points": [
+          "Help 500+ students achieve 95% acceptance rate to medical schools",
+          "Develop strategic application narratives using systems engineering principles",
+          "Provide comprehensive interview preparation and essay coaching"
+        ]
+      },
+      {
+        "title": "CTO & Co-Founder",
+        "company": "SpineSight",
+        "dates": "2019 - 2022",
+        "description": "Led technical strategy and development for medical AI startup",
+        "bullet_points": [
+          "Architected and developed AI-powered medical imaging solutions",
+          "Managed technical team and product development lifecycle",
+          "Secured partnerships with major medical institutions"
+        ]
+      },
+      {
+        "title": "AI Strategist",
+        "company": "NY Eye & Ear",
+        "dates": "2018 - 2019",
+        "description": "Developed AI strategies for clinical research applications",
+        "bullet_points": [
+          "Applied deep learning to medical imaging analysis",
+          "Collaborated with clinical researchers on AI implementation",
+          "Published research on AI applications in healthcare"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MD Candidate",
+        "institution": "Mount Sinai School of Medicine",
+        "dates": "2022 - Present",
+        "description": "Medical degree program with focus on clinical research and AI applications"
+      },
+      {
+        "degree": "MSE in Artificial Intelligence",
+        "institution": "University of Pennsylvania",
+        "dates": "2017 - 2019",
+        "description": "Master's degree specializing in machine learning and deep learning applications"
+      },
+      {
+        "degree": "BAS",
+        "institution": "University of Pennsylvania",
+        "dates": "2013 - 2017",
+        "description": "Bachelor's degree in Applied Science"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Medical School Admissions Committee Member",
+        "institution": "Mount Sinai",
+        "date": "2023"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What students say about working with me",
+    "items": [
+      {
+        "quote": "Yash's engineering approach to my application completely transformed how I presented my story. I got accepted to my top choice medical school!",
+        "client_name": "Sarah Chen",
+        "position": "Medical Student, Johns Hopkins",
+        "image": "assets/img/person/person-f-7.webp"
+      },
+      {
+        "quote": "The strategic narrative development helped me stand out in a competitive pool. His AI background brings a unique perspective to admissions consulting.",
+        "client_name": "Michael Rodriguez",
+        "position": "Medical Student, Harvard",
+        "image": "assets/img/person/person-m-7.webp"
+      },
+      {
+        "quote": "Working with Yash was a game-changer. His systems engineering approach helped me craft a compelling application that got me multiple acceptances.",
+        "client_name": "Emily Johnson",
+        "position": "Medical Student, Stanford",
+        "image": "assets/img/person/person-f-8.webp"
+      }
+    ]
+  },
+  "colors": {
+    "primary": {
+      "base": "slate-900",
+      "hex": "#0a192f",
+      "hover": "slate-800",
+      "light": "slate-700"
+    },
+    "accent": {
+      "base": "teal-600",
+      "hover": "teal-700",
+      "light": "teal-500"
+    },
+    "secondary": {
+      "base": "slate-50",
+      "light": "slate-100",
+      "medium": "slate-200",
+      "darker": "slate-300"
+    },
+    "text": {
+      "primary": "slate-900",
+      "secondary": "slate-700",
+      "tertiary": "slate-600",
+      "muted": "slate-500",
+      "light": "slate-400",
+      "white": "white"
+    },
+    "background": {
+      "primary": "white",
+      "secondary": "slate-50",
+      "dark": "slate-900"
+    }
+  }
+}

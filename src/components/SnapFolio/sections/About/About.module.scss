@@ -1,0 +1,394 @@
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.about {
+  .profileCard {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profileCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+  }
+
+  @media (max-width: 991px) {
+    .profileCard {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .profileHeader {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .profileHeader .profileImage {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .profileHeader .profileImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profileHeader .profileBadge {
+    position: absolute;
+    bottom: 20px;
+    right: calc(50% - 65px);
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--surface-color);
+  }
+
+  .profileHeader .profileBadge i {
+    color: var(--contrast-color);
+    font-size: 14px;
+  }
+
+  .profileContent h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+  }
+
+  .profileContent .tagline {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .degreeTabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .degreeTab {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 3%) 100%);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+
+  .degreeTab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .degreeTab:hover,
+  .degreeTab.active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
+  }
+
+  .degreeTab.active::before {
+    opacity: 1;
+  }
+
+  .degreeTabContent {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .degreeTab .degreeLogo {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 0.25rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .degreeTab .schoolLogo {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(10%);
+    transition: all 0.3s ease;
+  }
+
+  .degreeTab:hover .schoolLogo,
+  .degreeTab.active .schoolLogo {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  .degreeTab .degreeInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .degreeTab .degreeName {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
+  }
+
+  .degreeTab .degreeProgram {
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .degreeTab:hover .degreeName,
+  .degreeTab.active .degreeName {
+    color: var(--accent-color);
+  }
+
+  .aboutContent {
+    padding-left: 3rem;
+  }
+
+  @media (max-width: 991px) {
+    .aboutContent {
+      padding-left: 0;
+    }
+  }
+
+  .aboutContent .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .aboutContent .sectionHeader .badgeText {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+    color: var(--contrast-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutContent .sectionHeader h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .aboutContent .sectionHeader h2 {
+      font-size: 1.875rem;
+    }
+  }
+
+  .aboutContent .description {
+    margin-bottom: 2.5rem;
+  }
+
+  .aboutContent .description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutContent .description p:last-child {
+    margin-bottom: 0;
+  }
+
+  .aboutContent .detailsGrid {
+    margin-bottom: 2.5rem;
+  }
+
+  .aboutContent .detailsGrid .detailRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .aboutContent .detailsGrid .detailRow {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .aboutContent .detailsGrid .detailRow:last-child {
+    margin-bottom: 0;
+  }
+
+  .aboutContent .detailsGrid .detailItem .detailLabel {
+    display: block;
+    font-size: 0.875rem;
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .aboutContent .detailsGrid .detailItem .detailValue {
+    display: block;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 1rem;
+  }
+
+  .aboutContent .ctaSection {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .aboutContent .ctaSection .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+  }
+
+  .aboutContent .ctaSection .btnPrimary {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .aboutContent .ctaSection .btnPrimary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 60%);
+  }
+
+  .aboutContent .ctaSection .btnOutline {
+    background-color: transparent;
+    color: var(--default-color);
+    border-color: color-mix(in srgb, var(--default-color), transparent 70%);
+  }
+
+  .aboutContent .ctaSection .btnOutline:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+
+  .aboutStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: color-mix(in srgb, var(--surface-color), var(--background-color) 30%);
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+
+  .aboutStatsGrid .aboutStatItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--surface-color);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .aboutStatsGrid .aboutStatItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .aboutStatsGrid .aboutStatItem i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statNumber {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statLabel {
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    .aboutStatsGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
+    .aboutStatsGrid .aboutStatItem {
+      padding: 0.5rem;
+    }
+
+    .aboutStatsGrid .aboutStatItem .statNumber {
+      font-size: 1.1rem;
+    }
+  }
+}
+

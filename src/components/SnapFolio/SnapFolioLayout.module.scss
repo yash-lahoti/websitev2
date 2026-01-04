@@ -1,0 +1,239 @@
+@use './shared/snapfolio-variables.scss' as *;
+
+// SnapFolio Header - namespaced to prevent conflicts
+.snapfolioHeader {
+  --background-color: #1b1b1b;
+  --contrast-color: #444444;
+  color: var(--default-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  width: 300px;
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+  z-index: 997;
+}
+
+.snapfolioHeader .headerContainer {
+  border-radius: 20px;
+  padding: 15px;
+  background-color: var(--background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.snapfolioHeader .socialLinks {
+  margin: 0 0 10px 0;
+}
+
+.snapfolioHeader .socialLinks a {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  color: var(--default-color);
+  margin: 0 2px;
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.snapfolioHeader .socialLinks a:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+@media (min-width: 1200px) {
+  .snapfolioHeader ~ .snapfolioMain,
+  .snapfolioHeader ~ .snapfolioFooter {
+    margin-left: 330px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .snapfolioHeader {
+    left: -100%;
+  }
+}
+
+.snapfolioHeader.headerShow {
+  left: 0;
+}
+
+.snapfolioHeader .headerToggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.snapfolioHeader .headerToggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+// Navigation Menu
+.snapfolioNavmenu {
+  padding: 0;
+  z-index: 9997;
+  width: 100%;
+}
+
+.snapfolioNavmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.snapfolioNavmenu a,
+.snapfolioNavmenu a:focus {
+  color: var(--nav-color);
+  padding: 15px 10px;
+  font-family: var(--nav-font);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.3s;
+  width: 100%;
+  text-decoration: none;
+}
+
+.snapfolioNavmenu a .navicon,
+.snapfolioNavmenu a:focus .navicon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.snapfolioNavmenu a:hover,
+.snapfolioNavmenu .active,
+.snapfolioNavmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+.snapfolioNavmenu a:hover .navicon,
+.snapfolioNavmenu .active .navicon,
+.snapfolioNavmenu .active:focus .navicon {
+  color: var(--accent-color);
+}
+
+// Main Content - namespaced
+.snapfolioMain {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media (max-width: 768px) {
+  .snapfolioMain {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+// Footer - namespaced
+.snapfolioFooter {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  padding: 0 0 40px 0;
+  position: relative;
+}
+
+.snapfolioFooter .copyright {
+  padding-top: 40px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.snapfolioFooter .copyright p {
+  margin-bottom: 0;
+}
+
+.snapfolioFooter .credits {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+// Scroll Top Button - namespaced
+.snapfolioScrollTop {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--contrast-color);
+}
+
+.snapfolioScrollTop i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.snapfolioScrollTop:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.snapfolioScrollTop.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+// Global body styles for SnapFolio
+.snapfolioBody {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+.snapfolioBody h1,
+.snapfolioBody h2,
+.snapfolioBody h3,
+.snapfolioBody h4,
+.snapfolioBody h5,
+.snapfolioBody h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+.snapfolioBody a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.snapfolioBody a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
