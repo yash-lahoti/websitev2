@@ -108,16 +108,24 @@
   flex-wrap: wrap;
 }
 
-.heroActions .btn {
-  padding: 14px 30px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid;
-  display: inline-block;
-}
+  .heroActions .btn {
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    display: inline-block;
+    min-height: 44px; // Touch target
+
+    @media (max-width: 480px) {
+      padding: 12px 24px;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+    }
+  }
 
 .heroActions .btnPrimary {
   background-color: var(--accent-color);
@@ -148,19 +156,33 @@
   gap: 20px;
 }
 
-.socialLinks a {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--surface-color);
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  border-radius: 50%;
-  font-size: 20px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
+  .socialLinks a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-color);
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 44px; // Touch target
+    min-height: 44px;
+
+    @media (max-width: 768px) {
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
 
 .socialLinks a:hover {
   color: var(--contrast-color);
@@ -176,11 +198,16 @@
   // Remove height: 100% to prevent stretching
 }
 
-.heroVisual .profileContainer {
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
+  .heroVisual .profileContainer {
+    position: relative;
+    width: 400px;
+    height: 400px;
+
+    @media (max-width: 480px) {
+      width: 250px;
+      height: 250px;
+    }
+  }
 
 .heroVisual .profileContainer .profileBackground {
   position: absolute;
