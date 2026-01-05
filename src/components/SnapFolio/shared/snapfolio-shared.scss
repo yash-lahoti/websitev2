@@ -7,14 +7,22 @@
   .snapfolio-section {
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 60px 0;
+    padding: 100px 0;
     overflow: clip;
+    position: relative;
+  }
+
+  // Alternate section spacing for better visual rhythm
+  section.snapfolio-section:nth-child(even),
+  .snapfolio-section:nth-child(even) {
+    padding: 120px 0;
   }
 
   // Global section titles - namespaced
   .snapfolio-section-title {
     text-align: center;
     padding-bottom: 60px;
+    margin-bottom: 30px;
     position: relative;
 
     h2 {

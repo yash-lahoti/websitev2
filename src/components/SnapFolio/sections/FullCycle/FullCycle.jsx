@@ -20,31 +20,11 @@ const FullCycle = () => {
   }
 
   const fullCycleData = data.full_cycle || {};
-  const features = fullCycleData.features || [];
+  const serviceBenefits = fullCycleData.service_benefits || [];
 
-  return (
-    <section id="full-cycle" className={`${styles.fullCycle} snapfolio-section light-background`}>
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <div className="snapfolio-section-title text-center">
-          <h2>{fullCycleData.title}</h2>
-          <p>{fullCycleData.subtitle}</p>
-        </div>
-
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div className={styles.fullCycleContent} data-aos="fade-up" data-aos-delay="200">
-              <h3>{fullCycleData.features_title}</h3>
-              <ul className={styles.featuresList}>
-                {features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  // This section is now integrated into the Services expandable cards
+  // Keeping minimal structure for navigation compatibility
+  return null;
 };
 
 export default FullCycle;

@@ -1,0 +1,2736 @@
+
+================================================================================
+FILE: SnapFolioLayout.jsx
+================================================================================
+
+import React, { useState, useEffect } from 'react';
+import { useSnapFolioData } from './hooks/useSnapFolioData';
+import useBootstrapLoader from './hooks/useBootstrapLoader';
+import styles from './SnapFolioLayout.module.scss';
+import './shared/snapfolio-bootstrap-overrides.scss';
+
+const SnapFolioLayout = ({ children }) => {
+  const [headerShow, setHeaderShow] = useState(false);
+  const [scrollTopActive, setScrollTopActive] = useState(false);
+  const { data } = useSnapFolioData();
+  
+  // Dynamically load Bootstrap CSS only when this component is mounted
+  useBootstrapLoader();
+
+  // Handle header toggle
+  const handleHeaderToggle = () => {
+    setHeaderShow(!headerShow);
+  };
+
+  // Handle scroll to top
+  const handleScrollTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Handle scroll position for scroll top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setScrollTopActive(true);
+      } else {
+        setScrollTopActive(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('load', handleScroll);
+    };
+  }, []);
+
+  // Handle navigation click - close mobile menu
+  const handleNavClick = () => {
+    if (headerShow) {
+      setHeaderShow(false);
+    }
+  };
+
+  // Handle active nav item on scroll
+  useEffect(() => {
+    const handleScrollspy = () => {
+      const navLinks = document.querySelectorAll(`.${styles.snapfolioNavmenu} a[href^="#"]`);
+      const sections = document.querySelectorAll('section[id]');
+      
+      let current = '';
+      const position = window.scrollY + 200;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (position >= sectionTop && position <= sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScrollspy);
+    window.addEventListener('load', handleScrollspy);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollspy);
+      window.removeEventListener('load', handleScrollspy);
+    };
+  }, []);
+
+  // Add class to body when SnapFolio is active to scope Bootstrap styles
+  useEffect(() => {
+    document.body.classList.add('snapfolio-body-active');
+    return () => {
+      document.body.classList.remove('snapfolio-body-active');
+    };
+  }, []);
+
+  return (
+    <div className={styles.snapfolioBody}>
+      <header 
+        id="header" 
+        className={`${styles.snapfolioHeader} ${headerShow ? styles.headerShow : ''} dark-background d-flex flex-column justify-content-center`}
+      >
+        <i 
+          className={`${styles.headerToggle} bi ${headerShow ? 'bi-x' : 'bi-list'}`}
+          onClick={handleHeaderToggle}
+        />
+
+        <div className={styles.headerContainer}>
+          <nav id="navmenu" className={styles.snapfolioNavmenu}>
+            <ul>
+              <li>
+                <a href="#hero" className="active" onClick={handleNavClick}>
+                  <i className="bi bi-house navicon"></i>Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" onClick={handleNavClick}>
+                  <i className="bi bi-person navicon"></i> About
+                </a>
+              </li>
+              <li>
+                <a href="#philosophy" onClick={handleNavClick}>
+                  <i className="bi bi-lightbulb navicon"></i> Philosophy
+                </a>
+              </li>
+              <li>
+                <a href="#services" onClick={handleNavClick}>
+                  <i className="bi bi-hdd-stack navicon"></i> Services
+                </a>
+              </li>
+              <li>
+                <a href="#full-cycle" onClick={handleNavClick}>
+                  <i className="bi bi-arrow-repeat navicon"></i> Offerings
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" onClick={handleNavClick}>
+                  <i className="bi bi-currency-dollar navicon"></i> Pricing
+                </a>
+              </li>
+              <li>
+                <a href="#faq" onClick={handleNavClick}>
+                  <i className="bi bi-question-circle navicon"></i> FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#contact" onClick={handleNavClick}>
+                  <i className="bi bi-envelope navicon"></i> Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main className={`${styles.snapfolioMain} snapfolio-main`} id="main-content">
+        {children}
+      </main>
+
+      <footer id="footer" className={`${styles.snapfolioFooter} snapfolio-footer position-relative`}>
+        <div className="container">
+          <div className="copyright text-center">
+            <p>© <span>Copyright</span> <strong className="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+          </div>
+          <div className="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+      </footer>
+
+      <a 
+        href="#" 
+        id="scroll-top" 
+        className={`${styles.snapfolioScrollTop} snapfolio-scroll-top d-flex align-items-center justify-content-center ${scrollTopActive ? styles.active : ''}`}
+        onClick={handleScrollTop}
+      >
+        <i className="bi bi-arrow-up-short"></i>
+      </a>
+    </div>
+  );
+};
+
+export default SnapFolioLayout;
+
+
+
+
+================================================================================
+FILE: SnapFolioLayout.module.scss
+================================================================================
+
+@use './shared/snapfolio-variables.scss' as *;
+
+// SnapFolio Header - namespaced to prevent conflicts
+.snapfolioHeader {
+  --background-color: #1b1b1b;
+  --contrast-color: #444444;
+  color: var(--default-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  width: 300px;
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+  z-index: 997;
+}
+
+.snapfolioHeader .headerContainer {
+  border-radius: 20px;
+  padding: 15px;
+  background-color: var(--background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.snapfolioHeader .socialLinks {
+  margin: 0 0 10px 0;
+}
+
+.snapfolioHeader .socialLinks a {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  color: var(--default-color);
+  margin: 0 2px;
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.snapfolioHeader .socialLinks a:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+@media (min-width: 1200px) {
+  .snapfolioHeader ~ .snapfolioMain,
+  .snapfolioHeader ~ .snapfolioFooter {
+    margin-left: 330px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .snapfolioHeader {
+    left: -100%;
+  }
+}
+
+.snapfolioHeader.headerShow {
+  left: 0;
+}
+
+.snapfolioHeader .headerToggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.snapfolioHeader .headerToggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+// Navigation Menu
+.snapfolioNavmenu {
+  padding: 0;
+  z-index: 9997;
+  width: 100%;
+}
+
+.snapfolioNavmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.snapfolioNavmenu a,
+.snapfolioNavmenu a:focus {
+  color: var(--nav-color);
+  padding: 15px 10px;
+  font-family: var(--nav-font);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.3s;
+  width: 100%;
+  text-decoration: none;
+}
+
+.snapfolioNavmenu a .navicon,
+.snapfolioNavmenu a:focus .navicon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.snapfolioNavmenu a:hover,
+.snapfolioNavmenu .active,
+.snapfolioNavmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+.snapfolioNavmenu a:hover .navicon,
+.snapfolioNavmenu .active .navicon,
+.snapfolioNavmenu .active:focus .navicon {
+  color: var(--accent-color);
+}
+
+// Main Content - namespaced
+.snapfolioMain {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media (max-width: 768px) {
+  .snapfolioMain {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+// Footer - namespaced
+.snapfolioFooter {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  padding: 0 0 40px 0;
+  position: relative;
+}
+
+.snapfolioFooter .copyright {
+  padding-top: 40px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.snapfolioFooter .copyright p {
+  margin-bottom: 0;
+}
+
+.snapfolioFooter .credits {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+// Scroll Top Button - namespaced
+.snapfolioScrollTop {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--contrast-color);
+}
+
+.snapfolioScrollTop i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.snapfolioScrollTop:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.snapfolioScrollTop.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+// Global body styles for SnapFolio
+.snapfolioBody {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+.snapfolioBody h1,
+.snapfolioBody h2,
+.snapfolioBody h3,
+.snapfolioBody h4,
+.snapfolioBody h5,
+.snapfolioBody h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+.snapfolioBody a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.snapfolioBody a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+
+
+
+================================================================================
+FILE: SnapFolioPage.jsx
+================================================================================
+
+import React from 'react';
+import SnapFolioLayout from './SnapFolioLayout';
+import Hero from './sections/Hero/Hero';
+import About from './sections/About/About';
+import Philosophy from './sections/Philosophy/Philosophy';
+import Services from './sections/Services/Services';
+import FullCycle from './sections/FullCycle/FullCycle';
+import Pricing from './sections/Pricing/Pricing';
+import FAQ from './sections/FAQ/FAQ';
+import Contact from './sections/Contact/Contact';
+import './shared/snapfolio-shared.scss';
+
+const SnapFolioPage = () => {
+  return (
+    <SnapFolioLayout>
+      <Hero />
+      <About />
+      <Philosophy />
+      <Services />
+      <FullCycle />
+      <Pricing />
+      <FAQ />
+      <Contact />
+    </SnapFolioLayout>
+  );
+};
+
+export default SnapFolioPage;
+
+
+
+
+================================================================================
+FILE: hooks/useBootstrapLoader.js
+================================================================================
+
+import { useEffect } from 'react';
+
+/**
+ * Hook to dynamically load and unload Bootstrap CSS and Bootstrap Icons
+ * Only loads when SnapFolio route is active to prevent global style conflicts
+ * Uses link tag injection to load CSS dynamically
+ */
+const useBootstrapLoader = () => {
+  useEffect(() => {
+    // Check if Bootstrap is already loaded (avoid duplicates)
+    const existingBootstrap = document.getElementById('snapfolio-bootstrap-css');
+    const existingIcons = document.getElementById('snapfolio-bootstrap-icons-css');
+    
+    let shouldLoadBootstrap = !existingBootstrap;
+    let shouldLoadIcons = !existingIcons;
+
+    // Create and inject Bootstrap CSS link tag if not already loaded
+    if (shouldLoadBootstrap) {
+      const bootstrapLink = document.createElement('link');
+      bootstrapLink.rel = 'stylesheet';
+      bootstrapLink.type = 'text/css';
+      bootstrapLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
+      bootstrapLink.id = 'snapfolio-bootstrap-css';
+      bootstrapLink.setAttribute('data-snapfolio', 'true');
+      document.head.appendChild(bootstrapLink);
+    }
+
+    // Create and inject Bootstrap Icons link tag if not already loaded
+    if (shouldLoadIcons) {
+      const bootstrapIconsLink = document.createElement('link');
+      bootstrapIconsLink.rel = 'stylesheet';
+      bootstrapIconsLink.type = 'text/css';
+      bootstrapIconsLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css';
+      bootstrapIconsLink.id = 'snapfolio-bootstrap-icons-css';
+      bootstrapIconsLink.setAttribute('data-snapfolio', 'true');
+      document.head.appendChild(bootstrapIconsLink);
+    }
+
+    // Cleanup: Remove Bootstrap CSS when component unmounts
+    // Only remove if we loaded it (check by data-snapfolio attribute)
+    return () => {
+      const bootstrapCSS = document.getElementById('snapfolio-bootstrap-css');
+      const bootstrapIcons = document.getElementById('snapfolio-bootstrap-icons-css');
+      
+      // Only remove if they have the data-snapfolio attribute (we loaded them)
+      if (bootstrapCSS && bootstrapCSS.getAttribute('data-snapfolio') === 'true') {
+        bootstrapCSS.remove();
+      }
+      if (bootstrapIcons && bootstrapIcons.getAttribute('data-snapfolio') === 'true') {
+        bootstrapIcons.remove();
+      }
+    };
+  }, []);
+};
+
+export default useBootstrapLoader;
+
+
+
+
+================================================================================
+FILE: hooks/useSnapFolioData.js
+================================================================================
+
+import { useState, useEffect } from 'react';
+
+/**
+ * Custom hook to fetch SnapFolio data from JSON file
+ * @returns {Object} { data, loading, error }
+ */
+export const useSnapFolioData = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/snapfolio/assets/js/data.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch SnapFolio data');
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, loading, error };
+};
+
+
+
+
+
+================================================================================
+FILE: index.js
+================================================================================
+
+export { default as SnapFolioLayout } from './SnapFolioLayout';
+export { default as Hero } from './sections/Hero/Hero';
+export { default as About } from './sections/About/About';
+export { default as Philosophy } from './sections/Philosophy/Philosophy';
+export { default as Services } from './sections/Services/Services';
+export { default as FullCycle } from './sections/FullCycle/FullCycle';
+export { default as Pricing } from './sections/Pricing/Pricing';
+export { default as FAQ } from './sections/FAQ/FAQ';
+export { default as Contact } from './sections/Contact/Contact';
+
+
+
+
+
+================================================================================
+FILE: sections/About/About.jsx
+================================================================================
+
+import React, { useState, useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './About.module.scss';
+import AOS from 'aos';
+
+const About = () => {
+  const { data, loading } = useSnapFolioData();
+  const [activeDegree, setActiveDegree] = useState(0);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const aboutData = data.about_me || {};
+  const degrees = aboutData.degrees || [];
+  const stats = aboutData.stats_grid || [];
+  const ctaButtons = aboutData.cta_buttons || [];
+
+  return (
+    <section id="about" className={`${styles.about} snapfolio-section`}>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="row">
+          <div className="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+            <div className={styles.profileCard}>
+              <div className={styles.profileHeader}>
+                <div className={styles.profileImage}>
+                  <img 
+                    src={`/snapfolio/${aboutData.profile_image}`} 
+                    alt="Profile Image" 
+                    className="img-fluid"
+                  />
+                </div>
+                <div className={styles.profileBadge}>
+                  <i className="bi bi-check-circle-fill"></i>
+                </div>
+              </div>
+
+              <div className={styles.profileContent}>
+                <h3>{aboutData.name}</h3>
+                <p className={styles.tagline}>{aboutData.tagline}</p>
+
+                {/* Degree Tabs */}
+                <div className={styles.degreeTabs}>
+                  {degrees.map((degree, index) => (
+                    <a
+                      key={index}
+                      href={degree.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${styles.degreeTab} ${activeDegree === index ? 'active' : ''}`}
+                      onMouseEnter={() => setActiveDegree(index)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(degree.link, '_blank', 'noopener,noreferrer');
+                      }}
+                    >
+                      <div className={styles.degreeTabContent}>
+                        <div className={styles.degreeLogo}>
+                          <img 
+                            src={`/snapfolio/${degree.logo}`} 
+                            alt={degree.alt}
+                            className={styles.schoolLogo}
+                          />
+                        </div>
+                        <div className={styles.degreeInfo}>
+                          <span className={styles.degreeName}>{degree.degree}</span>
+                          <span className={styles.degreeProgram}>{degree.program}</span>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-7" data-aos="fade-left" data-aos-delay="300">
+            <div className={styles.aboutContent}>
+              <div className={styles.sectionHeader}>
+                <span className={styles.badgeText}>{aboutData.subtitle}</span>
+                <h2>{aboutData.title}</h2>
+              </div>
+
+              <div className={styles.description}>
+                <p>{aboutData.bio}</p>
+              </div>
+
+              {aboutData.experience_list && aboutData.experience_list.length > 0 && (
+                <div className={styles.detailsGrid}>
+                  {aboutData.experience_list.map((exp, index) => (
+                    <div key={index} className="detail-row">
+                      <div className="detail-item">
+                        <span className={styles.detailLabel}>{exp.label}</span>
+                        <span className={styles.detailValue}>{exp.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className={styles.ctaSection}>
+                {ctaButtons.map((button, index) => (
+                  <a
+                    key={index}
+                    href={button.link}
+                    className={`${styles.btn} ${button.style === 'primary' ? styles.btnPrimary : styles.btnOutline}`}
+                    download={button.link.includes('.pdf')}
+                  >
+                    <i className={button.icon}></i>
+                    {button.text}
+                  </a>
+                ))}
+              </div>
+
+              {/* Stats Grid 2x2 */}
+              {stats.length > 0 && (
+                <div className={styles.aboutStatsGrid}>
+                  {stats.map((stat, index) => (
+                    <div key={index} className={styles.aboutStatItem}>
+                      <i className={`bi ${stat.icon}`}></i>
+                      <div className={styles.statContent}>
+                        <span className={styles.statNumber}>{stat.number}</span>
+                        <span className={styles.statLabel}>{stat.label}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
+
+
+
+
+================================================================================
+FILE: sections/About/About.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.about {
+  .profileCard {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profileCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+  }
+
+  @media (max-width: 991px) {
+    .profileCard {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .profileHeader {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .profileHeader .profileImage {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .profileHeader .profileImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profileHeader .profileBadge {
+    position: absolute;
+    bottom: 20px;
+    right: calc(50% - 65px);
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--surface-color);
+  }
+
+  .profileHeader .profileBadge i {
+    color: var(--contrast-color);
+    font-size: 14px;
+  }
+
+  .profileContent h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+  }
+
+  .profileContent .tagline {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .degreeTabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .degreeTab {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 3%) 100%);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+
+  .degreeTab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .degreeTab:hover,
+  .degreeTab.active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
+  }
+
+  .degreeTab.active::before {
+    opacity: 1;
+  }
+
+  .degreeTabContent {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .degreeTab .degreeLogo {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 0.25rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .degreeTab .schoolLogo {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(10%);
+    transition: all 0.3s ease;
+  }
+
+  .degreeTab:hover .schoolLogo,
+  .degreeTab.active .schoolLogo {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  .degreeTab .degreeInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .degreeTab .degreeName {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
+  }
+
+  .degreeTab .degreeProgram {
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .degreeTab:hover .degreeName,
+  .degreeTab.active .degreeName {
+    color: var(--accent-color);
+  }
+
+  .aboutContent {
+    padding-left: 3rem;
+  }
+
+  @media (max-width: 991px) {
+    .aboutContent {
+      padding-left: 0;
+    }
+  }
+
+  .aboutContent .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .aboutContent .sectionHeader .badgeText {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+    color: var(--contrast-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutContent .sectionHeader h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .aboutContent .sectionHeader h2 {
+      font-size: 1.875rem;
+    }
+  }
+
+  .aboutContent .description {
+    margin-bottom: 2.5rem;
+  }
+
+  .aboutContent .description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutContent .description p:last-child {
+    margin-bottom: 0;
+  }
+
+  .aboutContent .detailsGrid {
+    margin-bottom: 2.5rem;
+  }
+
+  .aboutContent .detailsGrid .detailRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .aboutContent .detailsGrid .detailRow {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .aboutContent .detailsGrid .detailRow:last-child {
+    margin-bottom: 0;
+  }
+
+  .aboutContent .detailsGrid .detailItem .detailLabel {
+    display: block;
+    font-size: 0.875rem;
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .aboutContent .detailsGrid .detailItem .detailValue {
+    display: block;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 1rem;
+  }
+
+  .aboutContent .ctaSection {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .aboutContent .ctaSection .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+  }
+
+  .aboutContent .ctaSection .btnPrimary {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .aboutContent .ctaSection .btnPrimary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 60%);
+  }
+
+  .aboutContent .ctaSection .btnOutline {
+    background-color: transparent;
+    color: var(--default-color);
+    border-color: color-mix(in srgb, var(--default-color), transparent 70%);
+  }
+
+  .aboutContent .ctaSection .btnOutline:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+
+  .aboutStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: color-mix(in srgb, var(--surface-color), var(--background-color) 30%);
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+
+  .aboutStatsGrid .aboutStatItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--surface-color);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .aboutStatsGrid .aboutStatItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .aboutStatsGrid .aboutStatItem i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statNumber {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
+  }
+
+  .aboutStatsGrid .aboutStatItem .statLabel {
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    .aboutStatsGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
+    .aboutStatsGrid .aboutStatItem {
+      padding: 0.5rem;
+    }
+
+    .aboutStatsGrid .aboutStatItem .statNumber {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/Contact/Contact.jsx
+================================================================================
+
+import React, { useEffect, useState } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './Contact.module.scss';
+import AOS from 'aos';
+
+const Contact = () => {
+  const { data, loading } = useSnapFolioData();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const contactData = data.contact || {};
+  const infoItems = contactData.info?.items || [];
+  const formInfo = contactData.form || {};
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Form submission logic would go here
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <section id="contact" className={`${styles.contact} snapfolio-section`}>
+      <div className="container snapfolio-section-title" data-aos="fade-up">
+        <h2>{contactData.title}</h2>
+        <p>{contactData.subtitle}</p>
+      </div>
+
+      <div className="container">
+        <div className="row g-4 g-lg-5">
+          <div className="col-lg-5">
+            <div className={styles.infoBox}>
+              <h3>{contactData.info?.title}</h3>
+              <p>{contactData.info?.description}</p>
+              {infoItems.map((item, index) => (
+                <div key={index} className={styles.infoItem}>
+                  <div className={styles.iconBox}>
+                    <i className={`bi ${item.icon}`}></i>
+                  </div>
+                  <div className={styles.content}>
+                    <h4>{item.title}</h4>
+                    {item.lines.map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="col-lg-7">
+            <div className={styles.contactForm}>
+              <h3>{formInfo.title}</h3>
+              <p>{formInfo.description}</p>
+
+              <form onSubmit={handleSubmit} className="php-email-form">
+                <div className="row gy-4">
+                  <div className="col-md-6">
+                    <input
+                      type="text"
+                      name="name"
+                      className={styles.formControl}
+                      placeholder="Your Name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <input
+                      type="email"
+                      name="email"
+                      className={styles.formControl}
+                      placeholder="Your Email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-12">
+                    <input
+                      type="text"
+                      name="subject"
+                      className={styles.formControl}
+                      placeholder="Subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-12">
+                    <textarea
+                      name="message"
+                      className={styles.formControl}
+                      rows="6"
+                      placeholder="Message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+
+                  <div className="col-12 text-center">
+                    <button type="submit" className={styles.btn}>
+                      Send Message <i className="bi bi-send"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+
+
+
+
+================================================================================
+FILE: sections/Contact/Contact.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.contact {
+  .infoBox {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 3rem;
+    border-radius: 1rem;
+    height: 100%;
+
+    h3 {
+      color: var(--contrast-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: var(--contrast-color);
+    }
+  }
+
+  .infoItem {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .iconBox {
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 1.5rem;
+        color: var(--contrast-color);
+      }
+    }
+
+    &:hover .iconBox {
+      background-color: color-mix(in srgb, var(--contrast-color), transparent 70%);
+    }
+
+    .content {
+      h4 {
+        color: var(--contrast-color);
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 0.25rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .contactForm {
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: 1rem;
+    height: 100%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--heading-color);
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 2rem;
+    }
+
+    .formControl {
+      padding: 0.875rem 1.25rem;
+      border-color: color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: 0.5rem;
+      background-color: color-mix(in srgb, var(--surface-color) 90%, white 5%);
+      color: var(--default-color);
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &:focus {
+        box-shadow: none;
+        border-color: var(--accent-color);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--default-color), transparent 50%);
+      }
+    }
+
+    textarea.formControl {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      i {
+        font-size: 1.25rem;
+      }
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--accent-color), var(--contrast-color) 20%);
+      }
+    }
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/FAQ/FAQ.jsx
+================================================================================
+
+import React, { useState, useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './FAQ.module.scss';
+import AOS from 'aos';
+
+const FAQ = () => {
+  const { data, loading } = useSnapFolioData();
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const faqData = data.faq || {};
+  const items = faqData.items || [];
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <section id="faq" className={`${styles.faq} snapfolio-section`}>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="snapfolio-section-title text-center">
+          <h2>{faqData.title}</h2>
+          <p>{faqData.subtitle}</p>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className={styles.faqContainer} data-aos="fade-up" data-aos-delay="200">
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className={`${styles.faqItem} ${activeIndex === index ? styles.active : ''}`}
+                >
+                  <div
+                    className={styles.faqQuestion}
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h4>{item.question}</h4>
+                    <i className={`bi bi-chevron-down ${styles.faqIcon}`}></i>
+                  </div>
+                  <div className={styles.faqAnswer}>
+                    <p>{item.answer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQ;
+
+
+
+
+================================================================================
+FILE: sections/FAQ/FAQ.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.faq {
+  padding: 80px 0;
+
+  .faqContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .faqItem {
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 2%) 100%);
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.active {
+      border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .faqQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin: 0;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .faqIcon {
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+  }
+
+  .faqItem.active .faqQuestion {
+    .faqIcon {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      transform: rotate(180deg);
+    }
+
+    h4 {
+      color: var(--accent-color);
+    }
+  }
+
+  .faqAnswer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+    padding: 0 1.75rem;
+  }
+
+  .faqItem.active .faqAnswer {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 0 1.75rem 1.5rem 1.75rem;
+  }
+
+  .faqAnswer p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin: 0;
+    line-height: 1.7;
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/FullCycle/FullCycle.jsx
+================================================================================
+
+import React, { useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './FullCycle.module.scss';
+import AOS from 'aos';
+
+const FullCycle = () => {
+  const { data, loading } = useSnapFolioData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const fullCycleData = data.full_cycle || {};
+  const features = fullCycleData.features || [];
+
+  return (
+    <section id="full-cycle" className={`${styles.fullCycle} snapfolio-section light-background`}>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="snapfolio-section-title text-center">
+          <h2>{fullCycleData.title}</h2>
+          <p>{fullCycleData.subtitle}</p>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className={styles.fullCycleContent} data-aos="fade-up" data-aos-delay="200">
+              <h3>{fullCycleData.features_title}</h3>
+              <ul className={styles.featuresList}>
+                {features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FullCycle;
+
+
+
+
+================================================================================
+FILE: sections/FullCycle/FullCycle.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.fullCycle {
+  .fullCycleContent {
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--heading-color);
+    }
+
+    .featuresList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        background-color: var(--surface-color);
+        border-radius: 0.75rem;
+        border-left: 4px solid var(--accent-color);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-left: 3rem;
+
+        &::before {
+          content: "✓";
+          position: absolute;
+          left: 1rem;
+          color: var(--accent-color);
+          font-weight: bold;
+          font-size: 1.25rem;
+        }
+
+        &:hover {
+          transform: translateX(5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/Hero/Hero.jsx
+================================================================================
+
+import React, { useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './Hero.module.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+const Hero = () => {
+  const { data, loading } = useSnapFolioData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const heroData = data.hero || {};
+  const socialLinks = data.social_links || [];
+
+  return (
+    <section id="hero" className={`${styles.hero} snapfolio-section`}>
+      <div className={styles.backgroundElements}>
+        <div className={`${styles.bgCircle} ${styles.circle1}`}></div>
+        <div className={`${styles.bgCircle} ${styles.circle2}`}></div>
+      </div>
+
+      <div className={styles.heroContent}>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+              <div className={styles.heroText}>
+                <h1>
+                  {heroData.title_top && <span>{heroData.title_top}</span>}
+                  {heroData.title_bottom && (
+                    <span className={styles.accentText}> {heroData.title_bottom}</span>
+                  )}
+                </h1>
+                <h2>{heroData.name}</h2>
+                <p className={styles.lead} style={{ fontSize: '1.1rem', marginTop: '0.5rem' }}>
+                  {heroData.role}
+                </p>
+                <p className={styles.description}>{heroData.description}</p>
+
+                <div className={styles.heroActions}>
+                  {heroData.primary_cta && (
+                    <a 
+                      href={heroData.primary_cta_link} 
+                      className={`${styles.btn} ${styles.btnPrimary}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {heroData.primary_cta}
+                    </a>
+                  )}
+                  {heroData.secondary_cta && (
+                    <a 
+                      href={heroData.secondary_cta_link} 
+                      className={`${styles.btn} ${styles.btnOutline}`}
+                    >
+                      {heroData.secondary_cta}
+                    </a>
+                  )}
+                </div>
+
+                <div className={styles.socialLinks}>
+                  {socialLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.name}
+                    >
+                      <i className={link.icon}></i>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+              <div className={styles.heroVisual}>
+                <div className={styles.profileContainer}>
+                  <div className={styles.profileBackground}></div>
+                  <img 
+                    src="/snapfolio/assets/img/profile/profile-2.webp" 
+                    alt={heroData.name || 'Profile'} 
+                    className={styles.profileImage}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+
+
+
+================================================================================
+FILE: sections/Hero/Hero.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.backgroundElements .bgCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, color-mix(in srgb, var(--accent-color), transparent 90%), color-mix(in srgb, var(--accent-color), transparent 95%));
+  animation: float 6s ease-in-out infinite;
+}
+
+.backgroundElements .circle1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.backgroundElements .circle2 {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.heroContent {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.heroText {
+  h1 {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+  }
+
+  h1 .accentText {
+    color: var(--accent-color);
+    position: relative;
+  }
+
+  h1 .accentText::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--default-color);
+  }
+
+  .lead span {
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+}
+
+.heroActions {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.heroActions .btn {
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  display: inline-block;
+}
+
+.heroActions .btnPrimary {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+}
+
+.heroActions .btnPrimary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), black 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.heroActions .btnOutline {
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.heroActions .btnOutline:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.socialLinks a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-color);
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  border-radius: 50%;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLinks a:hover {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.heroVisual .profileContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.heroVisual .profileContainer .profileBackground {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.heroVisual .profileContainer .profileImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 992px) {
+  .heroText {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .heroText h1 {
+    font-size: 56px;
+  }
+
+  .heroText h2 {
+    font-size: 28px;
+  }
+
+  .heroText .lead {
+    font-size: 20px;
+  }
+
+  .heroVisual .profileContainer {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroText h1 {
+    font-size: 42px;
+  }
+
+  .heroText h2 {
+    font-size: 24px;
+  }
+
+  .heroText .lead {
+    font-size: 18px;
+  }
+
+  .heroText .description {
+    font-size: 16px;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroActions .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .heroVisual .profileContainer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .backgroundElements .circle1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .backgroundElements .circle2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/Philosophy/Philosophy.jsx
+================================================================================
+
+import React, { useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './Philosophy.module.scss';
+import AOS from 'aos';
+
+const Philosophy = () => {
+  const { data, loading } = useSnapFolioData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const philosophyData = data.philosophy || {};
+
+  return (
+    <section id="philosophy" className={`${styles.philosophy} snapfolio-section light-background`}>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="snapfolio-section-title text-center">
+          <span className="badge-text">{philosophyData.subtitle}</span>
+          <h2>{philosophyData.title}</h2>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className={styles.philosophyContent} data-aos="fade-up" data-aos-delay="200">
+              <p className={`${styles.philosophyText} lead`}>{philosophyData.text}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Philosophy;
+
+
+
+
+================================================================================
+FILE: sections/Philosophy/Philosophy.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.philosophy {
+  .philosophyContent {
+    text-align: center;
+  }
+
+  .philosophyText {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin: 0;
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/Pricing/Pricing.jsx
+================================================================================
+
+import React, { useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './Pricing.module.scss';
+import AOS from 'aos';
+
+const Pricing = () => {
+  const { data, loading } = useSnapFolioData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const pricingData = data.pricing || {};
+  const packages = pricingData.packages || [];
+
+  return (
+    <section id="pricing" className={`${styles.pricing} snapfolio-section light-background`}>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="snapfolio-section-title text-center">
+          <h2>{pricingData.title}</h2>
+          <p>{pricingData.subtitle}</p>
+        </div>
+
+        <div className={`row ${styles.pricingContainer} justify-content-center`}>
+          {packages.map((pkg, index) => (
+            <div key={index} className="col-lg-4 col-md-6 mb-4">
+              <div className={`${styles.pricingCard} ${pkg.popular ? styles.popular : ''}`} data-aos="fade-up" data-aos-delay={200 + index * 100}>
+                <h3 className={styles.packageName}>{pkg.name}</h3>
+                <div className={styles.price}>
+                  {pkg.price}
+                  {pkg.period && <span className="period">/{pkg.period}</span>}
+                </div>
+                <p className={styles.description}>{pkg.description}</p>
+                <ul className={styles.featuresList}>
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+                <a href="#contact" className={styles.ctaButton}>
+                  {pkg.cta}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Pricing;
+
+
+
+
+================================================================================
+FILE: sections/Pricing/Pricing.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.pricing {
+  .pricingContainer {
+    .pricingCard {
+      background-color: var(--surface-color);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      text-align: center;
+      border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+
+      &.popular {
+        border-color: var(--accent-color);
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .packageName {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .description {
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        margin-bottom: 2rem;
+      }
+
+      .featuresList {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+        text-align: left;
+
+        li {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+          color: var(--default-color);
+
+          &::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      .ctaButton {
+        padding: 0.875rem 2rem;
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent-color), black 15%);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+================================================================================
+FILE: sections/Services/Services.jsx
+================================================================================
+
+import React, { useEffect } from 'react';
+import { useSnapFolioData } from '../../hooks/useSnapFolioData';
+import styles from './Services.module.scss';
+import AOS from 'aos';
+
+const Services = () => {
+  const { data, loading } = useSnapFolioData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
+  if (loading || !data) {
+    return null;
+  }
+
+  const servicesData = data.core_services || {};
+  const services = servicesData.services || [];
+
+  return (
+    <section id="services" className={`${styles.services} snapfolio-section`}>
+      <div className="container snapfolio-section-title" data-aos="fade-up">
+        <h2>{servicesData.title}</h2>
+        <p>{servicesData.subtitle}</p>
+      </div>
+
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="row g-4">
+          {services.map((service, index) => (
+            <div key={index} className="col-lg-4 col-md-6">
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>
+                  <i className="bi bi-check-circle"></i>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
+
+
+
+
+================================================================================
+FILE: sections/Services/Services.module.scss
+================================================================================
+
+@use '../../shared/snapfolio-variables.scss' as *;
+
+.services {
+  .serviceCard {
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: var(--surface-color);
+    border-radius: 1rem;
+  }
+
+  .serviceCard .serviceIcon {
+    margin-bottom: 25px;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+  .serviceCard .serviceIcon i {
+    font-size: 32px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+  }
+
+  .serviceCard h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+
+  .serviceCard p {
+    color: var(--default-color);
+    transition: color 0.3s ease;
+    margin-bottom: 0;
+  }
+
+  .serviceCard:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+  }
+
+  .serviceCard:hover .serviceIcon i {
+    transform: scale(1.1);
+  }
+}
+
+
+
+
+================================================================================
+FILE: shared/snapfolio-bootstrap-overrides.scss
+================================================================================
+
+// Override Bootstrap's global styles to prevent conflicts with main app
+// Bootstrap CSS is global, so we need to protect the main app route
+
+// Strategy: Only override Bootstrap utility classes that might conflict with Tailwind
+// Bootstrap's global styles (box-sizing, etc.) are fine and match Tailwind
+// We only need to protect against Bootstrap utility classes in the main app route
+
+// Protect body when SnapFolio is NOT active
+// Only reset CSS variables, don't override body styles (Tailwind handles those)
+body:not(.snapfolio-body-active) {
+  // Ensure no CSS variable leakage from SnapFolio
+  --snapfolio-background-color: initial;
+  --snapfolio-default-color: initial;
+  --snapfolio-heading-color: initial;
+  --snapfolio-accent-color: initial;
+  --snapfolio-surface-color: initial;
+  --snapfolio-contrast-color: initial;
+}
+
+// When SnapFolio route is active, Bootstrap and SnapFolio styles can apply
+body.snapfolio-body-active {
+  // Bootstrap styles apply here
+  // SnapFolio CSS variables are scoped to .snapfolioBody
+}
+
+// Only override Bootstrap utility classes in main app route
+// These are the only Bootstrap classes that might conflict with Tailwind
+// Use higher specificity instead of !important
+body:not(.snapfolio-body-active) .main-app-route {
+  // CRITICAL: Ensure sections don't get background-color from Bootstrap
+  // Use higher specificity selector instead of !important
+  section {
+    background-color: transparent;
+  }
+
+  // Override Bootstrap's .container class if accidentally used
+  .container {
+    max-width: revert;
+    margin-left: revert;
+    margin-right: revert;
+    padding-left: revert;
+    padding-right: revert;
+  }
+
+  // Override Bootstrap's .row class if accidentally used
+  .row {
+    margin-left: revert;
+    margin-right: revert;
+    display: revert;
+    flex-wrap: revert;
+  }
+
+  // Override Bootstrap's .col-* classes if accidentally used
+  [class*="col-"] {
+    flex: revert;
+    max-width: revert;
+    padding-left: revert;
+    padding-right: revert;
+  }
+}
+
+// Additional protection: when Bootstrap is NOT loaded, ensure sections are transparent
+// This handles the case where Bootstrap might have been loaded before but is now removed
+// Use very high specificity to override Bootstrap's global section styles
+body:not(.snapfolio-body-active) .main-app-route section,
+body:not(.snapfolio-body-active) section {
+  // Ensure sections don't get background-color from Bootstrap
+  // Use transparent to allow parent background to show through
+  background-color: transparent !important;
+  // Reset any other Bootstrap section styles that might interfere
+  color: inherit;
+}
+
+// Ensure Tailwind background utilities work correctly
+// Tailwind's bg-* classes should override Bootstrap
+body:not(.snapfolio-body-active) .main-app-route section[class*="bg-"],
+body:not(.snapfolio-body-active) section[class*="bg-"] {
+  // Allow Tailwind background utilities to work
+  background-color: revert;
+}
+
+// Additional protection: ensure SnapFolio's global section styles don't leak
+// SnapFolio's .snapfolio-section class is scoped, but just in case
+body:not(.snapfolio-body-active) .snapfolio-section {
+  // This shouldn't exist in main app, but protect against it
+  display: none;
+}
+
+
+
+
+================================================================================
+FILE: shared/snapfolio-shared.scss
+================================================================================
+
+@use './snapfolio-variables.scss' as *;
+
+// All styles scoped to .snapfolioBody to prevent global conflicts
+.snapfolioBody {
+  // Global section styles - namespaced to prevent conflicts
+  section.snapfolio-section,
+  .snapfolio-section {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 60px 0;
+    overflow: clip;
+  }
+
+  // Global section titles - namespaced
+  .snapfolio-section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      position: relative;
+      color: var(--heading-color);
+    }
+
+    h2:before,
+    h2:after {
+      content: "";
+      width: 50px;
+      height: 2px;
+      background: var(--accent-color);
+      display: inline-block;
+    }
+
+    h2:before {
+      margin: 0 15px 10px 0;
+    }
+
+    h2:after {
+      margin: 0 0 10px 15px;
+    }
+
+    p {
+      margin-bottom: 0;
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+    }
+
+    .badge-text {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+      color: var(--contrast-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  // Button styles - namespaced to prevent conflicts
+  .snapfolio-btn {
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .snapfolio-btn-primary {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    border-color: var(--accent-color);
+  }
+
+  .snapfolio-btn-primary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+  }
+
+  .snapfolio-btn-outline {
+    background-color: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+
+  .snapfolio-btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: translateY(-2px);
+  }
+}
+
+
+
+================================================================================
+FILE: shared/snapfolio-variables.scss
+================================================================================
+
+/* SnapFolio CSS Variables - Scoped to .snapfolioBody to prevent global conflicts */
+
+/* Fonts - Scoped to SnapFolio only */
+.snapfolioBody {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Ubuntu", sans-serif;
+  --nav-font: "Nunito", sans-serif;
+}
+
+/* Global Colors - Scoped to SnapFolio only */
+.snapfolioBody { 
+  --background-color: #1f1f1f; /* Background color for the entire website, including individual sections */
+  --default-color: #ffffff; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #ececec; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #232323; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #310606; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - Scoped to SnapFolio only */
+.snapfolioBody {
+  --nav-color: rgba(236, 236, 236, 0.59);  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #393939; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #393939; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #ffffff; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ececec; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - Scoped to SnapFolio only */
+.snapfolioBody .light-background {
+  --background-color: #2c2c2c;
+  --surface-color: #323232;
+}
+
+.snapfolioBody .dark-background {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+}
+
+
+

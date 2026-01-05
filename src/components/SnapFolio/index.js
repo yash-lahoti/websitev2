@@ -8,3 +8,4 @@ export { default as Pricing } from './sections/Pricing/Pricing';
 export { default as FAQ } from './sections/FAQ/FAQ';
 export { default as Contact } from './sections/Contact/Contact';
 
+

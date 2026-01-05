@@ -3,12 +3,12 @@
     "title_top": "BS/MD Admissions",
     "title_bottom": "Consulting Service",
     "name": "Yash Lahoti BAS, MSE",
-    "role": "4th Year MD Candidate | Ophthalmology",
-    "description": "Help differentiate and personalize your application and narrative to stand out from the same old approach. I craft compelling stories that showcase your unique journey and potential.",
-    "primary_cta": "Request Consultation",
-    "primary_cta_link": "https://calendly.com/lahotiyash14/30min",
-    "secondary_cta": "Learn about me",
-    "secondary_cta_link": "#about"
+    "role": "Narrative Architect & Strategist",
+    "description": "High-performing applicants fail not because they are weak, but because they are indistinguishable. I help you build a professional identity that admissions committees believe in before the application is even read.",
+    "primary_cta": "Start Building Your Identity",
+    "primary_cta_link": "#contact",
+    "secondary_cta": "The Framework",
+    "secondary_cta_link": "#services"
   },
   "social_links": [
     {
@@ -23,31 +23,29 @@
     }
   ],
   "about_me": {
-    "title": "About Me",
-    "subtitle": "The Engineer-Physician Approach",
+    "title": "The Engineer-Physician",
+    "subtitle": "Why This Approach is Different",
     "name": "Yash Lahoti",
     "credentials": "MD Candidate @ Mt. Sinai | MSE Artificial Intelligence @ UPenn",
     "profile_image": "assets/img/profile/profile-square-3.webp",
-    "bio": "I don't just edit essays; I architect narratives. With a background in AI strategy and clinical research (NY Eye and Ear), I bring an analytical rigor to the admissions process that standard advisors lack. My experience as CTO of SpineSight and my research in deep learning allows me to help applicants position themselves as future innovators in medicine.",
+    "bio": "Most consultants optimize documents; I optimize positioning. Applying 'Systems Engineering' to admissions, I don't just check boxes—I deconstruct your life story into data points, identify the strongest thematic threads, and reassemble them into a compelling argument for your admission.",
     "experience_title": "Experience",
     "experience_list": [
     ],
     "decorative_text": "MD / AI",
-    "tagline": "Engineer-Physician bridging AI innovation with medical excellence to transform medical school admissions consulting.",
+    "tagline": "Architecting narratives. Engineering admissions.",
     "degrees": [
       {
         "logo": "assets/img/company/penn.png",
         "alt": "UPenn",
-        "degree": "BAS | Biomedical Science",
-        "program": "University of Pennsylvania",
-        "link": "https://www.upenn.edu"
+        "degree": "BAS",
+        "program": "Biomedical Science"
       },
       {
         "logo": "assets/img/company/penn.png",
         "alt": "UPenn",
-        "degree": "MSE | Electrical Engineering",
-        "program": "University of Pennsylvania",
-        "link": "https://www.seas.upenn.edu"
+        "degree": "MSE",
+        "program": "Electrical Engineering"
       },
       {
         "logo": "assets/img/company/mount_sinai.png",
@@ -87,7 +85,7 @@
     "cta_buttons": [
       {
         "text": "Download Resume",
-        "link": "../documents/Yash_Lahoti_Resume_2025.pdf",
+        "link": "#",
         "icon": "bi-download",
         "style": "primary"
       },
@@ -100,60 +98,112 @@
     ]
   },
   "philosophy": {
-    "title": "My Philosophy",
-    "subtitle": "Insights into the Process",
-    "text": "Applying to medical school is no longer just about grades; it is about narrative coherence. My approach applies 'Systems Engineering' to your application. We deconstruct your life story into data points, identify the strongest thematic threads, and reassemble them into a compelling argument for your admission. We don't just check boxes; we build a case."
+    "title": "The Core Problem",
+    "subtitle": "Why Great Candidates Fail",
+    "text": "They have strong grades, impressive activities, and solid essays—but no identity. No one knows who they are becoming or what role they will play in medicine. Admissions committees select for trajectory, not just credentials. We solve for the 'Indistinguishable Applicant'.",
+    "points": [
+      "Lack of internal coherence",
+      "Generic school selection",
+      "Zero institutional advocacy",
+      "Anonymous application profile"
+    ],
+    "positive_points": [
+      "Coherent professional narrative",
+      "Strategic school-identity alignment",
+      "Active institutional engagement",
+      "Distinct professional identity"
+    ]
   },
   "core_services": {
-    "title": "Core Services",
-    "subtitle": "Modular offerings to fit your needs",
+    "title": "The Identity Engine",
+    "subtitle": "The Identity-to-Admission Framework",
     "services": [
       {
-        "title": "School Selection",
-        "desc": "Identify and select schools that fit your personality and interests."
+        "id": "service-narrative-engineering",
+        "title": "1. Narrative Engineering",
+        "desc": "We do not 'write essays.' We define who you are becoming. We identify core intellectual themes and professional direction so every component expresses the same identity.",
+        "detail": "Narrative Engineering is the foundation of identity construction. Instead of treating your personal statement, activities, and secondaries as separate documents, we architect a coherent professional identity that runs through every component. We analyze your life story—your research interests, clinical experiences, leadership roles, and personal motivations—to identify the strongest thematic threads. These threads become the DNA of your application, ensuring that when an admissions committee reads your file, they see not just a collection of achievements, but a clear trajectory toward a specific role in medicine. This coherence is what separates memorable applicants from the indistinguishable crowd.",
+        "benefits": [
+          "Coherent professional identity across all essays",
+          "Clear trajectory that admissions committees recognize",
+          "Memorable application that stands out from the crowd"
+        ]
       },
       {
-        "title": "Application Strategy",
-        "desc": "Navigate the medical school application process with grace."
+        "id": "service-school-identity-alignment",
+        "title": "2. School–Identity Alignment",
+        "desc": "Stop choosing schools by rank. We choose by identity fit—analyzing institutional culture and faculty interests so your application becomes mutually reinforcing.",
+        "detail": "Most applicants create school lists based on rankings and location. This is backwards. We reverse-engineer your school list by first understanding your professional identity, then identifying programs where that identity aligns with institutional values, research strengths, and faculty expertise. We analyze each school's culture, mission, and recent initiatives to find genuine fit. When your narrative aligns with a school's priorities, your application becomes mutually reinforcing—the school sees you as someone who will contribute to their community, and you present yourself as someone who belongs there. This strategic alignment dramatically increases your chances of acceptance because you're not just another high-stat applicant; you're a future colleague who fits.",
+        "benefits": [
+          "Strategic school list based on genuine fit",
+          "Mutually reinforcing application narrative",
+          "Higher acceptance rates at target programs"
+        ]
       },
       {
-        "title": "College/Med Essays",
-        "desc": "From brainstorming to crafting an outstanding personal essay."
+        "id": "service-strategic-outreach",
+        "title": "3. Strategic Outreach",
+        "desc": "The game changer. We guide you to build early relationships with faculty and initiate research collaborations. You will not be anonymous.",
+        "detail": "Strategic Outreach transforms you from an anonymous applicant to a known quantity. We teach you how to engage with faculty and departments at your target programs before you apply. This includes identifying relevant research opportunities, reaching out to faculty whose work aligns with your interests, and initiating meaningful conversations that can lead to collaborations or mentorship. When you apply, you're not just a name on a file—you're someone who has already demonstrated initiative, intellectual curiosity, and professional maturity. Faculty who know your work can advocate for you during admissions discussions. This inside advocacy is one of the most powerful differentiators in medical school admissions, and it's something that most applicants never attempt.",
+        "benefits": [
+          "Advocacy inside target programs before applying",
+          "Early relationships with faculty and departments",
+          "You're a known quantity, not anonymous"
+        ]
       },
       {
-        "title": "Track All Deadlines",
-        "desc": "Outline a strategic long-term action plan to make sure you're on track."
-      },
-      {
-        "title": "Post-Acceptance",
-        "desc": "Guidance on post-application issues, such as waitlist navigation."
-      },
-      {
-        "title": "Interview Prep",
-        "desc": "Prepare for MMI, faculty interviews, and public speaking opportunities."
-      },
-      {
-        "title": "Letters of Rec",
-        "desc": "Strategies for obtaining stellar letters from faculty and mentors."
+        "id": "service-professional-positioning",
+        "title": "4. Professional Positioning",
+        "desc": "You enter the medical community early through conferences, publications, and initiatives. Your application reflects an identity that already exists in the field.",
+        "detail": "Professional Positioning means entering the medical community before medical school. We help you present at conferences, publish research, launch initiatives, and build a professional presence that demonstrates your identity is not aspirational—it's already real. When you present at a national conference, publish in a peer-reviewed journal, or launch a healthcare initiative, you're not just listing activities; you're demonstrating that your professional identity exists independently of the application process. Admissions committees see someone who is already contributing to the field, not someone who hopes to contribute someday. This positioning makes your application compelling because it shows trajectory, not just potential. You're not asking for permission to enter medicine; you're demonstrating that you're already part of the community.",
+        "benefits": [
+          "Professional identity that already exists in the field",
+          "Demonstrated contributions through conferences and publications",
+          "Application shows trajectory, not just potential"
+        ]
       }
     ]
   },
   "full_cycle": {
-    "title": "Full-Cycle Advising",
-    "subtitle": "With flexible hours, your time is YOURS.",
-    "features_title": "What's Included",
-    "features": [
-      "Match with an Expert Med School Admissions Advisor",
-      "1 Advisor who Stays with you from Start to Finish",
-      "Live Advising Sessions (Flexible Hours)",
-      "Email Access to Your Advisor Between Sessions",
-      "Complete Strategic Planning with Reminders",
-      "School List Guidance (Data-Driven)",
-      "Advising for AMCAS, AACOMAS, and TMDSAS",
-      "Guidance for Casper, Snapshot, Duet, and PREview",
-      "Personal Statement & Activity Description Feedback",
-      "Secondary Application Planning and Feedback",
-      "Mock Interviews with Recording Reviews"
+    "title": "How We Help You Stand Out",
+    "subtitle": "From Services to Competitive Advantage",
+    "service_benefits": [
+      {
+        "service": "Narrative Engineering",
+        "service_icon": "bi-diagram-3",
+        "benefits": [
+          "Coherent professional identity across all essays",
+          "Clear trajectory that admissions committees recognize",
+          "Memorable application that stands out from the crowd"
+        ]
+      },
+      {
+        "service": "School-Identity Alignment",
+        "service_icon": "bi-building",
+        "benefits": [
+          "Strategic school list based on genuine fit",
+          "Mutually reinforcing application narrative",
+          "Higher acceptance rates at target programs"
+        ]
+      },
+      {
+        "service": "Strategic Outreach",
+        "service_icon": "bi-people",
+        "benefits": [
+          "Advocacy inside target programs before applying",
+          "Early relationships with faculty and departments",
+          "You're a known quantity, not anonymous"
+        ]
+      },
+      {
+        "service": "Professional Positioning",
+        "service_icon": "bi-award",
+        "benefits": [
+          "Professional identity that already exists in the field",
+          "Demonstrated contributions through conferences and publications",
+          "Application shows trajectory, not just potential"
+        ]
+      }
     ]
   },
   "long_term": {
@@ -368,77 +418,118 @@
     ]
   },
   "pricing": {
-    "title": "Service Packages",
-    "subtitle": "Choose the right plan for your journey",
+    "title": "Investment-Based Engagement",
+    "subtitle": "Flexible hourly packages with tiered discounts",
+    "base_hourly_rate": 400,
     "packages": [
       {
-        "name": "Core Services",
-        "price": "Custom",
-        "period": "",
-        "description": "Modular services tailored to your needs",
+        "name": "10-Hour Package",
+        "hours": 10,
+        "base_price": 4000,
+        "discount_percent": 0,
+        "final_price": 4000,
+        "price_per_hour": 400,
+        "engagement_time": "6 Months",
+        "description": "Ideal for focused application support during the current cycle.",
         "features": [
-          "School Selection",
-          "Application Strategy",
-          "Essay Review",
-          "Interview Prep"
+          "Narrative Engineering & Essay Development",
+          "School-Identity Alignment Strategy",
+          "Application Architecture Review",
+          "Interview Preparation (2 sessions)"
         ],
-        "cta": "Contact Us",
+        "use_cases": [
+          "Current cycle applicants needing immediate support",
+          "Strong candidates seeking narrative refinement",
+          "Last-minute application optimization"
+        ],
+        "cta": "Get Started",
         "popular": false
       },
       {
-        "name": "Full-Cycle Advising",
-        "price": "Premium",
-        "period": "",
-        "description": "Complete end-to-end guidance",
+        "name": "20-Hour Package",
+        "hours": 20,
+        "base_price": 8000,
+        "discount_percent": 10,
+        "final_price": 7200,
+        "price_per_hour": 360,
+        "engagement_time": "1 Year",
+        "description": "Comprehensive support for strategic application development and positioning.",
         "features": [
-          "Dedicated Advisor",
-          "Live Sessions",
-          "Email Support",
-          "Strategic Planning",
-          "Mock Interviews"
+          "All 10-Hour Package features",
+          "Strategic Outreach & Faculty Engagement",
+          "Research Collaboration Setup",
+          "Professional Positioning & Conference Prep",
+          "Extended Interview Coaching (4 sessions)",
+          "Post-Acceptance Strategy"
+        ],
+        "use_cases": [
+          "Undergraduates planning ahead",
+          "Gap year students building profile",
+          "Candidates seeking comprehensive transformation"
         ],
         "cta": "Get Started",
         "popular": true
       },
       {
-        "name": "Long-Term Programs",
-        "price": "Custom",
-        "period": "",
-        "description": "For high school and gap year students",
+        "name": "Long-Term Mentoring",
+        "hours": 40,
+        "base_price": 16000,
+        "discount_percent": 20,
+        "final_price": 12800,
+        "price_per_hour": 320,
+        "engagement_time": "Multi-Year",
+        "description": "Strategic long-term partnership for complete professional identity development.",
         "features": [
-          "Leadership Coaching",
-          "Project Incubator",
-          "Academic Development",
-          "Research Placement"
+          "All 20-Hour Package features",
+          "Multi-year narrative construction",
+          "Project Incubator & Initiative Launch",
+          "Curriculum & Leadership Strategy",
+          "Ongoing mentorship & guidance",
+          "Priority access & flexible scheduling"
         ],
-        "cta": "Learn More",
+        "use_cases": [
+          "High school students planning early",
+          "Early college students building trajectory",
+          "Candidates seeking transformative mentorship"
+        ],
+        "cta": "Contact for Details",
         "popular": false
       }
-    ]
+    ],
+    "who_benefits": {
+      "title": "Who Will Benefit From This",
+      "description": "Our approach is designed for ambitious candidates who understand that medical school admissions requires more than just strong credentials.",
+      "beneficiaries": [
+        {
+          "title": "High-Achieving Applicants",
+          "description": "Strong grades and activities but struggling to differentiate in a competitive pool"
+        },
+        {
+          "title": "Career Changers",
+          "description": "Non-traditional applicants needing to craft a compelling narrative from diverse experiences"
+        },
+        {
+          "title": "Strategic Planners",
+          "description": "Students who want to build their profile strategically over time, not just optimize applications"
+        },
+        {
+          "title": "Research-Focused Candidates",
+          "description": "Applicants with research interests who want to align with specific programs and faculty"
+        }
+      ]
+    }
   },
   "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Everything you need to know",
+    "title": "FAQ",
+    "subtitle": "Understanding the Process",
     "items": [
       {
-        "question": "How does your approach differ from other consultants?",
-        "answer": "I combine engineering rigor with medical expertise. Instead of just editing essays, I architect narratives using systems engineering principles to build a compelling case for your admission."
+        "question": "This sounds different than normal advising. Is it?",
+        "answer": "Yes. Most consultants edit what you have. I help you build what you are missing. We focus on identity and positioning inside the profession, which is an entirely different market."
       },
       {
-        "question": "What is your acceptance rate?",
-        "answer": "Our students achieve a 95% acceptance rate to medical schools, significantly higher than the national average."
-      },
-      {
-        "question": "Do you work with all medical school application systems?",
-        "answer": "Yes, I provide guidance for AMCAS, AACOMAS, and TMDSAS applications, as well as preparation for Casper, Snapshot, Duet, and PREview assessments."
-      },
-      {
-        "question": "How long does the full-cycle advising program take?",
-        "answer": "The full-cycle program typically spans the entire application year, from initial planning through acceptance, with flexible scheduling to accommodate your timeline."
-      },
-      {
-        "question": "Can you help with post-acceptance decisions?",
-        "answer": "Absolutely. I provide guidance on waitlist navigation, school selection after acceptance, and strategic decision-making throughout the process."
+        "question": "What is 'Strategic Outreach'?",
+        "answer": "It is the process of creating visibility inside your target programs before you apply. We teach you how to engage faculty and departments so you have advocates on the inside."
       }
     ]
   },
