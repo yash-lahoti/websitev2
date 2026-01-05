@@ -7,22 +7,32 @@
   .snapfolio-section {
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 100px 0;
-    overflow: clip;
+    padding: 30px 0; // Reduced padding to minimize white space
+    padding-bottom: 20px; // Reduced bottom padding
+    overflow: visible; // Change from clip to visible
+    overflow-x: hidden; // Keep horizontal hidden
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0 auto;
+    // Remove margin-bottom: 0 to allow natural spacing
   }
 
   // Alternate section spacing for better visual rhythm
   section.snapfolio-section:nth-child(even),
   .snapfolio-section:nth-child(even) {
-    padding: 120px 0;
+    padding: 30px 0; // Same padding for consistency
+    padding-bottom: 20px;
   }
 
   // Global section titles - namespaced
   .snapfolio-section-title {
     text-align: center;
-    padding-bottom: 60px;
-    margin-bottom: 30px;
+    padding-bottom: 20px; // Reduced from 60px
+    margin-bottom: 20px; // Reduced from 30px
     position: relative;
 
     h2 {

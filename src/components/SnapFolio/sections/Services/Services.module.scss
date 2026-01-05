@@ -150,7 +150,7 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    min-height: 280px;
+    min-height: auto; // Remove fixed min-height
   }
 
   .serviceCard.expandedShowcase {

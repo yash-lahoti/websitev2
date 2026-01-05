@@ -1,11 +1,12 @@
 @use '../../shared/snapfolio-variables.scss' as *;
 
 .hero {
-  min-height: 100vh;
+  min-height: auto; // Component-relative, no fixed height
   position: relative;
-  overflow: hidden;
+  overflow: visible; // Remove overflow restrictions
   display: flex;
   align-items: center;
+  padding: 40px 0; // Minimal padding
 }
 
 .backgroundElements {
@@ -172,7 +173,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  // Remove height: 100% to prevent stretching
 }
 
 .heroVisual .profileContainer {
