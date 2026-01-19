@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.16 0.01 260);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.16 0.01 260);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.7 0.18 180);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.22 0.01 260);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.22 0.01 260);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.7 0.18 180);
+  --accent-foreground: oklch(0.12 0.01 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.28 0.01 260);
+  --input: oklch(0.22 0.01 260);
+  --ring: oklch(0.7 0.18 180);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.16 0.01 260);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.7 0.18 180);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.22 0.01 260);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.28 0.01 260);
+  --sidebar-ring: oklch(0.7 0.18 180);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+/* Scrolling animation for school banner */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* 3D Book Styles */
+.heroSpotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(100, 200, 180, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bookWrapper {
+  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) 
+          drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book > div {
+  position: absolute;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cover {
+  width: 300px;
+  height: 400px;
+  transform: translateZ(20px);
+  background: #0a1628;
+  border-radius: 4px 8px 8px 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05),
+    inset -1px 0 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Prevent image quality degradation during 3D transforms */
+  -webkit-transform: translateZ(20px);
+  -webkit-font-smoothing: antialiased;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  /* Optimize image rendering quality - use auto for photos */
+  image-rendering: auto;
+  /* Force hardware acceleration for better quality during transforms */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  /* Prevent image blur during transforms */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Ensure crisp rendering */
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.edgeFade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(
+      ellipse 85% 85% at center,
+      transparent 50%,
+      rgba(10, 22, 40, 0.3) 75%,
+      rgba(10, 22, 40, 0.7) 90%,
+      rgba(10, 22, 40, 0.95) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 4px 8px 8px 4px;
+}
+
+.sheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(
+      ellipse 80% 50% at 30% 20%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.rimLight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px 8px 8px 4px;
+  pointer-events: none;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 1px 0 0 rgba(255, 255, 255, 0.15),
+    inset -1px 0 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+}
+
+.spineShadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: 
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 30%,
+      rgba(0, 0, 0, 0.2) 60%,
+      transparent 100%
+    );
+  pointer-events: none;
+  box-shadow: 
+    inset -2px 0 4px rgba(0, 0, 0, 0.3),
+    2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.back {
+  width: 300px;
+  height: 400px;
+  transform: translateZ(-20px) rotateY(180deg);
+  border-radius: 4px 8px 8px 4px;
+}
+
+.left {
+  width: 40px;
+  height: 400px;
+  left: -20px;
+  top: 0;
+  transform: rotateY(-90deg);
+  background: 
+    repeating-linear-gradient(
+      to bottom,
+      #f5f5f5 0px,
+      #f5f5f5 1px,
+      #e8e8e8 1px,
+      #e8e8e8 2px
+    ),
+    linear-gradient(to right, #f8f8f8, #e0e0e0);
+  background-size: 100% 2px, 100% 100%;
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.right {
+  width: 40px;
+  height: 400px;
+  right: -20px;
+  top: 0;
+  transform: rotateY(90deg);
+  background: linear-gradient(to left, #0f0f0f, #1a1a1a);
+}
+
+.top {
+  width: 300px;
+  height: 40px;
+  top: -20px;
+  left: 0;
+  transform: rotateX(90deg);
+  background: 
+    repeating-linear-gradient(
+      to right,
+      #f5f5f5 0px,
+      #f5f5f5 1px,
+      #e8e8e8 1px,
+      #e8e8e8 2px
+    ),
+    linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  background-size: 2px 100%, 100% 100%;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bottom {
+  width: 300px;
+  height: 40px;
+  bottom: -20px;
+  left: 0;
+  transform: rotateX(-90deg);
+  background: 
+    repeating-linear-gradient(
+      to right,
+      #f5f5f5 0px,
+      #f5f5f5 1px,
+      #e8e8e8 1px,
+      #e8e8e8 2px
+    ),
+    linear-gradient(to top, #f8f8f8, #e0e0e0);
+  background-size: 2px 100%, 100% 100%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll-triggered fade-up animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Intersection Observer animation classes */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover state refinements for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}

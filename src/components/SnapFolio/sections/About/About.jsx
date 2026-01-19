@@ -34,7 +34,7 @@ const About = () => {
               <div className={styles.profileHeader}>
                 <div className={styles.profileImage}>
                   <img 
-                    src={`/snapfolio/${aboutData.profile_image}`} 
+                    src={`/admission/${aboutData.profile_image}`} 
                     alt="Profile Image" 
                     className="img-fluid"
                   />
@@ -66,7 +66,7 @@ const About = () => {
                       <div className={styles.degreeTabContent}>
                         <div className={styles.degreeLogo}>
                           <img 
-                            src={`/snapfolio/${degree.logo}`} 
+                            src={`/admission/${degree.logo}`} 
                             alt={degree.alt}
                             className={styles.schoolLogo}
                           />

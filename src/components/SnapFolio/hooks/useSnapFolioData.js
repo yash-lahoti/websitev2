@@ -12,7 +12,7 @@ export const useSnapFolioData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/snapfolio/assets/js/data.json');
+        const response = await fetch('/admission/assets/js/data.json');
         if (!response.ok) {
           throw new Error('Failed to fetch SnapFolio data');
         }
@@ -30,5 +30,6 @@ export const useSnapFolioData = () => {
 
   return { data, loading, error };
 };
+
 
 

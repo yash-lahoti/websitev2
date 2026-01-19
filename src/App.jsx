@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
-import SnapFolioPage from './components/SnapFolio/SnapFolioPage';
+import AdmissionsPage from './components/Admissions/AdmissionsPage';
 
 const App = () => {
   const [sampleData, setSampleData] = useState(null);
@@ -33,8 +33,8 @@ const App = () => {
             </div>
           }
         />
-        {/* SnapFolio route */}
-        <Route path="/admissions-consulting" element={<SnapFolioPage />} />
+        {/* Admissions route */}
+        <Route path="/admissions-consulting" element={<AdmissionsPage />} />
         {/* Redirect `/medicalstudent` to `/` to render the same content */}
         <Route path="/" element={<Navigate to="/medicalstudent" />} />
         {/* Catch-all route */}

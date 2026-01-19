@@ -89,7 +89,7 @@ const Hero = () => {
                 <div className={styles.profileContainer}>
                   <div className={styles.profileBackground}></div>
                   <img 
-                    src="/snapfolio/assets/img/profile/profile-2.webp" 
+                    src="/admission/assets/img/profile/profile-2.webp" 
                     alt={heroData.name || 'Profile'} 
                     className={styles.profileImage}
                   />

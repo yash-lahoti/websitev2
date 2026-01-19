@@ -25,7 +25,7 @@ const SnapFolioWrapper = () => {
         </div>
       )}
       <iframe
-        src="/snapfolio/index.html"
+        src="/admission/index.html"
         style={{
           width: '100%',
           height: '100%',
