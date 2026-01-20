@@ -21,7 +21,7 @@ const App = () => {
         <Route
           path="/medicalstudent"
           element={
-            <div>
+            <div className="main-app-route relative z-0 bg-primary">
               <Navbar />
               <Hero />
               <About />
@@ -35,9 +35,9 @@ const App = () => {
           }
         />
         {/* Admissions route */}
-        <Route path="/admissions-consulting" element={<AdmissionsPage />} />
+        <Route path="/admissions" element={<AdmissionsPage />} />
         {/* Redirect `/medicalstudent` to `/` to render the same content */}
-        <Route path="/" element={<Navigate to="/medicalstudent" />} />
+        <Route path="/" element={<Navigate to="/admissions" />} />
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

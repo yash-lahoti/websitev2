@@ -70,8 +70,7 @@ const Navbar = () => {
       style={{
         WebkitBackfaceVisibility: 'hidden',
         backfaceVisibility: 'hidden',
-        transform: 'translateZ(0)',
-        isolation: 'isolate'
+        transform: 'translateZ(0)'
       }}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">

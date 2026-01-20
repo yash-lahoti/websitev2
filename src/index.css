@@ -195,12 +195,38 @@ body {
   display: none;  /* Chrome, Safari and Opera */
 }
 
-/* Mobile-specific fixes to prevent background overlay issues */
+/* Mobile-specific fixes to prevent background overlay issues and ensure scrolling */
 @media (max-width: 640px) {
+  /* Ensure body and html allow scrolling on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Ensure main app route allows scrolling */
   .main-app-route {
     position: relative;
     overflow-x: hidden;
+    overflow-y: visible;
     min-height: 100vh;
+    height: auto;
+  }
+
+  /* Ensure content sections can scroll */
+  .main-app-route > *:not(nav) {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Fix Hero section on mobile - allow content to flow */
+  .main-app-route section[class*="h-"] {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
   }
 }
 

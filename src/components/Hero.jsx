@@ -20,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <section className={`relative w-full h-[95vh] min-h-[600px] mx-auto overflow-hidden bg-primary bg-hero-pattern bg-cover bg-no-repeat bg-center`}>
+    <section className={`relative w-full min-h-[95vh] sm:h-[95vh] mx-auto overflow-x-hidden sm:overflow-hidden bg-primary bg-hero-pattern bg-cover bg-no-repeat bg-center`}>
       <div
         className={`relative sm:absolute sm:inset-0 sm:top-[120px] pt-28 sm:pt-0 max-w-6xl mx-auto ${styles.paddingX} flex flex-col sm:flex-row items-start gap-5`}
       >
