@@ -24,8 +24,6 @@ const App = () => {
         {/* Admissions route */}
         <Route path="/admissions" element={<AdmissionsPage />} />
         {/* Component Tester route */}
-        <Route path="/test" element={<ComponentTester />} />
-        <Route path="/component-test" element={<ComponentTester />} />
         {/* Redirect `/medicalstudent` to `/` to render the same content */}
         <Route path="/" element={<Navigate to="/admissions" />} />
         {/* Catch-all route */}

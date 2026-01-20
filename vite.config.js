@@ -10,7 +10,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src/components/Admissions')
+      '@': path.resolve(__dirname, './src/components/Admissions'),
+      '@medical': path.resolve(__dirname, './src/components/MedicalStudent')
     }
   },
   define: {

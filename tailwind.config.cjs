@@ -3,7 +3,8 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx}",
-    "./src/components/Admissions/**/*.{js,jsx,ts,tsx}"
+    "./src/components/Admissions/**/*.{js,jsx,ts,tsx}",
+    "./src/components/MedicalStudent/**/*.{js,jsx,ts,tsx}"
   ],
   mode: "jit",
   theme: {

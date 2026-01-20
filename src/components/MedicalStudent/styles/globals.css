@@ -1,0 +1,138 @@
+/* Medical Student Component Scoped Styles */
+/* Tailwind is already loaded globally in src/index.css - don't duplicate here */
+
+/* CSS Variables - define on html when medical student page is active */
+/* This allows Tailwind classes to access the variables */
+html.medicalstudent-active {
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.93 0.01 260);
+  --card: oklch(0.15 0.01 260);
+  --card-foreground: oklch(0.93 0.01 260);
+  --popover: oklch(0.15 0.01 260);
+  --popover-foreground: oklch(0.93 0.01 260);
+  --primary: oklch(0.65 0.18 195);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.22 0.01 260);
+  --secondary-foreground: oklch(0.85 0.01 260);
+  --muted: oklch(0.22 0.01 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  --accent: oklch(0.65 0.18 195);
+  --accent-foreground: oklch(0.12 0.01 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.25 0.01 260);
+  --input: oklch(0.22 0.01 260);
+  --ring: oklch(0.65 0.18 195);
+  --chart-1: oklch(0.65 0.18 195);
+  --chart-2: oklch(0.70 0.15 150);
+  --chart-3: oklch(0.75 0.12 80);
+  --chart-4: oklch(0.65 0.20 280);
+  --chart-5: oklch(0.70 0.18 30);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.14 0.01 260);
+  --sidebar-foreground: oklch(0.85 0.01 260);
+  --sidebar-primary: oklch(0.65 0.18 195);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.20 0.01 260);
+  --sidebar-accent-foreground: oklch(0.93 0.01 260);
+  --sidebar-border: oklch(0.25 0.01 260);
+  --sidebar-ring: oklch(0.65 0.18 195);
+  
+  /* Font configuration */
+  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+}
+
+html.medicalstudent-active .dark {
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.93 0.01 260);
+  --card: oklch(0.15 0.01 260);
+  --card-foreground: oklch(0.93 0.01 260);
+  --popover: oklch(0.15 0.01 260);
+  --popover-foreground: oklch(0.93 0.01 260);
+  --primary: oklch(0.65 0.18 195);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.22 0.01 260);
+  --secondary-foreground: oklch(0.85 0.01 260);
+  --muted: oklch(0.22 0.01 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  --accent: oklch(0.65 0.18 195);
+  --accent-foreground: oklch(0.12 0.01 260);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0.01 260);
+  --input: oklch(0.22 0.01 260);
+  --ring: oklch(0.65 0.18 195);
+  --chart-1: oklch(0.65 0.18 195);
+  --chart-2: oklch(0.70 0.15 150);
+  --chart-3: oklch(0.75 0.12 80);
+  --chart-4: oklch(0.65 0.20 280);
+  --chart-5: oklch(0.70 0.18 30);
+  --sidebar: oklch(0.14 0.01 260);
+  --sidebar-foreground: oklch(0.85 0.01 260);
+  --sidebar-primary: oklch(0.65 0.18 195);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.20 0.01 260);
+  --sidebar-accent-foreground: oklch(0.93 0.01 260);
+  --sidebar-border: oklch(0.25 0.01 260);
+  --sidebar-ring: oklch(0.65 0.18 195);
+}
+
+/* Base styles scoped to medical student page */
+.medicalstudent-page {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Apply base styles to all elements within medical student page */
+.medicalstudent-page * {
+  border-color: var(--border);
+}
+
+/* Ensure body and html styling when medical student page is active */
+html.medicalstudent-active,
+body.medicalstudent-active {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure all children of medicalstudent-page inherit proper styling */
+html.medicalstudent-active .medicalstudent-page,
+html.medicalstudent-active .medicalstudent-page * {
+  border-color: var(--border);
+}
+
+/* Custom scrollbar - scoped to medical student page */
+.medicalstudent-page ::-webkit-scrollbar,
+html.medicalstudent-active ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.medicalstudent-page ::-webkit-scrollbar-track,
+html.medicalstudent-active ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.medicalstudent-page ::-webkit-scrollbar-thumb,
+html.medicalstudent-active ::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0.01 260);
+  border-radius: 4px;
+}
+
+.medicalstudent-page ::-webkit-scrollbar-thumb:hover,
+html.medicalstudent-active ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.45 0.01 260);
+}
+
+/* Selection color - scoped to medical student page */
+.medicalstudent-page ::selection,
+html.medicalstudent-active ::selection {
+  background: oklch(0.65 0.18 195 / 0.3);
+}
