@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
 import AdmissionsPage from './components/Admissions/AdmissionsPage';
+import MedicalStudentPage from './components/MedicalStudent/MedicalStudentPage';
 import TestPage from './components/TestPage';
 import ComponentTester from './components/ComponentTester';
 
@@ -18,15 +19,8 @@ const App = () => {
   return (
     <BrowserRouter basename=''>
       <Routes>
-        {/* Route for the base URL */}
-        <Route
-          path="/medicalstudent"
-          element={
-            <div className="main-app-route">
-              <Contact />
-            </div>
-          }
-        />
+        {/* Medical Student route */}
+        <Route path="/medicalstudent" element={<MedicalStudentPage />} />
         {/* Admissions route */}
         <Route path="/admissions" element={<AdmissionsPage />} />
         {/* Component Tester route */}
