@@ -12,6 +12,9 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src/components/Admissions')
     }
+  },
+  define: {
+    'process.env': {}
   }
 })
 

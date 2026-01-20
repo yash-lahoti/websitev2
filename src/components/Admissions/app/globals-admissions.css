@@ -1,10 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Admissions Component Scoped Styles */
+/* All styles are scoped to .admissions-page to prevent conflicts with main app */
 
-@custom-variant dark (&:is(.dark *));
+/* DO NOT include @tailwind directives here - main app already has them in src/index.css */
+/* Including them here causes duplicate base resets and conflicts */
 
-:root {
+/* CSS Variables scoped to .admissions-page instead of :root */
+/* These variables cascade to all children within .admissions-page */
+.admissions-page {
   --background: oklch(0.12 0.01 260);
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.16 0.01 260);
@@ -40,7 +42,8 @@
   --sidebar-ring: oklch(0.7 0.18 180);
 }
 
-.dark {
+.admissions-page.dark,
+body.admissions-active .admissions-page.dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -75,14 +78,41 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  }
+/* Base styles scoped to .admissions-page */
+.admissions-page * {
+  border-color: var(--border);
+  outline-color: var(--ring);
+  outline-opacity: 0.5;
+}
+
+.admissions-page {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Custom scrollbar styles for Admissions */
+.admissions-page .custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admissions-page .custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admissions-page .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.admissions-page .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+  opacity: 0.4;
+}
+
+/* Also support non-scoped usage within admissions-page for compatibility */
+.admissions-page .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border, oklch(0.28 0.01 260));
 }
 
 /* Scrolling animation for school banner */
@@ -95,24 +125,31 @@
   }
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+.admissions-page .animate-scroll {
+  animation: scroll 10s linear infinite;
 }
 
-.animate-scroll:hover {
+.admissions-page .animate-scroll:hover {
   animation-play-state: paused;
 }
 
-/* 3D Book Styles */
-.heroSpotlight {
+@media (max-width: 768px) {
+  .admissions-page .animate-scroll {
+    animation: scroll 6s linear infinite;
+  }
+}
+
+/* 3D Book Styles - scoped to .admissions-page */
+.admissions-page .heroSpotlight {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 50%, rgba(100, 200, 180, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
-.bookWrapper {
-  perspective: 1000px;
+.admissions-page .bookWrapper {
+  perspective: 1500px;
+  perspective-origin: center center;
   width: 300px;
   height: 400px;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) 
@@ -120,22 +157,23 @@
           drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
 }
 
-.book {
+.admissions-page .book {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 
-.book > div {
+.admissions-page .book > div {
   position: absolute;
   background: #1a1a1a;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.cover {
+.admissions-page .cover {
   width: 300px;
   height: 400px;
   transform: translateZ(20px);
@@ -148,14 +186,53 @@
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     inset 1px 0 0 rgba(255, 255, 255, 0.05),
     inset -1px 0 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    /* Hardcover lip shadow */
+    inset -3px 0 0 rgba(0, 0, 0, 0.4),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.3),
+    inset 0 3px 0 rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
   /* Prevent image quality degradation during 3D transforms */
   -webkit-transform: translateZ(20px);
   -webkit-font-smoothing: antialiased;
 }
 
-.coverImg {
+/* Hardcover lip effect */
+.admissions-page .cover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  border-radius: 4px 8px 8px 4px;
+  z-index: -1;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.admissions-page .cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px 8px 8px 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-right: 3px solid rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.admissions-page .coverImg {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -177,7 +254,7 @@
   perspective: 1000;
 }
 
-.edgeFade {
+.admissions-page .edgeFade {
   position: absolute;
   top: 0;
   left: 0;
@@ -196,7 +273,7 @@
   border-radius: 4px 8px 8px 4px;
 }
 
-.sheen {
+.admissions-page .sheen {
   position: absolute;
   top: 0;
   left: 0;
@@ -221,7 +298,7 @@
   z-index: 2;
 }
 
-.rimLight {
+.admissions-page .rimLight {
   position: absolute;
   top: 0;
   left: 0;
@@ -243,7 +320,7 @@
   );
 }
 
-.spineShadow {
+.admissions-page .spineShadow {
   position: absolute;
   left: 0;
   top: 0;
@@ -252,9 +329,9 @@
   background: 
     linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.4) 30%,
-      rgba(0, 0, 0, 0.2) 60%,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.3) 30%,
+      rgba(0, 0, 0, 0.15) 60%,
       transparent 100%
     );
   pointer-events: none;
@@ -262,44 +339,88 @@
     inset -2px 0 4px rgba(0, 0, 0, 0.3),
     2px 0 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 4px 0 0 4px;
 }
 
-.back {
+.admissions-page .back {
   width: 300px;
   height: 400px;
   transform: translateZ(-20px) rotateY(180deg);
   border-radius: 4px 8px 8px 4px;
 }
 
-.left {
+.admissions-page .left {
   width: 40px;
   height: 400px;
   left: -20px;
   top: 0;
   transform: rotateY(-90deg);
   background: 
+    /* Page lines - more visible */
     repeating-linear-gradient(
       to bottom,
-      #f5f5f5 0px,
-      #f5f5f5 1px,
+      #ffffff 0px,
+      #ffffff 0.5px,
+      #f0f0f0 0.5px,
+      #f0f0f0 1px,
       #e8e8e8 1px,
-      #e8e8e8 2px
+      #e8e8e8 1.5px,
+      #f0f0f0 1.5px,
+      #f0f0f0 2px
     ),
-    linear-gradient(to right, #f8f8f8, #e0e0e0);
-  background-size: 100% 2px, 100% 100%;
-  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+    /* Page texture gradient */
+    linear-gradient(
+      to right,
+      #fafafa 0%,
+      #f5f5f5 20%,
+      #f0f0f0 40%,
+      #e8e8e8 60%,
+      #e0e0e0 80%,
+      #d8d8d8 100%
+    ),
+    /* Subtle vertical lines for page edges */
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 1px,
+      rgba(0, 0, 0, 0.05) 1px,
+      rgba(0, 0, 0, 0.05) 2px
+    );
+  background-size: 100% 2px, 100% 100%, 4px 100%;
+  box-shadow: 
+    inset -2px 0 4px rgba(0, 0, 0, 0.15),
+    inset 2px 0 2px rgba(255, 255, 255, 0.1),
+    -1px 0 3px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.right {
+.admissions-page .right {
   width: 40px;
   height: 400px;
   right: -20px;
   top: 0;
   transform: rotateY(90deg);
-  background: linear-gradient(to left, #0f0f0f, #1a1a1a);
+  background: 
+    repeating-linear-gradient(
+      to bottom,
+      #ffffff 0px,
+      #ffffff 0.5px,
+      #f0f0f0 0.5px,
+      #f0f0f0 1px,
+      #e8e8e8 1px,
+      #e8e8e8 1.5px,
+      #f0f0f0 1.5px,
+      #f0f0f0 2px
+    ),
+    linear-gradient(to left, #fafafa, #e8e8e8);
+  background-size: 100% 2px, 100% 100%;
+  box-shadow: 
+    inset 2px 0 4px rgba(0, 0, 0, 0.15),
+    inset -2px 0 2px rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.top {
+.admissions-page .top {
   width: 300px;
   height: 40px;
   top: -20px;
@@ -318,7 +439,7 @@
   box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.bottom {
+.admissions-page .bottom {
   width: 300px;
   height: 40px;
   bottom: -20px;
@@ -349,28 +470,28 @@
   }
 }
 
-.animate-fade-up {
+.admissions-page .animate-fade-up {
   animation: fadeUp 0.6s ease-out forwards;
 }
 
 /* Intersection Observer animation classes */
-.scroll-animate {
+.admissions-page .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.scroll-animate.is-visible {
+.admissions-page .scroll-animate.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Hover state refinements for cards */
-.card-hover {
+.admissions-page .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.card-hover:hover {
+.admissions-page .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }

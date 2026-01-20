@@ -32,15 +32,24 @@ const Activity = () => {
     (exp) => activeTab === "All" || exp.category === activeTab
   );
 
+  // Ensure scroll starts at the left (first tab visible) on mount
+  useEffect(() => {
+    if (tabContainerRef.current) {
+      tabContainerRef.current.scrollLeft = 0;
+    }
+  }, []);
+
   // Smooth scroll for tabs
   const handleTabClick = (tab) => {
     setActiveTab(tab);
     if (tabContainerRef.current) {
       const tabElement = document.getElementById(`tab-${tab}`);
-      tabContainerRef.current.scrollTo({
-        left: tabElement.offsetLeft - 50,
-        behavior: "smooth",
-      });
+      if (tabElement) {
+        tabContainerRef.current.scrollTo({
+          left: tabElement.offsetLeft - 50,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
@@ -56,20 +65,25 @@ const Activity = () => {
         {/* Header */}
         <motion.div variants={textVariant()} className="flex flex-col items-center">
           <p className={styles.sectionSubText}>Tasks I Have Worked On</p>
-          <div className="h-[2px] bg-[#FFB400] mt-4" style={{ width: "600px" }}></div>
+          <div className="h-[2px] bg-[#FFB400] mt-4 w-full max-w-[600px]"></div>
           <h4 className={styles.sectionHeadText}>Experiences</h4>
         </motion.div>
 
         {/* Tabs */}
         <div
           ref={tabContainerRef}
-          className="flex overflow-x-auto space-x-4 mt-6 py-2 scrollbar-hide"
+          className="flex overflow-x-auto space-x-2 sm:space-x-4 mt-6 py-2 -mx-2 sm:mx-0 px-2 sm:px-0 scrollbar-hide justify-start sm:justify-center"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
         >
           {categories.map((tab) => (
             <motion.button
               id={`tab-${tab}`}
               key={tab}
-              className={`px-6 py-2 flex-shrink-0 rounded-t-lg text-lg font-semibold transition-all duration-300 ${
+              className={`px-3 py-2 sm:px-6 sm:py-2 flex-shrink-0 rounded-t-lg text-xs sm:text-sm md:text-lg font-semibold transition-all duration-300 whitespace-nowrap ${
                 activeTab === tab
                   ? "bg-[#FFB400] text-black"
                   : "bg-[#333] text-white hover:bg-gray-500"

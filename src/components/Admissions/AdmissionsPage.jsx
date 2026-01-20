@@ -19,26 +19,42 @@ import './app/globals-admissions.css';
 
 const AdmissionsPage = () => {
   useEffect(() => {
+    const body = document.body;
+    const html = document.documentElement;
+    
+    // Store original font family to restore on unmount
+    const originalFontFamily = body.style.fontFamily || window.getComputedStyle(body).fontFamily;
+    
+    // Add body class to indicate Admissions is active
+    body.classList.add('admissions-active');
+    
     // Load Geist fonts from Google Fonts
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap';
     link.rel = 'stylesheet';
+    link.id = 'admissions-geist-font';
     document.head.appendChild(link);
 
-    // Apply Geist font to the body when this component is mounted
-    document.body.style.fontFamily = "'Geist', 'Geist Fallback', sans-serif";
-
     return () => {
-      // Cleanup: remove font link when component unmounts (optional)
-      const fontLink = document.querySelector('link[href*="Geist"]');
+      // Cleanup: remove body class and font link when component unmounts
+      body.classList.remove('admissions-active');
+      
+      const fontLink = document.getElementById('admissions-geist-font');
       if (fontLink) {
         fontLink.remove();
+      }
+      
+      // Restore original font family if it was set
+      if (originalFontFamily) {
+        body.style.fontFamily = originalFontFamily;
+      } else {
+        body.style.fontFamily = '';
       }
     };
   }, []);
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="admissions-page min-h-screen bg-background">
       <Navbar />
       <Hero />
       <Stats />

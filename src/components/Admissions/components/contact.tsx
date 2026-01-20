@@ -47,53 +47,54 @@ export function Contact() {
               school application.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
+            {/* Mobile: Grid layout, Desktop: Vertical list */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
+              <div className="flex items-center gap-3 sm:items-start sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Location</h4>
-                  <p className="text-muted-foreground">New York, NY</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground">+1 (412) 608-5556</p>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground text-sm sm:text-base">Location</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">New York, NY</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-3 sm:items-start sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Email</h4>
-                  <p className="text-muted-foreground">lahotiyash14@gmail.com</p>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground text-sm sm:text-base">Phone</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm break-all">+1 (412) 608-5556</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 sm:items-start sm:gap-4 sm:col-span-2 lg:col-span-1">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground text-sm sm:text-base">Email</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm break-all">lahotiyash14@gmail.com</p>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="mt-8 flex gap-4">
+            <div className="mt-6 sm:mt-8 flex gap-3 sm:gap-4 justify-center sm:justify-start">
               <a
                 href="https://www.linkedin.com/in/yash-lahoti-mse-90b477178/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
               >
-                <Linkedin className="w-5 h-5 text-primary" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </a>
               <a
                 href="mailto:lahotiyash14@gmail.com"
-                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
               >
-                <Mail className="w-5 h-5 text-primary" />
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </a>
             </div>
           </div>

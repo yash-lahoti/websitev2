@@ -7,7 +7,6 @@ import {
   Building2,
   Users,
   Award,
-  Check,
   ArrowRight,
 } from "lucide-react";
 
@@ -100,10 +99,10 @@ export function Services() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-medium mb-2">
-            The Differentiation Framework
+            My Framework  
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Four Pillars of Admission Success
+            Four Pillars of Success
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Each pillar builds on the others. Together, they transform you from
@@ -222,75 +221,45 @@ export function Services() {
           <Card
             className={`border-2 transition-all duration-500 ${selectedPillar.borderColor} bg-gradient-to-br ${selectedPillar.color}`}
           >
-            <CardContent className="p-0">
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Left: Content */}
-                <div className="p-8 md:border-r border-border">
-                  {/* Pillar Badge */}
-                  <div
-                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${selectedPillar.bgColor} mb-6`}
-                  >
-                    <selectedPillar.icon className={`w-4 h-4 ${selectedPillar.textColor}`} />
-                    <span className={`text-sm font-semibold ${selectedPillar.textColor}`}>
-                      Pillar {pillars.findIndex((p) => p.id === selectedId) + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    {selectedPillar.title}
-                  </h3>
-
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    {selectedPillar.desc}
-                  </p>
-
-                  <p className="text-muted-foreground leading-relaxed">
-                    {selectedPillar.detail}
-                  </p>
-                </div>
-
-                {/* Right: Outcomes */}
-                <div className="p-8 bg-card/50">
-                  <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">
-                    What You Achieve
-                  </h4>
-
-                  <div className="space-y-4">
-                    {selectedPillar.outcomes.map((outcome) => (
-                      <div
-                        key={outcome}
-                        className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border"
-                      >
-                        <div
-                          className={`w-8 h-8 rounded-lg ${selectedPillar.bgColor} flex items-center justify-center shrink-0`}
-                        >
-                          <Check className={`w-4 h-4 ${selectedPillar.textColor}`} />
-                        </div>
-                        <p className="text-foreground font-medium pt-1">
-                          {outcome}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Connection hint */}
-                  {pillars.findIndex((p) => p.id === selectedId) < pillars.length - 1 && (
-                    <div className="mt-8 pt-6 border-t border-border">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const nextIndex = pillars.findIndex((p) => p.id === selectedId) + 1;
-                          setSelectedId(pillars[nextIndex].id);
-                        }}
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <span>Next: {pillars[pillars.findIndex((p) => p.id === selectedId) + 1].title}</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  )}
-                </div>
+            <CardContent className="p-5 md:p-6">
+              {/* Pillar Badge */}
+              <div
+                className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-full ${selectedPillar.bgColor} mb-4`}
+              >
+                <selectedPillar.icon className={`w-3.5 h-3.5 ${selectedPillar.textColor}`} />
+                <span className={`text-xs font-semibold ${selectedPillar.textColor}`}>
+                  Pillar {pillars.findIndex((p) => p.id === selectedId) + 1}
+                </span>
               </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                {selectedPillar.title}
+              </h3>
+
+              <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                {selectedPillar.desc}
+              </p>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {selectedPillar.detail}
+              </p>
+
+              {/* Connection hint */}
+              {pillars.findIndex((p) => p.id === selectedId) < pillars.length - 1 && (
+                <div className="mt-6 pt-4 border-t border-border">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const nextIndex = pillars.findIndex((p) => p.id === selectedId) + 1;
+                      setSelectedId(pillars[nextIndex].id);
+                    }}
+                    className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <span>Next: {pillars[pillars.findIndex((p) => p.id === selectedId) + 1].title}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
             </CardContent>
           </Card>
 

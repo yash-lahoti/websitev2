@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles.js";
@@ -7,6 +7,7 @@ import { SectionWrapper } from "../hoc/index.js";
 const HomeView = () => {
   const [publications, setPublications] = useState([]);
   const [activeTab, setActiveTab] = useState("Abstract/Poster");
+  const tabContainerRef = useRef(null);
 
   // Fetch publications data when component mounts
   useEffect(() => {
@@ -21,6 +22,13 @@ const HomeView = () => {
       }
     };
     fetchPublications();
+  }, []);
+
+  // Ensure scroll starts at the left (first tab visible) on mount
+  useEffect(() => {
+    if (tabContainerRef.current) {
+      tabContainerRef.current.scrollLeft = 0;
+    }
   }, []);
 
   // Filter publications by active tab
@@ -60,19 +68,24 @@ const HomeView = () => {
         {/* Header */}
         <motion.div variants={textVariant()} className="flex flex-col items-center">
           <p className={styles.sectionSubText}>Research</p>
-          <div
-            className="h-[2px] bg-accent mt-4"
-            style={{ width: "600px" }} // Adjust the width as needed
-          ></div>
+          <div className="h-[2px] bg-accent mt-4 w-full max-w-[600px]"></div>
           <h4 className={styles.sectionHeadText}>Publications: {publications.length}</h4>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center space-x-8 mt-6 padding-top-100">
+        <div 
+          ref={tabContainerRef}
+          className="flex overflow-x-auto space-x-2 sm:space-x-4 md:space-x-8 mt-6 py-2 -mx-2 sm:mx-0 px-2 sm:px-0 scrollbar-hide justify-start sm:justify-center"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
           {["Abstract/Poster", "Presentation", "Manuscripts"].map((tab) => (
             <button
               key={tab}
-              className={`px-6 py-2 flex-shrink-0 rounded-t-lg text-lg font-semibold transition-all duration-300 ${
+              className={`px-3 py-2 sm:px-6 sm:py-2 flex-shrink-0 rounded-t-lg text-xs sm:text-sm md:text-lg font-semibold transition-all duration-300 whitespace-nowrap ${
                 activeTab === tab
                   ? "bg-[#FFB400] text-black"
                   : "bg-[#333] text-white hover:bg-gray-500"

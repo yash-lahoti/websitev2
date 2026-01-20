@@ -32,8 +32,8 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-md border-b border-border"
+          : "bg-background/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -41,7 +41,7 @@ export function Navbar() {
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2">
             <span className="text-xl font-bold text-foreground">
-              Lahoti<span className="text-primary">Admissions</span>
+              YL<span className="text-primary">Admissions</span>
             </span>
           </a>
 
@@ -81,13 +81,13 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
+          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 bg-background/95 backdrop-blur-md rounded-lg -mx-6 px-6">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-foreground hover:text-primary transition-colors font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}

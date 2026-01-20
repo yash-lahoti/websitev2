@@ -10,11 +10,37 @@ export function Hero() {
   const [rotateX, setRotateX] = useState(defaultRotateX);
   const [rotateY, setRotateY] = useState(defaultRotateY);
   const bookRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+  const isMouseActive = useRef(false);
+  const lastMouseTime = useRef(0);
 
   useEffect(() => {
+    // Add subtle automatic animation when mouse is not active
+    const animate = () => {
+      const now = Date.now();
+      const timeSinceMouse = now - lastMouseTime.current;
+      
+      // Only animate if mouse hasn't moved in last 2 seconds
+      if (!isMouseActive.current && timeSinceMouse > 2000) {
+        const time = Date.now() * 0.001;
+        const autoRotateX = defaultRotateX + Math.sin(time * 0.4) * 4;
+        const autoRotateY = defaultRotateY + Math.cos(time * 0.25) * 6;
+        
+        setRotateX(autoRotateX);
+        setRotateY(autoRotateY);
+      }
+      
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+
     const handleMouseMove = (e: Event) => {
       if (!bookRef.current) return;
       const mouseEvent = e as MouseEvent;
+      
+      isMouseActive.current = true;
+      lastMouseTime.current = Date.now();
       
       const rect = bookRef.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
@@ -23,15 +49,19 @@ export function Hero() {
       const mouseX = mouseEvent.clientX - centerX;
       const mouseY = mouseEvent.clientY - centerY;
       
-      const maxRotate = 15;
-      const rotateXValue = defaultRotateX + (mouseY / rect.height) * maxRotate;
-      const rotateYValue = defaultRotateY + (mouseX / rect.width) * maxRotate;
+      // Increased max rotation for more dramatic 3D effect
+      const maxRotateX = 25;
+      const maxRotateY = 30;
+      const rotateXValue = defaultRotateX + (mouseY / rect.height) * maxRotateX * 2;
+      const rotateYValue = defaultRotateY + (mouseX / rect.width) * maxRotateY * 2;
       
       setRotateX(rotateXValue);
       setRotateY(rotateYValue);
     };
 
     const handleMouseLeave = () => {
+      isMouseActive.current = false;
+      lastMouseTime.current = Date.now();
       setRotateX(defaultRotateX);
       setRotateY(defaultRotateY);
     };
@@ -43,6 +73,9 @@ export function Hero() {
       return () => {
         bookElement.removeEventListener('mousemove', handleMouseMove);
         bookElement.removeEventListener('mouseleave', handleMouseLeave);
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
       };
     }
   }, []);
@@ -74,7 +107,6 @@ export function Hero() {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
           <span className="text-foreground">Medical School Admissions</span>
           <br />
-          <span className="text-primary">Strategic Consulting</span>
         </h1>
 
         {/* Name & Role */}

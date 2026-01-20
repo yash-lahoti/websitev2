@@ -9,26 +9,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Admissions component colors (using CSS variables)
-        background: "var(--background, oklch(0.12 0.01 260))",
-        foreground: "var(--foreground, oklch(0.98 0 0))",
-        card: "var(--card, oklch(0.16 0.01 260))",
-        "card-foreground": "var(--card-foreground, oklch(0.98 0 0))",
-        popover: "var(--popover, oklch(0.16 0.01 260))",
-        "popover-foreground": "var(--popover-foreground, oklch(0.98 0 0))",
-        primary: "var(--primary, oklch(0.7 0.18 180))",
-        "primary-foreground": "var(--primary-foreground, oklch(0.12 0.01 260))",
-        secondary: "var(--secondary, oklch(0.22 0.01 260))",
-        "secondary-foreground": "var(--secondary-foreground, oklch(0.98 0 0))",
-        muted: "var(--muted, oklch(0.22 0.01 260))",
-        "muted-foreground": "var(--muted-foreground, oklch(0.65 0 0))",
-        accent: "var(--accent, oklch(0.7 0.18 180))",
-        "accent-foreground": "var(--accent-foreground, oklch(0.12 0.01 260))",
-        destructive: "var(--destructive, oklch(0.577 0.245 27.325))",
-        "destructive-foreground": "var(--destructive-foreground, oklch(0.577 0.245 27.325))",
-        border: "var(--border, oklch(0.28 0.01 260))",
-        input: "var(--input, oklch(0.22 0.01 260))",
-        ring: "var(--ring, oklch(0.7 0.18 180))",
+        // Main app colors - use CSS variables with fallbacks
+        // Main app doesn't define these variables, so uses fallback values
+        // Admissions defines them in .admissions-page scope, so uses those values
+        primary: "var(--primary, #0a192f)",
+        secondary: "var(--secondary, #b4c0da)",
+        background: "var(--background, #0a192f)",
+        foreground: "var(--foreground, #e6f1ff)",
+        card: "var(--card, #112240)",
+        "card-foreground": "var(--card-foreground, #e6f1ff)",
+        popover: "var(--popover, #112240)",
+        "popover-foreground": "var(--popover-foreground, #e6f1ff)",
+        "primary-foreground": "var(--primary-foreground, #e6f1ff)",
+        "secondary-foreground": "var(--secondary-foreground, #0a192f)",
+        muted: "var(--muted, #233554)",
+        "muted-foreground": "var(--muted-foreground, #8892b0)",
+        accent: "var(--accent, #FFB400)",
+        "accent-foreground": "var(--accent-foreground, #0a192f)",
+        destructive: "var(--destructive, #f12711)",
+        "destructive-foreground": "var(--destructive-foreground, #ffffff)",
+        border: "var(--border, #233554)",
+        input: "var(--input, #233554)",
+        ring: "var(--ring, #FFB400)",
         // Original colors (for backward compatibility)
         tertiary: "#464f69",
         quart: "#4a5986",

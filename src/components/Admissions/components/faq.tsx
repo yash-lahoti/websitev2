@@ -11,12 +11,12 @@ const faqs = [
   {
     question: "What makes your approach different from other consultants?",
     answer:
-      "After reviewing hundreds of applications, I've learned exactly what separates accepted from rejected. Most consultants edit documents; I help you build the strategic identity that makes those documents compelling in the first place.",
+      "After reviewing  applications, I've learned exactly what separates accepted from rejected. Most consultants edit documents",
   },
   {
     question: "How involved are you personally in the process?",
     answer:
-      "I work directly with every student myself. There's no team of junior editors or outsourced reviewers. When you book a session, you're working with me—the person who has reviewed hundreds of applications and learned what actually matters.",
+      "I work directly with every student myself. There's no team of junior editors or outsourced reviewers. When you book a session, you're working with me.",
   },
   {
     question: "How many students do you work with?",
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "When should I start working with you?",
     answer:
-      "The earlier, the better. Students who start 1-2 years before applying have time to build genuine experiences and relationships. Current cycle applicants can still benefit significantly, but strategic planning takes time to execute properly.",
+      "The earlier, the better. Students who start 1-2 years before applying have time to build genuine experiences and recieve mentorship. Current cycle applicants also benefit from guidance during the application process.",
   },
   {
     question: "Do you work with students with lower stats?",
@@ -34,14 +34,9 @@ const faqs = [
       "Yes. While strong academics matter, I've learned that compelling narratives can overcome lower numbers when they demonstrate authentic passion and clear trajectory. If you have a genuine story and realistic expectations, we can build something powerful.",
   },
   {
-    question: "What if I don't know what kind of doctor I want to be?",
-    answer:
-      "That's actually common and not a problem. What matters is having a coherent trajectory that shows genuine exploration and development. We work together to identify themes in your experiences that point toward authentic interests.",
-  },
-  {
     question: "Can you guarantee acceptance?",
     answer:
-      "No ethical consultant can guarantee admission. What I guarantee is that you'll have a strategically positioned application that answers the four questions every application needs to answer. The rest depends on factors neither of us control.",
+      "No ethical consultant can guarantee admission. What I guarantee is that you'll have a strategically positioned application that answers the four questions every application needs to answer.",
   },
   {
     question: "Do you help with MD and MD/PhD applications?",

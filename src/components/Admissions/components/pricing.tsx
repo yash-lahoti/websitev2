@@ -224,46 +224,6 @@ export function Pricing() {
             </CardContent>
           </Card>
         </div>
-
-        {/* Who Benefits */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-foreground text-center mb-4">
-            Who Will Benefit From This
-          </h3>
-          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-            Our approach is designed for ambitious candidates who understand
-            that medical school admissions requires more than just strong
-            credentials.
-          </p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "High-Achieving Applicants",
-                desc: "Strong grades and activities but struggling to differentiate in a competitive pool",
-              },
-              {
-                title: "Career Changers",
-                desc: "Non-traditional applicants needing to craft a compelling narrative from diverse experiences",
-              },
-              {
-                title: "Strategic Planners",
-                desc: "Students who want to build their profile strategically over time",
-              },
-              {
-                title: "Research-Focused Candidates",
-                desc: "Applicants with research interests who want to align with specific programs and faculty",
-              },
-            ].map((item) => (
-              <div key={item.title} className="text-center">
-                <h4 className="font-semibold text-foreground mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

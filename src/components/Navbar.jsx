@@ -77,11 +77,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
-            Yash Lahoti &nbsp;
-            <span className="sm:block hidden">
-              | BAS, MSE, MD Loading {dots}
+          <img src={logo} alt="logo" className="w-9 h-9 object-contain shrink-0" />
+          <p className="text-white text-[14px] sm:text-[18px] font-bold cursor-pointer flex items-center truncate max-w-[200px] sm:max-w-none">
+            <span className="truncate">Yash Lahoti</span>
+            <span className="sm:inline hidden">
+              &nbsp;| BAS, MSE, MD Loading {dots}
               {minutesLeft !== null ? (
                 <span id="countdown">{minutesLeft}</span>
               ) : (
