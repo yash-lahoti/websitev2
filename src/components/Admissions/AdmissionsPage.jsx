@@ -54,7 +54,8 @@ const AdmissionsPage = () => {
   }, []);
 
   return (
-    <main className="admissions-page min-h-screen bg-background">
+    <main className="admissions-page min-h-screen bg-background"
+    >
       <Navbar />
       <Hero />
       <Stats />

@@ -38,6 +38,29 @@ body {
 .main-app-route {
   background-color: #0a192f;
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  /* Fix Safari mobile stacking context issue */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Fix Safari mobile navbar stacking context issue */
+.main-app-route nav[class*="fixed"] {
+  /* Prevent fixed navbar from creating new stacking context on Safari mobile */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Ensure content is above navbar background on Safari mobile */
+.main-app-route > *:not(nav) {
+  position: relative;
+  z-index: 1;
 }
 
 /* Main app accent color - orange (#FFB400) */
