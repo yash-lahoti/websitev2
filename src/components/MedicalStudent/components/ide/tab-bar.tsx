@@ -1,7 +1,6 @@
 "use client";
 
 import { X } from "lucide-react";
-import { useRef } from "react";
 import type { FileTab, TabId } from "./ide-layout";
 import { FileIcon } from "./file-icon";
 
@@ -20,13 +19,11 @@ export function TabBar({
   activeTab,
   onTabClick,
   onTabClose,
-  onTabReorder,
 }: TabBarProps) {
   const openFiles = files.filter((f) => openTabs.includes(f.id));
-  const draggingIdRef = useRef<TabId | null>(null);
 
   return (
-    <div className="h-9 mt-1 bg-card flex items-end border-b border-border overflow-x-auto shrink-0">
+    <div className="h-9 mt-1 bg-card flex items-end border-b border-border overflow-x-auto overflow-y-hidden shrink-0">
       {openFiles.map((file) => (
         <div
           key={file.id}
@@ -36,28 +33,6 @@ export function TabBar({
               : "bg-card text-muted-foreground hover:bg-secondary hover:text-foreground"
           }`}
           onClick={() => onTabClick(file.id)}
-          draggable
-          onDragStart={(e) => {
-            draggingIdRef.current = file.id;
-            e.dataTransfer.setData("text/tab-id", file.id);
-            e.dataTransfer.effectAllowed = "move";
-          }}
-          onDragEnd={() => {
-            draggingIdRef.current = null;
-          }}
-          onDragOver={(e) => {
-            // Required to allow dropping.
-            e.preventDefault();
-            e.dataTransfer.dropEffect = "move";
-          }}
-          onDrop={(e) => {
-            e.preventDefault();
-            const fromId =
-              (e.dataTransfer.getData("text/tab-id") as TabId) ?? draggingIdRef.current;
-            const toId = file.id;
-            if (!fromId || fromId === toId) return;
-            onTabReorder(fromId, toId);
-          }}
         >
           <FileIcon type={file.icon} size="sm" />
           <span className="text-[13px] whitespace-nowrap">
