@@ -22,14 +22,6 @@ const App = () => {
           path="/medicalstudent"
           element={
             <div className="main-app-route relative z-0 bg-primary">
-              <Navbar />
-              <Hero />
-              <About />
-              <Experience />
-              <Activity />
-              <HomeView articles={sampleData} />
-              <Works />
-              <Tech />
               <Contact />
             </div>
           }
