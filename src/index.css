@@ -39,12 +39,8 @@ body {
   background-color: #0a192f;
   min-height: 100vh;
   position: relative;
-  z-index: 0;
-  /* Fix Safari mobile stacking context issue */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  width: 100%;
+  display: block;
 }
 
 /* Fix Safari mobile navbar stacking context issue */
@@ -57,10 +53,9 @@ body {
   will-change: transform;
 }
 
-/* Ensure content is above navbar background on Safari mobile */
-.main-app-route > *:not(nav) {
+/* Ensure content is visible */
+.main-app-route > * {
   position: relative;
-  z-index: 1;
 }
 
 /* Main app accent color - orange (#FFB400) */
@@ -207,19 +202,30 @@ body {
     min-height: 100vh;
   }
 
-  /* Ensure main app route allows scrolling */
+  /* Ensure main app route allows scrolling - remove all transforms */
   .main-app-route {
-    position: relative;
+    position: relative !important;
     overflow-x: hidden;
     overflow-y: visible;
     min-height: 100vh;
     height: auto;
+    width: 100%;
+    display: block;
+    transform: none !important;
+    -webkit-transform: none !important;
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
   }
 
-  /* Ensure content sections can scroll */
-  .main-app-route > *:not(nav) {
-    position: relative;
-    overflow: visible;
+  /* Ensure content sections are visible and can scroll */
+  .main-app-route > * {
+    position: relative !important;
+    overflow: visible !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
 
   /* Fix Hero section on mobile - allow content to flow */
