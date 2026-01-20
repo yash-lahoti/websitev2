@@ -144,18 +144,8 @@ html.medicalstudent-active ::selection {
 
 /* (Intentionally no second override block; palette is defined once above.) */
 
-/* Mobile responsive - scale down the entire IDE layout to maintain editor appearance */
+/* Mobile responsive (no page scaling). Keep native sizing and only tweak ergonomics. */
 @media (max-width: 768px) {
-  .medicalstudent-page {
-    transform: scale(0.85);
-    transform-origin: top left;
-    width: 117.65%; /* 100 / 0.85 to compensate for scale */
-    min-height: 117.65vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
   /* Ensure proper viewport on mobile */
   html.medicalstudent-active,
   body.medicalstudent-active {
@@ -163,60 +153,16 @@ html.medicalstudent-active ::selection {
     overflow-y: auto;
     position: relative;
   }
-  
-  /* Adjust activity bar for mobile - keep it visible but scaled */
-  .medicalstudent-page .w-12 {
-    width: 2.5rem;
-    min-width: 2.5rem;
-  }
-  
-  /* Smaller icons on mobile but still readable */
-  .medicalstudent-page .w-5 {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-  
-  /* Adjust padding on mobile */
-  .medicalstudent-page .p-2\.5 {
-    padding: 0.5rem;
-  }
-  
-  /* Ensure title bar is visible */
-  .medicalstudent-page .h-8 {
-    min-height: 2rem;
-  }
-  
-  /* Adjust tab bar height */
-  .medicalstudent-page .h-9 {
-    min-height: 2.25rem;
-  }
-}
 
-@media (max-width: 640px) {
-  .medicalstudent-page {
-    transform: scale(0.75);
-    width: 133.33%; /* 100 / 0.75 */
-    min-height: 133.33vh;
-  }
-  
-  /* Even smaller on very small screens */
+  /* Slightly slimmer activity bar on mobile */
   .medicalstudent-page .w-12 {
-    width: 2rem;
-    min-width: 2rem;
+    width: 2.75rem;
+    min-width: 2.75rem;
   }
-  
-  .medicalstudent-page .w-5 {
-    width: 1rem;
-    height: 1rem;
-  }
-  
+
+  /* Touch-friendly padding on icons */
   .medicalstudent-page .p-2\.5 {
-    padding: 0.375rem;
-  }
-  
-  /* Smaller text on very small screens */
-  .medicalstudent-page .text-xs {
-    font-size: 0.625rem;
+    padding: 0.625rem;
   }
 }
 

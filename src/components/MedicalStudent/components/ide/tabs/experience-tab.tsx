@@ -23,11 +23,11 @@ export function ExperienceTab() {
   );
 
   return (
-    <div className="min-h-full p-8 md:p-12 lg:p-16 font-sans">
+    <div className="min-h-full p-4 sm:p-6 md:p-10 lg:p-14 font-sans">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -35,12 +35,12 @@ export function ExperienceTab() {
           <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
             Making Sense of My Background
           </p>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-16 h-px bg-primary" />
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-10 sm:w-16 h-px bg-primary" />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Experience
             </h1>
-            <div className="w-16 h-px bg-primary" />
+            <div className="w-10 sm:w-16 h-px bg-primary" />
           </div>
         </motion.div>
 
@@ -49,7 +49,7 @@ export function ExperienceTab() {
           <div>
             {/* Category Tabs */}
             <motion.div 
-              className="flex flex-wrap justify-center gap-2 mb-12"
+              className="flex gap-2 mb-6 sm:mb-10 overflow-x-auto whitespace-nowrap pb-1 -mx-1 px-1 justify-start sm:justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -58,7 +58,7 @@ export function ExperienceTab() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`shrink-0 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                     activeCategory === category
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -72,7 +72,7 @@ export function ExperienceTab() {
             {/* Timeline */}
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-border" />
+              <div className="absolute left-4 sm:left-6 md:left-8 top-0 bottom-0 w-px bg-border" />
 
               <AnimatePresence mode="wait">
                 <motion.div
@@ -95,8 +95,8 @@ export function ExperienceTab() {
                         className="relative flex gap-4 md:gap-6"
                       >
                         {/* Timeline Dot */}
-                        <div className="relative z-10 w-10 h-10 md:w-12 md:h-12 shrink-0 bg-card border-2 border-primary rounded-full flex items-center justify-center">
-                          <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                        <div className="relative z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 bg-card border-2 border-primary rounded-full flex items-center justify-center">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />
                         </div>
 
                         {/* Content Card */}
@@ -105,11 +105,11 @@ export function ExperienceTab() {
                             href={exp.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group cursor-pointer block"
+                            className="flex-1 bg-card rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-colors group cursor-pointer block"
                           >
                           <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                             <div>
-                              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                              <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                                 {exp.title}
                               </h3>
                               <p className="text-primary font-medium">
@@ -124,7 +124,7 @@ export function ExperienceTab() {
                             <div className="flex items-center gap-2">
                               <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] border border-primary/30 bg-primary/15 text-primary font-medium">
                                 <ExternalLink className="w-3.5 h-3.5" />
-                                Open
+                                <span className="hidden sm:inline">Open</span>
                               </span>
                               <span className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
                                 {exp.category.split("/")[0]}
@@ -151,10 +151,10 @@ export function ExperienceTab() {
                           </div>
                           </a>
                         ) : (
-                          <div className="flex-1 bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group">
+                          <div className="flex-1 bg-card rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-colors group">
                             <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                               <div>
-                                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                                <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                                   {exp.title}
                                 </h3>
                                 <p className="text-primary font-medium">

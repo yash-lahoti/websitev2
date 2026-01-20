@@ -109,13 +109,15 @@ export function IDELayout() {
     <div className="h-screen w-screen flex flex-col bg-background text-foreground overflow-hidden">
       {/* Title Bar */}
       <div className="h-8 bg-card flex items-center px-4 text-xs text-muted-foreground border-b border-border shrink-0">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
-          <span className="ml-4 font-medium text-foreground">Self-coded portfolio — Yash Lahoti, BAS, MSE</span>
+          <span className="ml-4 font-medium text-foreground truncate max-w-[calc(100vw-120px)] md:max-w-none">
+            Self-coded portfolio — Yash Lahoti, BAS, MSE
+          </span>
         </div>
       </div>
 
@@ -125,6 +127,10 @@ export function IDELayout() {
           sidebarOpen={sidebarOpen} 
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
           onOpenGallery={() => openFile("gallery")}
+          isMobile={isMobile}
+          files={files}
+          activeTab={activeTab}
+          onOpenFile={openFile}
         />
 
         {/* Mobile Overlay - darkens content when sidebar is open */}
@@ -194,7 +200,12 @@ export function IDELayout() {
       </div>
 
       {/* Status Bar */}
-      <StatusBar activeFile={files.find((f) => f.id === activeTab)} />
+      <StatusBar
+        files={files}
+        activeTab={activeTab}
+        activeFile={files.find((f) => f.id === activeTab)}
+        onNavigateTab={(id) => openFile(id)}
+      />
     </div>
   );
 }

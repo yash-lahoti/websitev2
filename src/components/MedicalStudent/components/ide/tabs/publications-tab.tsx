@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publications } from "../../../lib/data";
 import { assetUrl } from "../../../lib/utils";
@@ -16,6 +16,7 @@ import {
   Activity,
   Brain,
   Stethoscope,
+  Layers,
   Search,
   X,
   ChevronLeft,
@@ -29,9 +30,10 @@ const typeIcons: Record<string, React.ElementType> = {
 };
 
 const departmentIcons: Record<string, React.ElementType> = {
+  All: Layers,
   Ophthalmology: Eye,
   Orthopedics: Bone,
-  Gastroenterology: Stethoscope,
+  GI: Stethoscope,
 };
 
 const types = ["All", "Manuscript", "Presentation", "Abstract/Poster"];
@@ -80,6 +82,15 @@ export function PublicationsTab() {
     setFeaturedIndex((prev) => (prev - 1 + featuredPubs.length) % featuredPubs.length);
   };
 
+  // Auto-advance featured publication
+  useEffect(() => {
+    if (featuredPubs.length <= 1) return;
+    const id = window.setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % featuredPubs.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [featuredPubs.length]);
+
   return (
     <div className="min-h-full p-6 md:p-10 lg:p-14 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -90,7 +101,7 @@ export function PublicationsTab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-end justify-between mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
                 Academic Contributions
@@ -99,7 +110,7 @@ export function PublicationsTab() {
                 Publications & Research
               </h1>
             </div>
-            <div className="flex items-center gap-3 text-sm">
+            <div className="flex items-center gap-3 text-sm flex-wrap">
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-primary" />
                 <span className="text-muted-foreground">{stats.total} works</span>
@@ -145,13 +156,15 @@ export function PublicationsTab() {
                     <>
                       <button
                         onClick={prevFeatured}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-colors"
+                        className="absolute left-1.5 sm:left-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-background/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background/90 active:bg-background transition-colors"
+                        aria-label="Previous featured publication"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={nextFeatured}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-colors"
+                        className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-background/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background/90 active:bg-background transition-colors"
+                        aria-label="Next featured publication"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
@@ -160,16 +173,17 @@ export function PublicationsTab() {
                   
                   {/* Dots Indicator */}
                   {featuredPubs.length > 1 && (
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
                       {featuredPubs.map((_, idx) => (
                         <button
                           key={idx}
                           onClick={() => setFeaturedIndex(idx)}
-                          className={`w-1.5 h-1.5 rounded-full transition-all ${
+                          className={`h-0.5 rounded-full transition-all ${
                             idx === featuredIndex 
-                              ? "bg-primary w-6" 
-                              : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                              ? "bg-primary/90 w-3 sm:w-4" 
+                              : "bg-muted-foreground/20 hover:bg-muted-foreground/35 w-0.5"
                           }`}
+                          aria-label={`Go to featured publication ${idx + 1}`}
                         />
                       ))}
                     </div>
@@ -294,10 +308,10 @@ export function PublicationsTab() {
             </div>
 
             {/* Compact Filters Row */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground shrink-0">Department:</span>
-                <div className="flex gap-1">
+                <div className="flex gap-1 overflow-x-auto whitespace-nowrap pb-1 -mx-1 px-1">
                   {departments.map((dept) => {
                     const Icon = departmentIcons[dept];
                     const isActive = activeDepartment === dept;
@@ -305,7 +319,7 @@ export function PublicationsTab() {
                       <button
                         key={dept}
                         onClick={() => setActiveDepartment(dept)}
-                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                        className={`shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
                           isActive
                             ? "bg-primary text-primary-foreground"
                             : "bg-secondary/50 text-secondary-foreground hover:bg-secondary"
@@ -320,18 +334,18 @@ export function PublicationsTab() {
                 </div>
               </div>
 
-              <div className="h-4 w-px bg-border" />
+              <div className="hidden sm:block h-4 w-px bg-border" />
 
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground shrink-0">Type:</span>
-                <div className="flex gap-1">
+                <div className="flex gap-1 overflow-x-auto whitespace-nowrap pb-1 -mx-1 px-1">
                   {types.map((type) => {
                     const isActive = activeType === type;
                     return (
                       <button
                         key={type}
                         onClick={() => setActiveType(type)}
-                        className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                        className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
                           isActive
                             ? "bg-primary text-primary-foreground"
                             : "bg-secondary/50 text-secondary-foreground hover:bg-secondary"
@@ -346,10 +360,10 @@ export function PublicationsTab() {
 
               {hasActiveFilters && (
                 <>
-                  <div className="h-4 w-px bg-border" />
+                  <div className="hidden sm:block h-4 w-px bg-border" />
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-primary hover:bg-primary/10 rounded-md transition-colors ml-auto"
+                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-primary hover:bg-primary/10 rounded-md transition-colors sm:ml-auto"
                   >
                     <X className="w-3 h-3" />
                     Clear ({filteredPublications.length})
@@ -427,11 +441,11 @@ export function PublicationsTab() {
                           )}
                         </div>
                         
-                        <h3 className="text-sm text-foreground font-medium mb-0.5 group-hover:text-primary transition-colors line-clamp-1">
+                        <h3 className="text-sm text-foreground font-medium mb-0.5 group-hover:text-primary transition-colors whitespace-normal break-words">
                           {pub.title}
                         </h3>
                         
-                        <p className="text-xs text-muted-foreground line-clamp-1">
+                        <p className="text-xs text-muted-foreground whitespace-normal break-words">
                           {pub.authors}
                         </p>
                       </div>

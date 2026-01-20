@@ -72,7 +72,7 @@ function ProjectCard({
       <div className="p-3 sm:p-4 lg:p-5">
         {/* Floating square image (top-right) */}
         <div
-          className="w-full aspect-square mb-2 rounded-lg overflow-hidden border border-border bg-gradient-to-br from-primary/15 via-primary/5 to-background
+          className="w-full aspect-[16/10] mb-2 rounded-lg overflow-hidden border border-border bg-gradient-to-br from-primary/15 via-primary/5 to-background
                      sm:w-44 sm:h-44 sm:aspect-auto sm:float-right sm:ml-4 sm:mb-2
                      lg:w-56 lg:h-56"
         >
@@ -96,7 +96,7 @@ function ProjectCard({
             {isClickable ? (
               <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] border border-primary/30 bg-primary/15 text-primary font-medium">
                 <ArrowUpRight className="w-3.5 h-3.5" />
-                Open
+                <span className="hidden sm:inline">Open</span>
               </span>
             ) : null}
             <span className="px-2 py-0.5 rounded-full text-[11px] font-medium bg-secondary/60 text-secondary-foreground border border-border">
@@ -134,7 +134,7 @@ function ProjectCard({
           {project.metrics?.length ? (
             <div>
               <h4 className="text-xs font-semibold text-foreground mb-1.5">Impact</h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
                 {project.metrics.slice(0, 3).map((m, i) => (
                   <MetricChip key={i} label={m.label} value={m.value} />
                 ))}
@@ -217,12 +217,12 @@ export function ProjectsTab() {
           <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 text-center">
             Innovation Portfolio
           </p>
-          <div className="flex items-center justify-center gap-4 mb-3">
-            <div className="w-16 h-px bg-primary/60" />
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-10 sm:w-16 h-px bg-primary/60" />
             <h1 className="text-2xl md:text-3xl font-bold text-foreground text-center">
               Selected Projects
             </h1>
-            <div className="w-16 h-px bg-primary/60" />
+            <div className="w-10 sm:w-16 h-px bg-primary/60" />
           </div>
           <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto">
             A curated set of projects spanning clinical AI, medical imaging, and deployable ML systems.

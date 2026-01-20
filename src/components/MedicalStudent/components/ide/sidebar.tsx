@@ -27,7 +27,7 @@ export function Sidebar({ files, activeTab, onFileClick }: SidebarProps) {
         {/* Portfolio Folder */}
         <button
           onClick={() => setPortfolioOpen(!portfolioOpen)}
-          className="w-full flex items-center gap-1 px-2 py-1.5 hover:bg-secondary text-foreground font-semibold text-[11px] uppercase tracking-wider"
+          className="w-full flex items-center gap-1 px-2 py-1.5 hover:bg-secondary active:bg-secondary focus-visible:bg-secondary text-foreground font-semibold text-[11px] uppercase tracking-wider rounded-sm"
         >
           {portfolioOpen ? (
             <ChevronDown className="w-4 h-4" />
@@ -43,10 +43,10 @@ export function Sidebar({ files, activeTab, onFileClick }: SidebarProps) {
               <button
                 key={file.id}
                 onClick={() => onFileClick(file.id)}
-                className={`w-full flex items-center gap-2 px-2 py-1 text-left transition-colors ${
+                className={`w-full flex items-center gap-2 px-2 py-1 text-left transition-colors rounded-sm focus-visible:outline-none ${
                   activeTab === file.id
                     ? "bg-primary/10 text-foreground border-l-2 border-primary"
-                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    : "text-muted-foreground hover:bg-secondary hover:text-foreground active:bg-secondary active:text-foreground focus-visible:bg-secondary focus-visible:text-foreground"
                 }`}
               >
                 <FileIcon type={file.icon} />
@@ -62,7 +62,7 @@ export function Sidebar({ files, activeTab, onFileClick }: SidebarProps) {
 
       {/* Outline Section */}
       <div className="border-t border-border">
-        <button className="w-full flex items-center gap-1 px-2 py-1.5 hover:bg-secondary text-foreground font-medium text-[11px] uppercase tracking-wider">
+        <button className="w-full flex items-center gap-1 px-2 py-1.5 hover:bg-secondary active:bg-secondary focus-visible:bg-secondary text-foreground font-medium text-[11px] uppercase tracking-wider rounded-sm">
           <ChevronRight className="w-4 h-4" />
           Outline
         </button>

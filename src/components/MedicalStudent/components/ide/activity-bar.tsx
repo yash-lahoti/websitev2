@@ -3,14 +3,28 @@
 import { Files, Image, BookOpen, User, Mail, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import type { FileTab, TabId } from "./ide-layout";
+import { FileIcon } from "./file-icon";
 
 interface ActivityBarProps {
   sidebarOpen: boolean;
   onToggleSidebar: () => void;
   onOpenGallery?: () => void;
+  isMobile?: boolean;
+  files?: FileTab[];
+  activeTab?: TabId;
+  onOpenFile?: (id: TabId) => void;
 }
 
-export function ActivityBar({ sidebarOpen, onToggleSidebar, onOpenGallery }: ActivityBarProps) {
+export function ActivityBar({
+  sidebarOpen,
+  onToggleSidebar,
+  onOpenGallery,
+  isMobile,
+  files,
+  activeTab,
+  onOpenFile,
+}: ActivityBarProps) {
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -39,6 +53,39 @@ export function ActivityBar({ sidebarOpen, onToggleSidebar, onOpenGallery }: Act
         )}
       </button>
       
+      {/* Mobile-only: quick page navigation */}
+      {isMobile && files?.length && onOpenFile && (
+        <div className="mt-1 flex flex-col items-center gap-0.5">
+          {files.map((file) => (
+            <button
+              key={file.id}
+              type="button"
+              onClick={() => onOpenFile(file.id)}
+              onMouseEnter={() => setHoveredButton(`tab:${file.id}`)}
+              onMouseLeave={() => setHoveredButton(null)}
+              onTouchStart={() => setHoveredButton(`tab:${file.id}`)}
+              onTouchEnd={() => setTimeout(() => setHoveredButton(null), 2000)}
+              className={`relative p-2.5 rounded-sm transition-colors ${
+                activeTab === file.id
+                  ? "text-foreground bg-secondary/50 border-l-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"
+              }`}
+              aria-label={`Open ${file.name}${file.extension}`}
+              title={`${file.name}${file.extension}`}
+            >
+              <FileIcon type={file.icon} />
+              {hoveredButton === `tab:${file.id}` && (
+                <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 z-50 px-2 py-1 bg-popover text-popover-foreground text-xs rounded shadow-lg border border-border whitespace-nowrap pointer-events-none">
+                  {file.name}
+                  {file.extension}
+                  <div className="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-r-4 border-r-popover"></div>
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Gallery Button */}
       <button 
         onMouseEnter={() => setHoveredButton("gallery")}
