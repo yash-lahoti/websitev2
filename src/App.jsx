@@ -21,7 +21,7 @@ const App = () => {
         <Route
           path="/medicalstudent"
           element={
-            <div className="main-app-route relative z-0 bg-primary">
+            <div className="main-app-route">
               <Contact />
             </div>
           }
