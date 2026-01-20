@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { projects } from "../../../lib/data";
 import { assetUrl } from "../../../lib/utils";
-import { 
+import {
   ExternalLink,
   Github,
   Link2,
@@ -56,17 +56,13 @@ function ProjectCard({
     (project as any).demo || (project as any).publication || (project as any).github || "";
   const isClickable = Boolean(primaryHref);
 
-  const Card = isClickable ? (motion.a as any) : (motion.article as any);
+  const Card = motion.div as any;
 
   return (
     <Card
       variants={itemVariants}
-      href={isClickable ? assetUrl(primaryHref) : undefined}
-      target={isClickable ? "_blank" : undefined}
-      rel={isClickable ? "noopener noreferrer" : undefined}
-      className={`group rounded-2xl border border-border bg-card/40 backdrop-blur-sm overflow-hidden block ${
-        project.featured ? "shadow-lg shadow-primary/10" : ""
-      } ${isClickable ? "cursor-pointer hover:border-primary/40" : ""}`}
+      className={`group rounded-2xl border border-border bg-card/40 backdrop-blur-sm overflow-hidden block ${project.featured ? "shadow-lg shadow-primary/10" : ""
+        }`}
     >
       {/* Layout: square image anchored top-right; text wraps around; bottom sections clear below */}
       <div className="p-3 sm:p-4 lg:p-5">

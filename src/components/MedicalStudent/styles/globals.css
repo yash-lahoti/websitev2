@@ -1,6 +1,9 @@
 /* Medical Student Component Scoped Styles */
 /* Tailwind is already loaded globally in src/index.css - don't duplicate here */
 
+/* Premium Font Imports for Physician View */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* CSS Variables - define on html when medical student page is active */
 /* VS Code Dark+ inspired colors (customized to requested palette) */
 html.medicalstudent-active {
@@ -50,6 +53,22 @@ html.medicalstudent-active {
   /* Font configuration */
   --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  
+  /* Clinical Technologist Palette (Physician View) */
+  --ct-navy: #0F172A;
+  --ct-navy-light: #1E293B;
+  --ct-slate: #334155;
+  --ct-accent: #3B82F6;
+  --ct-accent-light: #60A5FA;
+  --ct-accent-glow: rgba(59, 130, 246, 0.4);
+  --ct-gold: #F59E0B;
+  --ct-cream: #F8FAFC;
+  --ct-glass: rgba(255, 255, 255, 0.06);
+  --ct-glass-border: rgba(255, 255, 255, 0.1);
+  
+  /* Premium fonts for physician view */
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
 html.medicalstudent-active .dark {

@@ -48,27 +48,59 @@ module.exports = {
         "lightest-slate": "#ccd6f6",
         white: "#e6f1ff",
         "green-tint": "rgba(100, 255, 218, 0.1)",
-        boldText: "#FFBF69"
+        boldText: "#FFBF69",
+        // Developer Mode (VS Code Dark+)
+        dev: {
+          bg: '#1e1e1e',
+          sidebar: '#252526',
+          text: '#d4d4d4',
+          accent: '#007acc',
+        },
+        // Physician Mode (Clinical Clean)
+        med: {
+          bg: '#F8FAFC',     // Off-white
+          sidebar: '#E2E8F0', // Light Gray
+          text: '#1E293B',    // Dark Slate
+          accent: '#0284C7',  // Clinical Blue
+        }
       },
       fontFamily: {
         sans: [
+          '"Inter"',
+          '"Roboto"',
+          '"San Francisco"',
+          "sf-pro-display",
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+          // Existing
           "Geist",
           "Geist Fallback",
           "Calibre",
-          "San Francisco",
           "SF Pro Text",
-          "-apple-system",
           "system-ui",
-          "sans-serif",
         ],
         mono: [
+          '"JetBrains Mono"',
+          '"Fira Code"',
+          'monospace',
+          // Existing
           "Geist Mono",
           "Geist Mono Fallback",
           "SF Mono",
-          "Fira Code",
           "Fira Mono",
           "Roboto Mono",
-          "monospace",
+        ],
+        serif: [
+          '"Playfair Display"',
+          'Georgia',
+          'Cambria',
+          '"Times New Roman"',
+          'Times',
+          'serif',
         ],
       },
       fontSize: {
