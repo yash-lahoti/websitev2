@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
 import AdmissionsPage from './components/Admissions/AdmissionsPage';
+import TestPage from './components/TestPage';
 
 const App = () => {
   const [sampleData, setSampleData] = useState(null);
@@ -19,19 +20,7 @@ const App = () => {
         {/* Route for the base URL */}
         <Route
           path="/medicalstudent"
-          element={
-            <div className="main-app-route relative z-0 bg-primary">
-              <Navbar />
-              <Hero />
-              <About />
-              <Experience />
-              <Activity />
-              <HomeView articles={sampleData} />
-              <Works />
-              <Tech />
-              <Contact />
-            </div>
-          }
+          element={<TestPage />}
         />
         {/* Admissions route */}
         <Route path="/admissions-consulting" element={<AdmissionsPage />} />
