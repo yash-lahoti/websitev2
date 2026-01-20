@@ -37,7 +37,7 @@ function StatusPill({ status }: { status?: string }) {
 
 function MetricChip({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-md border border-border bg-background/30 px-2 py-1">
+    <div className="rounded-md border border-border bg-background/30 px-2 py-1 justify-self-start">
       <div className="text-[13px] font-semibold text-foreground leading-none">{value}</div>
       <div className="mt-0.5 text-[10px] text-muted-foreground leading-tight">{label}</div>
     </div>

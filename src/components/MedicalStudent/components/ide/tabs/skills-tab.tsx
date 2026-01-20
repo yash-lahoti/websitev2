@@ -6,6 +6,25 @@ import { BallCanvas } from "../../../../canvas";
 import { technologies } from "../../../../../constants";
 
 export function SkillsTab() {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const MOBILE_BREAKPOINT = 768;
+
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="min-h-full p-6 md:p-10 lg:p-14 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -51,7 +70,21 @@ export function SkillsTab() {
                 className="flex flex-col items-center min-w-0"
               >
                 <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
-                  <BallCanvas icon={technology.icon} />
+                  {isMobile ? (
+                    <div className="w-full h-full flex items-center justify-center rounded-full bg-muted">
+                      <img
+                        src={
+                          typeof technology.icon === "string"
+                            ? technology.icon
+                            : (technology.icon as unknown as { src: string }).src
+                        }
+                        alt={technology.name}
+                        className="w-10 h-10 object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <BallCanvas icon={technology.icon} />
+                  )}
                 </div>
                 <p className="text-muted-foreground text-xs sm:text-sm font-medium mt-2 text-center truncate w-full">
                   {technology.name}

@@ -48,6 +48,24 @@ export function ContactTab() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const MOBILE_BREAKPOINT = 768;
+
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -134,9 +152,15 @@ export function ContactTab() {
 
                 {/* Small globe, right-aligned (as requested) */}
                 <div className="shrink-0">
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-secondary border border-border pointer-events-none">
-                    <EarthCanvas />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-secondary border border-border pointer-events-none flex items-center justify-center">
+                    {isMobile ? (
+                      <MapPin className="w-8 h-8 text-primary/40" />
+                    ) : (
+                      <>
+                        <EarthCanvas />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

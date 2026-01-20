@@ -33,9 +33,19 @@ const itemVariants = {
 export function GalleryTab() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [fullImageLoaded, setFullImageLoaded] = useState(false);
 
   const handleImageLoad = (index: number) => {
     setLoadedImages((prev) => new Set(prev).add(index));
+  };
+
+  const handleFullImageLoad = () => {
+    setFullImageLoaded(true);
+  };
+
+  const handleImageSelect = (image: string) => {
+    setSelectedImage(image);
+    setFullImageLoaded(false); // Reset loading state when new image is selected
   };
 
   return (
@@ -75,7 +85,7 @@ export function GalleryTab() {
               key={index}
               variants={itemVariants}
               className="group relative aspect-square overflow-hidden rounded-lg bg-card border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer"
-              onClick={() => setSelectedImage(image)}
+              onClick={() => handleImageSelect(image)}
             >
               {!loadedImages.has(index) && (
                 <div className="absolute inset-0 flex items-center justify-center bg-card/80">
@@ -123,10 +133,22 @@ export function GalleryTab() {
               className="max-w-7xl max-h-[90vh] relative"
               onClick={(e) => e.stopPropagation()}
             >
+              {!fullImageLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-card/50 rounded-lg">
+                  <div className="animate-spin rounded-full h-8 w-8 md:h-12 md:w-12 border-b-2 border-primary"></div>
+                </div>
+              )}
               <img
                 src={selectedImage}
                 alt="Full size gallery image"
-                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                className={`max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${
+                  fullImageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                onLoad={handleFullImageLoad}
+                onError={(e) => {
+                  console.error("Failed to load full image:", selectedImage);
+                  setFullImageLoaded(true); // Show error state
+                }}
               />
             </div>
           </div>

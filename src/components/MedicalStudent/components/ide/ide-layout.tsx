@@ -184,7 +184,7 @@ export function IDELayout() {
           />
 
           {/* Editor Content */}
-          <div className="flex-1 overflow-auto bg-background">
+          <div className="flex-1 overflow-auto bg-background pb-6">
             {openTabs.length > 0 ? (
               renderContent()
             ) : (
@@ -199,13 +199,15 @@ export function IDELayout() {
         </div>
       </div>
 
-      {/* Status Bar */}
-      <StatusBar
-        files={files}
-        activeTab={activeTab}
-        activeFile={files.find((f) => f.id === activeTab)}
-        onNavigateTab={(id) => openFile(id)}
-      />
+      {/* Status Bar - Fixed at bottom */}
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <StatusBar
+          files={files}
+          activeTab={activeTab}
+          activeFile={files.find((f) => f.id === activeTab)}
+          onNavigateTab={(id) => openFile(id)}
+        />
+      </div>
     </div>
   );
 }

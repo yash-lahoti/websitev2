@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publications } from "../../../lib/data";
 import { assetUrl } from "../../../lib/utils";
@@ -82,15 +82,6 @@ export function PublicationsTab() {
     setFeaturedIndex((prev) => (prev - 1 + featuredPubs.length) % featuredPubs.length);
   };
 
-  // Auto-advance featured publication
-  useEffect(() => {
-    if (featuredPubs.length <= 1) return;
-    const id = window.setInterval(() => {
-      setFeaturedIndex((prev) => (prev + 1) % featuredPubs.length);
-    }, 6000);
-    return () => window.clearInterval(id);
-  }, [featuredPubs.length]);
-
   return (
     <div className="min-h-full p-6 md:p-10 lg:p-14 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -134,14 +125,14 @@ export function PublicationsTab() {
             <div className="bg-card border border-primary/30 rounded-xl overflow-hidden">
               <div className="grid lg:grid-cols-[280px,1fr] lg:h-[240px]">
                 {/* Image Preview Side */}
-                <div className="relative bg-gradient-to-br from-primary/20 via-primary/10 to-background lg:border-r border-border overflow-hidden h-40 sm:h-48 lg:h-auto">
+                <div className="relative bg-gradient-to-br from-primary/20 via-primary/10 to-background lg:border-r border-border overflow-hidden h-40 sm:h-48 lg:h-auto aspect-[4/3] lg:aspect-auto">
                   {/* Placeholder for paper preview image */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4">
                     {featuredPubs[featuredIndex].previewImage ? (
                       <img 
                         src={assetUrl(featuredPubs[featuredIndex].previewImage)} 
                         alt="Preview"
-                        className="w-full h-full object-cover"
+                        className="max-w-full max-h-full w-auto h-auto object-contain mx-auto"
                       />
                     ) : (
                       <div className="text-center p-6">
@@ -151,22 +142,22 @@ export function PublicationsTab() {
                     )}
                   </div>
                   
-                  {/* Navigation Arrows */}
+                  {/* Navigation Arrows - positioned outside image area */}
                   {featuredPubs.length > 1 && (
                     <>
                       <button
                         onClick={prevFeatured}
-                        className="absolute left-1.5 sm:left-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-background/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background/90 active:bg-background transition-colors"
+                        className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-background/95 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background active:bg-background transition-colors z-30 shadow-lg border border-border/50"
                         aria-label="Previous featured publication"
                       >
-                        <ChevronLeft className="w-4 h-4" />
+                        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                       </button>
                       <button
                         onClick={nextFeatured}
-                        className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-background/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background/90 active:bg-background transition-colors"
+                        className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-background/95 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background active:bg-background transition-colors z-30 shadow-lg border border-border/50"
                         aria-label="Next featured publication"
                       >
-                        <ChevronRight className="w-4 h-4" />
+                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       </button>
                     </>
                   )}
@@ -241,11 +232,11 @@ export function PublicationsTab() {
                           })()}
                         </div>
                         
-                        <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug line-clamp-2">
+                        <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug break-words whitespace-normal">
                           {featuredPubs[featuredIndex].title}
                         </h3>
                         
-                        <p className="text-sm text-muted-foreground mb-2 line-clamp-1">
+                        <p className="text-sm text-muted-foreground mb-2 break-words whitespace-normal">
                           {featuredPubs[featuredIndex].authors}
                         </p>
                         
@@ -307,8 +298,8 @@ export function PublicationsTab() {
               )}
             </div>
 
-            {/* Compact Filters Row */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            {/* Compact Filters Row - Department and Type on separate lines */}
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground shrink-0">Department:</span>
                 <div className="flex gap-1 overflow-x-auto whitespace-nowrap pb-1 -mx-1 px-1">
@@ -334,8 +325,6 @@ export function PublicationsTab() {
                 </div>
               </div>
 
-              <div className="hidden sm:block h-4 w-px bg-border" />
-
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground shrink-0">Type:</span>
                 <div className="flex gap-1 overflow-x-auto whitespace-nowrap pb-1 -mx-1 px-1">
@@ -359,16 +348,15 @@ export function PublicationsTab() {
               </div>
 
               {hasActiveFilters && (
-                <>
-                  <div className="hidden sm:block h-4 w-px bg-border" />
+                <div className="flex justify-end">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-primary hover:bg-primary/10 rounded-md transition-colors sm:ml-auto"
+                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-primary hover:bg-primary/10 rounded-md transition-colors"
                   >
                     <X className="w-3 h-3" />
                     Clear ({filteredPublications.length})
                   </button>
-                </>
+                </div>
               )}
             </div>
           </div>

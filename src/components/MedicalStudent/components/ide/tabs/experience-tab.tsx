@@ -109,7 +109,7 @@ export function ExperienceTab() {
                           >
                           <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                             <div>
-                              <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                              <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-[#FFB400] transition-colors">
                                 {exp.title}
                               </h3>
                               <p className="text-primary font-medium">
@@ -122,7 +122,7 @@ export function ExperienceTab() {
                               )}
                             </div>
                             <div className="flex items-center gap-2">
-                              <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] border border-primary/30 bg-primary/15 text-primary font-medium">
+                              <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] border border-[#FFB400]/30 bg-[#FFB400]/15 text-[#FFB400] font-medium">
                                 <ExternalLink className="w-3.5 h-3.5" />
                                 <span className="hidden sm:inline">Open</span>
                               </span>
@@ -145,7 +145,7 @@ export function ExperienceTab() {
                             ))}
                           </ul>
 
-                          <div className="inline-flex items-center gap-1 mt-4 text-sm text-primary hover:underline">
+                          <div className="inline-flex items-center gap-1 mt-4 text-sm text-[#FFB400] hover:underline">
                             <ExternalLink className="w-3 h-3" />
                             Learn more
                           </div>
@@ -154,7 +154,7 @@ export function ExperienceTab() {
                           <div className="flex-1 bg-card rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-colors group">
                             <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                               <div>
-                                <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                                <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-[#FFB400] transition-colors">
                                   {exp.title}
                                 </h3>
                                 <p className="text-primary font-medium">
