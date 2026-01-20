@@ -1,11 +1,26 @@
 "use client";
 
-import React from "react"
-
-import { useState } from "react";
+import React from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publications } from "../../../lib/data";
-import { FileText, ExternalLink, Award, BookOpen, Presentation } from "lucide-react";
+import { assetUrl } from "../../../lib/utils";
+import { 
+  FileText, 
+  ExternalLink, 
+  Award, 
+  BookOpen, 
+  Presentation,
+  Eye,
+  Bone,
+  Activity,
+  Brain,
+  Stethoscope,
+  Search,
+  X,
+  ChevronLeft,
+  ChevronRight
+} from "lucide-react";
 
 const typeIcons: Record<string, React.ElementType> = {
   Manuscript: BookOpen,
@@ -13,205 +28,447 @@ const typeIcons: Record<string, React.ElementType> = {
   "Abstract/Poster": FileText
 };
 
+const departmentIcons: Record<string, React.ElementType> = {
+  Ophthalmology: Eye,
+  Orthopedics: Bone,
+  Gastroenterology: Stethoscope,
+};
+
 const types = ["All", "Manuscript", "Presentation", "Abstract/Poster"];
+const departments = ["All", "Ophthalmology", "Orthopedics", "GI"];
 
 export function PublicationsTab() {
   const [activeType, setActiveType] = useState("All");
+  const [activeDepartment, setActiveDepartment] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [featuredIndex, setFeaturedIndex] = useState(0);
 
-  const filteredPublications = publications.filter(
-    (pub) => activeType === "All" || pub.type === activeType
-  );
+  const filteredPublications = useMemo(() => {
+    return publications.filter((pub) => {
+      const typeMatch = activeType === "All" || pub.type === activeType;
+      const deptMatch = activeDepartment === "All" || pub.department === activeDepartment;
+      const searchMatch = searchQuery === "" || 
+        pub.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        pub.authors.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        pub.conference.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      return typeMatch && deptMatch && searchMatch;
+    });
+  }, [activeType, activeDepartment, searchQuery]);
 
   const featuredPubs = publications.filter((p) => p.featured);
 
+  const stats = useMemo(() => ({
+    total: publications.length,
+    manuscripts: publications.filter(p => p.type === "Manuscript").length,
+    presentations: publications.filter(p => p.type === "Presentation").length,
+  }), []);
+
+  const clearFilters = () => {
+    setActiveType("All");
+    setActiveDepartment("All");
+    setSearchQuery("");
+  };
+
+  const hasActiveFilters = activeType !== "All" || activeDepartment !== "All" || searchQuery !== "";
+
+  const nextFeatured = () => {
+    setFeaturedIndex((prev) => (prev + 1) % featuredPubs.length);
+  };
+
+  const prevFeatured = () => {
+    setFeaturedIndex((prev) => (prev - 1 + featuredPubs.length) % featuredPubs.length);
+  };
+
   return (
-    <div className="min-h-full p-8 md:p-12 lg:p-16 font-sans">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
+    <div className="min-h-full p-6 md:p-10 lg:p-14 font-sans">
+      <div className="max-w-6xl mx-auto">
+        {/* Compact Header */}
         <motion.div 
-          className="text-center mb-12"
+          className="mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
-            Academic Contributions
-          </p>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-16 h-px bg-primary" />
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-              Publications
-            </h1>
-            <div className="w-16 h-px bg-primary" />
+          <div className="flex items-end justify-between mb-4">
+            <div>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
+                Academic Contributions
+              </p>
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+                Publications & Research
+              </h1>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-muted-foreground">{stats.total} works</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                <span className="text-muted-foreground">{featuredPubs.length} featured</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div 
-          className="grid grid-cols-3 gap-4 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <p className="text-3xl font-bold text-primary">{publications.length}</p>
-            <p className="text-sm text-muted-foreground">Total Works</p>
-          </div>
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <p className="text-3xl font-bold text-primary">
-              {publications.filter(p => p.type === "Manuscript").length}
-            </p>
-            <p className="text-sm text-muted-foreground">Manuscripts</p>
-          </div>
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <p className="text-3xl font-bold text-primary">
-              {publications.filter(p => p.type === "Presentation").length}
-            </p>
-            <p className="text-sm text-muted-foreground">Presentations</p>
-          </div>
-        </motion.div>
-
-        {/* Featured Publications */}
+        {/* Featured Panel with Image Preview */}
         {featuredPubs.length > 0 && (
           <motion.div 
-            className="mb-12"
+            className="mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <Award className="w-5 h-5 text-primary" />
-              Featured
-            </h2>
-            <div className="space-y-4">
-              {featuredPubs.map((pub, index) => {
-                const Icon = typeIcons[pub.type] || FileText;
-                return (
-                  <div
-                    key={index}
-                    className="bg-card rounded-xl p-6 border border-primary/30 hover:border-primary/60 transition-colors"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <Icon className="w-5 h-5 text-primary" />
+            <div className="bg-card border border-primary/30 rounded-xl overflow-hidden">
+              <div className="grid lg:grid-cols-[280px,1fr] lg:h-[240px]">
+                {/* Image Preview Side */}
+                <div className="relative bg-gradient-to-br from-primary/20 via-primary/10 to-background lg:border-r border-border overflow-hidden h-40 sm:h-48 lg:h-auto">
+                  {/* Placeholder for paper preview image */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {featuredPubs[featuredIndex].previewImage ? (
+                      <img 
+                        src={assetUrl(featuredPubs[featuredIndex].previewImage)} 
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-center p-6">
+                        <FileText className="w-16 h-16 text-primary/40 mx-auto mb-3" />
+                        <p className="text-xs text-muted-foreground">Paper Preview</p>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <span className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full">
-                            {pub.type}
-                          </span>
-                          <span className="text-xs text-muted-foreground">
-                            {pub.conference} {pub.year && `• ${pub.year}`}
-                          </span>
-                          {pub.status && (
-                            <span className="text-xs px-2 py-0.5 bg-green-500/10 text-green-400 rounded-full">
-                              {pub.status}
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="text-foreground font-medium mb-1">
-                          {pub.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {pub.authors}
-                        </p>
-                        {pub.url && (
-                          <a
-                            href={pub.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 mt-2 text-sm text-primary hover:underline"
-                          >
-                            <ExternalLink className="w-3 h-3" />
-                            View Publication
-                          </a>
-                        )}
+                    )}
+                  </div>
+                  
+                  {/* Navigation Arrows */}
+                  {featuredPubs.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevFeatured}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-colors"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={nextFeatured}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-colors"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </>
+                  )}
+                  
+                  {/* Dots Indicator */}
+                  {featuredPubs.length > 1 && (
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                      {featuredPubs.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setFeaturedIndex(idx)}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${
+                            idx === featuredIndex 
+                              ? "bg-primary w-6" 
+                              : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Content Side */}
+                <div className="p-4 sm:p-5 lg:p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-2">
+                        <Award className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-medium text-primary uppercase tracking-wide">Featured Publication</span>
                       </div>
                     </div>
+                    
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={featuredIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex items-start gap-3 mb-3">
+                          {(() => {
+                            const TypeIcon = typeIcons[featuredPubs[featuredIndex].type] || FileText;
+                            const DeptIcon = departmentIcons[featuredPubs[featuredIndex].department];
+                            return (
+                              <>
+                                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                  <TypeIcon className="w-4.5 h-4.5 text-primary" />
+                                </div>
+                                <div className="flex-1">
+                                  {/* Tags: compact + wrap cleanly on mid widths */}
+                                  <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                                    <span className="text-[11px] px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium">
+                                      {featuredPubs[featuredIndex].type}
+                                    </span>
+                                    {DeptIcon && (
+                                      <span className="text-[11px] px-2 py-0.5 bg-secondary text-secondary-foreground rounded-full flex items-center gap-1">
+                                        <DeptIcon className="w-3 h-3" />
+                                        {featuredPubs[featuredIndex].department}
+                                      </span>
+                                    )}
+                                    {featuredPubs[featuredIndex].status && (
+                                      <span className="text-[11px] px-2 py-0.5 bg-green-500/10 text-green-400 rounded-full font-medium">
+                                        {featuredPubs[featuredIndex].status}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              </>
+                            );
+                          })()}
+                        </div>
+                        
+                        <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug line-clamp-2">
+                          {featuredPubs[featuredIndex].title}
+                        </h3>
+                        
+                        <p className="text-sm text-muted-foreground mb-2 line-clamp-1">
+                          {featuredPubs[featuredIndex].authors}
+                        </p>
+                        
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
+                          <span>{featuredPubs[featuredIndex].conference}</span>
+                          {featuredPubs[featuredIndex].year && (
+                            <>
+                              <span>•</span>
+                              <span>{featuredPubs[featuredIndex].year}</span>
+                            </>
+                          )}
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
-                );
-              })}
+                  
+                  {featuredPubs[featuredIndex].url && (
+                    <a
+                      href={assetUrl(featuredPubs[featuredIndex].url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-primary hover:gap-3 transition-all font-medium mt-4"
+                    >
+                      View Publication
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
 
-        {/* Type Filter */}
-        <motion.div 
-          className="flex flex-wrap gap-2 mb-8"
+        {/* Compact Search & Filters */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-6"
         >
-          {types.map((type) => (
-            <button
-              key={type}
-              onClick={() => setActiveType(type)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                activeType === type
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
-            >
-              {type}
-            </button>
-          ))}
+          <div className="bg-card border border-border rounded-xl p-4">
+            {/* Search Bar */}
+            <div className="relative mb-3">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search publications..."
+                className="w-full pl-10 pr-10 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Compact Filters Row */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground shrink-0">Department:</span>
+                <div className="flex gap-1">
+                  {departments.map((dept) => {
+                    const Icon = departmentIcons[dept];
+                    const isActive = activeDepartment === dept;
+                    return (
+                      <button
+                        key={dept}
+                        onClick={() => setActiveDepartment(dept)}
+                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                          isActive
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary/50 text-secondary-foreground hover:bg-secondary"
+                        }`}
+                        title={dept}
+                      >
+                        {Icon && <Icon className="w-3.5 h-3.5" />}
+                        <span className="hidden sm:inline">{dept}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="h-4 w-px bg-border" />
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground shrink-0">Type:</span>
+                <div className="flex gap-1">
+                  {types.map((type) => {
+                    const isActive = activeType === type;
+                    return (
+                      <button
+                        key={type}
+                        onClick={() => setActiveType(type)}
+                        className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                          isActive
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary/50 text-secondary-foreground hover:bg-secondary"
+                        }`}
+                      >
+                        {type}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {hasActiveFilters && (
+                <>
+                  <div className="h-4 w-px bg-border" />
+                  <button
+                    onClick={clearFilters}
+                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-primary hover:bg-primary/10 rounded-md transition-colors ml-auto"
+                  >
+                    <X className="w-3 h-3" />
+                    Clear ({filteredPublications.length})
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
         </motion.div>
 
-        {/* Publication List */}
+        {/* Results Header */}
+        <div className="flex items-center justify-between mb-3 px-1">
+          <h2 className="text-sm font-medium text-muted-foreground">
+            {hasActiveFilters ? "Filtered Results" : "All Publications"}
+          </h2>
+          <span className="text-xs text-muted-foreground">
+            {filteredPublications.length} {filteredPublications.length === 1 ? "result" : "results"}
+          </span>
+        </div>
+
+        {/* Compact Publication List */}
         <AnimatePresence mode="wait">
-          <motion.div
-            key={activeType}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-3"
-          >
-            {filteredPublications.map((pub, index) => {
-              const Icon = typeIcons[pub.type] || FileText;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-card rounded-lg p-4 border border-border hover:border-primary/30 transition-colors"
-                >
-                  <div className="flex items-start gap-3">
-                    <Icon className="w-4 h-4 text-primary mt-1 shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1 flex-wrap">
-                        <span className="text-xs px-2 py-0.5 bg-secondary text-secondary-foreground rounded">
-                          {pub.conference}
-                        </span>
-                        {pub.year && (
-                          <span className="text-xs text-muted-foreground">
-                            {pub.year}
-                          </span>
-                        )}
+          {filteredPublications.length > 0 ? (
+            <motion.div
+              key={`${activeType}-${activeDepartment}-${searchQuery}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-1.5"
+            >
+              {filteredPublications.map((pub, index) => {
+                const TypeIcon = typeIcons[pub.type] || FileText;
+                const DeptIcon = departmentIcons[pub.department];
+                return (
+                  <motion.a
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.2) }}
+                    href={pub.url ? assetUrl(pub.url) : undefined}
+                    target={pub.url ? "_blank" : undefined}
+                    rel={pub.url ? "noopener noreferrer" : undefined}
+                    className={`group bg-card rounded-lg p-3 border border-border hover:border-primary/40 hover:bg-card/80 transition-all block relative ${
+                      pub.url ? "cursor-pointer" : "cursor-default"
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      {/* Icon */}
+                      <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
+                        <TypeIcon className="w-4 h-4 text-primary" />
                       </div>
-                      <h3 className="text-sm text-foreground font-medium line-clamp-2">
-                        {pub.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {pub.authors}
-                      </p>
+                      
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                          {DeptIcon && (
+                            <span className="text-xs px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded flex items-center gap-1">
+                              <DeptIcon className="w-3 h-3" />
+                              <span className="hidden sm:inline">{pub.department}</span>
+                            </span>
+                          )}
+                          <span className="text-xs px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded">
+                            {pub.conference}
+                          </span>
+                          {pub.year && (
+                            <span className="text-xs text-muted-foreground">
+                              {pub.year}
+                            </span>
+                          )}
+                          {pub.status && (
+                            <span className="text-xs px-1.5 py-0.5 bg-green-500/10 text-green-400 rounded">
+                              {pub.status}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <h3 className="text-sm text-foreground font-medium mb-0.5 group-hover:text-primary transition-colors line-clamp-1">
+                          {pub.title}
+                        </h3>
+                        
+                        <p className="text-xs text-muted-foreground line-clamp-1">
+                          {pub.authors}
+                        </p>
+                      </div>
+                      
                     </div>
-                    {pub.url && (
-                      <a
-                        href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80 transition-colors shrink-0"
-                      >
+
+                    {/* External-link indicator (bottom-right, no layout shift) */}
+                    {pub.url ? (
+                      <span className="absolute right-2 bottom-2 inline-flex items-center justify-center w-7 h-7 rounded-md bg-orange-500/15 text-orange-400 border border-orange-500/30">
                         <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                      </span>
+                    ) : null}
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12 bg-card rounded-xl border border-border"
+            >
+              <FileText className="w-10 h-10 text-muted-foreground mx-auto mb-3 opacity-50" />
+              <p className="text-sm text-muted-foreground mb-1">No publications found</p>
+              <p className="text-xs text-muted-foreground mb-3">
+                Try adjusting your filters or search query
+              </p>
+              {hasActiveFilters && (
+                <button
+                  onClick={clearFilters}
+                  className="px-3 py-1.5 bg-primary text-primary-foreground text-sm rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  Clear Filters
+                </button>
+              )}
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </div>

@@ -6,74 +6,79 @@
 
 /* CSS Variables scoped to .medicalstudent-page */
 .medicalstudent-page {
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.93 0.01 260);
-  --card: oklch(0.15 0.01 260);
-  --card-foreground: oklch(0.93 0.01 260);
-  --popover: oklch(0.15 0.01 260);
-  --popover-foreground: oklch(0.93 0.01 260);
-  --primary: oklch(0.65 0.18 195);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.22 0.01 260);
-  --secondary-foreground: oklch(0.85 0.01 260);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.65 0.18 195);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.25 0.01 260);
-  --input: oklch(0.22 0.01 260);
-  --ring: oklch(0.65 0.18 195);
+  /* Requested palette */
+  --background: #1E1E1E;
+  --card: #252526;
+  --primary: #0E639C;
+
+  /* Text */
+  --foreground: #D4D4D4;
+  --card-foreground: #D4D4D4;
+  --primary-foreground: #FFFFFF;
+
+  /* UI surfaces */
+  --popover: #252526;
+  --popover-foreground: #FFFFFF;
+  --secondary: #2A2D2E;
+  --secondary-foreground: #D4D4D4;
+  --muted: #2D2D30;
+  --muted-foreground: #858585;
+  --accent: #0E639C;
+  --accent-foreground: #FFFFFF;
+
+  /* Borders / focus */
+  --border: #3E3E42;
+  --input: #3E3E42;
+  --ring: #0E639C;
+
+  /* Misc */
+  --destructive: #F14C4C;
+  --destructive-foreground: #FFFFFF;
   --chart-1: oklch(0.65 0.18 195);
   --chart-2: oklch(0.70 0.15 150);
   --chart-3: oklch(0.75 0.12 80);
   --chart-4: oklch(0.65 0.20 280);
   --chart-5: oklch(0.70 0.18 30);
   --radius: 0.5rem;
-  --sidebar: oklch(0.14 0.01 260);
-  --sidebar-foreground: oklch(0.85 0.01 260);
-  --sidebar-primary: oklch(0.65 0.18 195);
-  --sidebar-primary-foreground: oklch(0.12 0.01 260);
-  --sidebar-accent: oklch(0.20 0.01 260);
-  --sidebar-accent-foreground: oklch(0.93 0.01 260);
-  --sidebar-border: oklch(0.25 0.01 260);
-  --sidebar-ring: oklch(0.65 0.18 195);
+  --sidebar: #252526;
+  --sidebar-foreground: #D4D4D4;
+  --sidebar-primary: #0E639C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A2D2E;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #3E3E42;
+  --sidebar-ring: #0E639C;
 }
 
 .medicalstudent-page.dark {
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.93 0.01 260);
-  --card: oklch(0.15 0.01 260);
-  --card-foreground: oklch(0.93 0.01 260);
-  --popover: oklch(0.15 0.01 260);
-  --popover-foreground: oklch(0.93 0.01 260);
-  --primary: oklch(0.65 0.18 195);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.22 0.01 260);
-  --secondary-foreground: oklch(0.85 0.01 260);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.65 0.18 195);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.25 0.01 260);
-  --input: oklch(0.22 0.01 260);
-  --ring: oklch(0.65 0.18 195);
-  --chart-1: oklch(0.65 0.18 195);
-  --chart-2: oklch(0.70 0.15 150);
-  --chart-3: oklch(0.75 0.12 80);
-  --chart-4: oklch(0.65 0.20 280);
-  --chart-5: oklch(0.70 0.18 30);
-  --sidebar: oklch(0.14 0.01 260);
-  --sidebar-foreground: oklch(0.85 0.01 260);
-  --sidebar-primary: oklch(0.65 0.18 195);
-  --sidebar-primary-foreground: oklch(0.12 0.01 260);
-  --sidebar-accent: oklch(0.20 0.01 260);
-  --sidebar-accent-foreground: oklch(0.93 0.01 260);
-  --sidebar-border: oklch(0.25 0.01 260);
-  --sidebar-ring: oklch(0.65 0.18 195);
+  /* Keep dark mode identical for this section */
+  --background: #1E1E1E;
+  --card: #252526;
+  --primary: #0E639C;
+  --foreground: #D4D4D4;
+  --card-foreground: #D4D4D4;
+  --primary-foreground: #FFFFFF;
+  --popover: #252526;
+  --popover-foreground: #FFFFFF;
+  --secondary: #2A2D2E;
+  --secondary-foreground: #D4D4D4;
+  --muted: #2D2D30;
+  --muted-foreground: #858585;
+  --accent: #0E639C;
+  --accent-foreground: #FFFFFF;
+  --border: #3E3E42;
+  --input: #3E3E42;
+  --ring: #0E639C;
+  --destructive: #F14C4C;
+  --destructive-foreground: #FFFFFF;
+  --sidebar: #252526;
+  --sidebar-foreground: #D4D4D4;
+  --sidebar-primary: #0E639C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A2D2E;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #3E3E42;
+  --sidebar-ring: #0E639C;
 }
 
 /* Base styles scoped to .medicalstudent-page */
@@ -120,5 +125,5 @@ body.medicalstudent-active {
 
 /* Selection color for Medical Student page */
 .medicalstudent-page ::selection {
-  background: oklch(0.65 0.18 195 / 0.3);
+  background: color-mix(in srgb, var(--primary), transparent 70%);
 }

@@ -1,17 +1,17 @@
 import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
-import Hero from "./Hero";
-import Navbar from "./Navbar";
-import About from "./About";
-import Tech from "./Tech";
-import Experience from "./Experience";
-import Works from "./Works";
-import Feedbacks from "./Feedbacks";
-import Contact from "./Contact";
-import CanvasLoader from "./Loader";
-import ImageGal from "./ImageGal.jsx"
-import HomeView from "./HomeView.jsx"
-import DynamicWebpage from "./DynamicWebpage.jsx"
-import Activity from "./Activities.jsx"
+import Hero from "./archive/Hero.jsx";
+import Navbar from "./archive/Navbar.jsx";
+import About from "./archive/About.jsx";
+import Tech from "./archive/Tech.jsx";
+import Experience from "./archive/Experience.jsx";
+import Works from "./archive/Works.jsx";
+import Feedbacks from "./archive/Feedbacks.jsx";
+import Contact from "./archive/Contact.jsx";
+import CanvasLoader from "./archive/Loader.jsx";
+import ImageGal from "./archive/ImageGal.jsx"
+import HomeView from "./archive/HomeView.jsx"
+import DynamicWebpage from "./archive/DynamicWebpage.jsx"
+import Activity from "./archive/Activities.jsx"
 
 
 

@@ -2,41 +2,50 @@
 /* Tailwind is already loaded globally in src/index.css - don't duplicate here */
 
 /* CSS Variables - define on html when medical student page is active */
-/* This allows Tailwind classes to access the variables */
+/* VS Code Dark+ inspired colors (customized to requested palette) */
 html.medicalstudent-active {
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.93 0.01 260);
-  --card: oklch(0.15 0.01 260);
-  --card-foreground: oklch(0.93 0.01 260);
-  --popover: oklch(0.15 0.01 260);
-  --popover-foreground: oklch(0.93 0.01 260);
-  --primary: oklch(0.65 0.18 195);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.22 0.01 260);
-  --secondary-foreground: oklch(0.85 0.01 260);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.65 0.18 195);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.25 0.01 260);
-  --input: oklch(0.22 0.01 260);
-  --ring: oklch(0.65 0.18 195);
+  /* Requested palette */
+  --background: #1E1E1E; /* Deep charcoal/black */
+  --card: #252526; /* Sidebar / chrome */
+  --primary: #0E639C; /* Bright blue accent */
+
+  /* Text */
+  --foreground: #D4D4D4; /* Light gray */
+  --card-foreground: #D4D4D4;
+  --primary-foreground: #FFFFFF;
+
+  /* UI surfaces */
+  --popover: #252526;
+  --popover-foreground: #FFFFFF;
+  --secondary: #2A2D2E; /* Hover */
+  --secondary-foreground: #D4D4D4;
+  --muted: #2D2D30;
+  --muted-foreground: #858585;
+  --accent: #0E639C;
+  --accent-foreground: #FFFFFF;
+
+  /* Borders / focus */
+  --border: #3E3E42;
+  --input: #3E3E42;
+  --ring: #0E639C;
+
+  /* Misc (kept for existing components) */
+  --destructive: #F14C4C;
+  --destructive-foreground: #FFFFFF;
   --chart-1: oklch(0.65 0.18 195);
   --chart-2: oklch(0.70 0.15 150);
   --chart-3: oklch(0.75 0.12 80);
   --chart-4: oklch(0.65 0.20 280);
   --chart-5: oklch(0.70 0.18 30);
   --radius: 0.5rem;
-  --sidebar: oklch(0.14 0.01 260);
-  --sidebar-foreground: oklch(0.85 0.01 260);
-  --sidebar-primary: oklch(0.65 0.18 195);
-  --sidebar-primary-foreground: oklch(0.12 0.01 260);
-  --sidebar-accent: oklch(0.20 0.01 260);
-  --sidebar-accent-foreground: oklch(0.93 0.01 260);
-  --sidebar-border: oklch(0.25 0.01 260);
-  --sidebar-ring: oklch(0.65 0.18 195);
+  --sidebar: #252526;
+  --sidebar-foreground: #D4D4D4;
+  --sidebar-primary: #0E639C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A2D2E;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #3E3E42;
+  --sidebar-ring: #0E639C;
   
   /* Font configuration */
   --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
@@ -44,38 +53,34 @@ html.medicalstudent-active {
 }
 
 html.medicalstudent-active .dark {
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.93 0.01 260);
-  --card: oklch(0.15 0.01 260);
-  --card-foreground: oklch(0.93 0.01 260);
-  --popover: oklch(0.15 0.01 260);
-  --popover-foreground: oklch(0.93 0.01 260);
-  --primary: oklch(0.65 0.18 195);
-  --primary-foreground: oklch(0.12 0.01 260);
-  --secondary: oklch(0.22 0.01 260);
-  --secondary-foreground: oklch(0.85 0.01 260);
-  --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.65 0.18 195);
-  --accent-foreground: oklch(0.12 0.01 260);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.25 0.01 260);
-  --input: oklch(0.22 0.01 260);
-  --ring: oklch(0.65 0.18 195);
-  --chart-1: oklch(0.65 0.18 195);
-  --chart-2: oklch(0.70 0.15 150);
-  --chart-3: oklch(0.75 0.12 80);
-  --chart-4: oklch(0.65 0.20 280);
-  --chart-5: oklch(0.70 0.18 30);
-  --sidebar: oklch(0.14 0.01 260);
-  --sidebar-foreground: oklch(0.85 0.01 260);
-  --sidebar-primary: oklch(0.65 0.18 195);
-  --sidebar-primary-foreground: oklch(0.12 0.01 260);
-  --sidebar-accent: oklch(0.20 0.01 260);
-  --sidebar-accent-foreground: oklch(0.93 0.01 260);
-  --sidebar-border: oklch(0.25 0.01 260);
-  --sidebar-ring: oklch(0.65 0.18 195);
+  /* Keep dark mode identical for this section */
+  --background: #1E1E1E;
+  --card: #252526;
+  --primary: #0E639C;
+  --foreground: #D4D4D4;
+  --card-foreground: #D4D4D4;
+  --primary-foreground: #FFFFFF;
+  --popover: #252526;
+  --popover-foreground: #FFFFFF;
+  --secondary: #2A2D2E;
+  --secondary-foreground: #D4D4D4;
+  --muted: #2D2D30;
+  --muted-foreground: #858585;
+  --accent: #0E639C;
+  --accent-foreground: #FFFFFF;
+  --border: #3E3E42;
+  --input: #3E3E42;
+  --ring: #0E639C;
+  --destructive: #F14C4C;
+  --destructive-foreground: #FFFFFF;
+  --sidebar: #252526;
+  --sidebar-foreground: #D4D4D4;
+  --sidebar-primary: #0E639C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A2D2E;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #3E3E42;
+  --sidebar-ring: #0E639C;
 }
 
 /* Base styles scoped to medical student page */
@@ -134,5 +139,112 @@ html.medicalstudent-active ::-webkit-scrollbar-thumb:hover {
 /* Selection color - scoped to medical student page */
 .medicalstudent-page ::selection,
 html.medicalstudent-active ::selection {
-  background: oklch(0.65 0.18 195 / 0.3);
+  background: color-mix(in srgb, var(--primary), transparent 70%);
+}
+
+/* (Intentionally no second override block; palette is defined once above.) */
+
+/* Mobile responsive - scale down the entire IDE layout to maintain editor appearance */
+@media (max-width: 768px) {
+  .medicalstudent-page {
+    transform: scale(0.85);
+    transform-origin: top left;
+    width: 117.65%; /* 100 / 0.85 to compensate for scale */
+    min-height: 117.65vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ensure proper viewport on mobile */
+  html.medicalstudent-active,
+  body.medicalstudent-active {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  /* Adjust activity bar for mobile - keep it visible but scaled */
+  .medicalstudent-page .w-12 {
+    width: 2.5rem;
+    min-width: 2.5rem;
+  }
+  
+  /* Smaller icons on mobile but still readable */
+  .medicalstudent-page .w-5 {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+  
+  /* Adjust padding on mobile */
+  .medicalstudent-page .p-2\.5 {
+    padding: 0.5rem;
+  }
+  
+  /* Ensure title bar is visible */
+  .medicalstudent-page .h-8 {
+    min-height: 2rem;
+  }
+  
+  /* Adjust tab bar height */
+  .medicalstudent-page .h-9 {
+    min-height: 2.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .medicalstudent-page {
+    transform: scale(0.75);
+    width: 133.33%; /* 100 / 0.75 */
+    min-height: 133.33vh;
+  }
+  
+  /* Even smaller on very small screens */
+  .medicalstudent-page .w-12 {
+    width: 2rem;
+    min-width: 2rem;
+  }
+  
+  .medicalstudent-page .w-5 {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .medicalstudent-page .p-2\.5 {
+    padding: 0.375rem;
+  }
+  
+  /* Smaller text on very small screens */
+  .medicalstudent-page .text-xs {
+    font-size: 0.625rem;
+  }
+}
+
+/* Tooltip positioning adjustments for mobile - show on touch for accessibility */
+@media (max-width: 768px) {
+  .medicalstudent-page [class*="absolute"][class*="left-full"] {
+    /* Keep tooltips but adjust position for mobile */
+    left: auto;
+    right: 100%;
+    margin-right: 0.5rem;
+    margin-left: 0;
+  }
+  
+  .medicalstudent-page [class*="absolute"][class*="left-full"] > div[class*="border-r"] {
+    /* Flip tooltip arrow for right-side positioning */
+    right: -0.25rem;
+    left: auto;
+    border-right: none;
+    border-left: 4px solid var(--popover);
+  }
+}
+
+/* Touch-friendly button sizes on mobile */
+@media (max-width: 768px) {
+  .medicalstudent-page button,
+  .medicalstudent-page a[class*="p-2"] {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    touch-action: manipulation; /* Prevent double-tap zoom */
+  }
 }

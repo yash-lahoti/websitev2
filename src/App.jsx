@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
 import AdmissionsPage from './components/Admissions/AdmissionsPage';
 import MedicalStudentPage from './components/MedicalStudent/MedicalStudentPage';
-import TestPage from './components/TestPage';
-import ComponentTester from './components/ComponentTester';
+import TestPage from './components/archive/TestPage';
+import ComponentTester from './components/archive/ComponentTester';
 
 const App = () => {
   const [sampleData, setSampleData] = useState(null);

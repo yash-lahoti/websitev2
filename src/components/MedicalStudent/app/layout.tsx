@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-mono antialiased bg-[#1e1e1e]">
+      <body className="font-mono antialiased bg-[#1E1E1E]">
         {children}
         <Analytics />
       </body>

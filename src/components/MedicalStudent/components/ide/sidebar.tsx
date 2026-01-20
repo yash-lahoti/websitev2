@@ -16,7 +16,7 @@ export function Sidebar({ files, activeTab, onFileClick }: SidebarProps) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
   return (
-    <div className="w-60 bg-card border-r border-border flex flex-col shrink-0">
+    <div className="w-60 h-full bg-card border-r border-border flex flex-col shrink-0 shadow-xl md:shadow-none">
       {/* Explorer Header */}
       <div className="h-9 flex items-center px-4 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
         Explorer
@@ -24,19 +24,6 @@ export function Sidebar({ files, activeTab, onFileClick }: SidebarProps) {
 
       {/* Tree View */}
       <div className="flex-1 overflow-auto text-[13px]">
-        {/* Main Section */}
-        <button
-          onClick={() => setExplorerOpen(!explorerOpen)}
-          className="w-full flex items-center gap-1 px-2 py-1 hover:bg-secondary text-foreground font-medium text-[11px] uppercase tracking-wider"
-        >
-          {explorerOpen ? (
-            <ChevronDown className="w-4 h-4" />
-          ) : (
-            <ChevronRight className="w-4 h-4" />
-          )}
-          Open Editors
-        </button>
-
         {/* Portfolio Folder */}
         <button
           onClick={() => setPortfolioOpen(!portfolioOpen)}

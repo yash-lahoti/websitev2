@@ -15,6 +15,7 @@ import { FAQ } from './components/faq';
 import { FinalCTA } from './components/final-cta';
 import { Contact } from './components/contact';
 import { Footer } from './components/footer';
+import { SectionSeparator } from './components/section-separator';
 import './app/globals-admissions.css';
 
 const AdmissionsPage = () => {
@@ -58,17 +59,31 @@ const AdmissionsPage = () => {
     >
       <Navbar />
       <Hero />
+      <SectionSeparator variant="minimal" />
       <Stats />
+      <SectionSeparator variant="default" />
       <About />
+      <SectionSeparator variant="gradient" />
       <Philosophy />
+      <SectionSeparator variant="dotted" />
       <ApplicationEssentials />
+      <SectionSeparator variant="default" />
       <Services />
+      <SectionSeparator variant="gradient" />
       <TrajectoryTimeline />
+      <SectionSeparator variant="dotted" />
       <Masterclass />
+      <SectionSeparator variant="default" />
       <Pricing />
+      <SectionSeparator variant="gradient" />
+      <Testimonials />
+      <SectionSeparator variant="dotted" />
       <FAQ />
+      <SectionSeparator variant="default" />
       <FinalCTA />
+      <SectionSeparator variant="minimal" />
       <Contact />
+      <SectionSeparator variant="minimal" />
       <Footer />
     </main>
   );

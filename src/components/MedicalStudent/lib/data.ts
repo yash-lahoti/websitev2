@@ -1,3 +1,5 @@
+import type { EducationWorkTimelineItem } from "../components/ide/timeline/education-work-timeline";
+
 export const profile = {
   name: "Yash Lahoti",
   title: "Medical Student & AI Researcher",
@@ -168,6 +170,41 @@ export const experiences = [
   }
 ];
 
+// Education + Work timeline (used by the MedicalStudent IDE "Experience" tab)
+export const educationWorkTimeline = [
+  {
+    kind: "Education",
+    title: "Doctor of Medicine (MD)",
+    org: "Icahn School of Medicine at Mount Sinai",
+    date: "2022 – 2026",
+  },
+  {
+    kind: "Work",
+    title: "Chief Technology Officer",
+    org: "SpineSight",
+    date: "2022 – Present",
+    subtitle: "Targeted Healthcare Innovation Fellowship",
+  },
+  {
+    kind: "Education",
+    title: "MSE, Electrical Engineering",
+    org: "University of Pennsylvania",
+    date: "2021 – 2022",
+  },
+  {
+    kind: "Work",
+    title: "Machine Learning Engineer",
+    org: "TDK InvenSense (AutoML)",
+    date: "2021 – 2022",
+  },
+  {
+    kind: "Education",
+    title: "BAS, Biomedical Science",
+    org: "University of Pennsylvania",
+    date: "2017 – 2021",
+  },
+] as const satisfies ReadonlyArray<EducationWorkTimelineItem>;
+
 export const publications = [
   {
     conference: "Spine Journal",
@@ -176,6 +213,8 @@ export const publications = [
     authors: "Yu J, Lahoti Y, McCandless KC, et al.",
     year: "2025",
     status: "Accepted",
+    department: "Orthopedics",
+    previewImage: "/medicalstudent/projects/scoliosis-cobb/figure-1.png",
     featured: true
   },
   {
@@ -185,6 +224,8 @@ export const publications = [
     authors: "Zaidat B, Lahoti Y, Yu A, et al.",
     year: "2023",
     url: "https://pubmed.ncbi.nlm.nih.gov/38147047/",
+    department: "Orthopedics",
+    previewImage: "/pdfs/gpt_billing-page-001.jpg",
     featured: true
   },
   {
@@ -193,6 +234,8 @@ export const publications = [
     title: "Global Sagittal Alignment Variations with Body Mass Index in Patients",
     authors: "Mohamed K, Duey A, Yu A, Lahoti Y, et al.",
     year: "2025",
+    department: "Orthopedics",
+    previewImage: "/medicalstudent/projects/spine-segmentation/figure-1.png",
     featured: true
   },
   {
@@ -200,21 +243,24 @@ export const publications = [
     type: "Presentation",
     title: "Automated Scoliosis Classification from AI-enabled Spine Contouring and Cobb Angle Estimation",
     authors: "Lahoti Y, Yu J, Cho S, Kim J",
-    year: "2024"
+    year: "2024",
+    department: "Orthopedics"
   },
   {
     conference: "NASS 2024",
     type: "Abstract/Poster",
     title: "Automated Scoliosis Classification from EOS Full Body Imaging: A Deep Learning Approach with RadImageNet",
     authors: "Lahoti Y, Yu J, Cho S, Kim J",
-    year: "2024"
+    year: "2024",
+    department: "Orthopedics"
   },
   {
     conference: "CNS 2024",
     type: "Abstract/Poster",
     title: "Automated Scoliosis Classification from AI-enabled Spine Contouring",
     authors: "Lahoti Y, Yu J, Cho S, Kim J",
-    year: "2024"
+    year: "2024",
+    department: "Orthopedics"
   },
   {
     conference: "DDW 2024",
@@ -222,6 +268,7 @@ export const publications = [
     title: "Deep Learning Software to Evaluate Body Composition in Inflammatory Bowel Disease",
     authors: "Gold SL, Blankemeier L, Lahoti Y, et al.",
     year: "2024",
+    department: "Gastroenterology",
     url: "https://eposters.ddw.org/ddw/2024/"
   },
   {
@@ -229,7 +276,8 @@ export const publications = [
     type: "Abstract/Poster",
     title: "Development of a Deep Learning Algorithm to Automate the Segmentation of Spinal Cord from EOS Radiographic Images",
     authors: "Lahoti Y, Cho S, Kim J",
-    year: "2023"
+    year: "2023",
+    department: "Orthopedics"
   }
 ];
 
@@ -239,62 +287,91 @@ export const projects = [
     title: "SpineSight",
     category: "AI Healthcare Platform",
     description: "AI platform automating MRI measurements for spinal disease diagnosis. Reduces diagnostic time by 85% and standardizes 140+ clinical metrics for personalized treatment planning.",
+    image: "/medicalstudent/projects/spinesight/cover.jpeg",
     tech: ["Python", "PyTorch", "Medical Imaging", "React", "AWS"],
     metrics: [
       { label: "Time Reduction", value: "85%" },
       { label: "Clinical Metrics", value: "140+" },
       { label: "Clinicians Interviewed", value: "100+" }
     ],
-    featured: true
+    highlights: [
+      "Automated MRI measurements to reduce diagnostic friction in spine workflows.",
+      "Standardized clinical metrics with clinicians to enable consistent reporting.",
+      "Built end-to-end product: model training, inference, and clinician-facing UI.",
+    ],
+    status: "Production",
+    demo: "",
+    github: "",
+    publication: "/pdfs/Spine_Search.pptx.pdf",
+    featured: true,
   },
   {
     id: "spine-segmentation",
     title: "Spine Segmentation Algorithm",
     category: "AI Spine Contouring",
     description: "Deep learning algorithm automating spinal cord segmentation from EOS radiographic images with high accuracy across both AP and lateral views.",
+    image: "/medicalstudent/projects/spine-segmentation/figure-1.png",
     tech: ["Python", "PyTorch", "U-Net", "Medical Imaging"],
     metrics: [
       { label: "Patients", value: "500" },
       { label: "DSC (AP)", value: "0.92" },
       { label: "DSC (LAT)", value: "0.96" }
     ],
-    featured: true
+    highlights: [
+      "Two-stage pipeline: ROI detection + mask generation for robust performance.",
+      "Validated across AP and LAT views with strong Dice similarity coefficients.",
+      "Designed outputs to serve downstream curvature and alignment metrics.",
+    ],
+    status: "Production",
+    demo: "",
+    github: "",
+    publication: "",
+    featured: true,
   },
   {
     id: "scoliosis-cobb",
     title: "Scoliosis Classifier",
     category: "Scoliosis Classification",
     description: "AI-enabled spine contouring and Cobb Angle estimation for automated scoliosis classification using deep learning with explainable models.",
+    image: "/medicalstudent/projects/scoliosis-cobb/figure-1.png",
     tech: ["Python", "CNN", "TensorFlow", "EOS Imaging"],
     metrics: [
       { label: "Patients", value: "215" },
       { label: "Precision", value: "91%" },
       { label: "Recall", value: "91%" }
     ],
-    featured: true
+    highlights: [
+      "Automated contouring + Cobb angle estimation for classification at scale.",
+      "Focused on explainability and clinically meaningful error analysis.",
+      "Optimized for real-world variability in imaging conditions and posture.",
+    ],
+    status: "Beta",
+    demo: "",
+    github: "",
+    publication: "/medicalstudent/projects/scoliosis-cobb/Cobb_Matrix.pptx.pdf",
+    featured: true,
   },
   {
     id: "radimagenet",
     title: "RadImageNet Classifier",
     category: "Transfer Learning",
     description: "Deep learning approach using RadImageNet for scoliosis classification, demonstrating robust performance across standard and hardware-present images.",
+    image: "/medicalstudent/projects/radimagenet/figure-1.png",
     tech: ["Python", "RadImageNet", "Transfer Learning", "U-Net"],
     metrics: [
       { label: "Patients", value: "215" },
       { label: "Precision", value: "87%" },
       { label: "F1 Score", value: "86%" }
-    ]
-  },
-  {
-    id: "cardiac-tinyml",
-    title: "Cardiac TinyML",
-    category: "Wearable Health",
-    description: "TinyML solution predicting cardiac pressures from ECG data, enabling edge-device health monitoring with high accuracy.",
-    tech: ["Python", "TensorFlow Lite", "ECG Analysis", "Edge ML"],
-    metrics: [
-      { label: "Accuracy", value: "95%" },
-      { label: "Model Size", value: "< 1MB" }
-    ]
+    ],
+    highlights: [
+      "Two-stage approach: U-Net segmentation + RadImageNet fine-tuning for classification.",
+      "Maintained performance on images with and without hardware artifacts.",
+      "Produced fusion overlays to improve signal for downstream classifiers.",
+    ],
+    status: "Beta",
+    demo: "",
+    github: "",
+    publication: "",
   }
 ];
 

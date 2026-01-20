@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react"
-
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { profile } from "../../../lib/data";
 import { Mail, Github, Linkedin, GraduationCap, Send, MapPin, CheckCircle } from "lucide-react";
+import { EarthCanvas } from "../../../../canvas";
 
 const socialLinks = [
   {
@@ -39,6 +39,7 @@ const socialLinks = [
 ];
 
 export function ContactTab() {
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -46,19 +47,46 @@ export function ContactTab() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", message: "" });
-    
-    setTimeout(() => setIsSubmitted(false), 5000);
+
+    try {
+      setSubmitError(null);
+
+      const env = (import.meta as any).env as Record<string, string | undefined>;
+      const serviceId = env.VITE_REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = env.VITE_REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("Missing EmailJS env vars: VITE_REACT_APP_EMAILJS_SERVICE_ID / VITE_REACT_APP_EMAILJS_TEMPLATE_ID / VITE_REACT_APP_EMAILJS_PUBLIC_KEY");
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formState.name,
+          to_name: profile.name,
+          from_email: formState.email,
+          to_email: profile.email,
+          message: formState.message
+        },
+        publicKey
+      );
+
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      console.error(err);
+      setSubmitError("Something went wrong while sending your message. Please try again in a moment.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -95,11 +123,21 @@ export function ContactTab() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="bg-card rounded-xl p-6 border border-border mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-primary" />
-                <div>
-                  <p className="font-medium text-foreground">{profile.location}</p>
-                  <p className="text-sm text-muted-foreground">{profile.school}</p>
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <MapPin className="w-5 h-5 text-primary shrink-0" />
+                  <div className="min-w-0">
+                    <p className="font-medium text-foreground">{profile.location}</p>
+                    <p className="text-sm text-muted-foreground">{profile.school}</p>
+                  </div>
+                </div>
+
+                {/* Small globe, right-aligned (as requested) */}
+                <div className="shrink-0">
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-secondary border border-border pointer-events-none">
+                    <EarthCanvas />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                  </div>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
@@ -162,7 +200,13 @@ export function ContactTab() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                {submitError ? (
+                  <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                    {submitError}
+                  </div>
+                ) : null}
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
@@ -170,6 +214,7 @@ export function ContactTab() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -185,6 +230,7 @@ export function ContactTab() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -199,6 +245,7 @@ export function ContactTab() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     rows={5}

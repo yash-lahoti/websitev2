@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { FileText, FileCode, BookOpen, Database, Settings, Mail } from "lucide-react";
+import { FileText, FileCode, BookOpen, Database, Settings, Mail, Image } from "lucide-react";
 
 interface FileIconProps {
   type: string;
@@ -36,6 +36,10 @@ export function FileIcon({ type, size = "md" }: FileIconProps) {
     typescript: {
       icon: <Mail className={sizeClass} />,
       color: "text-[#3178c6]",
+    },
+    image: {
+      icon: <Image className={sizeClass} />,
+      color: "text-[#a074c4]",
     },
     settings: {
       icon: <Settings className={sizeClass} />,

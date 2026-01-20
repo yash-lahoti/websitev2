@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#hero" },
@@ -39,11 +40,11 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2">
+          <Link to="/medicalstudent" className="flex items-center gap-2">
             <span className="text-xl font-bold text-foreground">
               YL<span className="text-primary">Admissions</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
