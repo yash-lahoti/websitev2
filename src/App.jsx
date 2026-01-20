@@ -20,7 +20,19 @@ const App = () => {
         {/* Route for the base URL */}
         <Route
           path="/medicalstudent"
-          element={<TestPage />}
+          element={
+            <div>
+              <Navbar />
+              <Hero />
+              <About />
+              <Experience />
+              <Activity />
+              <HomeView articles={sampleData} />
+              <Works />
+              <Tech />
+              <Contact />
+            </div>
+          }
         />
         {/* Admissions route */}
         <Route path="/admissions-consulting" element={<AdmissionsPage />} />
