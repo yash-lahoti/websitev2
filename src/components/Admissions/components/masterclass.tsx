@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Bot,
   Globe,
@@ -327,6 +326,55 @@ export function Masterclass() {
   const [isContentExpanded, setIsContentExpanded] = useState(true);
   const [isViewerClosed, setIsViewerClosed] = useState(false);
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    let hasInteracted = false;
+
+    // Very slow scroll
+    const speed = 0.5;
+
+    const animate = () => {
+      if (hasInteracted || !container) return;
+
+      // Stop if near end
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 5) {
+        return;
+      }
+
+      container.scrollLeft += speed;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    // Delay start
+    const timeoutId = setTimeout(() => {
+      animationId = requestAnimationFrame(animate);
+    }, 1500);
+
+    const stopAnimation = () => {
+      hasInteracted = true;
+      cancelAnimationFrame(animationId);
+      clearTimeout(timeoutId);
+    };
+
+    container.addEventListener('touchstart', stopAnimation, { passive: true });
+    container.addEventListener('mousedown', stopAnimation);
+    container.addEventListener('wheel', stopAnimation);
+
+    return () => {
+      stopAnimation();
+      if (container) {
+        container.removeEventListener('touchstart', stopAnimation);
+        container.removeEventListener('mousedown', stopAnimation);
+        container.removeEventListener('wheel', stopAnimation);
+      }
+    };
+  }, []);
+
   const selectedClass = masterclasses.find((m) => m.id === selectedId)!;
   const IconComponent = selectedClass.icon;
   const accentColor = categoryAccents[selectedClass.category];
@@ -358,86 +406,16 @@ export function Masterclass() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-primary font-medium mb-2">Included With Your Package</p>
+          <p className="text-primary font-medium mb-2">Modern Skills for Future Doctors</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Masterclass Library
+            Research & Skills Development
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hands-on courses designed to build the skills that set elite applicants apart.
+            Medicine is changing. I share the technical skills I learned (like Python and AI) to help you stand out in research labs and prepare for the future of healthcare.
           </p>
         </div>
 
-        {/* Mobile Course Navigation */}
-        <div className="md:hidden mb-4 space-y-1.5">
-          {categories.map((category) => {
-            const categoryClasses = masterclasses.filter((m) => m.category === category);
-            const isExpanded = mobileExpanded === category;
-            const hasSelectedCourse = categoryClasses.some((mc) => mc.id === selectedId);
 
-            return (
-              <div key={category} className="rounded-lg border border-border overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileCategory(category)}
-                  className="w-full flex items-center justify-between px-3 py-2.5 bg-[#1e1e2e]"
-                >
-                  <div className="flex items-center gap-2">
-                    <ChevronRight
-                      className={`w-3.5 h-3.5 text-muted-foreground transition-transform ${
-                        isExpanded ? "rotate-90" : ""
-                      }`}
-                    />
-                    <span className={`font-medium text-sm ${categoryAccents[category]}`}>
-                      {category}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {hasSelectedCourse && !isExpanded && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    )}
-                    <span className="text-xs text-muted-foreground">
-                      {categoryClasses.length}
-                    </span>
-                  </div>
-                </button>
-
-                {isExpanded && (
-                  <div className="bg-[#181825]">
-                    {categoryClasses.map((mc) => {
-                      const CourseIcon = mc.icon;
-                      return (
-                        <button
-                          type="button"
-                          key={mc.id}
-                          onClick={() => {
-                            setSelectedId(mc.id);
-                            setIsViewerClosed(false);
-                          }}
-                          className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-left border-t border-border/30 transition-colors ${
-                            selectedId === mc.id ? "bg-primary/10" : "hover:bg-[#1e1e2e]"
-                          }`}
-                        >
-                          <CourseIcon
-                            className={`w-4 h-4 shrink-0 ${
-                              selectedId === mc.id ? "text-primary" : "text-muted-foreground"
-                            }`}
-                          />
-                          <span
-                            className={`text-sm ${
-                              selectedId === mc.id ? "text-primary" : "text-foreground"
-                            }`}
-                          >
-                            {mc.title}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
 
         {/* IDE Container */}
         <div className="rounded-xl border border-border overflow-hidden shadow-xl min-h-[600px]">
@@ -449,14 +427,14 @@ export function Masterclass() {
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
               </div>
-              <span className="text-xs text-muted-foreground font-mono hidden sm:inline">
+              <span className="text-xs text-muted-foreground font-mono">
                 masterclass-library
               </span>
             </div>
             <button
               type="button"
               onClick={() => setIsContentExpanded(!isContentExpanded)}
-              className="p-1.5 rounded hover:bg-white/10 transition-colors"
+              className="p-1.5 rounded hover:bg-white/10 transition-colors hidden md:block"
             >
               {isContentExpanded ? (
                 <Minimize2 className="w-3.5 h-3.5 text-muted-foreground" />
@@ -467,7 +445,7 @@ export function Masterclass() {
           </div>
 
           <div className="flex flex-col md:flex-row bg-[#11111b] min-h-[550px] overflow-hidden">
-            {/* Desktop Sidebar */}
+            {/* Sidebar (Desktop) */}
             <div className="hidden md:flex flex-col w-72 border-r border-border/50 bg-[#181825] shrink-0">
               <div className="px-3 py-2 border-b border-border/50 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -503,9 +481,8 @@ export function Masterclass() {
                         className="w-full flex items-center gap-1.5 px-2 py-1.5 rounded text-xs hover:bg-white/5 transition-colors"
                       >
                         <ChevronRight
-                          className={`w-3 h-3 text-muted-foreground transition-transform ${
-                            isExpanded ? "rotate-90" : ""
-                          }`}
+                          className={`w-3 h-3 text-muted-foreground transition-transform ${isExpanded ? "rotate-90" : ""
+                            }`}
                         />
                         <span className={`font-medium ${categoryAccents[category]}`}>
                           {category}
@@ -527,11 +504,10 @@ export function Masterclass() {
                                   setSelectedId(mc.id);
                                   setIsViewerClosed(false);
                                 }}
-                                className={`w-full flex items-start gap-2 px-2 py-1.5 rounded text-left transition-colors ${
-                                  selectedId === mc.id
-                                    ? "bg-primary/15 text-primary"
-                                    : "text-foreground/80 hover:bg-white/5"
-                                }`}
+                                className={`w-full flex items-start gap-2 px-2 py-1.5 rounded text-left transition-colors ${selectedId === mc.id
+                                  ? "bg-primary/15 text-primary"
+                                  : "text-foreground/80 hover:bg-white/5"
+                                  }`}
                               >
                                 <CourseIcon className="w-3 h-3 shrink-0 mt-0.5" />
                                 <span className="text-[11px] leading-tight">
@@ -546,6 +522,37 @@ export function Masterclass() {
                   );
                 })}
               </div>
+            </div>
+
+            {/* Mobile Horizontal Tabs */}
+            <div
+              ref={scrollContainerRef}
+              className="flex md:hidden overflow-x-auto border-b border-border/50 bg-[#1e1e2e] custom-scrollbar pb-2 shrink-0"
+            >
+              {masterclasses.map((mc) => {
+                const isSelected = selectedId === mc.id;
+                const CourseIcon = mc.icon;
+                return (
+                  <button
+                    key={mc.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedId(mc.id);
+                      setIsViewerClosed(false);
+                    }}
+                    className={`
+                      flex items-center gap-2 px-4 py-3 whitespace-nowrap border-b-2 transition-colors
+                      ${isSelected
+                        ? "border-primary bg-[#11111b] text-foreground"
+                        : "border-transparent text-muted-foreground hover:text-foreground hover:bg-[#252535]"
+                      }
+                    `}
+                  >
+                    <CourseIcon className={`w-3.5 h-3.5 ${isSelected ? "text-primary" : ""}`} />
+                    <span className="text-xs font-medium">{mc.title}</span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Main Content */}
@@ -636,11 +643,10 @@ export function Masterclass() {
                               className="flex items-start gap-3 px-2 py-2 rounded hover:bg-white/5 transition-colors"
                             >
                               <span
-                                className={`w-6 h-6 rounded text-xs font-medium flex items-center justify-center shrink-0 ${
-                                  i === 0
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-white/10 text-muted-foreground"
-                                }`}
+                                className={`w-6 h-6 rounded text-xs font-medium flex items-center justify-center shrink-0 ${i === 0
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-white/10 text-muted-foreground"
+                                  }`}
                               >
                                 {i + 1}
                               </span>

@@ -23,23 +23,17 @@ export function Philosophy() {
           <p className="text-primary font-medium mb-2">
             Why Great Candidates Fail
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            The &quot;Checklist&quot; Trap
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-serif">
+            Don't build a &quot;persona.&quot; Be yourself.
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
-            Many high-achieving students treat medical school admissions like a
-            checklist: Get the grades, do the shadowing, volunteer. The problem?{" "}
-            <span className="text-foreground font-medium">
-              10,000 other students have the exact same checklist.
-            </span>{" "}
-            Without a cohesive story, admissions officers don&apos;t know who
-            you are or what kind of doctor you will become.
+            There is a lot of bad advice out there telling you to 'play the game.' But admissions officers are human beings. We can tell when someone is writing what they think we want to hear.
+          </p>
+          <p className="text-lg text-foreground font-medium max-w-3xl mx-auto mb-4">
+            My approach is simple: we dig deep into your experiences to find the genuine threads that connect your journey.
           </p>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-            Too many students follow generic advice that doesn&apos;t address what
-            actually makes the difference between accepted and rejected. Without
-            strategic differentiation, even perfect credentials can get lost in
-            the pile.
+            We don't invent a story; we uncover the one that is already there. No calculated strategies, just your true self, presented with clarity and confidence.
           </p>
         </div>
 
@@ -68,11 +62,11 @@ export function Philosophy() {
 
           {/* Solutions */}
           <div className="bg-card border border-primary/30 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2 font-serif">
               <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
                 <Check className="w-4 h-4 text-primary" />
               </span>
-              The Strategic Applicant
+              The Authentic Applicant
             </h3>
             <ul className="space-y-4">
               {solutions.map((solution) => (

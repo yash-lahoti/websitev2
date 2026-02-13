@@ -99,7 +99,7 @@ export function Services() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-medium mb-2">
-            My Framework  
+            My Framework
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Four Pillars of Success
@@ -138,27 +138,24 @@ export function Services() {
                   >
                     {/* Node */}
                     <div
-                      className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-                        isSelected
+                      className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 ${isSelected
                           ? `${pillar.bgColor} ${pillar.borderColor} border-2 scale-110 shadow-lg`
                           : isPast
-                          ? `${pillar.bgColor} border border-border`
-                          : "bg-secondary border border-border"
-                      }`}
+                            ? `${pillar.bgColor} border border-border`
+                            : "bg-secondary border border-border"
+                        }`}
                     >
                       <pillar.icon
-                        className={`w-7 h-7 transition-colors ${
-                          isSelected || isPast ? pillar.textColor : "text-muted-foreground"
-                        }`}
+                        className={`w-7 h-7 transition-colors ${isSelected || isPast ? pillar.textColor : "text-muted-foreground"
+                          }`}
                       />
                     </div>
-                    
+
                     {/* Label */}
                     <div className="mt-3 text-center">
                       <p
-                        className={`text-sm font-semibold transition-colors ${
-                          isSelected ? pillar.textColor : "text-muted-foreground"
-                        }`}
+                        className={`text-sm font-semibold transition-colors ${isSelected ? pillar.textColor : "text-muted-foreground"
+                          }`}
                       >
                         {pillar.shortTitle}
                       </p>
@@ -169,12 +166,11 @@ export function Services() {
 
                     {/* Arrow connector (except last) */}
                     {index < pillars.length - 1 && (
-                      <ArrowRight 
-                        className={`absolute -right-8 top-5 w-5 h-5 transition-colors ${
-                          isPast && pillars.findIndex(p => p.id === selectedId) > index
+                      <ArrowRight
+                        className={`absolute -right-8 top-5 w-5 h-5 transition-colors ${isPast && pillars.findIndex(p => p.id === selectedId) > index
                             ? "text-primary"
                             : "text-muted-foreground/30"
-                        }`}
+                          }`}
                       />
                     )}
                   </button>
@@ -183,9 +179,9 @@ export function Services() {
             </div>
           </div>
 
-          {/* Mobile: Horizontal Scroll Tabs */}
-          <div className="md:hidden mb-6 -mx-6 px-6">
-            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+          {/* Mobile: Grid Layout (2x2) */}
+          <div className="md:hidden mb-6">
+            <div className="grid grid-cols-2 gap-3">
               {pillars.map((pillar) => {
                 const isSelected = selectedId === pillar.id;
                 return (
@@ -193,24 +189,23 @@ export function Services() {
                     key={pillar.id}
                     type="button"
                     onClick={() => setSelectedId(pillar.id)}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl whitespace-nowrap transition-all shrink-0 ${
-                      isSelected
+                    className={`flex flex-col items-center justify-center gap-2 px-3 py-3 rounded-xl transition-all ${isSelected
                         ? `${pillar.bgColor} ${pillar.borderColor} border`
-                        : "bg-secondary border border-border"
-                    }`}
+                        : "bg-secondary/50 border border-border/50 hover:bg-secondary"
+                      }`}
                   >
-                    <pillar.icon
-                      className={`w-4 h-4 ${
-                        isSelected ? pillar.textColor : "text-muted-foreground"
-                      }`}
-                    />
-                    <span
-                      className={`text-sm font-medium ${
-                        isSelected ? pillar.textColor : "text-muted-foreground"
-                      }`}
-                    >
-                      {pillar.shortTitle}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <pillar.icon
+                        className={`w-4 h-4 ${isSelected ? pillar.textColor : "text-muted-foreground"
+                          }`}
+                      />
+                      <span
+                        className={`text-sm font-medium ${isSelected ? pillar.textColor : "text-muted-foreground"
+                          }`}
+                      >
+                        {pillar.shortTitle}
+                      </span>
+                    </div>
                   </button>
                 );
               })}

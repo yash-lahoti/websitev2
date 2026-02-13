@@ -124,7 +124,7 @@ export function Pricing() {
               <div className="mb-6 pb-6 border-b border-border">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-foreground">
-                    The Strategist
+                    The Mentorship Package
                   </h4>
                   <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
                     20+ Hours
@@ -171,7 +171,7 @@ export function Pricing() {
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-foreground">
-                    The Architect
+                    Comprehensive Guidance
                   </h4>
                   <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">
                     35+ Hours

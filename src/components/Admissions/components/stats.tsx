@@ -5,23 +5,18 @@ import { Users, FileCheck, Clock, BookOpen } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "10+",
-    label: "Successful Medical School Admissions",
+    value: "100%",
+    label: "Client Satisfaction",
   },
   {
     icon: FileCheck,
-    value: "50+",
-    label: "Applications Screened",
-  },
-  {
-    icon: Clock,
-    value: "5+",
-    label: "Years Advising Students",
+    value: "$250k+",
+    label: "Scholarships Secured",
   },
   {
     icon: BookOpen,
-    value: "8+",
-    label: "Years Tutoring & Lectureship",
+    value: "Top 10",
+    label: "Medical Schools Accepted",
   },
 ];
 
@@ -51,46 +46,6 @@ export function Stats() {
         </div>
 
         {/* Schools Banner */}
-        <div className="pt-8 border-t border-border/50">
-          <p className="text-center text-sm text-muted-foreground mb-6">
-            Students Accepted to Top Programs Including
-          </p>
-          
-          {/* Scrolling Banner */}
-          <div className="relative overflow-hidden">
-            {/* Fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-secondary/30 to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-secondary/30 to-transparent z-10" />
-            
-            {/* Scrolling content */}
-            <div className="flex animate-scroll items-center">
-              {[...schools, ...schools].map((school, index) => (
-                <div
-                  key={`${school.name}-${index}`}
-                  className={`flex items-center justify-center shrink-0 mx-10 ${school.isLarge ? 'h-40' : 'h-36'}`}
-                >
-                  <div 
-                    className={`
-                      relative w-auto flex items-center justify-center px-2 py-2 rounded-lg
-                      ${school.isLarge ? 'h-36' : 'h-32'}
-                      ${school.needsWhiteBg 
-                        ? 'bg-gray-200/90 shadow-lg border border-gray-300/50' 
-                        : ''
-                      }
-                    `}
-                  >
-                    <img
-                      src={school.image}
-                      alt={school.name}
-                      className="h-full w-auto object-contain opacity-100 transition-all duration-300 hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -22,29 +22,29 @@ const AdmissionsPage = () => {
   useEffect(() => {
     const body = document.body;
     const html = document.documentElement;
-    
+
     // Store original font family to restore on unmount
     const originalFontFamily = body.style.fontFamily || window.getComputedStyle(body).fontFamily;
-    
+
     // Add body class to indicate Admissions is active
     body.classList.add('admissions-active');
-    
-    // Load Geist fonts from Google Fonts
+
+    // Load Playfair Display and Inter fonts from Google Fonts
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap';
     link.rel = 'stylesheet';
-    link.id = 'admissions-geist-font';
+    link.id = 'admissions-fonts';
     document.head.appendChild(link);
 
     return () => {
       // Cleanup: remove body class and font link when component unmounts
       body.classList.remove('admissions-active');
-      
-      const fontLink = document.getElementById('admissions-geist-font');
+
+      const fontLink = document.getElementById('admissions-fonts');
       if (fontLink) {
         fontLink.remove();
       }
-      
+
       // Restore original font family if it was set
       if (originalFontFamily) {
         body.style.fontFamily = originalFontFamily;
@@ -75,14 +75,10 @@ const AdmissionsPage = () => {
       <Masterclass />
       <SectionSeparator variant="default" />
       <Pricing />
-      <SectionSeparator variant="gradient" />
-      <Testimonials />
       <SectionSeparator variant="dotted" />
       <FAQ />
       <SectionSeparator variant="default" />
       <FinalCTA />
-      <SectionSeparator variant="minimal" />
-      <Contact />
       <SectionSeparator variant="minimal" />
       <Footer />
     </main>
