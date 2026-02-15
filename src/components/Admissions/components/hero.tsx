@@ -64,7 +64,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden bg-background pt-8 sm:pt-0"
     >
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(197,160,89,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(197,160,89,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -84,7 +84,7 @@ export function Hero() {
         transition={{ delay: 0.15 }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pt-14 sm:pt-20 pb-4 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pt-2 sm:pt-20 pb-6 sm:pb-4 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
         {/* Left Column - Content */}
         <motion.div
           className="text-center lg:text-left"

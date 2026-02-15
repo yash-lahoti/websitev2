@@ -286,6 +286,8 @@ export function Masterclass() {
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
+    const section = container.closest("#masterclass");
+    if (!section) return;
 
     let animationId: number;
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -326,15 +328,19 @@ export function Masterclass() {
       }, 1500);
     };
 
+    // Observe the section (not the container) so visibility is reliable when user scrolls to masterclass
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
         visibleRef.current = entry.isIntersecting;
         if (entry.isIntersecting) {
-          if (container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
-            startAnimation();
-          }
+          // Defer so layout is complete (container may have been off-screen and not yet sized)
+          requestAnimationFrame(() => {
+            if (container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
+              startAnimation();
+            }
+          });
         } else {
           cancelAnimationFrame(animationId);
           clearTimeout(timeoutId);
@@ -342,7 +348,7 @@ export function Masterclass() {
       },
       { root: null, rootMargin: "0px", threshold: 0.1 }
     );
-    intersectionObserver.observe(container);
+    intersectionObserver.observe(section);
 
     const resizeObserver = new ResizeObserver(() => {
       if (visibleRef.current && container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
@@ -351,17 +357,17 @@ export function Masterclass() {
     });
     resizeObserver.observe(container);
 
-    container.addEventListener("touchstart", stopAnimation, { passive: true });
-    container.addEventListener("mousedown", stopAnimation);
+    // Only stop on wheel (user scrolling the tab strip) and click (user tapped a tab).
+    // Do NOT stop on touchstart/mousedown so that scrolling the page to reach the section doesn't kill the animation.
     container.addEventListener("wheel", stopAnimation);
+    section.addEventListener("click", stopAnimation, true);
 
     return () => {
       intersectionObserver.disconnect();
       stopAnimation();
       resizeObserver.disconnect();
-      container.removeEventListener("touchstart", stopAnimation);
-      container.removeEventListener("mousedown", stopAnimation);
       container.removeEventListener("wheel", stopAnimation);
+      section.removeEventListener("click", stopAnimation, true);
     };
   }, []);
 
