@@ -18,6 +18,23 @@ export function Philosophy() {
   return (
     <section id="philosophy" className="py-24 bg-secondary/20">
       <div className="max-w-6xl mx-auto px-6">
+        {/* Philosophy intro — moved from About */}
+        <div className="max-w-3xl mx-auto mb-16 text-center">
+          <p className="text-primary font-medium mb-2">
+            How I Think About Admissions
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            My experience gave me a clear understanding of how applications are actually evaluated. Reviewers are not simply tallying achievements. They are assessing clarity of purpose, alignment with program goals, and whether the applicant&apos;s experiences form a coherent trajectory.{" "}
+            <span className="text-primary font-medium">Authenticity beats perfection.</span>
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            I didn&apos;t get into medical school just because of my grades. I got in because I developed a clear, authentic niche and built my entire application around that vision. Now, I help students find <span className="text-foreground font-medium">their</span> vision.
+          </p>
+          <p className="text-xl text-primary font-medium italic">
+            &ldquo;Grades get you to the door; your story gets you through it.&rdquo;
+          </p>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-medium mb-2">

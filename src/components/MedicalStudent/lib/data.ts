@@ -278,6 +278,78 @@ export const publications = [
     authors: "Lahoti Y, Cho S, Kim J",
     year: "2023",
     department: "Orthopedics"
+  },
+  {
+    conference: "SAIVO 2026",
+    type: "Abstract/Poster",
+    title: "Automated capillary-level optical coherence tomography angiography phenotyping in patients with glaucoma and diabetes",
+    authors: "Lahoti Yash, Guidoboni, Giovanna, Greenfield Jason, Cohen Gal Jacob, Potash Samuel, Siesky, Brent, Verticchio Vercellin, Alice; Wood S, Keren; Kwan Minwoo, Harris, Alon",
+    year: "2026",
+    status: "Submitted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "An Electronic Health Record-Based Predictive Model to Quantify Multifactorial Risk for Primary Open Angle Glaucoma",
+    authors: "Lahoti, Yash; Harris, Alon; Pasquale, Louis R.; Sun, Mckenna; Siesky, Brent A.; Cohen, Gal; Wood Shalem, Keren; Kwon, Minwoo; Rosen, Adam; Verticchio Vercellin, Alice; Potash, Samuel; Wierzbowska, Joanna; Riina, Nicholas; Sommi, Arvind; Belamkar, Aditya V.; Guidoboni, Giovanna",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Electrocardiogram-Synchronized Doppler Holography System for Quantifying Cardiac Cycle-Resolved Retinal Blood Flow",
+    authors: "Wood Shalem, Keren; Harris, Alon; Muncharaz Duran, Luis; Schnorbus, Nicholas; Gurevitz, Chen; Niv Granot, Yoav; Buckley, Samantha; Lerakis, Stamatios; Croft, Lori; Lahoti, Yash S.; Sidoti, Paul A.; Siesky, Brent A.; Verticchio Vercellin, Alice; Greenberg, Lily A.; Kanwar, Kunal; Riina, Nicholas: Rosen, Richard B",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Artificial Intelligence Ready and Exploratory Atlas for Diabetes Insights: the association between glaucoma, hypertension, and cognitive performance",
+    authors: "Greenfield, Jason; Harris, Alon; Lahoti, Yash; Gupta, Arsh; Pasquale, Louis R.; Siesky, Brent A.; Wood Shalem, Keren; Cohen, Gal; Wirostko, Barbara M.; Potash, Samuel; Verticchio Vercellin, Alice; Riina, Nicholas; Harris, Danielle; Chang, Michael; Safir, Faye; Guidoboni, Giovanna",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Ocular Perfusion Metrics Demonstrate Strong Coupling with Myocardial Strain and Pulmonary Pressure",
+    authors: "Siesky, Brent A.; Harris, Alon; Potash, Samuel; Lahoti, Yash S.; Schanzer, Nathan; Niv Granot, Yoav; Buckley, Samantha; Lerakis, Stamatios; Croft, Lori; Wood Shalem, Keren; Verticchio Vercellin, Alice; Oddone, Francesco; Carnevale, Carmela; Cohen, Gal; Sacco, Riccardo; Gurevitz, Chen",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Automated Deep-Learning FAZ Quantification and Cardiovascular Risk Associations in the AI-READI Cohort",
+    authors: "Cohen, Gal; Lahoti, Yash S.; Potash, Samuel; Gupta, Arsh; Pasquale, Louis R.; Wierzbowska, Joanna; Verticchio Vercellin, Alice; Siesky, Brent A.; Ciulla, Thomas A.; Tai, Tak Yee Tania; Rothstein, Jacob; Isserow, Lauren J.; Harris, Alon",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Generative Continuous-Time Recurrent Neural Networks for using Irregularly Sampled Blood Pressure Dynamics to Predict Structural Glaucoma Progression",
+    authors: "Riina, Nicholas; Harris, Alon; Whitley, Derek; Siesky, Brent A.; Lahoti, Yash S.; Potash, Samuel; Verticchio Vercellin, Alice; Cohen, Gal; Wood Shalem, Keren; Schanzer, Nathan; Arciero, Julia; Fry, Brendan C.; Eckert, George J.; Vinod, Kateki; Januleviciene, Ingrida; Guidoboni, Giovanna",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
+  },
+  {
+    conference: "ARVO 2026",
+    type: "Abstract/Poster",
+    title: "Repeatability of Retinal Blood Flow Metrics Measured Using Doppler Holography",
+    authors: "Muncharaz Duran, Luis; Greenberg, Lily A.; Najac, Michael J.; Haq, Affan; Schnorbus, Nicholas; Wood, Keren; Siesky, Brent; Verticchio Alice; Lahoti, Yash; Auray, Zacharie; Fischer, Yann; Atlan, Michael; Harris, Alon; Rosen, Richard B",
+    year: "2026",
+    status: "Accepted",
+    department: "Ophthalmology"
   }
 ];
 

@@ -5,25 +5,25 @@ const questions = [
     icon: User,
     question: "Can I picture this person as a physician?",
     explanation:
-      "What stands out? Evidence that you understand what being a doctor actually means—beyond the idealized version. Your experiences should show genuine exposure to the realities of patient care.",
+      "We're not looking for the idealized version of a doctor—we're looking for evidence you understand what the job actually entails. Your experiences should show genuine exposure to patient care realities, not just shadowing from a safe distance.",
   },
   {
     icon: Lightbulb,
     question: "What will they contribute to our program?",
     explanation:
-      "Medical schools build classes, not just admit individuals. The question is: what unique perspective, skill, or background will you bring that they don't already have?",
+      "Medical schools build classes, not just admit individuals. We're asking: what unique perspective, skill, or background will you bring that we don't already have? Your diversity of experience matters more than you think.",
   },
   {
     icon: Target,
     question: "Why our school specifically?",
     explanation:
-      "Generic answers are immediately obvious. It's clear when someone has done real research versus copying mission statements. Authentic fit matters.",
+      "Generic answers are immediately obvious. It's clear when someone has done real research versus copying mission statements. Research-heavy schools want research. Community-focused schools want community service. Authentic fit matters.",
   },
   {
     icon: MessageSquare,
     question: "Can they articulate their story compellingly?",
     explanation:
-      "Communication is foundational to medicine. How you present yourself in writing and interviews signals how you'll communicate with patients and colleagues.",
+      "Communication is foundational to medicine. How you present yourself in writing and interviews signals how you'll communicate with patients and colleagues. We want to read your essay and think: this person would make a wonderful classmate.",
   },
 ];
 

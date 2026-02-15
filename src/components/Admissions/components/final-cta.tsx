@@ -3,7 +3,7 @@ import { ArrowRight, Mail } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="py-24 bg-primary/5 border-y border-primary/20">
+    <section id="contact" className="py-24 bg-primary/5 border-y border-primary/20">
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Headline */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -38,10 +38,10 @@ export function FinalCTA() {
           <span className="text-sm">
             Prefer email?{" "}
             <a
-              href="mailto:yash@lahotiadmissions.com"
+              href="mailto:yash.lahoti@icahn.mssm.edu"
               className="text-primary hover:underline"
             >
-              yash@lahotiadmissions.com
+              yash.lahoti@icahn.mssm.edu
             </a>
           </span>
         </div>

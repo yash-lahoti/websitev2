@@ -9,39 +9,24 @@ import {
 
 const faqs = [
   {
-    question: "What makes your approach different from other consultants?",
+    question: "Who will benefit from this service?",
     answer:
-      "After reviewing  applications, I've learned exactly what separates accepted from rejected. Most consultants edit documents",
+      "Undergraduates building their pre-med trajectory, high school BS/MD applicants, medical school applicants, and STEM graduate applicants can all benefit.",
   },
   {
-    question: "How involved are you personally in the process?",
+    question: "Why choose personal mentorship over larger consulting groups?",
     answer:
-      "I work directly with every student myself. There's no team of junior editors or outsourced reviewers. When you book a session, you're working with me.",
-  },
-  {
-    question: "How many students do you work with?",
-    answer:
-      "I intentionally limit my practice to ensure every student gets the attention they deserve. This isn't a volume business. I'd rather help fewer students exceptionally well than many students adequately.",
+      "Large firms optimize for volume with templated approaches. You can build your package exactly as you need it, and I genuinely enjoy mentoring and helping students succeed!",
   },
   {
     question: "When should I start working with you?",
     answer:
-      "The earlier, the better. Students who start 1-2 years before applying have time to build genuine experiences and recieve mentorship. Current cycle applicants also benefit from guidance during the application process.",
+      "Anytime from the preperation to application stage. Ideally 12–18 months before your application cycle will give more time to pursue focused experiences."
   },
   {
-    question: "Do you work with students with lower stats?",
+    question: "How do I get started?",
     answer:
-      "Yes. While strong academics matter, I've learned that compelling narratives can overcome lower numbers when they demonstrate authentic passion and clear trajectory. If you have a genuine story and realistic expectations, we can build something powerful.",
-  },
-  {
-    question: "Can you guarantee acceptance?",
-    answer:
-      "No ethical consultant can guarantee admission. What I guarantee is that you'll have a strategically positioned application that answers the four questions every application needs to answer.",
-  },
-  {
-    question: "Do you help with MD and MD/PhD applications?",
-    answer:
-      "Yes to both. MD/PhD applications require even more coherent research narratives and clear articulation of why you need both degrees. My research background in AI and engineering is particularly valuable for physician-scientist candidates.",
+      "Book an initial consultation and see where you stand, free of charge. Let's see if we're a good fit, and how I can help you!",
   },
 ];
 

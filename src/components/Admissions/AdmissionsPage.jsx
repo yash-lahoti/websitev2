@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import { Navbar } from './components/navbar';
 import { Hero } from './components/hero';
-import { CredibilityBar } from './components/credibility-bar';
-import { Stats } from './components/stats';
+import { CredibilityBar } from './components/archive/credibility-bar';
 import { About } from './components/about';
 import { Philosophy } from './components/philosophy';
 import { ApplicationEssentials } from './components/application-essentials';
 import { Services } from './components/services';
+import { ApplicationTimeline } from './components/application-timeline';
 import { TrajectoryTimeline } from './components/trajectory-timeline';
 import { Masterclass } from './components/masterclass';
 import { Pricing } from './components/pricing';
 import { Testimonials } from './components/testimonials';
 import { FAQ } from './components/faq';
 import { FinalCTA } from './components/final-cta';
-import { Contact } from './components/contact';
+import { Contact } from './components/archive/contact';
 import { Footer } from './components/footer';
 import { SectionSeparator } from './components/section-separator';
 import './app/globals-admissions.css';
@@ -59,17 +59,15 @@ const AdmissionsPage = () => {
     >
       <Navbar />
       <Hero />
-      <SectionSeparator variant="minimal" />
-      <Stats />
       <SectionSeparator variant="default" />
       <About />
       <SectionSeparator variant="gradient" />
-      <Philosophy />
-      <SectionSeparator variant="dotted" />
       <ApplicationEssentials />
       <SectionSeparator variant="default" />
       <Services />
       <SectionSeparator variant="gradient" />
+      <ApplicationTimeline />
+      <SectionSeparator variant="dotted" />
       <TrajectoryTimeline />
       <SectionSeparator variant="dotted" />
       <Masterclass />

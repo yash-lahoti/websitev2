@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { CredibilityBar } from "@/components/credibility-bar";
+import { CredibilityBar } from "@/components/archive/credibility-bar";
 import { Stats } from "@/components/stats";
 import { About } from "@/components/about";
 import { Philosophy } from "@/components/philosophy";
@@ -13,7 +13,7 @@ import { Pricing } from "@/components/pricing";
 import { Testimonials } from "@/components/testimonials";
 import { FAQ } from "@/components/faq";
 import { FinalCTA } from "@/components/final-cta";
-import { Contact } from "@/components/contact";
+import { Contact } from "@/components/archive/contact";
 import { Footer } from "@/components/footer";
 
 export default function Home() {

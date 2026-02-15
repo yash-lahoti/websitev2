@@ -27,3 +27,9 @@ dist-ssr
 
 # vscode
 .vscode
+
+# Large gallery assets (keep locally; do not push)
+public/gallary/turkey_olives.png
+public/gallary/iceland_falls.png
+public/gallary/cr_patoo.png
+public/gallary/tnc_corona.png
