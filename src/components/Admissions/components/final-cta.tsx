@@ -18,7 +18,7 @@ export function FinalCTA() {
         </p>
 
         <p className="text-base text-muted-foreground mb-10 max-w-xl mx-auto">
-          No obligation. No sales pitch. Just an honest assessment of where you
+          Just an honest assessment of where you
           stand and how I can help.
         </p>
 
@@ -38,10 +38,10 @@ export function FinalCTA() {
           <span className="text-sm">
             Prefer email?{" "}
             <a
-              href="mailto:yash.lahoti@icahn.mssm.edu"
+              href="mailto:yash.lahoti.sapient@gmail.com"
               className="text-primary hover:underline"
             >
-              yash.lahoti@icahn.mssm.edu
+              yash.lahoti.sapient@gmail.com
             </a>
           </span>
         </div>

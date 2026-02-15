@@ -44,11 +44,10 @@ export function About() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              I am a MD candidate at the Icahn School of Medicine at Mount Sinai applying to residency in ophthalmology and an 
-              <span className="font-semibold text-foreground"> active member of the medical school admissions committee</span>,{" "}
-              screening applications and evaluating candidates. 
-              I came to medicine through engineering, not the traditional pre-med pipeline. 
-              I hold <span className="font-semibold text-foreground">dual degrees in Biomedical Science and Artificial Intelligence from the University of Pennsylvania. </span> 
+              I am a MD candidate at the Icahn School of Medicine at Mount Sinai and 
+              <span className="font-semibold text-foreground"> former member of the medical school admissions committee</span>,{" "}
+               with experience screening applications and evaluating candidates. 
+              I came to medicine through engineering, not the traditional pre-med pipeline. I hold <span className="font-semibold text-foreground">dual degrees in Biomedical Science and Artificial Intelligence from the University of Pennsylvania. </span> 
               My academic path has intentionally spanned engineering, research, and clinical medicine, building a focused professional niche at the 
               <span className="font-semibold text-foreground"> intersection of AI and healthcare. </span>
             </p>
@@ -61,23 +60,17 @@ export function About() {
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               <span className="font-semibold text-foreground"> I understand what makes a narrative compelling</span> because I have lived the process myself, 
-              <span className="font-semibold text-foreground">both as a student and as an evaluator</span>.
+              <span className="font-semibold text-foreground"> both as a student and evaluator</span>.
               Today I work with applicants across the spectrum: <span className="font-semibold text-foreground">traditional pre-med students</span> looking to sharpen a solid application, 
               <span className="font-semibold text-foreground"> non-traditional candidates</span> figuring out how to frame an unconventional background, 
-              and ambitious students who want to present themselves with the same precision and intentionality that the strongest applicants bring.
+              and ambitious students aiming to present themselves with the same precision and intentionality as the strongest applicants.
               My goal is not to make you sound like someone else. It is to help you see what committees will see in your file, and make sure your story is clear, coherent, and authentic.
             </p>
             <p className="text-lg sm:text-xl font-semibold text-foreground leading-snug border-l-4 border-primary pl-4 py-2 my-2 italic">
-              Strong applications are not built on volume. They are built on alignment.
+              Strong applications are not built on metrics. They are built on alignment.
             </p>
             {/* Desktop: buttons under the text */}
             <div className="hidden lg:flex flex-wrap gap-3 sm:gap-4 pt-2">
-              <Button variant="outline" className="gap-2 bg-transparent" asChild>
-                <a href="documents/Yash_Lahoti_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" download>
-                  <Download className="w-4 h-4" />
-                  Download Resume
-                </a>
-              </Button>
               <Button className="gap-2" asChild>
                 <a href="https://calendly.com/lahotiyash14/30min" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4" />
@@ -187,12 +180,6 @@ export function About() {
 
               {/* Mobile: buttons inside the banner card, in the extra space to the right */}
               <div className="lg:hidden shrink-0 flex flex-col gap-2 justify-center">
-                <Button variant="outline" size="sm" className="gap-2 bg-transparent w-full sm:w-auto" asChild>
-                  <a href="documents/Yash_Lahoti_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" download>
-                    <Download className="w-3.5 h-3.5" />
-                    Resume
-                  </a>
-                </Button>
                 <Button size="sm" className="gap-2 w-full sm:w-auto" asChild>
                   <a href="https://calendly.com/lahotiyash14/30min" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-3.5 h-3.5" />

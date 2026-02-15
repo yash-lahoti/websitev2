@@ -42,30 +42,11 @@ const masterclasses: Masterclass[] = [
   // TRACK 1 · AI & DATA SCIENCE FOUNDATIONS
   // ─────────────────────────────────────────────────────────
   {
-    id: "data-science-python",
-    title: "Python & Data Science for Clinical Research",
-    category: "AI/Data Science Foundations",
-    icon: Code2,
-    duration: "4 hours",
-    readme: {
-      overview:
-        "A hands-on deep dive into Python and data science through the lens of clinical medicine. You'll configure a research-ready coding environment, manipulate real healthcare datasets, EHR exports, NHANES tables, clinical trial CSVs, using Pandas, and run the statistical analyses that underpin every published study. Each exercise mirrors a task you'd encounter in a research lab or quality-improvement project so you walk out writing code, not just reading it.",
-      whyItMatters:
-        "Physicians who can interrogate their own data lead research teams instead of waiting on analysts. Programs and PIs actively recruit applicants who bring quantitative skills to the bench, and admissions committees notice when your application shows evidence of technical depth rather than passive observation.",
-    },
-    modules: [
-      "Environment Setup & Python Fundamentals for Biomedical Data",
-      "Healthcare Data Formats: EHR Exports, FHIR, and Clinical CSVs",
-      "Exploratory Analysis & Data Wrangling with Pandas",
-      "Hypothesis Testing, Regression, and Publication-Ready Visualizations",
-    ],
-  },
-  {
     id: "medical-imaging",
     title: "Medical Imaging & Computer Vision from First Principles",
     category: "AI/Data Science Foundations",
     icon: ScanEye,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "A structured introduction to how machines see medical images. You'll learn how X-rays, CT, MRI, and histology slides are encoded as digital data, walk through the architecture of convolutional neural networks used in FDA-cleared diagnostic tools, and build a working image classifier on a real medical dataset. By session end you'll have a trained model, an understanding of its failure modes, and the vocabulary to discuss AI-assisted diagnostics in any interview or research setting.",
@@ -84,7 +65,7 @@ const masterclasses: Masterclass[] = [
     title: "AI Capstone: Ship a Healthcare AI Project",
     category: "AI/Data Science Foundations",
     icon: Rocket,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Your chance to go from concept to deployed project in a single session. You'll scope a focused healthcare AI application, predictive model, clinical NLP tool, diagnostic classifier, or workflow automation, source an appropriate dataset, and leverage agentic AI coding assistants to build and iterate fast. You leave with a working prototype, clean documentation, and a deployment or publication strategy ready for your portfolio.",
@@ -107,7 +88,7 @@ const masterclasses: Masterclass[] = [
     title: "AI-Powered Workflows for Pre-Med Productivity",
     category: "Mastering AI Tools",
     icon: Wand2,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Learn the prompt engineering and workflow-design principles that turn AI assistants like Claude and ChatGPT into force multipliers for your pre-med life. You'll build reusable systems for active studying, adaptive practice questions, concept mapping, Socratic review, plus literature search pipelines and research task automation. You leave with a personal playbook of templates, tested prompts, and a clear framework for deciding when AI helps and when it gets in the way.",
@@ -121,25 +102,6 @@ const masterclasses: Masterclass[] = [
       "Automating Literature Search, Summarization, and Citation Tracking",
     ],
   },
-  {
-    id: "ai-assistant",
-    title: "Building Your Personal AI Command Center",
-    category: "Mastering AI Tools",
-    icon: Bot,
-    duration: "4 hours",
-    readme: {
-      overview:
-        "Design and deploy a personal AI-assisted system that handles the administrative overhead of pre-med life: intelligent email triage, deadline tracking, draft communications, and scheduling optimization. Using Claude, ChatGPT, and lightweight automation tools, you'll build workflows you can implement in an afternoon and refine over weeks, freeing cognitive bandwidth for research, clinical exposure, and the work that actually moves your application forward.",
-      whyItMatters:
-        "Admissions committees read thousands of applications from candidates who are \"passionate about medicine.\" The ones who earn interviews are organized, responsive, and visibly in control of complex commitments. Offloading routine admin to a well-designed system lets you operate that way by default.",
-    },
-    modules: [
-      "Choosing the Right AI Tool for Each Administrative Task",
-      "Email Triage, Smart Filtering, and Draft-Response Pipelines",
-      "Deadline Management, Calendar Optimization, and Task Prioritization",
-      "Integration Patterns: Connecting Tools into a Seamless Daily System",
-    ],
-  },
 
   // ─────────────────────────────────────────────────────────
   // TRACK 3 · PROFESSIONAL DEVELOPMENT
@@ -149,7 +111,7 @@ const masterclasses: Masterclass[] = [
     title: "Scientific Writing, Citation Mastery, and Ethical AI Use",
     category: "Professional Development",
     icon: PenTool,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Master the mechanics and strategy of scientific writing with AI as a responsible co-pilot. You'll set up a professional citation workflow in Zotero or Mendeley, build a repeatable literature-review pipeline, and practice AI-assisted drafting and revision techniques that sharpen your prose without crossing into plagiarism or misrepresentation. Dedicated modules on personal statements and secondaries ensure your application writing stays authentic and committee-ready.",
@@ -168,7 +130,7 @@ const masterclasses: Masterclass[] = [
     title: "Building a Research Portfolio That Gets You Noticed",
     category: "Professional Development",
     icon: FlaskConical,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Transform scattered research experiences into a compelling, cohesive portfolio. You'll learn documentation standards that PIs actually respect, write abstracts and poster narratives that win conference awards, and construct a research identity that threads naturally through your application, from activities list to interview talking points. Includes templates, before-and-after rewrites, and live critique so every principle is immediately applicable to your own work.",
@@ -187,7 +149,7 @@ const masterclasses: Masterclass[] = [
     title: "Build and Launch Your Professional Portfolio Website",
     category: "Professional Development",
     icon: Globe,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Go from blank screen to live portfolio site in a single session. You'll learn design fundamentals and personal branding strategy, write web-optimized content that tells your story, and build a polished site using modern frameworks and templates, no prior web development experience required. You leave with a deployed, shareable URL that program directors, PIs, and letter writers can find when they look you up.",
@@ -210,7 +172,7 @@ const masterclasses: Masterclass[] = [
     title: "AI-Enhanced Study Systems: Mastering Your Mistakes",
     category: "Exam/Test Prep",
     icon: Brain,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "Build a closed-loop study system that turns every wrong answer into lasting retention. You'll create a structured error database, use AI to surface patterns in your mistakes, distinguishing content gaps from reasoning errors from timing issues, and integrate spaced repetition via Anki so corrections stick long-term. You leave with a fully operational system and a protocol to apply it after every practice exam.",
@@ -229,7 +191,7 @@ const masterclasses: Masterclass[] = [
     title: "MCAT Strategy, Scheduling, and Section Mastery",
     category: "Exam/Test Prep",
     icon: BookOpen,
-    duration: "4 hours",
+    duration: "~4 hours",
     readme: {
       overview:
         "An evidence-based, systems-level approach to MCAT preparation. You'll design a personalized study schedule that balances content review, practice questions, and full-length exams against your real-life commitments, then drill section-specific strategies, including a dedicated CARS framework, and build a test-day execution plan covering pacing, energy management, and decision-making under pressure.",
@@ -415,19 +377,19 @@ export function Masterclass() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 overflow-x-hidden">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-primary font-medium mb-2">Modern Skills for Future Doctors</p>
+          <p className="text-primary font-medium mb-2">Structured Skill Sessions</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Research & Skills Development
+            Masterclass Library
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Medicine is changing. I share the technical skills I learned (like Python and AI) to help you stand out in research labs and prepare for the future of healthcare.
+            Focused, hands-on sessions you can book with your consulting hours. Each masterclass starts with suggested 4 hours of guided lessons. Go deeper on topics and skills as you need.
           </p>
         </div>
 
 
 
-        {/* IDE Container */}
-        <div className="rounded-xl border border-border overflow-hidden shadow-xl min-h-[600px]">
+        {/* IDE Container — height from viewport so main content fits without scroll */}
+        <div className="rounded-xl border border-border overflow-hidden shadow-xl">
           {/* IDE Title Bar ,  scrollable left section with slow back-and-forth auto-scroll */}
           <div className="flex items-center justify-between px-4 py-2 bg-[#1e1e2e] border-b border-border">
             <div
@@ -459,7 +421,7 @@ export function Masterclass() {
             </button>
           </div>
 
-          <div className="flex flex-col md:flex-row bg-[#11111b] min-h-[550px] max-h-[78vh] overflow-hidden">
+          <div className="flex flex-col md:flex-row bg-[#11111b] md:h-[70vh] md:min-h-[480px] min-h-[400px] overflow-hidden">
             {/* Sidebar (Desktop) ,  min-h-0 so it can shrink and scroll */}
             <div className="hidden md:flex flex-col w-72 min-h-0 border-r border-border/50 bg-[#181825] shrink-0">
               <div className="px-3 py-2 border-b border-border/50 flex items-center justify-between gap-2 shrink-0">
@@ -592,13 +554,13 @@ export function Masterclass() {
                   </button>
                 </div>
 
-                {/* Content Area */}
-                <div className="flex-1 min-h-0 p-5 md:p-6 overflow-y-auto overflow-x-hidden custom-scrollbar">
-                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
-                    {/* Left Content */}
-                    <div className="lg:col-span-3 space-y-5">
+                {/* Content Area — no scroll on desktop (fits viewport); sidebar only scrolls. Mobile: natural height + scroll. */}
+                <div className="flex-1 min-h-0 flex flex-col p-5 md:p-6 overflow-y-auto md:overflow-hidden min-h-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 min-h-0 md:flex-1 md:min-h-0">
+                    {/* Left Content — on mobile no flex/min-h so content flows and parent scrolls */}
+                    <div className="lg:col-span-3 flex flex-col md:min-h-0 gap-4">
                       {/* Header */}
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-start gap-4 shrink-0">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                           <IconComponent className={`w-6 h-6 ${accentColor}`} />
                         </div>
@@ -621,38 +583,38 @@ export function Masterclass() {
                       </div>
 
                       {/* Overview */}
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
+                      <div className="md:min-h-0 flex flex-col">
+                        <div className="flex items-center gap-2 mb-1.5 shrink-0">
                           <BookMarked className={`w-4 h-4 ${accentColor}`} />
                           <h4 className="font-semibold text-foreground text-sm">Overview</h4>
                         </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-sm leading-relaxed md:line-clamp-5">
                           {selectedClass.readme.overview}
                         </p>
                       </div>
 
                       {/* Why It Matters */}
-                      <div className="p-4 rounded-lg bg-white/[0.02] border border-border/50">
-                        <div className="flex items-center gap-2 mb-2">
+                      <div className="md:min-h-0 flex flex-col p-4 rounded-lg bg-white/[0.02] border border-border/50">
+                        <div className="flex items-center gap-2 mb-1.5 shrink-0">
                           <Lightbulb className="w-4 h-4 text-amber-400" />
                           <h4 className="font-semibold text-foreground text-sm">Why It Matters</h4>
                         </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-sm leading-relaxed md:line-clamp-4">
                           {selectedClass.readme.whyItMatters}
                         </p>
                       </div>
                     </div>
 
                     {/* Right Sidebar - Curriculum */}
-                    <div className="lg:col-span-2">
-                      <div className="rounded-lg border border-border/50 bg-white/[0.02] overflow-hidden">
-                        <div className="px-4 py-3 border-b border-border/50 bg-white/[0.02]">
+                    <div className="lg:col-span-2 md:min-h-0 flex flex-col">
+                      <div className="rounded-lg border border-border/50 bg-white/[0.02] overflow-hidden flex flex-col md:min-h-0 lg:h-full">
+                        <div className="px-4 py-3 border-b border-border/50 bg-white/[0.02] shrink-0">
                           <span className="text-sm font-semibold text-foreground">Curriculum</span>
                           <span className="text-xs text-muted-foreground ml-2">
                             4 modules
                           </span>
                         </div>
-                        <div className="p-3 space-y-1">
+                        <div className="p-3 space-y-1 md:min-h-0 md:overflow-hidden">
                           {selectedClass.modules.map((module, i) => (
                             <div
                               key={module}
@@ -706,7 +668,7 @@ export function Masterclass() {
         {/* CTA */}
         <div className="text-center mt-8">
           <Button size="lg" asChild>
-            <a href="#pricing">Get Access to All Masterclasses</a>
+            <a href="#pricing">View Hour Packages</a>
           </Button>
         </div>
       </div>

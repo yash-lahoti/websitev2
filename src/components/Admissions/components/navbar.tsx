@@ -9,9 +9,9 @@ const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Philosophy", href: "#essentials" },
-  { label: "Services", href: "#services" },
+  { label: "Pillars", href: "#services" },
   { label: "Timeline", href: "#timeline" },
-  { label: "Masterclass", href: "#masterclass" },
+  { label: "Masterclasses", href: "#masterclass" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
@@ -23,7 +23,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 50);s
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -42,7 +42,7 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/admissions-consulting" className="flex items-center gap-2">
             <span className="text-xl font-bold text-foreground">
-              YL-<span className="text-primary">Admissions Counceling</span>
+              YL-<span className="text-primary">Admissions Consulting</span>
             </span>
           </Link>
 

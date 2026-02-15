@@ -21,13 +21,13 @@ const pillars = [
     borderColor: "border-primary/50",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
-    desc: "We move beyond generic 'I want to help people' statements. We dig deep to uncover the authentic experiences that defined your journey.",
+    desc: "Move beyond generic 'I want to help people' statements. I help you uncover the authentic experiences that actually defined your journey.",
     detail:
-      "Instead of treating your personal statement, activities, and secondaries as separate documents, we build a unified narrative that runs through every component. We look at your research, your hobbies, and your life experiences to find the unique thread that connects them all.",
+      "Instead of treating your personal statement, activities, and secondaries as separate documents, we build a unified narrative that runs through every component. Together, we look at your research, your interests, and your life experiences to find the thread that connects them. Your application reads as one cohesive story, not a collection of parts.",
     outcomes: [
       "A unified narrative that connects all your experiences",
-      "Clear trajectory that admissions committees recognize",
-      "Authentic story that only you could write",
+      "A clear trajectory that admissions committees recognize",
+      "An authentic story that only you could write",
     ],
   },
   {
@@ -40,13 +40,13 @@ const pillars = [
     borderColor: "border-primary/50",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
-    desc: "Don't just apply to rankings. We identify programs where your specific narrative is a perfect cultural fit.",
+    desc: "Don't just apply to rankings. I help you identify programs where your specific narrative is a genuine cultural fit.",
     detail:
-      "Most applicants create school lists based on rankings and location. This is backwards. We identify programs where your specific narrative is a perfect cultural fit. We analyze each school's culture, mission, and recent initiatives to find genuine alignment.",
+      "Most applicants build school lists based on rankings and location. That's backwards. I help you analyze each school's culture, mission, and recent initiatives to find programs where your background and goals genuinely align.",
     outcomes: [
-      "Strategic school list based on genuine fit",
-      "Clear articulation of why you belong there",
-      "Higher acceptance rates at target programs",
+      "A strategic school list based on genuine fit",
+      "Clear articulation of why each program makes sense for you",
+      "Stronger odds at the programs that actually match",
     ],
   },
   {
@@ -59,13 +59,13 @@ const pillars = [
     borderColor: "border-primary/50",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
-    desc: "Most students are anonymous. We guide you on how to genuinely connect with faculty, labs, and mentors before you apply.",
+    desc: "Most applicants are anonymous to the programs they apply to. I help you change that before you ever hit submit.",
     detail:
-      "Strategic Outreach transforms you from an anonymous applicant to a known quantity. This includes identifying relevant research opportunities, reaching out to faculty whose work aligns with your interests, and initiating meaningful conversations.",
+      "Strategic outreach turns you from an anonymous file into a known quantity. Together, we identify research opportunities, faculty whose work aligns with your interests, and the right ways to initiate genuine professional conversations.",
     outcomes: [
-      "Advocacy inside target programs before applying",
+      "Advocacy inside target programs before you apply",
       "Genuine connections with faculty and mentors",
-      "You're a known quantity, not anonymous",
+      "Your name is recognized, not just your numbers",
     ],
   },
   {
@@ -78,13 +78,13 @@ const pillars = [
     borderColor: "border-primary/50",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
-    desc: "You enter the medical community early through conferences, publications, and initiatives.",
+    desc: "You enter the medical community early through conferences, publications, and initiatives that exist before you apply.",
     detail:
-      "Professional Positioning means entering the medical community before medical school. We help you present at conferences, publish research, launch initiatives, and build a professional presence that already exists in the field.",
+      "Professional positioning means building a presence in the field before medical school. I help you present at conferences, pursue publication, launch meaningful initiatives, and develop a professional identity that committees can see.",
     outcomes: [
-      "Professional identity that already exists in the field",
-      "Demonstrated contributions through meaningful impact",
-      "Application shows trajectory, not just potential",
+      "A professional identity that already exists in the field",
+      "Demonstrated contributions with measurable impact",
+      "An application that shows trajectory, not just promise",
     ],
   },
 ];

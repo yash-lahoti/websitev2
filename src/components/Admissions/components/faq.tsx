@@ -9,24 +9,24 @@ import {
 
 const faqs = [
   {
-    question: "Who will benefit from this service?",
+    question: "Who is this for?",
     answer:
-      "Undergraduates building their pre-med trajectory, high school BS/MD applicants, medical school applicants, and STEM graduate applicants can all benefit.",
+      "High school students applying to BS/MD programs, undergraduates building their pre-med profile, applicants preparing for the current cycle, and STEM graduate school candidates. If you're navigating a competitive admissions process, there's a service here for where you are.",
   },
   {
-    question: "Why choose personal mentorship over larger consulting groups?",
+    question: "Why work with you instead of a larger consulting firm?",
     answer:
-      "Large firms optimize for volume with templated approaches. You can build your package exactly as you need it, and I genuinely enjoy mentoring and helping students succeed!",
+      "Most firms run every student through the same formula of standardized templates, recycled frameworks, interchangeable advisors. I work differently. Every engagement starts from where you actually are, not where a playbook assumes you should be. The goal is to build around your specific background, experiences, and trajectory.",
   },
   {
-    question: "When should I start working with you?",
+    question: "When should I start?",
     answer:
-      "Anytime from the preperation to application stage. Ideally 12–18 months before your application cycle will give more time to pursue focused experiences."
+      "Wherever you are in the process is a good place to start. I offer sessions designed for every stage — from early profile building years out, to strategy and narrative work a year before, to execution support in the final months before submission. Starting earlier gives us more to work with, but there's always something meaningful to do right now.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Book an initial consultation and see where you stand, free of charge. Let's see if we're a good fit, and how I can help you!",
+      "Book a free initial consultation. We'll look at where you stand, talk through your goals, and figure out whether working together makes sense. No commitment, just an honest conversation about your candidacy.",
   },
 ];
 

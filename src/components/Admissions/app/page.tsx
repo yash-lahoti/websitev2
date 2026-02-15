@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero";
 import { CredibilityBar } from "@/components/archive/credibility-bar";
 import { Stats } from "@/components/stats";
 import { About } from "@/components/about";
-import { Philosophy } from "@/components/philosophy";
+import { Philosophy } from "@/components/archive/philosophy";
 import { ApplicationEssentials } from "@/components/application-essentials";
 import { Services } from "@/components/services";
 import { TrajectoryTimeline } from "@/components/trajectory-timeline";

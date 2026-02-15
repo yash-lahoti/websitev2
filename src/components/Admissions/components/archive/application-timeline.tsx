@@ -23,155 +23,138 @@ interface TimelineCard {
   phase: 1 | 2 | 3;
 }
 
-const timelineCards = [
-  // Phase 1: Foundation (2+ Years Before)
+const timelineCards: TimelineCard[] = [
+  // Phase 1: Foundation (Years 1-2) - 6 items
   {
     id: "niche-id",
-    title: "Identity & Differentiation",
-    description:
-      "Discover the unique thread that ties your interests, experiences, and goals into one clear candidacy.",
+    title: "Niche Identification",
+    description: "Identify your unique intersection of interests that will differentiate you.",
     category: "narrative",
     phase: 1,
   },
   {
     id: "long-research",
-    title: "Research Planning",
-    description:
-      "Plan a research trajectory that builds toward meaningful outcomes, not just logged hours.",
+    title: "Longitudinal Research Planning",
+    description: "Design a multi-year research roadmap targeting publication or high-impact results.",
     category: "extracurricular",
     phase: 1,
   },
   {
     id: "leadership-traj",
-    title: "Leadership Positioning",
-    description:
-      "Understand what committees recognize as genuine leadership and how to grow into those roles.",
+    title: "Leadership & Impact Trajectory",
+    description: "Move beyond member status to executive, founder, or change-maker roles.",
     category: "extracurricular",
     phase: 1,
   },
   {
     id: "clinical-roadmap",
-    title: "Clinical & Service Selection",
-    description:
-      "Choose clinical and service experiences that strengthen your profile rather than scatter it.",
+    title: "Clinical & Service Roadmap",
+    description: "Strategic selection of clinical sites and service work that reinforces your niche.",
     category: "extracurricular",
     phase: 1,
   },
   {
     id: "competency-gap",
-    title: "Competency Gap Audit",
-    description:
-      "Find out where your profile has gaps relative to what programs expect and plan to remediate.",
+    title: "Competency Gap Analysis",
+    description: "Audit your profile against medical school requirements and identify weak spots early.",
     category: "application",
     phase: 1,
   },
   {
     id: "academic-planning",
-    title: "Academic & MCAT Timeline",
-    description:
-      "Map your coursework, prerequisites, and MCAT preparation around your target application cycle.",
+    title: "Academic Planning",
+    description: "Create a master timeline for coursework and MCAT to peak at application time.",
     category: "application",
     phase: 1,
   },
-  // Phase 2: Expansion (1 Year Before)
+  // Phase 2: Expansion (6-12 months before) - 6 items
   {
     id: "narrative-excavation",
-    title: "Story Excavation",
-    description:
-      "Surface the recurring themes across your experiences that form the foundation of your application narrative.",
+    title: "Narrative Excavation",
+    description: "Deep-dive sessions to uncover your Why Medicine story and core themes.",
     category: "narrative",
     phase: 2,
   },
   {
     id: "recommender-building",
-    title: "Recommender Strategy",
-    description:
-      "Figure out who to ask, when to ask, and how to set your recommenders up for the strongest possible letters.",
+    title: "Recommender Relationship Building",
+    description: "Identify best letter writers and cultivate relationships for strong advocacy.",
     category: "outreach",
     phase: 2,
   },
   {
     id: "faculty-networking",
-    title: "Faculty & Program Outreach",
-    description:
-      "Build professional relationships with faculty and program contacts at your target schools.",
+    title: "Faculty & Mentor Networking",
+    description: "Build professional connections with faculty and decision-makers at target programs.",
     category: "outreach",
     phase: 2,
   },
   {
     id: "school-analysis",
-    title: "School List Construction",
-    description:
-      "Evaluate what makes a school the right fit for you, beyond rankings alone.",
+    title: "Target School Analysis",
+    description: "Evaluate school missions and cultures to build a strategically aligned school list.",
     category: "application",
     phase: 2,
   },
   {
     id: "scholarly-presentation",
-    title: "Scholarly Presentation",
-    description:
-      "Prepare and submit your research for presentation at academic conferences.",
+    title: "Scholarly Presentation Strategy",
+    description: "Submit abstracts and present research at conferences to validate academic potential.",
     category: "extracurricular",
     phase: 2,
   },
   {
     id: "casper-strategy",
-    title: "MCAT & Testing Strategy",
-    description:
-      "Approach the MCAT and situational judgment tests like CASPer, Snapshot, and PREview with a clear plan.",
+    title: "MCAT and CASPer Strategy",
+    description: "Prepare for MCAT, CASPer, Snapshot, and PREview exams",
     category: "application",
     phase: 2,
   },
-  // Phase 3: Execution (Final 6 Months)
+  // Phase 3: Execution (Final 6 months) - 6 items
   {
     id: "primary-narrative",
-    title: "Personal Statement",
-    description:
-      "Structure a personal statement that presents a clear, cohesive case for your candidacy.",
+    title: "Primary Application Narrative Arc",
+    description: "Structure your Personal Statement as a thesis statement for your career.",
     category: "narrative",
     phase: 3,
   },
   {
     id: "activity-framing",
-    title: "Activity Descriptions",
-    description:
-      "Write AMCAS activity entries that communicate impact - not just responsibilities.",
-    category: "application",
+    title: "Activity Description Impact Framing",
+    description: "Write your 15 AMCAS activities to emphasize results and impact, not just duties.",
+    category: "narrative",
     phase: 3,
   },
   {
     id: "secondary-strategy",
-    title: "Secondary Essays",
-    description:
-      "Tackle secondary prompts efficiently while keeping your responses authentic and school-specific.",
+    title: "Secondary Thematic Strategy",
+    description: "Analyze prompts and create a content bank of stories adaptable across schools.",
     category: "narrative",
     phase: 3,
   },
   {
     id: "application-timing",
-    title: "Submission Management",
-    description:
-      "Stay on top of your submission timeline, document requirements, and verification process.",
+    title: "Application Timing & Document Verification",
+    description: "Strategically manage timeline and submission checklist to avoid common pitfall",
     category: "application",
     phase: 3,
   },
   {
     id: "interview-strategy",
-    title: "Interview Preparation",
-    description:
-      "Walk into traditional, MMI, and panel interviews knowing what to expect and how to show up.",
+    title: "Interview Communication Strategy",
+    description: "Coach on verbal and non-verbal techniques so your person matches your paper.",
     category: "narrative",
     phase: 3,
   },
   {
     id: "post-submission",
-    title: "Post-Submission Strategy",
-    description:
-      "Keep programs engaged after your application is submitted through effective follow-up communication.",
+    title: "Post-Submission Update Strategy",
+    description: "Write Letters of Intent and Update Letters to keep schools engaged.",
     category: "outreach",
     phase: 3,
   },
 ];
+
 const durations: { id: Duration; label: string; subtitle: string }[] = [
   { id: "2years", label: "2 Years", subtitle: "The Architect" },
   { id: "1year", label: "1 Year", subtitle: "The Strategist" },
@@ -247,7 +230,7 @@ export function ApplicationTimeline() {
             Timeline
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Book a session to gain clarity on the key steps of the application process. The earlier you start, the more levers you have. 
+            The earlier you start, the more levers you have.
           </p>
         </div>
 
@@ -356,12 +339,12 @@ export function ApplicationTimeline() {
                             <div className={cn("w-4 h-4 rounded flex items-center justify-center shrink-0", cat.bg)}>
                               <Icon className="w-2.5 h-2.5 text-white" />
                             </div>
-                            <span className={cn("text-xs font-medium break-words min-w-0", cat.text)}>{cat.label}</span>
+                            <span className={cn("text-xs font-medium", cat.text)}>{cat.label}</span>
                           </div>
-                          <h4 className="font-semibold text-foreground text-sm leading-tight mb-1 break-words">
+                          <h4 className="font-semibold text-foreground text-sm leading-tight mb-1">
                             {card.title}
                           </h4>
-                          <p className="text-xs text-muted-foreground leading-snug break-words">
+                          <p className="text-xs text-muted-foreground leading-snug">
                             {card.description}
                           </p>
                         </div>
@@ -437,14 +420,14 @@ export function ApplicationTimeline() {
                               >
                                 <Icon className="w-2.5 h-2.5 text-white" />
                               </div>
-                              <span className={cn("text-[10px] font-medium break-words min-w-0", cat.text)}>
+                              <span className={cn("text-[10px] font-medium", cat.text)}>
                                 {cat.label}
                               </span>
                             </div>
-                            <h4 className="font-semibold text-foreground text-xs leading-tight mb-1 break-words">
+                            <h4 className="font-semibold text-foreground text-xs leading-tight mb-1">
                               {card.title}
                             </h4>
-                            <p className="text-sm text-muted-foreground leading-snug break-words">
+                            <p className="text-sm text-muted-foreground leading-snug line-clamp-2">
                               {card.description}
                             </p>
                           </div>

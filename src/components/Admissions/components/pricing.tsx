@@ -1,19 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Gift, Trophy, Clock, BookOpen } from "lucide-react";
+import { Check, BookOpen } from "lucide-react";
 
 const flexibleFeatures = [
-  "Use for ANY admissions-related task",
-  "Essays, Interview Prep, Strategy Sessions",
-  "Purchase individual Masterclass sessions",
-  "No minimum commitment—pay as you go",
-  "Standard scheduling priority",
+  "Use for any admissions task — essays, strategy, interview prep",
+  "Book Masterclass sessions (~4 hours guided learning)",
+  "Flexible scheduling on your timeline",
+  "No minimum commitment",
+  "Hours never expire",
 ];
 
-const focusedFeatures = [
+const mentorshipFeatures = [
+  "Everything in Hourly at a reduced rate",
+  "Dedicated long-term strategy across your application cycle",
+  "Priority scheduling and faster turnaround",
+  "Allocate hours across any mix of sessions and masterclasses",
+  "Milestone check-ins between sessions",
 ];
 
-const ultimateFeatures = [
+const comprehensiveFeatures = [
+  "Everything in Mentorship at the lowest rate",
+  "Full-cycle coverage from foundation through post-submission",
+  "Allocate hours across unlimited masterclass topics",
+  "Same-week scheduling availability",
+  "Direct access for quick-turn questions between sessions",
 ];
 
 export function Pricing() {
@@ -23,29 +33,30 @@ export function Pricing() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-medium mb-2">
-            Flexible Investment Options
+            Consulting Hours
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Choose Your Path to Acceptance
+            Invest in Your Candidacy
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Whether you need targeted support or a comprehensive, long-term
-            strategy, we have a plan to fit your goals.
+            Every engagement - strategy sessions, essay work, interview prep,
+            and masterclasses — runs on consulting hours. Buy them individually
+            or commit to a package for a better rate.
           </p>
         </div>
 
         {/* Two-Column Pricing Layout */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Left Column: Flexible & A la Carte */}
+          {/* Left Column: Hourly */}
           <Card className="border border-border bg-card">
             <CardContent className="p-6 lg:p-8">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Flexible Engagement
+                  Hourly
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Purchase individual hours or specific courses for targeted
-                  assistance. Use them whenever and however you need.
+                  Purchase hours as you need them. Use for one-on-one
+                  consulting, essay reviews, or structured masterclass sessions.
                 </p>
               </div>
 
@@ -57,13 +68,12 @@ export function Pricing() {
                   </span>
                   <span className="text-muted-foreground">/hour</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Pay as you go</p>
+                <p className="text-sm text-muted-foreground">No commitment required</p>
 
                 <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                   <BookOpen className="w-4 h-4 text-primary" />
                   <span>
-                    Individual Masterclasses starting at{" "}
-                    <span className="text-foreground font-medium">$999</span>
+                    Masterclasses: structured learning session you can customize
                   </span>
                 </div>
               </div>
@@ -87,12 +97,12 @@ export function Pricing() {
                 className="w-full bg-transparent"
                 asChild
               >
-                <a href="#contact">Purchase Hours or Courses</a>
+                <a href="#contact">Book Hours</a>
               </Button>
             </CardContent>
           </Card>
 
-          {/* Right Column: Strategic Packages */}
+          {/* Right Column: Hour Packages */}
           <Card className="border-2 border-primary bg-card relative">
             {/* Best Value Badge */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -104,15 +114,15 @@ export function Pricing() {
             <CardContent className="p-6 lg:p-8 pt-8">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Strategic Packages
+                  Hour Packages
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Commit to a structured plan and unlock exclusive resources,
-                  significant discounts, and premium mentorship.
+                  Commit to a block of hours for a reduced rate. Use across any
+                  combination of consulting sessions and masterclasses.
                 </p>
               </div>
 
-              {/* Tier 1: 15+ Hours */}
+              {/* Tier 1: Mentorship (20+ Hours) */}
               <div className="mb-6 pb-6 border-b border-border">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-foreground">
@@ -133,21 +143,12 @@ export function Pricing() {
                   </span>
                 </div>
 
-                {/* Bonus Box */}
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-primary/10 border border-primary/20 mb-4">
-                  <Gift className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      BONUS INCLUDED
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      1 Masterclass Sessions of Your Choice
-                    </p>
-                  </div>
-                </div>
+                <p className="text-xs text-muted-foreground mb-4">
+                  Recommended for 2–3 masterclass topics plus ongoing strategy work.
+                </p>
 
                 <ul className="space-y-2">
-                  {focusedFeatures.map((feature) => (
+                  {mentorshipFeatures.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
@@ -159,7 +160,7 @@ export function Pricing() {
                 </ul>
               </div>
 
-              {/* Tier 2: 30+ Hours */}
+              {/* Tier 2: Comprehensive (35+ Hours) */}
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-foreground">
@@ -180,24 +181,8 @@ export function Pricing() {
                   </span>
                 </div>
 
-                {/* Mega Bonus Box */}
-                <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/15 border border-primary/30 mb-4">
-                  <Trophy className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-bold text-primary uppercase tracking-wide">
-                      Mega Bonus
-                    </p>
-                    <p className="text-sm text-foreground font-medium">
-                      1 Masterclass Sessions of Your Choice
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      + Portfolio Website Developments
-                    </p>
-                  </div>
-                </div>
-
                 <ul className="space-y-2">
-                  {ultimateFeatures.map((feature) => (
+                  {comprehensiveFeatures.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
@@ -211,7 +196,7 @@ export function Pricing() {
 
               {/* CTA */}
               <Button className="w-full" asChild>
-                <a href="#contact">Select a Package</a>
+                <a href="#contact">Choose a Package</a>
               </Button>
             </CardContent>
           </Card>

@@ -99,7 +99,7 @@ export function Hero() {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
             <span className="text-[10px] sm:text-sm text-primary font-medium tracking-wide">
-              PREMIER GRADUATE ADMISSIONS CONSULTING
+              COACHING | STRATEGY | MENTORSHIP
             </span>
           </motion.div>
 
@@ -108,7 +108,7 @@ export function Hero() {
             className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 sm:mb-6 font-serif leading-tight"
             variants={itemUpSlow}
           >
-            <span className="text-foreground">Personalized Strategy for Competitive Graduate Admissions</span>
+            <span className="text-foreground">Competitive Graduate Admissions Consulting</span>
           </motion.h1>
 
           {/* Description */}
@@ -116,7 +116,7 @@ export function Hero() {
             className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-5 sm:mb-10 leading-relaxed font-sans"
             variants={itemUp}
           >
-            We align your narrative, positioning, and school strategy into one compelling case for admissions readers.
+            I help align your narrative and application so you can make a compelling case for admission at your target schools.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -156,7 +156,7 @@ export function Hero() {
                 {/* Desktop only: overlay card on portrait */}
                 <div className="hidden lg:block absolute bottom-6 left-6 right-6 z-20 bg-background/90 backdrop-blur-md border border-primary/20 p-4 rounded-md shadow-lg">
                   <p className="font-serif text-lg text-foreground">Yash Lahoti <span className="text-sm font-sans text-foreground ml-1">BAS, MSE, MD Candidate</span></p>
-                  <p className="text-xs text-white mt-1 font-semibold">Admission Committee Member</p>
+                  <p className="text-xs text-white mt-1 font-semibold">Admission Committee Experience</p>
                   <p className="text-xs text-primary mt-0.5 uppercase tracking-wider font-semibold">Icahn School of Medicine at Mount Sinai</p>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export function Hero() {
               <div className="lg:hidden flex-1 min-w-0 flex flex-col justify-center bg-card border border-border rounded-lg border-primary/20 p-3 sm:p-4 shadow-lg">
                 <p className="font-serif text-xs sm:text-sm text-foreground leading-tight">Yash Lahoti</p>
                 <p className="text-[10px] sm:text-xs font-sans text-muted-foreground mt-0.5">BAS, MSE, MD Candidate</p>
-                <p className="text-[10px] sm:text-xs text-white font-semibold leading-snug">Admission Committee Member</p>
+                <p className="text-[10px] sm:text-xs text-white font-semibold leading-snug">Admission Committee Experience</p>
                 <p className="text-[10px] sm:text-xs text-primary mt-1 uppercase tracking-wider font-semibold leading-snug">Icahn School of Medicine at Mount Sinai</p>
               </div>
             </div>

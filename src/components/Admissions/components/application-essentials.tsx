@@ -5,25 +5,25 @@ const questions = [
     icon: User,
     question: "Can I picture this person as a physician?",
     explanation:
-      "Medical schools are not looking for perfection. They are looking for evidence you understand what the job actually entails. Your experiences should show genuine exposure to patient care realities, not just shadowing from a safe distance.",
+      "Medical schools are not looking for perfection. They are looking for evidence you understand what the job actually entails. Your experiences should show genuine exposure to patient care realities.",
   },
   {
     icon: Lightbulb,
     question: "What will they contribute to the program?",
     explanation:
-      "Medical schools build classes, not just admit individuals. AdCOM is asking: what unique perspective, skill, or background will you bring that they don't already have? Your diversity of experience matters more than you think.",
+      "Medical schools build classes, not just admit individuals. AdCOM is asking: what unique perspective, skill, or background will you bring that they don't already have?",
   },
   {
     icon: Target,
     question: "Why this medical school specifically?",
     explanation:
-      "Generic answers are immediately obvious. It's clear when someone has done real research versus copying mission statements. Research-heavy schools want research. Community-focused schools want community service. Authentic fit matters.",
+      "Generic answers are immediately obvious. It's clear when someone has done real research versus copying mission statements. Authentic fit matters.",
   },
   {
     icon: MessageSquare,
     question: "Can they articulate their story compellingly?",
     explanation:
-      "Communication is foundational to medicine. How you present yourself in writing and interviews signals how you'll communicate with patients and colleagues. AdCOM wants to read your essay and think: this person would make a wonderful classmate.",
+      "Communication is foundational to medicine. AdCOM wants to read your essay and think: this person would make a wonderful classmate.",
   },
 ];
 
@@ -39,7 +39,7 @@ export function ApplicationEssentials() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             After screening competitive applications side by side, I have learned that
-            checklist items of GPA, exam scores, and activities are not the defining
+            checklist items like GPA, exam scores, and activities are not the defining
             features of standout applications. Here are the 4 critical questions that
             must be answered in your application within 15 minutes of review to get to the top of the pile.
           </p>

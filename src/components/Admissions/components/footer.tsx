@@ -4,9 +4,9 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
-            <p className="text-foreground font-semibold">Lahoti Admissions</p>
+            <p className="text-foreground font-semibold">YL-Admissions Consulting</p>
             <p className="text-sm text-muted-foreground">
-              New York, NY | dryashlahoti.com/medicalstudent
+              New York, NY | dryashlahoti.com/admissions-consulting
             </p>
           </div>
 
