@@ -282,7 +282,7 @@ export function Masterclass() {
     };
   }, []);
 
-  // Mobile tabs: back-and-forth auto-scroll when container is visible and has overflow
+  // Mobile tabs: back-and-forth auto-scroll only when section is in view (Intersection Observer)
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -292,6 +292,7 @@ export function Masterclass() {
     let hasInteracted = false;
     let direction = 1;
     const speed = 0.4;
+    const visibleRef = { current: false };
 
     const stopAnimation = () => {
       hasInteracted = true;
@@ -300,11 +301,12 @@ export function Masterclass() {
     };
 
     const startAnimation = () => {
+      if (!visibleRef.current || hasInteracted || !container) return;
       const maxScroll = container.scrollWidth - container.clientWidth;
-      if (maxScroll <= 0 || hasInteracted) return;
+      if (maxScroll <= 0) return;
 
       const animate = () => {
-        if (hasInteracted || !container) return;
+        if (hasInteracted || !container || !visibleRef.current) return;
         const max = container.scrollWidth - container.clientWidth;
         if (max <= 0) return;
 
@@ -320,24 +322,41 @@ export function Masterclass() {
       cancelAnimationFrame(animationId);
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        animationId = requestAnimationFrame(animate);
+        if (visibleRef.current && !hasInteracted) animationId = requestAnimationFrame(animate);
       }, 1500);
     };
 
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        visibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          if (container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
+            startAnimation();
+          }
+        } else {
+          cancelAnimationFrame(animationId);
+          clearTimeout(timeoutId);
+        }
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 }
+    );
+    intersectionObserver.observe(container);
+
     const resizeObserver = new ResizeObserver(() => {
-      if (container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
+      if (visibleRef.current && container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
         startAnimation();
       }
     });
     resizeObserver.observe(container);
-    const initialDelay = setTimeout(() => startAnimation(), 300);
 
     container.addEventListener("touchstart", stopAnimation, { passive: true });
     container.addEventListener("mousedown", stopAnimation);
     container.addEventListener("wheel", stopAnimation);
 
     return () => {
-      clearTimeout(initialDelay);
+      intersectionObserver.disconnect();
       stopAnimation();
       resizeObserver.disconnect();
       container.removeEventListener("touchstart", stopAnimation);

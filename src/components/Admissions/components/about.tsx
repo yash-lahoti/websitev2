@@ -82,9 +82,9 @@ export function About() {
 
           {/* B: Achievements — desktop: side card; mobile: wide banner with logo, content, and buttons in extra space */}
           <div className="order-3 lg:order-2 lg:col-start-2 lg:row-start-1 w-full lg:max-w-[360px] mx-auto lg:mx-0 lg:sticky lg:top-24 flex flex-col gap-0">
-            {/* Card: desktop = vertical; mobile = horizontal (logo | content | buttons in extra space) */}
-            <div className="bg-card border border-border rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-xl flex flex-row lg:flex-col gap-4 lg:gap-0 items-center lg:items-stretch">
-              {/* Logo / profile image — left side on mobile */}
+            {/* Card: small mobile = vertical stack; sm+ = horizontal; lg = vertical desktop */}
+            <div className="bg-card border border-border rounded-xl lg:rounded-2xl p-4 lg:p-8 shadow-xl flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:gap-0 items-center lg:items-stretch">
+              {/* Logo / profile image — top on small mobile, left on sm, center on lg */}
               <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-48 lg:h-48 shrink-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden lg:mx-auto lg:mb-5 lg:mb-6">
                 <img
                   src="/images/profile.jpg"
@@ -126,12 +126,12 @@ export function About() {
                   </ul>
                 </div>
 
-                {/* Mobile: one block per education item — school and degree only */}
-                <div className="lg:hidden space-y-1 pt-1">
+                {/* Mobile: one block per education item — school and degree only; line-clamp to avoid overlap in row layout */}
+                <div className="lg:hidden space-y-1 pt-1 min-w-0">
                   {education.map((item) => (
                     <div
                       key={item.label}
-                      className="text-xs sm:text-sm text-primary/90 leading-snug"
+                      className="text-xs sm:text-sm text-primary/90 leading-snug line-clamp-2 sm:line-clamp-none"
                     >
                       <span className="font-semibold text-primary">{item.institution}</span>
                       {item.degree && (
@@ -178,9 +178,9 @@ export function About() {
                 </div>
               </div>
 
-              {/* Mobile: buttons inside the banner card, in the extra space to the right */}
-              <div className="lg:hidden shrink-0 flex flex-col gap-2 justify-center">
-                <Button size="sm" className="gap-2 w-full sm:w-auto" asChild>
+              {/* Mobile: buttons — full width at bottom when stacked, right when row */}
+              <div className="lg:hidden shrink-0 flex flex-col gap-2 justify-center w-full sm:w-auto">
+                <Button size="sm" className="gap-2 w-full sm:w-auto shrink-0" asChild>
                   <a href="https://calendly.com/lahotiyash14/30min" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-3.5 h-3.5" />
                     Let&apos;s Talk

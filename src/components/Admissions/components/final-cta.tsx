@@ -24,10 +24,11 @@ export function FinalCTA() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="text-lg px-8 py-6 gap-2" asChild>
+          <Button size="lg" className="text-base sm:text-lg px-4 sm:px-8 py-6 gap-2 min-w-0 text-center w-full sm:w-auto" asChild>
             <a href="https://calendly.com/lahotiyash14/30min" target="_blank" rel="noopener noreferrer">
-              Schedule Your Complimentary Consultation
-              <ArrowRight className="w-5 h-5" />
+              <span className="sm:hidden">Schedule Free Consultation</span>
+              <span className="hidden sm:inline">Schedule Your Complimentary Consultation</span>
+              <ArrowRight className="w-5 h-5 shrink-0" />
             </a>
           </Button>
         </div>

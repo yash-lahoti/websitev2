@@ -93,6 +93,12 @@ body.admissions-active .admissions-page.dark {
   line-height: 1.6;
 }
 
+@media (max-width: 768px) {
+  .admissions-page {
+    zoom: 1;
+  }
+}
+
 .admissions-page h1,
 .admissions-page h2,
 .admissions-page h3,

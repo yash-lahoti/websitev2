@@ -84,7 +84,7 @@ export function Hero() {
         transition={{ delay: 0.15 }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-4 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pt-14 sm:pt-20 pb-4 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
         {/* Left Column - Content */}
         <motion.div
           className="text-center lg:text-left"
