@@ -113,7 +113,7 @@ export function ActivityBar({
         onMouseLeave={() => setHoveredButton(null)}
         onTouchStart={() => setHoveredButton("admissions")}
         onTouchEnd={() => setTimeout(() => setHoveredButton(null), 2000)}
-        onClick={() => navigate("/admissions")}
+        onClick={() => navigate("/admissions-consulting")}
         className="relative p-2.5 text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-colors rounded-sm"
         aria-label="Admissions Consulting"
       >

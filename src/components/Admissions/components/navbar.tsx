@@ -40,9 +40,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/medicalstudent" className="flex items-center gap-2">
+          <Link to="/admissions-consulting" className="flex items-center gap-2">
             <span className="text-xl font-bold text-foreground">
-              YL<span className="text-primary">Admissions</span>
+              YL-<span className="text-primary">Admissions Counceling</span>
             </span>
           </Link>
 

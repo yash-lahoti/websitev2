@@ -11,17 +11,9 @@ const flexibleFeatures = [
 ];
 
 const focusedFeatures = [
-  "Priority scheduling",
-  "Dedicated strategist assigned",
-  "Narrative development sessions",
-  "School list optimization",
 ];
 
 const ultimateFeatures = [
-  "Highest priority scheduling",
-  "Long-term narrative development",
-  "Research publication mentoring",
-  "Post-acceptance support",
 ];
 
 export function Pricing() {
@@ -71,7 +63,7 @@ export function Pricing() {
                   <BookOpen className="w-4 h-4 text-primary" />
                   <span>
                     Individual Masterclasses starting at{" "}
-                    <span className="text-foreground font-medium">$499</span>
+                    <span className="text-foreground font-medium">$999</span>
                   </span>
                 </div>
               </div>
@@ -133,11 +125,11 @@ export function Pricing() {
 
                 <div className="flex items-baseline gap-2 mb-3">
                   <span className="text-3xl font-bold text-foreground">
-                    $400
+                    $420
                   </span>
                   <span className="text-muted-foreground">/hour</span>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary font-medium ml-2">
-                    Save 11%
+                    Save 7%
                   </span>
                 </div>
 
@@ -180,11 +172,11 @@ export function Pricing() {
 
                 <div className="flex items-baseline gap-2 mb-3">
                   <span className="text-3xl font-bold text-foreground">
-                    $360
+                    $400
                   </span>
                   <span className="text-muted-foreground">/hour</span>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary font-medium ml-2">
-                    Save 20%
+                    Save 11%
                   </span>
                 </div>
 
@@ -196,10 +188,10 @@ export function Pricing() {
                       Mega Bonus
                     </p>
                     <p className="text-sm text-foreground font-medium">
-                      2 Masterclass Sessions of Your Choice
+                      1 Masterclass Sessions of Your Choice
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      + Research Publication Mentoring
+                      + Portfolio Website Developments
                     </p>
                   </div>
                 </div>

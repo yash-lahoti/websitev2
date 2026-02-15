@@ -38,9 +38,9 @@ export function ReadmeTab() {
           <motion.div className="flex-shrink-0" variants={itemVariants}>
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden bg-card border-2 border-border">
               <img
-                src="/images/profile.jpg"
+                src="/images/lahoti-profile.png"
                 alt={profile.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 onError={(e) => {
                   // Fallback to a placeholder if image doesn't exist
                   (e.target as HTMLImageElement).style.display = "none";

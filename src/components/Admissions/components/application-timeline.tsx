@@ -427,7 +427,7 @@ export function ApplicationTimeline() {
                             <h4 className="font-semibold text-foreground text-xs leading-tight mb-1">
                               {card.title}
                             </h4>
-                            <p className="text-[10px] text-muted-foreground leading-snug line-clamp-2">
+                            <p className="text-sm text-muted-foreground leading-snug line-clamp-2">
                               {card.description}
                             </p>
                           </div>

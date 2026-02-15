@@ -6,11 +6,7 @@ import { X, ZoomIn } from "lucide-react";
 
 // Gallery images from public/gallary folder (large PNGs excluded to keep repo size small)
 const galleryImages = [
-  "/gallary/cover.jpg",
   "/gallary/hero.jpg",
-  "/gallary/gallery-1.jpg",
-  "/gallary/ewp-114.jpg",
-  "/gallary/ewp-343.jpg",
 ];
 
 const containerVariants = {

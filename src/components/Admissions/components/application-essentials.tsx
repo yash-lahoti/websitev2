@@ -5,17 +5,17 @@ const questions = [
     icon: User,
     question: "Can I picture this person as a physician?",
     explanation:
-      "We're not looking for the idealized version of a doctor—we're looking for evidence you understand what the job actually entails. Your experiences should show genuine exposure to patient care realities, not just shadowing from a safe distance.",
+      "Medical schools are not looking for perfection. They are looking for evidence you understand what the job actually entails. Your experiences should show genuine exposure to patient care realities, not just shadowing from a safe distance.",
   },
   {
     icon: Lightbulb,
-    question: "What will they contribute to our program?",
+    question: "What will they contribute to the program?",
     explanation:
-      "Medical schools build classes, not just admit individuals. We're asking: what unique perspective, skill, or background will you bring that we don't already have? Your diversity of experience matters more than you think.",
+      "Medical schools build classes, not just admit individuals. AdCOM is asking: what unique perspective, skill, or background will you bring that they don't already have? Your diversity of experience matters more than you think.",
   },
   {
     icon: Target,
-    question: "Why our school specifically?",
+    question: "Why this medical school specifically?",
     explanation:
       "Generic answers are immediately obvious. It's clear when someone has done real research versus copying mission statements. Research-heavy schools want research. Community-focused schools want community service. Authentic fit matters.",
   },
@@ -23,7 +23,7 @@ const questions = [
     icon: MessageSquare,
     question: "Can they articulate their story compellingly?",
     explanation:
-      "Communication is foundational to medicine. How you present yourself in writing and interviews signals how you'll communicate with patients and colleagues. We want to read your essay and think: this person would make a wonderful classmate.",
+      "Communication is foundational to medicine. How you present yourself in writing and interviews signals how you'll communicate with patients and colleagues. AdCOM wants to read your essay and think: this person would make a wonderful classmate.",
   },
 ];
 
@@ -38,9 +38,10 @@ export function ApplicationEssentials() {
             The Four Questions Every Application Must Answer
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            After reviewing hundreds of applications, I&apos;ve learned that every
-            application needs to answer four critical questions convincingly—or risk
-            being passed over for someone who does.
+            After screening competitive applications side by side, I have learned that
+            checklist items of GPA, exam scores, and activities are not the defining
+            features of standout applications. Here are the 4 critical questions that
+            must be answered in your application within 15 minutes of review to get to the top of the pile.
           </p>
         </div>
 
@@ -67,38 +68,6 @@ export function ApplicationEssentials() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Visual Callout */}
-        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-12">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Profile Badge */}
-            <div className="shrink-0">
-              <div className="relative">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/images/profile.jpg"
-                    alt="Yash Lahoti"
-                    className="w-full h-full object-cover rounded-full"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Message */}
-            <div className="text-center md:text-left">
-              <p className="text-xl md:text-2xl text-foreground font-medium mb-4 leading-relaxed">
-                &ldquo;I help you build applications that don&apos;t just check boxes—they
-                get enthusiastic support during the review process.&rdquo;
-              </p>
-              <p className="text-muted-foreground">
-                After analyzing what makes applications stand out, I&apos;ve learned
-                exactly what arguments resonate. I&apos;ll help you create those same
-                compelling points in your own application.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

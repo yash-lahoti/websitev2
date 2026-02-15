@@ -86,7 +86,7 @@ body.admissions-active .admissions-page.dark {
 }
 
 .admissions-page {
-  zoom: 0.75;
+  zoom: 0.80;
   background-color: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;

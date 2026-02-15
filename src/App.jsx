@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, HomeView, Activity } from "./components";
 import AdmissionsPage from './components/Admissions/AdmissionsPage';
 import MedicalStudentPage from './components/MedicalStudent/MedicalStudentPage';
-import TestPage from './components/archive/TestPage';
-import ComponentTester from './components/archive/ComponentTester';
+
 
 const App = () => {
   const [sampleData, setSampleData] = useState(null);
@@ -22,10 +21,10 @@ const App = () => {
         {/* Medical Student route */}
         <Route path="/medicalstudent" element={<MedicalStudentPage />} />
         {/* Admissions route */}
-        <Route path="/admissions" element={<AdmissionsPage />} />
+        <Route path="/admissions-consulting" element={<AdmissionsPage />} />
         {/* Component Tester route */}
         {/* Redirect `/medicalstudent` to `/` to render the same content */}
-        <Route path="/" element={<Navigate to="/admissions" />} />
+        <Route path="/" element={<Navigate to="/medicalstudent" />} />
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

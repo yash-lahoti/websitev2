@@ -3,7 +3,7 @@
 import React from "react";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { publications } from "../../../lib/data";
+import { publications, getAuthorsSegments } from "../../../lib/data";
 import { assetUrl } from "../../../lib/utils";
 import { 
   FileText, 
@@ -237,7 +237,13 @@ export function PublicationsTab() {
                         </h3>
                         
                         <p className="text-sm text-muted-foreground mb-2 break-words whitespace-normal">
-                          {featuredPubs[featuredIndex].authors}
+                          {getAuthorsSegments(featuredPubs[featuredIndex].authors).map((seg, i) =>
+                            seg.bold ? (
+                              <strong key={i} className="font-semibold text-orange-400">{seg.text}</strong>
+                            ) : (
+                              <span key={i}>{seg.text}</span>
+                            )
+                          )}
                         </p>
                         
                         <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
@@ -434,7 +440,13 @@ export function PublicationsTab() {
                         </h3>
                         
                         <p className="text-xs text-muted-foreground whitespace-normal break-words">
-                          {pub.authors}
+                          {getAuthorsSegments(pub.authors).map((seg, i) =>
+                            seg.bold ? (
+                              <strong key={i} className="font-semibold text-orange-400">{seg.text}</strong>
+                            ) : (
+                              <span key={i}>{seg.text}</span>
+                            )
+                          )}
                         </p>
                       </div>
                       

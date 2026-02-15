@@ -6,7 +6,7 @@ export function Footer() {
           <div className="text-center md:text-left">
             <p className="text-foreground font-semibold">Lahoti Admissions</p>
             <p className="text-sm text-muted-foreground">
-              New York, NY | dryashlahoti.com
+              New York, NY | dryashlahoti.com/medicalstudent
             </p>
           </div>
 

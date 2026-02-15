@@ -84,7 +84,7 @@ export function Hero() {
         transition={{ delay: 0.15 }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-4 grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
         {/* Left Column - Content */}
         <motion.div
           className="text-center lg:text-left"
@@ -94,26 +94,26 @@ export function Hero() {
         >
           {/* Tag line */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/30 bg-primary/5 mb-4 sm:mb-8"
             variants={itemUp}
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-primary font-medium tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-sm text-primary font-medium tracking-wide">
               PREMIER GRADUATE ADMISSIONS CONSULTING
             </span>
           </motion.div>
 
           {/* Main Title */}
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 font-serif"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 sm:mb-6 font-serif leading-tight"
             variants={itemUpSlow}
           >
-            <span className="text-foreground leading-tight">Personalized Strategy for Competitive Graduate Admissions</span>
+            <span className="text-foreground">Personalized Strategy for Competitive Graduate Admissions</span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-sans"
+            className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-5 sm:mb-10 leading-relaxed font-sans"
             variants={itemUp}
           >
             We align your narrative, positioning, and school strategy into one compelling case for admissions readers.
@@ -121,10 +121,10 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center"
             variants={itemUp}
           >
-            <Button size="lg" className="text-lg px-8 py-6 gap-2 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-sm" asChild>
+            <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 gap-2 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-sm w-full sm:w-auto" asChild>
               <a href="https://calendly.com/lahotiyash14/30min" target="_blank" rel="noopener noreferrer">
                 Start Your Journey
                 <ArrowRight className="w-5 h-5" />
@@ -135,24 +135,39 @@ export function Hero() {
 
         {/* Right Column - Portrait */}
         <motion.div
-          className="relative w-full h-full min-h-[500px] flex items-center justify-center lg:justify-end"
+          className="relative w-full h-full min-h-0 lg:min-h-[500px] flex items-center justify-center lg:justify-end"
           variants={portrait}
           initial="hidden"
           animate="visible"
         >
-          <div className="relative z-10 w-full max-w-md aspect-[3/4] rounded-lg overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10">
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 z-10" />
-            <img
-              src="images/lahoti-profile.png"
-              alt="Yash Lahoti - Medical Admissions Consultant"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
+          {/* Mobile: image and card side by side; desktop: image with overlay */}
+          <div className="relative z-10 w-full lg:max-w-md flex items-center justify-center lg:block">
+            <div className="w-full max-w-[320px] sm:max-w-[380px] lg:max-w-none flex flex-row lg:flex-col items-stretch gap-3 sm:gap-4 lg:gap-0">
+              {/* Image container — fixed aspect on mobile for consistent size */}
+              <div className="relative shrink-0 w-[7.5rem] sm:w-36 lg:w-full aspect-[3/4] rounded-lg overflow-hidden border border-primary/20 shadow-xl shadow-primary/10">
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 z-10" />
+                <img
+                  src="images/lahoti-profile.png"
+                  alt="Yash Lahoti - Medical Admissions Consultant"
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
+                />
 
-            {/* Overlay Card on Portrait */}
-            <div className="absolute bottom-6 left-6 right-6 z-20 bg-background/90 backdrop-blur-md border border-primary/20 p-4 rounded-md shadow-lg">
-              <p className="font-serif text-lg text-foreground">Yash Lahoti <span className="text-sm font-sans text-foreground ml-1">BAS, MSE, MD Candidate</span></p>
-              <p className="text-xs text-primary mt-1 uppercase tracking-wider font-semibold">Icahn School of Medicine at Mount Sinai</p>
+                {/* Desktop only: overlay card on portrait */}
+                <div className="hidden lg:block absolute bottom-6 left-6 right-6 z-20 bg-background/90 backdrop-blur-md border border-primary/20 p-4 rounded-md shadow-lg">
+                  <p className="font-serif text-lg text-foreground">Yash Lahoti <span className="text-sm font-sans text-foreground ml-1">BAS, MSE, MD Candidate</span></p>
+                  <p className="text-xs text-white mt-1 font-semibold">Admission Committee Member</p>
+                  <p className="text-xs text-primary mt-0.5 uppercase tracking-wider font-semibold">Icahn School of Medicine at Mount Sinai</p>
+                </div>
+              </div>
+
+              {/* Mobile only: info card to the right of image, same height area */}
+              <div className="lg:hidden flex-1 min-w-0 flex flex-col justify-center bg-card border border-border rounded-lg border-primary/20 p-3 sm:p-4 shadow-lg">
+                <p className="font-serif text-xs sm:text-sm text-foreground leading-tight">Yash Lahoti</p>
+                <p className="text-[10px] sm:text-xs font-sans text-muted-foreground mt-0.5">BAS, MSE, MD Candidate</p>
+                <p className="text-[10px] sm:text-xs text-white font-semibold leading-snug">Admission Committee Member</p>
+                <p className="text-[10px] sm:text-xs text-primary mt-1 uppercase tracking-wider font-semibold leading-snug">Icahn School of Medicine at Mount Sinai</p>
+              </div>
             </div>
           </div>
 
@@ -161,9 +176,9 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - hidden on small screens when hero is tight */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block"
         variants={scrollIndicator}
         initial="hidden"
         animate="visible"

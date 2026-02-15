@@ -4,118 +4,8 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { styles } from "../../styles";
 import { link } from "../../assets";
 import { SectionWrapper } from "../../hoc";
-import { projects, experiences } from "../../constants";
+import { projects } from "../../constants";
 import { fadeIn, textVariant } from "../../utils/motion";
-
-const TimelineItem = ({ item, index }) => {
-  const isTop = index % 2 === 0;
-
-  return (
-    <div className="relative w-72 h-56 flex-shrink-0 snap-center">
-      {/* Connector line */}
-      <div
-        className={`absolute left-1/2 w-px bg-white/10 -translate-x-1/2 ${
-          isTop ? "top-0 h-1/2" : "top-1/2 h-1/2"
-        }`}
-      />
-
-      {/* Node */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-        <div className="w-3 h-3 rounded-full bg-[#FFB400] shadow-[0_0_0_6px_rgba(255,180,0,0.12)]" />
-      </div>
-
-      {/* Card */}
-      <div
-        className={`absolute left-1/2 -translate-x-1/2 z-30 w-[260px] rounded-xl border border-white/10 bg-gray-800/80 backdrop-blur-sm shadow-lg px-4 py-3 ${
-          isTop ? "top-0" : "bottom-0"
-        }`}
-      >
-        <div className="flex items-center gap-3">
-          <div
-            className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden border border-white/10"
-            style={{ backgroundColor: item.iconBg || "#111827" }}
-          >
-            {item.icon ? (
-              <img
-                src={item.icon}
-                alt={item.company_name}
-                className="w-7 h-7 object-contain"
-              />
-            ) : null}
-          </div>
-          <div className="min-w-0">
-            <p className="text-xs text-gray-400">{item.date}</p>
-            <h3 className="text-sm font-semibold text-white leading-snug truncate">
-              {item.title}
-            </h3>
-            <p className="text-xs text-gray-300 truncate">{item.company_name}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const EducationWorkTimeline = () => {
-  return (
-    <div className="w-full mt-10">
-      {/* Desktop: horizontal alternating timeline */}
-      <div className="hidden md:block">
-        <div className="relative">
-          {/* Axis */}
-          <div className="absolute left-0 right-0 top-1/2 h-px bg-white/10" />
-          <div className="overflow-x-auto pb-6 pt-6">
-            <div className="flex gap-6 px-4 min-w-max snap-x snap-mandatory">
-              {experiences.map((item, index) => (
-                <TimelineItem key={`${item.title}-${item.date}-${index}`} item={item} index={index} />
-              ))}
-            </div>
-          </div>
-        </div>
-        <p className="mt-2 text-center text-xs text-gray-400">
-          Scroll horizontally to explore — Education and work milestones alternate above/below the timeline.
-        </p>
-      </div>
-
-      {/* Mobile: vertical timeline */}
-      <div className="md:hidden">
-        <div className="relative pl-5">
-          <div className="absolute left-2 top-0 bottom-0 w-px bg-white/10" />
-          <div className="space-y-4">
-            {experiences.map((item, index) => (
-              <div key={`${item.title}-${item.date}-${index}`} className="relative">
-                <div className="absolute left-2 top-4 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#FFB400] shadow-[0_0_0_6px_rgba(255,180,0,0.12)]" />
-                <div className="rounded-xl border border-white/10 bg-gray-800/80 backdrop-blur-sm shadow-lg px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden border border-white/10"
-                      style={{ backgroundColor: item.iconBg || "#111827" }}
-                    >
-                      {item.icon ? (
-                        <img
-                          src={item.icon}
-                          alt={item.company_name}
-                          className="w-7 h-7 object-contain"
-                        />
-                      ) : null}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-gray-400">{item.date}</p>
-                      <h3 className="text-sm font-semibold text-white leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-gray-300">{item.company_name}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const ProjectCard = ({
   index,
@@ -239,21 +129,6 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()} className="flex flex-col items-center">
-        <p className={`${styles.sectionSubText} text-center`}>
-          Education / Work
-        </p>
-        <div
-          className="h-[2px] bg-accent mt-4"
-          style={{ width: "600px" }}
-        ></div>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Timeline
-        </h2>
-      </motion.div>
-
-      <EducationWorkTimeline />
-
       <motion.div variants={textVariant()} className="flex flex-col items-center">
         <p className={`${styles.sectionSubText} text-center`}>
           Innovation Portfolio

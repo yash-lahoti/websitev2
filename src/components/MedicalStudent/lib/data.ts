@@ -1,5 +1,29 @@
 import type { EducationWorkTimelineItem } from "../components/ide/timeline/education-work-timeline";
 
+/** Matches "Lahoti Y", "Lahoti Yash", "Lahoti, Yash", "Lahoti, Yash S." etc. in author strings */
+const MY_NAME_IN_AUTHORS_REGEX = /Lahoti,?\s*Yash(?:\s+S\.)?|Lahoti\s+Y\b/g;
+
+export type AuthorSegment = { text: string; bold: boolean };
+
+/** Splits an author string into segments so your name can be rendered bold. */
+export function getAuthorsSegments(authors: string): AuthorSegment[] {
+  const segments: AuthorSegment[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  const re = new RegExp(MY_NAME_IN_AUTHORS_REGEX.source, "g");
+  while ((match = re.exec(authors)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ text: authors.slice(lastIndex, match.index), bold: false });
+    }
+    segments.push({ text: match[0], bold: true });
+    lastIndex = re.lastIndex;
+  }
+  if (lastIndex < authors.length) {
+    segments.push({ text: authors.slice(lastIndex), bold: false });
+  }
+  return segments.length ? segments : [{ text: authors, bold: false }];
+}
+
 export const profile = {
   name: "Yash Lahoti",
   title: "Medical Student & AI Researcher",
@@ -9,9 +33,9 @@ export const profile = {
   location: "New York, NY",
   school: "Icahn School of Medicine at Mount Sinai",
   links: {
-    github: "https://github.com/yashlahoti",
+    github: "/",
     linkedin: "https://linkedin.com/in/yashlahoti",
-    scholar: "https://scholar.google.com",
+    scholar: "https://scholar.google.com/citations?hl=en&user=ZZACpvAAAAAJ&view_op=list_works&gmla=AF9nlQtGNqbXvKMijdOPA43ijxzpwbpSzEdZNyL1iUl_2ziX5m7XS8vB1TGPGEDgxz1ltrWkPstLSFMoYtbuefe5",
     twitter: "https://twitter.com/yashlahoti"
   },
   bio: [

@@ -8,9 +8,6 @@ import {
   BookOpen,
   ChevronRight,
   Clock,
-  Play,
-  ExternalLink,
-  Github,
   BookMarked,
   Lightbulb,
   Code2,
@@ -19,23 +16,13 @@ import {
   Brain,
   ScanEye,
   Rocket,
-  FileText,
   GraduationCap,
   Minimize2,
   Maximize2,
-  ArrowRight,
   ChevronDown,
-  ChevronUp,
   X,
-  Package,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-interface Deliverable {
-  type: "video" | "paper" | "repo" | "article";
-  title: string;
-  url: string;
-}
 
 interface Masterclass {
   id: string;
@@ -48,275 +35,228 @@ interface Masterclass {
     whyItMatters: string;
   };
   modules: string[];
-  deliverables: Deliverable[];
 }
 
 const masterclasses: Masterclass[] = [
+  // ─────────────────────────────────────────────────────────
+  // TRACK 1 · AI & DATA SCIENCE FOUNDATIONS
+  // ─────────────────────────────────────────────────────────
   {
     id: "data-science-python",
-    title: "Foundations of Data Science & Python for Medicine",
-    category: "AI/ML Foundations",
+    title: "Python & Data Science for Clinical Research",
+    category: "AI/Data Science Foundations",
     icon: Code2,
     duration: "4 hours",
     readme: {
       overview:
-        "Python programming and data science fundamentals through a medical lens. Work with healthcare datasets, statistical analysis, and visualizations.",
+        "A hands-on deep dive into Python and data science through the lens of clinical medicine. You'll configure a research-ready coding environment, manipulate real healthcare datasets, EHR exports, NHANES tables, clinical trial CSVs, using Pandas, and run the statistical analyses that underpin every published study. Each exercise mirrors a task you'd encounter in a research lab or quality-improvement project so you walk out writing code, not just reading it.",
       whyItMatters:
-        "Data literacy is becoming essential in modern medicine. Physicians who can analyze data will lead healthcare innovation.",
+        "Physicians who can interrogate their own data lead research teams instead of waiting on analysts. Programs and PIs actively recruit applicants who bring quantitative skills to the bench, and admissions committees notice when your application shows evidence of technical depth rather than passive observation.",
     },
     modules: [
-      "Python Fundamentals & Environment Setup",
-      "Working with Medical Data Formats",
-      "Data Manipulation with Pandas",
-      "Statistical Analysis for Research",
-    ],
-    deliverables: [
-      { type: "video", title: "Python Setup Walkthrough", url: "#" },
-      { type: "repo", title: "Medical Dataset Examples", url: "#" },
-      { type: "article", title: "Python in Healthcare", url: "#" },
+      "Environment Setup & Python Fundamentals for Biomedical Data",
+      "Healthcare Data Formats: EHR Exports, FHIR, and Clinical CSVs",
+      "Exploratory Analysis & Data Wrangling with Pandas",
+      "Hypothesis Testing, Regression, and Publication-Ready Visualizations",
     ],
   },
   {
     id: "medical-imaging",
-    title: "Introduction to Medical Imaging & Computer Vision",
-    category: "AI/ML Applied",
+    title: "Medical Imaging & Computer Vision from First Principles",
+    category: "AI/Data Science Foundations",
     icon: ScanEye,
     duration: "4 hours",
     readme: {
       overview:
-        "Medical imaging AI fundamentals. Learn about imaging modalities, deep learning for image analysis, and hands-on classification.",
+        "A structured introduction to how machines see medical images. You'll learn how X-rays, CT, MRI, and histology slides are encoded as digital data, walk through the architecture of convolutional neural networks used in FDA-cleared diagnostic tools, and build a working image classifier on a real medical dataset. By session end you'll have a trained model, an understanding of its failure modes, and the vocabulary to discuss AI-assisted diagnostics in any interview or research setting.",
       whyItMatters:
-        "AI-assisted diagnostics is one of the fastest-growing areas in healthcare. Understanding these systems is essential.",
+        "AI-powered imaging is already reshaping radiology, pathology, and ophthalmology, and the gap between clinicians who understand these systems and those who don't is widening fast. A concrete computer-vision project on your CV signals technical credibility that no amount of coursework listings can match.",
     },
     modules: [
-      "Medical Imaging Modalities Overview",
-      "Digital Image Fundamentals",
-      "Deep Learning for Image Analysis",
-      "Building a Simple Image Classifier",
-    ],
-    deliverables: [
-      { type: "video", title: "Imaging AI Demo", url: "#" },
-      { type: "repo", title: "Image Classification Starter", url: "#" },
-      { type: "paper", title: "AI in Radiology Review", url: "#" },
+      "From Photon to Pixel: How Imaging Modalities Produce Digital Data",
+      "Neural Network Architectures for Medical Image Analysis",
+      "Hands-On Lab: Training a Diagnostic Image Classifier",
+      "Evaluation Metrics, Bias Auditing, and Communicating Model Limitations",
     ],
   },
   {
     id: "ai-capstone",
-    title: "AI Capstone: Build Your Healthcare AI Project",
-    category: "AI/ML Applied",
+    title: "AI Capstone: Ship a Healthcare AI Project",
+    category: "AI/Data Science Foundations",
     icon: Rocket,
     duration: "4 hours",
     readme: {
       overview:
-        "Choose your own AI in Healthcare application, find data, and use agentic AI tools to build and publish your project.",
+        "Your chance to go from concept to deployed project in a single session. You'll scope a focused healthcare AI application, predictive model, clinical NLP tool, diagnostic classifier, or workflow automation, source an appropriate dataset, and leverage agentic AI coding assistants to build and iterate fast. You leave with a working prototype, clean documentation, and a deployment or publication strategy ready for your portfolio.",
       whyItMatters:
-        "Nothing demonstrates technical competence like a published project. This capstone gives you a portfolio piece.",
+        "Admissions committees and research PIs hire for demonstrated follow-through, not listed interests. A deployed or published project, complete with a GitHub repo, a write-up, and a live demo, is the single strongest signal that you can take a technical idea from zero to one.",
     },
     modules: [
-      "Project Ideation & Scoping",
-      "Finding Healthcare Datasets",
-      "Using AI to Write Production Code",
-      "Publishing & Sharing Your Work",
-    ],
-    deliverables: [
-      { type: "video", title: "Project Showcase Examples", url: "#" },
-      { type: "repo", title: "Capstone Templates", url: "#" },
-      { type: "article", title: "Healthcare AI Project Ideas", url: "#" },
+      "Problem Definition, Feasibility Analysis, and Scoping",
+      "Dataset Selection: Public Repositories, Synthetic Data, and IRB Considerations",
+      "Rapid Prototyping with AI-Assisted Development Tools",
+      "Documentation, Deployment, and Presenting Your Work",
     ],
   },
+
+  // ─────────────────────────────────────────────────────────
+  // TRACK 2 · MASTERING AI TOOLS
+  // ─────────────────────────────────────────────────────────
   {
     id: "claude-code-productivity",
-    title: "Claude Code & AI Tools for Pre-Med Productivity",
-    category: "Productivity",
+    title: "AI-Powered Workflows for Pre-Med Productivity",
+    category: "Mastering AI Tools",
     icon: Wand2,
     duration: "4 hours",
     readme: {
       overview:
-        "Master prompt engineering, build study workflows, and automate research tasks with Claude Code and other AI assistants.",
+        "Learn the prompt engineering and workflow-design principles that turn AI assistants like Claude and ChatGPT into force multipliers for your pre-med life. You'll build reusable systems for active studying, adaptive practice questions, concept mapping, Socratic review, plus literature search pipelines and research task automation. You leave with a personal playbook of templates, tested prompts, and a clear framework for deciding when AI helps and when it gets in the way.",
       whyItMatters:
-        "Students who master AI tools now will complete tasks faster and learn more efficiently.",
+        "The students who stand out aren't the ones who grind the most hours, they're the ones who produce higher-quality work in less time. Demonstrating that you use AI tools thoughtfully and ethically signals exactly the kind of resourcefulness that admissions committees and lab PIs look for.",
     },
     modules: [
-      "Introduction to AI Assistants",
-      "Prompt Engineering Basics",
-      "Building Study Aid Workflows",
-      "Automating Research Tasks",
-    ],
-    deliverables: [
-      { type: "video", title: "Claude Code Setup Guide", url: "#" },
-      { type: "repo", title: "Prompt Templates", url: "#" },
-      { type: "article", title: "AI Productivity Guide", url: "#" },
+      "AI Assistants: Capabilities, Limitations, and When Not to Use Them",
+      "Prompt Engineering Fundamentals for Study and Research",
+      "Building Active-Recall and Note-Synthesis Workflows",
+      "Automating Literature Search, Summarization, and Citation Tracking",
     ],
   },
   {
     id: "ai-assistant",
-    title: "Building Your Administrative AI Assistant",
-    category: "Productivity",
+    title: "Building Your Personal AI Command Center",
+    category: "Mastering AI Tools",
     icon: Bot,
     duration: "4 hours",
     readme: {
       overview:
-        "Create a personalized AI assistant for emails, tasks, and deliverables using ChatGPT, Claude, and automation tools.",
+        "Design and deploy a personal AI-assisted system that handles the administrative overhead of pre-med life: intelligent email triage, deadline tracking, draft communications, and scheduling optimization. Using Claude, ChatGPT, and lightweight automation tools, you'll build workflows you can implement in an afternoon and refine over weeks, freeing cognitive bandwidth for research, clinical exposure, and the work that actually moves your application forward.",
       whyItMatters:
-        "Students who leverage modern tools stand out to admissions committees as future-ready.",
+        "Admissions committees read thousands of applications from candidates who are \"passionate about medicine.\" The ones who earn interviews are organized, responsive, and visibly in control of complex commitments. Offloading routine admin to a well-designed system lets you operate that way by default.",
     },
     modules: [
-      "AI Fundamentals & Tool Selection",
-      "Email Automation & Filtering",
-      "Task Planning Systems",
-      "Integration & Deployment",
-    ],
-    deliverables: [
-      { type: "video", title: "Demo: Email Assistant", url: "#" },
-      { type: "repo", title: "Starter Templates", url: "#" },
-      { type: "article", title: "AI in Healthcare", url: "#" },
+      "Choosing the Right AI Tool for Each Administrative Task",
+      "Email Triage, Smart Filtering, and Draft-Response Pipelines",
+      "Deadline Management, Calendar Optimization, and Task Prioritization",
+      "Integration Patterns: Connecting Tools into a Seamless Daily System",
     ],
   },
+
+  // ─────────────────────────────────────────────────────────
+  // TRACK 3 · PROFESSIONAL DEVELOPMENT
+  // ─────────────────────────────────────────────────────────
   {
     id: "academic-writing",
-    title: "AI-Powered Academic Writing & Citation Mastery",
-    category: "Research",
+    title: "Scientific Writing, Citation Mastery, and Ethical AI Use",
+    category: "Professional Development",
     icon: PenTool,
     duration: "4 hours",
     readme: {
       overview:
-        "Scientific writing with AI tools. Master Zotero and Mendeley, build literature review workflows, and write ethically.",
+        "Master the mechanics and strategy of scientific writing with AI as a responsible co-pilot. You'll set up a professional citation workflow in Zotero or Mendeley, build a repeatable literature-review pipeline, and practice AI-assisted drafting and revision techniques that sharpen your prose without crossing into plagiarism or misrepresentation. Dedicated modules on personal statements and secondaries ensure your application writing stays authentic and committee-ready.",
       whyItMatters:
-        "Strong writing skills separate good researchers from great ones throughout your career.",
+        "Clear, well-sourced writing is the common denominator of every successful applicant, from research abstracts to AMCAS personal statements. Admissions committees and research mentors can tell immediately when someone knows how to synthesize literature and articulate a coherent argument; this session builds that skill systematically.",
     },
     modules: [
-      "Scientific Writing Fundamentals",
-      "Citation Management Tools",
-      "AI-Powered Literature Reviews",
-      "Personal Statement Writing",
-    ],
-    deliverables: [
-      { type: "video", title: "Zotero Setup Tutorial", url: "#" },
-      { type: "repo", title: "Writing Templates", url: "#" },
-      { type: "article", title: "AI Ethics in Academia", url: "#" },
+      "Structure and Style: Anatomy of Effective Scientific Writing",
+      "Professional Citation Workflows with Zotero and Mendeley",
+      "AI-Assisted Literature Review, Synthesis, and Drafting Techniques",
+      "Ethical AI Use in Personal Statements, Secondaries, and Applications",
     ],
   },
   {
     id: "research-portfolio",
-    title: "Building a Research Portfolio",
-    category: "Research",
+    title: "Building a Research Portfolio That Gets You Noticed",
+    category: "Professional Development",
     icon: FlaskConical,
     duration: "4 hours",
     readme: {
       overview:
-        "Document projects professionally, write abstracts, design posters, and create a narrative connecting your experiences.",
+        "Transform scattered research experiences into a compelling, cohesive portfolio. You'll learn documentation standards that PIs actually respect, write abstracts and poster narratives that win conference awards, and construct a research identity that threads naturally through your application, from activities list to interview talking points. Includes templates, before-and-after rewrites, and live critique so every principle is immediately applicable to your own work.",
       whyItMatters:
-        "The ability to communicate research differentiates you more than the experience itself.",
+        "How you communicate your research matters more than how many hours you logged. A tightly documented portfolio with a clear narrative arc demonstrates intellectual maturity and scientific communication skills, two qualities that consistently separate competitive applicants from the rest of the pool.",
     },
     modules: [
-      "Research Documentation Standards",
-      "Abstract Writing Mastery",
-      "Conference Poster Design",
-      "Building a Research Narrative",
-    ],
-    deliverables: [
-      { type: "video", title: "Poster Design Walkthrough", url: "#" },
-      { type: "paper", title: "Example Abstract", url: "#" },
-      { type: "repo", title: "Templates", url: "#" },
-    ],
-  },
-  {
-    id: "ai-study-strategies",
-    title: "AI-Enhanced Study: Mastering Incorrect Questions",
-    category: "Test Prep",
-    icon: Brain,
-    duration: "4 hours",
-    readme: {
-      overview:
-        "Build incorrect question databases, analyze error patterns with AI, and integrate spaced repetition with Anki.",
-      whyItMatters:
-        "The difference between good and great scores comes down to how well you learn from mistakes.",
-    },
-    modules: [
-      "Science of Learning from Errors",
-      "Building Your Question Database",
-      "AI-Powered Error Analysis",
-      "Anki + AI Integration",
-    ],
-    deliverables: [
-      { type: "video", title: "Error Analysis Demo", url: "#" },
-      { type: "repo", title: "Anki Integration Templates", url: "#" },
-      { type: "article", title: "Science of Spaced Repetition", url: "#" },
-    ],
-  },
-  {
-    id: "mcat-strategy",
-    title: "MCAT Study Strategies + Content Review",
-    category: "Test Prep",
-    icon: BookOpen,
-    duration: "4 hours",
-    readme: {
-      overview:
-        "Evidence-based study techniques, personalized scheduling, and test-taking strategies for maximum performance.",
-      whyItMatters:
-        "Scoring well while maintaining other activities shows you can handle medical school demands.",
-    },
-    modules: [
-      "Science of Effective Studying",
-      "Personalized Schedule Design",
-      "Section-Specific Strategies",
-      "Test Day Framework",
-    ],
-    deliverables: [
-      { type: "video", title: "Schedule Builder", url: "#" },
-      { type: "article", title: "CARS Case Study", url: "#" },
-      { type: "repo", title: "Anki Decks", url: "#" },
+      "Research Documentation Standards That PIs and Committees Respect",
+      "Writing Abstracts and Summaries for Conferences and Applications",
+      "Poster Design, Visual Hierarchy, and Scientific Storytelling",
+      "Crafting a Unified Research Narrative Across Your Application",
     ],
   },
   {
     id: "portfolio-website",
-    title: "Building Your Personal Portfolio Website",
-    category: "Technology",
+    title: "Build and Launch Your Professional Portfolio Website",
+    category: "Professional Development",
     icon: Globe,
     duration: "4 hours",
     readme: {
       overview:
-        "Build a professional portfolio showcasing your research, experiences, and identity with modern web tools.",
+        "Go from blank screen to live portfolio site in a single session. You'll learn design fundamentals and personal branding strategy, write web-optimized content that tells your story, and build a polished site using modern frameworks and templates, no prior web development experience required. You leave with a deployed, shareable URL that program directors, PIs, and letter writers can find when they look you up.",
       whyItMatters:
-        "When a program director Googles your name, a polished portfolio shows professionalism.",
+        "When an interviewer or program director searches your name, what they find shapes their first impression before you ever shake hands. A clean, professional portfolio site signals initiative and digital fluency, and gives you a single canonical link to share with every letter writer, mentor, and committee.",
     },
     modules: [
-      "Design Principles & Branding",
-      "Content Strategy & Storytelling",
-      "Development with Modern Tools",
-      "Deployment & Domain Setup",
+      "Personal Branding and Visual Design Principles for the Web",
+      "Content Strategy: Writing Copy That Resonates with Your Audience",
+      "Site Architecture, Development, and Template Customization",
+      "Deployment, Custom Domain Setup, and Long-Term Maintenance",
     ],
-    deliverables: [
-      { type: "video", title: "Live Build Demo", url: "#" },
-      { type: "repo", title: "Portfolio Template", url: "#" },
-      { type: "article", title: "Personal Branding Guide", url: "#" },
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // TRACK 4 · EXAM & TEST PREP
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "ai-study-strategies",
+    title: "AI-Enhanced Study Systems: Mastering Your Mistakes",
+    category: "Exam/Test Prep",
+    icon: Brain,
+    duration: "4 hours",
+    readme: {
+      overview:
+        "Build a closed-loop study system that turns every wrong answer into lasting retention. You'll create a structured error database, use AI to surface patterns in your mistakes, distinguishing content gaps from reasoning errors from timing issues, and integrate spaced repetition via Anki so corrections stick long-term. You leave with a fully operational system and a protocol to apply it after every practice exam.",
+      whyItMatters:
+        "Score jumps come from targeted, systematic work on weaknesses, not more hours of passive review. A disciplined error-analysis habit signals the kind of metacognitive maturity that sustains performance through medical school, boards, and clinical training.",
+    },
+    modules: [
+      "The Science of Error-Driven Learning and Metacognition",
+      "Designing and Maintaining a Structured Error Database",
+      "AI-Powered Mistake Pattern Analysis and Study Prioritization",
+      "Spaced Repetition with Anki: Integration and Long-Term Retention",
+    ],
+  },
+  {
+    id: "mcat-strategy",
+    title: "MCAT Strategy, Scheduling, and Section Mastery",
+    category: "Exam/Test Prep",
+    icon: BookOpen,
+    duration: "4 hours",
+    readme: {
+      overview:
+        "An evidence-based, systems-level approach to MCAT preparation. You'll design a personalized study schedule that balances content review, practice questions, and full-length exams against your real-life commitments, then drill section-specific strategies, including a dedicated CARS framework, and build a test-day execution plan covering pacing, energy management, and decision-making under pressure.",
+      whyItMatters:
+        "The MCAT is a stamina test as much as a knowledge test. Admissions committees read your score as a proxy for your ability to manage complexity under sustained pressure. A strategic, sustainable study plan protects both your score and your capacity to keep doing meaningful work in research, clinical settings, and your personal life throughout the process.",
+    },
+    modules: [
+      "Evidence-Based Study Design: Spacing, Interleaving, and Retrieval Practice",
+      "Personalized Schedule Architecture and Milestone Planning",
+      "Section Strategies: CARS Reasoning, C/P, B/B, and P/S Frameworks",
+      "Test-Day Execution: Pacing, Energy Management, and Decision Protocols",
     ],
   },
 ];
 
 const categories = [
-  "AI/ML Foundations",
-  "AI/ML Applied",
-  "Productivity",
-  "Research",
-  "Test Prep",
-  "Technology",
+  "Professional Development",
+  "AI/Data Science Foundations",
+  "Mastering AI Tools",
+  "Exam/Test Prep",
 ];
 
 const categoryAccents: Record<string, string> = {
-  "AI/ML Foundations": "text-violet-400",
-  "AI/ML Applied": "text-blue-400",
-  Productivity: "text-amber-400",
-  Research: "text-emerald-400",
-  "Test Prep": "text-rose-400",
-  Technology: "text-slate-400",
-};
-
-const deliverableIcons = {
-  video: Play,
-  paper: FileText,
-  repo: Github,
-  article: ExternalLink,
+  "Professional Development": "text-emerald-400",
+  "AI/Data Science Foundations": "text-violet-400",
+  "Mastering AI Tools": "text-amber-400",
+  "Exam/Test Prep": "text-rose-400",
 };
 
 export function Masterclass() {
@@ -327,33 +267,21 @@ export function Masterclass() {
   const [isViewerClosed, setIsViewerClosed] = useState(false);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const titleBarScrollRef = useRef<HTMLDivElement>(null);
 
+  // IDE title bar: slow back-and-forth auto-scroll; stops permanently on any interaction in this section
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    const container = titleBarScrollRef.current;
     if (!container) return;
 
+    const section = container.closest("#masterclass");
+    if (!section) return;
+
     let animationId: number;
+    let timeoutId: ReturnType<typeof setTimeout>;
     let hasInteracted = false;
-
-    // Very slow scroll
-    const speed = 0.5;
-
-    const animate = () => {
-      if (hasInteracted || !container) return;
-
-      // Stop if near end
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 5) {
-        return;
-      }
-
-      container.scrollLeft += speed;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    // Delay start
-    const timeoutId = setTimeout(() => {
-      animationId = requestAnimationFrame(animate);
-    }, 1500);
+    let direction = 1;
+    const speed = 0.25;
 
     const stopAnimation = () => {
       hasInteracted = true;
@@ -361,17 +289,98 @@ export function Masterclass() {
       clearTimeout(timeoutId);
     };
 
-    container.addEventListener('touchstart', stopAnimation, { passive: true });
-    container.addEventListener('mousedown', stopAnimation);
-    container.addEventListener('wheel', stopAnimation);
+    const animate = () => {
+      if (!container || hasInteracted) return;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      if (maxScroll <= 0) return;
+
+      const nearEnd = container.scrollLeft >= maxScroll - 6;
+      const nearStart = container.scrollLeft <= 6;
+      if (direction === 1 && nearEnd) direction = -1;
+      else if (direction === -1 && nearStart) direction = 1;
+
+      container.scrollLeft += speed * direction;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    timeoutId = setTimeout(() => {
+      if (!hasInteracted) animationId = requestAnimationFrame(animate);
+    }, 1000);
+
+    section.addEventListener("mousedown", stopAnimation);
+    section.addEventListener("touchstart", stopAnimation, { passive: true });
+    section.addEventListener("wheel", stopAnimation);
 
     return () => {
-      stopAnimation();
-      if (container) {
-        container.removeEventListener('touchstart', stopAnimation);
-        container.removeEventListener('mousedown', stopAnimation);
-        container.removeEventListener('wheel', stopAnimation);
+      cancelAnimationFrame(animationId);
+      clearTimeout(timeoutId);
+      section.removeEventListener("mousedown", stopAnimation);
+      section.removeEventListener("touchstart", stopAnimation);
+      section.removeEventListener("wheel", stopAnimation);
+    };
+  }, []);
+
+  // Mobile tabs: back-and-forth auto-scroll when container is visible and has overflow
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let hasInteracted = false;
+    let direction = 1;
+    const speed = 0.4;
+
+    const stopAnimation = () => {
+      hasInteracted = true;
+      cancelAnimationFrame(animationId);
+      clearTimeout(timeoutId);
+    };
+
+    const startAnimation = () => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      if (maxScroll <= 0 || hasInteracted) return;
+
+      const animate = () => {
+        if (hasInteracted || !container) return;
+        const max = container.scrollWidth - container.clientWidth;
+        if (max <= 0) return;
+
+        const nearEnd = container.scrollLeft >= max - 8;
+        const nearStart = container.scrollLeft <= 8;
+        if (direction === 1 && nearEnd) direction = -1;
+        else if (direction === -1 && nearStart) direction = 1;
+
+        container.scrollLeft += speed * direction;
+        animationId = requestAnimationFrame(animate);
+      };
+
+      cancelAnimationFrame(animationId);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        animationId = requestAnimationFrame(animate);
+      }, 1500);
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (container.clientWidth > 0 && container.scrollWidth > container.clientWidth) {
+        startAnimation();
       }
+    });
+    resizeObserver.observe(container);
+    const initialDelay = setTimeout(() => startAnimation(), 300);
+
+    container.addEventListener("touchstart", stopAnimation, { passive: true });
+    container.addEventListener("mousedown", stopAnimation);
+    container.addEventListener("wheel", stopAnimation);
+
+    return () => {
+      clearTimeout(initialDelay);
+      stopAnimation();
+      resizeObserver.disconnect();
+      container.removeEventListener("touchstart", stopAnimation);
+      container.removeEventListener("mousedown", stopAnimation);
+      container.removeEventListener("wheel", stopAnimation);
     };
   }, []);
 
@@ -402,8 +411,8 @@ export function Masterclass() {
   };
 
   return (
-    <section id="masterclass" className="py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="masterclass" className="py-24 bg-background overflow-x-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 overflow-x-hidden">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-primary font-medium mb-2">Modern Skills for Future Doctors</p>
@@ -419,17 +428,23 @@ export function Masterclass() {
 
         {/* IDE Container */}
         <div className="rounded-xl border border-border overflow-hidden shadow-xl min-h-[600px]">
-          {/* IDE Title Bar */}
+          {/* IDE Title Bar ,  scrollable left section with slow back-and-forth auto-scroll */}
           <div className="flex items-center justify-between px-4 py-2 bg-[#1e1e2e] border-b border-border">
-            <div className="flex items-center gap-3">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+            <div
+              ref={titleBarScrollRef}
+              className="flex-1 min-w-0 overflow-x-auto overflow-y-hidden overscroll-x-none scrollbar-hide"
+              style={{ WebkitOverflowScrolling: "touch" }}
+            >
+              <div className="flex items-center gap-3 min-w-max">
+                <div className="flex gap-1.5 shrink-0">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                </div>
+                <span className="text-xs text-muted-foreground font-mono">
+                  masterclass-library
+                </span>
               </div>
-              <span className="text-xs text-muted-foreground font-mono">
-                masterclass-library
-              </span>
             </div>
             <button
               type="button"
@@ -444,13 +459,13 @@ export function Masterclass() {
             </button>
           </div>
 
-          <div className="flex flex-col md:flex-row bg-[#11111b] min-h-[550px] overflow-hidden">
-            {/* Sidebar (Desktop) */}
-            <div className="hidden md:flex flex-col w-72 border-r border-border/50 bg-[#181825] shrink-0">
-              <div className="px-3 py-2 border-b border-border/50 flex items-center justify-between gap-2">
+          <div className="flex flex-col md:flex-row bg-[#11111b] min-h-[550px] max-h-[78vh] overflow-hidden">
+            {/* Sidebar (Desktop) ,  min-h-0 so it can shrink and scroll */}
+            <div className="hidden md:flex flex-col w-72 min-h-0 border-r border-border/50 bg-[#181825] shrink-0">
+              <div className="px-3 py-2 border-b border-border/50 flex items-center justify-between gap-2 shrink-0">
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-primary" />
-                  <span className="text-xs font-medium text-foreground uppercase tracking-wider">
+                  <GraduationCap className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-medium text-foreground uppercase tracking-wider">
                     Explorer
                   </span>
                 </div>
@@ -468,7 +483,7 @@ export function Masterclass() {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-2 custom-scrollbar">
+              <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-2 custom-scrollbar">
                 {categories.map((category) => {
                   const isExpanded = expandedCategories.includes(category);
                   const categoryClasses = masterclasses.filter((m) => m.category === category);
@@ -478,22 +493,22 @@ export function Masterclass() {
                       <button
                         type="button"
                         onClick={() => toggleCategory(category)}
-                        className="w-full flex items-center gap-1.5 px-2 py-1.5 rounded text-xs hover:bg-white/5 transition-colors"
+                        className="w-full flex items-center gap-2 px-2.5 py-2 rounded text-sm hover:bg-white/5 transition-colors"
                       >
                         <ChevronRight
-                          className={`w-3 h-3 text-muted-foreground transition-transform ${isExpanded ? "rotate-90" : ""
+                          className={`w-4 h-4 text-muted-foreground transition-transform shrink-0 ${isExpanded ? "rotate-90" : ""
                             }`}
                         />
                         <span className={`font-medium ${categoryAccents[category]}`}>
                           {category}
                         </span>
-                        <span className="text-[10px] text-muted-foreground ml-auto">
+                        <span className="text-xs text-muted-foreground ml-auto">
                           {categoryClasses.length}
                         </span>
                       </button>
 
                       {isExpanded && (
-                        <div className="ml-3 border-l border-border/30 pl-2 mt-0.5">
+                        <div className="ml-3 border-l border-border/30 pl-2.5 mt-1">
                           {categoryClasses.map((mc) => {
                             const CourseIcon = mc.icon;
                             return (
@@ -504,13 +519,13 @@ export function Masterclass() {
                                   setSelectedId(mc.id);
                                   setIsViewerClosed(false);
                                 }}
-                                className={`w-full flex items-start gap-2 px-2 py-1.5 rounded text-left transition-colors ${selectedId === mc.id
+                                className={`w-full flex items-start gap-2.5 px-2.5 py-2 rounded text-left transition-colors ${selectedId === mc.id
                                   ? "bg-primary/15 text-primary"
                                   : "text-foreground/80 hover:bg-white/5"
                                   }`}
                               >
-                                <CourseIcon className="w-3 h-3 shrink-0 mt-0.5" />
-                                <span className="text-[11px] leading-tight">
+                                <CourseIcon className="w-4 h-4 shrink-0 mt-0.5" />
+                                <span className="text-sm leading-snug">
                                   {mc.title}
                                 </span>
                               </button>
@@ -524,10 +539,11 @@ export function Masterclass() {
               </div>
             </div>
 
-            {/* Mobile Horizontal Tabs */}
+            {/* Mobile Horizontal Tabs: auto-scroll hint, no overscroll white space */}
             <div
               ref={scrollContainerRef}
-              className="flex md:hidden overflow-x-auto border-b border-border/50 bg-[#1e1e2e] custom-scrollbar pb-2 shrink-0"
+              className="flex md:hidden overflow-x-auto overflow-y-hidden overscroll-x-none border-b border-border/50 bg-[#1e1e2e] custom-scrollbar pb-2 shrink-0 touch-pan-x"
+              style={{ WebkitOverflowScrolling: "touch" }}
             >
               {masterclasses.map((mc) => {
                 const isSelected = selectedId === mc.id;
@@ -557,7 +573,7 @@ export function Masterclass() {
 
             {/* Main Content */}
             {isContentExpanded && !isViewerClosed && (
-              <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+              <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden">
                 {/* Tab Bar */}
                 <div className="flex items-center justify-between border-b border-border/50 bg-[#1e1e2e] px-1 shrink-0">
                   <div className="flex items-center gap-2 px-4 py-2 bg-[#11111b] border-x border-t border-border/50 rounded-t -mb-px">
@@ -577,7 +593,7 @@ export function Masterclass() {
                 </div>
 
                 {/* Content Area */}
-                <div className="flex-1 p-5 md:p-6 overflow-y-auto custom-scrollbar min-h-0">
+                <div className="flex-1 min-h-0 p-5 md:p-6 overflow-y-auto overflow-x-hidden custom-scrollbar">
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
                     {/* Left Content */}
                     <div className="lg:col-span-3 space-y-5">
@@ -659,38 +675,13 @@ export function Masterclass() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Deliverables - Full Width */}
-                  <div className="p-4 rounded-lg bg-primary/5 border border-primary/20 mt-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Package className={`w-4 h-4 ${accentColor}`} />
-                      <h4 className="font-semibold text-foreground text-sm">Deliverables</h4>
-                    </div>
-                    <div className="flex gap-2 overflow-x-auto custom-scrollbar">
-                      {selectedClass.deliverables.map((deliverable) => {
-                        const DeliverableIcon = deliverableIcons[deliverable.type];
-                        return (
-                          <a
-                            key={deliverable.title}
-                            href={deliverable.url}
-                            className="flex items-center gap-2 px-3 py-2 rounded-md bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors group shrink-0 whitespace-nowrap"
-                          >
-                            <DeliverableIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0" />
-                            <span className="text-sm text-foreground group-hover:text-primary">
-                              {deliverable.title}
-                            </span>
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </div>
                 </div>
               </div>
             )}
 
             {/* Collapsed State */}
             {(!isContentExpanded || isViewerClosed) && (
-              <div className="flex-1 flex items-center justify-center py-6 px-4">
+              <div className="flex-1 min-h-0 flex items-center justify-center py-6 px-4">
                 <div className="text-center">
                   <IconComponent className={`w-6 h-6 mx-auto mb-1.5 ${accentColor}`} />
                   <p className="text-sm font-medium text-foreground">{selectedClass.title}</p>
