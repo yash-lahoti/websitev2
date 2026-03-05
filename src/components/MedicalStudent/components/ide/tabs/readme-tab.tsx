@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { educationWorkTimeline, profile } from "../../../lib/data";
-import { Mail, MapPin, GraduationCap, ExternalLink, FileText, Linkedin, Github } from "lucide-react";
+import { Mail, MapPin, GraduationCap, ExternalLink, FileText, Linkedin } from "lucide-react";
 import { EducationWorkTimeline } from "../timeline/education-work-timeline";
 
 const containerVariants = {
@@ -80,7 +80,7 @@ export function ReadmeTab() {
             {/* Logo Buttons - Clean Icon Style with Descriptions */}
             <div className="flex flex-wrap gap-2 relative">
               <a
-                href="/documents/Yash_Lahoti_Resume_2025.pdf"
+                href="/documents/Yash_Lahoti_Resume_2026.pdf"
                 className="relative inline-flex items-center justify-center w-9 h-9 bg-primary/10 hover:bg-primary/20 rounded-md transition-colors"
                 onMouseEnter={() => setHoveredLink("resume")}
                 onMouseLeave={() => setHoveredLink(null)}
@@ -111,26 +111,43 @@ export function ReadmeTab() {
                   </div>
                 )}
               </a>
-              <a
-                href={profile.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-center w-9 h-9 bg-secondary/50 hover:bg-secondary rounded-md transition-colors"
-                onMouseEnter={() => setHoveredLink("github")}
-                onMouseLeave={() => setHoveredLink(null)}
-                title="GitHub"
-              >
-                <Github className="w-4 h-4 text-foreground" />
-                {hoveredLink === "github" && (
-                  <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 z-50 px-2 py-1 bg-popover text-popover-foreground text-xs rounded shadow-lg border border-border whitespace-nowrap pointer-events-none">
-                    View GitHub Profile
-                    <div className="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-r-4 border-r-popover"></div>
-                  </div>
-                )}
-              </a>
             </div>
           </motion.div>
         </div>
+
+        {/* Oculomics Foundation Model – compact glass tile */}
+        <motion.a
+          href="https://sinai-barry-center-hub-qmed.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mb-4 inline-flex items-center gap-3 rounded-lg border border-primary/25 bg-background/40 px-3 py-2 text-xs md:text-sm shadow-sm backdrop-blur-sm hover:border-primary/60 hover:bg-primary/10 transition-colors cursor-pointer"
+          variants={itemVariants}
+        >
+          <div className="relative inline-flex items-center justify-center overflow-hidden rounded-none bg-gradient-to-br from-primary/25 via-card to-background border border-primary/40 shadow-sm group-hover:border-primary/70 group-hover:shadow-md group-hover:shadow-primary/25 transition-all duration-300">
+            <img
+              src="/OPTIC-DX.png"
+              alt="OPTIC-Dx ophthalmic AI logo"
+              className="h-6 w-auto object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[1deg]"
+            />
+          </div>
+          <div className="flex min-w-0 items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="flex items-center gap-2 text-[11px] font-medium text-foreground md:text-xs">
+                Building an Oculomics Foundation Model
+                <span className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-primary/10 px-1.5 py-[1px] text-[9px] font-semibold text-primary">
+                  OPTIC-Dx
+                </span>
+              </p>
+              <p className="mt-[2px] truncate text-[11px] text-muted-foreground">
+                Click to open the live OPTIC-Dx initiative.
+              </p>
+            </div>
+            <span className="shrink-0 inline-flex items-center gap-1 text-[11px] text-primary underline decoration-primary/60 underline-offset-2 group-hover:decoration-primary">
+              Click to view
+              <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </div>
+        </motion.a>
 
         {/* Divider */}
         <motion.div 

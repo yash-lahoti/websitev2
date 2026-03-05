@@ -5,17 +5,14 @@ import { Sidebar } from "./sidebar";
 import { TabBar } from "./tab-bar";
 import { StatusBar } from "./status-bar";
 import { ActivityBar } from "./activity-bar";
-import { useTheme } from "../../context/ThemeContext";
-import { Code, Activity } from "lucide-react";
 import { ReadmeTab } from "./tabs/readme-tab";
 import { ExperienceTab } from "./tabs/experience-tab";
 import { PublicationsTab } from "./tabs/publications-tab";
 import { ProjectsTab } from "./tabs/projects-tab";
 import { SkillsTab } from "./tabs/skills-tab";
 import { ContactTab } from "./tabs/contact-tab";
-import { GalleryTab } from "./tabs/gallery-tab";
 
-export type TabId = "readme" | "experience" | "publications" | "projects" | "skills" | "contact" | "gallery";
+export type TabId = "readme" | "experience" | "publications" | "projects" | "skills" | "contact";
 
 export interface FileTab {
   id: TabId;
@@ -31,11 +28,9 @@ const files: FileTab[] = [
   { id: "projects", name: "projects", icon: "notebook", extension: ".ipynb" },
   { id: "skills", name: "skills", icon: "json", extension: ".json" },
   { id: "contact", name: "contact", icon: "typescript", extension: ".ts" },
-  { id: "gallery", name: "gallery", icon: "image", extension: ".jpg" },
 ];
 
 export function IDELayout() {
-  const { toggleViewMode, viewMode } = useTheme();
   const [activeTab, setActiveTab] = useState<TabId>("readme");
   const [openTabs, setOpenTabs] = useState<TabId[]>(["readme"]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -101,8 +96,6 @@ export function IDELayout() {
         return <SkillsTab />;
       case "contact":
         return <ContactTab />;
-      case "gallery":
-        return <GalleryTab />;
       default:
         return <ReadmeTab />;
     }
@@ -122,31 +115,6 @@ export function IDELayout() {
             Self-coded portfolio — Yash Lahoti, BAS, MSE
           </span>
         </div>
-
-        {/* View Mode Toggle - IDENTICAL to physician TopBar */}
-        <div className="ml-auto flex items-center">
-          <button
-            onClick={toggleViewMode}
-            className="flex items-center gap-0 rounded-full bg-slate-800 border border-white/10 overflow-hidden h-8"
-          >
-            {/* Dev Button */}
-            <div className={`flex items-center justify-center gap-1.5 px-3 h-full transition-all ${viewMode === 'developer'
-              ? 'bg-blue-500/20 text-blue-400'
-              : 'text-white/40 hover:text-white/60'
-              }`}>
-              <Code size={14} />
-              <span className="text-xs font-semibold">Dev</span>
-            </div>
-            {/* MD Button */}
-            <div className={`flex items-center justify-center gap-1.5 px-3 h-full transition-all ${viewMode === 'physician'
-              ? 'bg-red-500/20 text-red-400'
-              : 'text-white/40 hover:text-white/60'
-              }`}>
-              <Activity size={14} />
-              <span className="text-xs font-semibold">MD</span>
-            </div>
-          </button>
-        </div>
       </div>
 
       <div className="flex flex-1 overflow-hidden relative">
@@ -154,7 +122,6 @@ export function IDELayout() {
         <ActivityBar
           sidebarOpen={sidebarOpen}
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-          onOpenGallery={() => openFile("gallery")}
           isMobile={isMobile}
           files={files}
           activeTab={activeTab}

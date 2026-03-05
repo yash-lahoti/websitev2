@@ -33,8 +33,7 @@ export const profile = {
   location: "New York, NY",
   school: "Icahn School of Medicine at Mount Sinai",
   links: {
-    github: "/",
-    linkedin: "https://linkedin.com/in/yashlahoti",
+    linkedin: "https://www.linkedin.com/in/yash-lahoti-mse-90b477178/",
     scholar: "https://scholar.google.com/citations?hl=en&user=ZZACpvAAAAAJ&view_op=list_works&gmla=AF9nlQtGNqbXvKMijdOPA43ijxzpwbpSzEdZNyL1iUl_2ziX5m7XS8vB1TGPGEDgxz1ltrWkPstLSFMoYtbuefe5",
     twitter: "https://twitter.com/yashlahoti"
   },

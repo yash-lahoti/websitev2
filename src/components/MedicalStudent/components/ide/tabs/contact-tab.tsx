@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { profile } from "../../../lib/data";
-import { Mail, Github, Linkedin, GraduationCap, Send, MapPin, CheckCircle } from "lucide-react";
+import { Mail, Linkedin, GraduationCap, Send, MapPin, CheckCircle } from "lucide-react";
 import { EarthCanvas } from "../../../../canvas";
 
 const socialLinks = [
@@ -14,13 +14,6 @@ const socialLinks = [
     href: `mailto:${profile.email}`,
     icon: Mail,
     color: "bg-blue-500/10 text-blue-400 border-blue-500/20"
-  },
-  {
-    name: "GitHub",
-    value: "@yashlahoti",
-    href: profile.links.github,
-    icon: Github,
-    color: "bg-gray-500/10 text-gray-300 border-gray-500/20"
   },
   {
     name: "LinkedIn",
