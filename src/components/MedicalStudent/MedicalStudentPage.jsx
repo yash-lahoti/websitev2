@@ -6,15 +6,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import './styles/globals.css';
 
 const MedicalStudentPageContent = () => {
-  const { viewMode } = useTheme();
-
-  return viewMode === 'developer' ? (
-    <IDELayout />
-  ) : (
-    <PhysicianLayout>
-      <PhysicianHome />
-    </PhysicianLayout>
-  );
+  return <IDELayout />;
 };
 
 const MedicalStudentPage = () => {

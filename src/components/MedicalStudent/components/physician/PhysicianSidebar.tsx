@@ -6,6 +6,7 @@ const items = [
     { name: 'Summary', icon: Home, id: 'readme' },
     { name: 'Publications', icon: FileText, id: 'publications' },
     { name: 'Projects', icon: Zap, id: 'projects' },
+    { name: 'Med-Jarvis', icon: Layers, id: 'medjarvis', href: '/medjarvis/index.html' },
     { name: 'Contact', icon: Mail, id: 'contact' },
 ];
 
@@ -25,7 +26,7 @@ export const PhysicianSidebar: React.FC<SidebarProps> = ({ expanded = false }) =
                 {items.map((item) => (
                     <a
                         key={item.id}
-                        href={`#${item.id}`}
+                        href={item.href || `#${item.id}`}
                         className="w-full flex items-center gap-3 px-2.5 py-2 text-sm font-medium rounded-lg hover:bg-white/10 transition-all text-white/60 hover:text-white group"
                         title={item.name}
                     >
