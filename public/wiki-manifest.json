@@ -1,0 +1,1062 @@
+[
+  {
+    "type": "directory",
+    "name": "archetypes",
+    "path": "archetypes",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "assets",
+    "path": "assets",
+    "children": []
+  },
+  {
+    "type": "directory",
+    "name": "concepts",
+    "path": "concepts",
+    "children": [
+      {
+        "type": "file",
+        "name": "acute-appendicitis-diagnosis.md",
+        "path": "concepts/acute-appendicitis-diagnosis.md"
+      },
+      {
+        "type": "file",
+        "name": "acute-gvhd.md",
+        "path": "concepts/acute-gvhd.md"
+      },
+      {
+        "type": "file",
+        "name": "aecopd.md",
+        "path": "concepts/aecopd.md"
+      },
+      {
+        "type": "file",
+        "name": "animal-bite-injuries.md",
+        "path": "concepts/animal-bite-injuries.md"
+      },
+      {
+        "type": "file",
+        "name": "atrial-fibrillation.md",
+        "path": "concepts/atrial-fibrillation.md"
+      },
+      {
+        "type": "file",
+        "name": "attrition-bias.md",
+        "path": "concepts/attrition-bias.md"
+      },
+      {
+        "type": "file",
+        "name": "blunt-abdominal-trauma.md",
+        "path": "concepts/blunt-abdominal-trauma.md"
+      },
+      {
+        "type": "file",
+        "name": "brbpr-evaluation.md",
+        "path": "concepts/brbpr-evaluation.md"
+      },
+      {
+        "type": "file",
+        "name": "bronchiolitis.md",
+        "path": "concepts/bronchiolitis.md"
+      },
+      {
+        "type": "file",
+        "name": "bullous-pemphigoid.md",
+        "path": "concepts/bullous-pemphigoid.md"
+      },
+      {
+        "type": "file",
+        "name": "clinical-equipoise.md",
+        "path": "concepts/clinical-equipoise.md"
+      },
+      {
+        "type": "file",
+        "name": "cocaine-induced-lung-toxicity.md",
+        "path": "concepts/cocaine-induced-lung-toxicity.md"
+      },
+      {
+        "type": "file",
+        "name": "cocaine-mi.md",
+        "path": "concepts/cocaine-mi.md"
+      },
+      {
+        "type": "file",
+        "name": "constipation-induced-cystitis.md",
+        "path": "concepts/constipation-induced-cystitis.md"
+      },
+      {
+        "type": "file",
+        "name": "contraception-thrombophilia.md",
+        "path": "concepts/contraception-thrombophilia.md"
+      },
+      {
+        "type": "file",
+        "name": "diagnostic-test-accuracy.md",
+        "path": "concepts/diagnostic-test-accuracy.md"
+      },
+      {
+        "type": "file",
+        "name": "diffuse-alveolar-hemorrhage.md",
+        "path": "concepts/diffuse-alveolar-hemorrhage.md"
+      },
+      {
+        "type": "file",
+        "name": "disseminated-intravascular-coagulation.md",
+        "path": "concepts/disseminated-intravascular-coagulation.md"
+      },
+      {
+        "type": "file",
+        "name": "error-analysis-tools.md",
+        "path": "concepts/error-analysis-tools.md"
+      },
+      {
+        "type": "file",
+        "name": "ethylene-glycol-toxicity.md",
+        "path": "concepts/ethylene-glycol-toxicity.md"
+      },
+      {
+        "type": "file",
+        "name": "first-seizure-workup.md",
+        "path": "concepts/first-seizure-workup.md"
+      },
+      {
+        "type": "file",
+        "name": "functional-tremor.md",
+        "path": "concepts/functional-tremor.md"
+      },
+      {
+        "type": "file",
+        "name": "hypertension-lifestyle-modification.md",
+        "path": "concepts/hypertension-lifestyle-modification.md"
+      },
+      {
+        "type": "file",
+        "name": "hypoglycemia-critical-illness.md",
+        "path": "concepts/hypoglycemia-critical-illness.md"
+      },
+      {
+        "type": "file",
+        "name": "interstitial-lung-disease.md",
+        "path": "concepts/interstitial-lung-disease.md"
+      },
+      {
+        "type": "file",
+        "name": "male-breast-cancer.md",
+        "path": "concepts/male-breast-cancer.md"
+      },
+      {
+        "type": "file",
+        "name": "massive-hemothorax.md",
+        "path": "concepts/massive-hemothorax.md"
+      },
+      {
+        "type": "file",
+        "name": "motivational-interviewing.md",
+        "path": "concepts/motivational-interviewing.md"
+      },
+      {
+        "type": "file",
+        "name": "myotonic-dystrophy.md",
+        "path": "concepts/myotonic-dystrophy.md"
+      },
+      {
+        "type": "file",
+        "name": "narcolepsy.md",
+        "path": "concepts/narcolepsy.md"
+      },
+      {
+        "type": "file",
+        "name": "no-escalation-of-treatment.md",
+        "path": "concepts/no-escalation-of-treatment.md"
+      },
+      {
+        "type": "file",
+        "name": "normal-pressure-hydrocephalus.md",
+        "path": "concepts/normal-pressure-hydrocephalus.md"
+      },
+      {
+        "type": "file",
+        "name": "parvovirus-arthritis.md",
+        "path": "concepts/parvovirus-arthritis.md"
+      },
+      {
+        "type": "file",
+        "name": "pleural-effusion-exam.md",
+        "path": "concepts/pleural-effusion-exam.md"
+      },
+      {
+        "type": "file",
+        "name": "pnh.md",
+        "path": "concepts/pnh.md"
+      },
+      {
+        "type": "file",
+        "name": "polyarteritis-nodosa.md",
+        "path": "concepts/polyarteritis-nodosa.md"
+      },
+      {
+        "type": "file",
+        "name": "post-ercp-pancreatitis.md",
+        "path": "concepts/post-ercp-pancreatitis.md"
+      },
+      {
+        "type": "file",
+        "name": "post-mi-depression.md",
+        "path": "concepts/post-mi-depression.md"
+      },
+      {
+        "type": "file",
+        "name": "post-term-pregnancy.md",
+        "path": "concepts/post-term-pregnancy.md"
+      },
+      {
+        "type": "file",
+        "name": "prerenal-acute-kidney-injury.md",
+        "path": "concepts/prerenal-acute-kidney-injury.md"
+      },
+      {
+        "type": "file",
+        "name": "prevalence-vs-incidence.md",
+        "path": "concepts/prevalence-vs-incidence.md"
+      },
+      {
+        "type": "file",
+        "name": "preventable-ades.md",
+        "path": "concepts/preventable-ades.md"
+      },
+      {
+        "type": "file",
+        "name": "risk-reduction.md",
+        "path": "concepts/risk-reduction.md"
+      },
+      {
+        "type": "file",
+        "name": "serotonin-toxicity.md",
+        "path": "concepts/serotonin-toxicity.md"
+      },
+      {
+        "type": "file",
+        "name": "sickle-cell-trait.md",
+        "path": "concepts/sickle-cell-trait.md"
+      },
+      {
+        "type": "file",
+        "name": "smoking-cessation-support.md",
+        "path": "concepts/smoking-cessation-support.md"
+      },
+      {
+        "type": "file",
+        "name": "solitary-pulmonary-nodule.md",
+        "path": "concepts/solitary-pulmonary-nodule.md"
+      },
+      {
+        "type": "file",
+        "name": "tinea-corporis.md",
+        "path": "concepts/tinea-corporis.md"
+      },
+      {
+        "type": "file",
+        "name": "transient-hypogammaglobulinemia-of-infancy.md",
+        "path": "concepts/transient-hypogammaglobulinemia-of-infancy.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "factoids",
+    "path": "factoids",
+    "children": [
+      {
+        "type": "file",
+        "name": "aecopd-antibiotic-criteria.md",
+        "path": "factoids/aecopd-antibiotic-criteria.md"
+      },
+      {
+        "type": "file",
+        "name": "cat-bite-prophylaxis.md",
+        "path": "factoids/cat-bite-prophylaxis.md"
+      },
+      {
+        "type": "file",
+        "name": "chronic-dic-mucin-tumors.md",
+        "path": "factoids/chronic-dic-mucin-tumors.md"
+      },
+      {
+        "type": "file",
+        "name": "crack-lung-markers.md",
+        "path": "factoids/crack-lung-markers.md"
+      },
+      {
+        "type": "file",
+        "name": "ild-gas-exchange.md",
+        "path": "factoids/ild-gas-exchange.md"
+      },
+      {
+        "type": "file",
+        "name": "modafinil-vs-stimulants.md",
+        "path": "factoids/modafinil-vs-stimulants.md"
+      },
+      {
+        "type": "file",
+        "name": "myotonic-dystrophy-triad.md",
+        "path": "factoids/myotonic-dystrophy-triad.md"
+      },
+      {
+        "type": "file",
+        "name": "pan-angiography.md",
+        "path": "factoids/pan-angiography.md"
+      },
+      {
+        "type": "file",
+        "name": "pnh-flow-cytometry.md",
+        "path": "factoids/pnh-flow-cytometry.md"
+      },
+      {
+        "type": "file",
+        "name": "prerenal-aki-bland-sediment.md",
+        "path": "factoids/prerenal-aki-bland-sediment.md"
+      },
+      {
+        "type": "file",
+        "name": "sct-high-altitude-rpn.md",
+        "path": "factoids/sct-high-altitude-rpn.md"
+      },
+      {
+        "type": "file",
+        "name": "sertraline-post-mi.md",
+        "path": "factoids/sertraline-post-mi.md"
+      },
+      {
+        "type": "file",
+        "name": "thi-vs-cvid.md",
+        "path": "factoids/thi-vs-cvid.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "questions",
+    "path": "questions",
+    "children": [
+      {
+        "type": "file",
+        "name": "uworld-q-107428-equipoise.md",
+        "path": "questions/uworld-q-107428-equipoise.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-110558-seizure.md",
+        "path": "questions/uworld-q-110558-seizure.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-12130-contraception.md",
+        "path": "questions/uworld-q-12130-contraception.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-13533-response.md",
+        "path": "questions/uworld-q-13533-response.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-16151-pep.md",
+        "path": "questions/uworld-q-16151-pep.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-16837-workup.md",
+        "path": "questions/uworld-q-16837-workup.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-17229-management.md",
+        "path": "questions/uworld-q-17229-management.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19227-mechanism.md",
+        "path": "questions/uworld-q-19227-mechanism.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19296-bronchiolitis.md",
+        "path": "questions/uworld-q-19296-bronchiolitis.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19546-tremor.md",
+        "path": "questions/uworld-q-19546-tremor.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19787-prevention.md",
+        "path": "questions/uworld-q-19787-prevention.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20355-serotonin.md",
+        "path": "questions/uworld-q-20355-serotonin.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20426-calculation.md",
+        "path": "questions/uworld-q-20426-calculation.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20541-accuracy.md",
+        "path": "questions/uworld-q-20541-accuracy.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-21627-neot.md",
+        "path": "questions/uworld-q-21627-neot.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-21976-response.md",
+        "path": "questions/uworld-q-21976-response.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-2226-cystitis.md",
+        "path": "questions/uworld-q-2226-cystitis.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-22581-rca-fmea.md",
+        "path": "questions/uworld-q-22581-rca-fmea.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-2751-management.md",
+        "path": "questions/uworld-q-2751-management.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3064-imaging.md",
+        "path": "questions/uworld-q-3064-imaging.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3094-lifestyle.md",
+        "path": "questions/uworld-q-3094-lifestyle.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3171-parvovirus.md",
+        "path": "questions/uworld-q-3171-parvovirus.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3188-management.md",
+        "path": "questions/uworld-q-3188-management.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3281-postterm.md",
+        "path": "questions/uworld-q-3281-postterm.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3453-evaluation.md",
+        "path": "questions/uworld-q-3453-evaluation.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3857-brbpr.md",
+        "path": "questions/uworld-q-3857-brbpr.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4151-mechanism.md",
+        "path": "questions/uworld-q-4151-mechanism.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4172-trends.md",
+        "path": "questions/uworld-q-4172-trends.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4178-attrition.md",
+        "path": "questions/uworld-q-4178-attrition.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4500-bat.md",
+        "path": "questions/uworld-q-4500-bat.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4511-diagnosis.md",
+        "path": "questions/uworld-q-4511-diagnosis.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4539-hemothorax.md",
+        "path": "questions/uworld-q-4539-hemothorax.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4651-mechanism.md",
+        "path": "questions/uworld-q-4651-mechanism.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4676-workup.md",
+        "path": "questions/uworld-q-4676-workup.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-8818-effusion.md",
+        "path": "questions/uworld-q-8818-effusion.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "scripts",
+    "path": "scripts",
+    "children": [
+      {
+        "type": "file",
+        "name": "idiopathic-pulmonary-fibrosis.md",
+        "path": "scripts/idiopathic-pulmonary-fibrosis.md"
+      },
+      {
+        "type": "file",
+        "name": "klinefelter-syndrome.md",
+        "path": "scripts/klinefelter-syndrome.md"
+      },
+      {
+        "type": "file",
+        "name": "major-depressive-disorder.md",
+        "path": "scripts/major-depressive-disorder.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "sources",
+    "path": "sources",
+    "children": [
+      {
+        "type": "file",
+        "name": "source-uworld-q-16448.md",
+        "path": "sources/source-uworld-q-16448.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-18997.md",
+        "path": "sources/source-uworld-q-18997.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-19628.md",
+        "path": "sources/source-uworld-q-19628.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-20900.md",
+        "path": "sources/source-uworld-q-20900.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-2258.md",
+        "path": "sources/source-uworld-q-2258.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-3045.md",
+        "path": "sources/source-uworld-q-3045.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-3470.md",
+        "path": "sources/source-uworld-q-3470.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-3661.md",
+        "path": "sources/source-uworld-q-3661.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-3967.md",
+        "path": "sources/source-uworld-q-3967.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-4034.md",
+        "path": "sources/source-uworld-q-4034.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-4039.md",
+        "path": "sources/source-uworld-q-4039.md"
+      },
+      {
+        "type": "file",
+        "name": "source-uworld-q-4317.md",
+        "path": "sources/source-uworld-q-4317.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-107428.md",
+        "path": "sources/uworld-q-107428.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-110558.md",
+        "path": "sources/uworld-q-110558.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-12130.md",
+        "path": "sources/uworld-q-12130.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-13533.md",
+        "path": "sources/uworld-q-13533.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-15923.md",
+        "path": "sources/uworld-q-15923.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-16151.md",
+        "path": "sources/uworld-q-16151.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-16837.md",
+        "path": "sources/uworld-q-16837.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-17229.md",
+        "path": "sources/uworld-q-17229.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19227.md",
+        "path": "sources/uworld-q-19227.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19296.md",
+        "path": "sources/uworld-q-19296.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19546.md",
+        "path": "sources/uworld-q-19546.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-19787.md",
+        "path": "sources/uworld-q-19787.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20355.md",
+        "path": "sources/uworld-q-20355.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20426.md",
+        "path": "sources/uworld-q-20426.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-20541.md",
+        "path": "sources/uworld-q-20541.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-21627.md",
+        "path": "sources/uworld-q-21627.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-21976.md",
+        "path": "sources/uworld-q-21976.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-2226.md",
+        "path": "sources/uworld-q-2226.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-22581.md",
+        "path": "sources/uworld-q-22581.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-2751.md",
+        "path": "sources/uworld-q-2751.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3064.md",
+        "path": "sources/uworld-q-3064.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3094.md",
+        "path": "sources/uworld-q-3094.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3171.md",
+        "path": "sources/uworld-q-3171.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3188.md",
+        "path": "sources/uworld-q-3188.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3281.md",
+        "path": "sources/uworld-q-3281.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3453.md",
+        "path": "sources/uworld-q-3453.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-3857.md",
+        "path": "sources/uworld-q-3857.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4151.md",
+        "path": "sources/uworld-q-4151.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4172.md",
+        "path": "sources/uworld-q-4172.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4178.md",
+        "path": "sources/uworld-q-4178.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4500.md",
+        "path": "sources/uworld-q-4500.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4511.md",
+        "path": "sources/uworld-q-4511.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4539.md",
+        "path": "sources/uworld-q-4539.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4651.md",
+        "path": "sources/uworld-q-4651.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-4676.md",
+        "path": "sources/uworld-q-4676.md"
+      },
+      {
+        "type": "file",
+        "name": "uworld-q-8818.md",
+        "path": "sources/uworld-q-8818.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "tasks",
+    "path": "tasks",
+    "children": [
+      {
+        "type": "file",
+        "name": "_TEMPLATE-task.md",
+        "path": "tasks/_TEMPLATE-task.md"
+      },
+      {
+        "type": "file",
+        "name": "board.md",
+        "path": "tasks/board.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-107428.md",
+        "path": "tasks/task-uworld-q-107428.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-110558.md",
+        "path": "tasks/task-uworld-q-110558.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-12130.md",
+        "path": "tasks/task-uworld-q-12130.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-13533.md",
+        "path": "tasks/task-uworld-q-13533.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-15923.md",
+        "path": "tasks/task-uworld-q-15923.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-16151.md",
+        "path": "tasks/task-uworld-q-16151.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-16448.md",
+        "path": "tasks/task-uworld-q-16448.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-16837.md",
+        "path": "tasks/task-uworld-q-16837.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-17229.md",
+        "path": "tasks/task-uworld-q-17229.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-18997.md",
+        "path": "tasks/task-uworld-q-18997.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-19227.md",
+        "path": "tasks/task-uworld-q-19227.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-19296.md",
+        "path": "tasks/task-uworld-q-19296.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-19546.md",
+        "path": "tasks/task-uworld-q-19546.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-19628.md",
+        "path": "tasks/task-uworld-q-19628.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-19787.md",
+        "path": "tasks/task-uworld-q-19787.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-20355.md",
+        "path": "tasks/task-uworld-q-20355.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-20426.md",
+        "path": "tasks/task-uworld-q-20426.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-20541.md",
+        "path": "tasks/task-uworld-q-20541.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-20900.md",
+        "path": "tasks/task-uworld-q-20900.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-21627.md",
+        "path": "tasks/task-uworld-q-21627.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-21976.md",
+        "path": "tasks/task-uworld-q-21976.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-2226.md",
+        "path": "tasks/task-uworld-q-2226.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-2258.md",
+        "path": "tasks/task-uworld-q-2258.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-22581.md",
+        "path": "tasks/task-uworld-q-22581.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-2751.md",
+        "path": "tasks/task-uworld-q-2751.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3045.md",
+        "path": "tasks/task-uworld-q-3045.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3064.md",
+        "path": "tasks/task-uworld-q-3064.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3094.md",
+        "path": "tasks/task-uworld-q-3094.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3171.md",
+        "path": "tasks/task-uworld-q-3171.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3188.md",
+        "path": "tasks/task-uworld-q-3188.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3281.md",
+        "path": "tasks/task-uworld-q-3281.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3453.md",
+        "path": "tasks/task-uworld-q-3453.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3470.md",
+        "path": "tasks/task-uworld-q-3470.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3661-dup.md",
+        "path": "tasks/task-uworld-q-3661-dup.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3661.md",
+        "path": "tasks/task-uworld-q-3661.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3857.md",
+        "path": "tasks/task-uworld-q-3857.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-3967.md",
+        "path": "tasks/task-uworld-q-3967.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4034.md",
+        "path": "tasks/task-uworld-q-4034.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4039.md",
+        "path": "tasks/task-uworld-q-4039.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4151.md",
+        "path": "tasks/task-uworld-q-4151.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4172.md",
+        "path": "tasks/task-uworld-q-4172.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4178.md",
+        "path": "tasks/task-uworld-q-4178.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4317.md",
+        "path": "tasks/task-uworld-q-4317.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4500.md",
+        "path": "tasks/task-uworld-q-4500.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4511.md",
+        "path": "tasks/task-uworld-q-4511.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4539.md",
+        "path": "tasks/task-uworld-q-4539.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4651.md",
+        "path": "tasks/task-uworld-q-4651.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-4676.md",
+        "path": "tasks/task-uworld-q-4676.md"
+      },
+      {
+        "type": "file",
+        "name": "task-uworld-q-8818.md",
+        "path": "tasks/task-uworld-q-8818.md"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "name": "weak-spots",
+    "path": "weak-spots",
+    "children": []
+  },
+  {
+    "type": "file",
+    "name": "overview.md",
+    "path": "overview.md"
+  }
+]

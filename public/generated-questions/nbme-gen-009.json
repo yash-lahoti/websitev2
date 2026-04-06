@@ -1,0 +1,33 @@
+{
+  "question_id": "nbme-gen-009",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["acute-appendicitis-diagnosis"],
+  "source_uworld": "3064",
+  "system": "Gastrointestinal & Nutrition",
+  "topic": "Acute Appendicitis Diagnosis",
+  "subtopic": "Imaging selection",
+  "difficulty": "medium",
+  "question_type": "best-initial-test",
+  "stem": "A 22-year-old man is brought to the emergency department for a 12-hour history of abdominal pain. He reports that the pain began as a dull ache around the navel and has since shifted to the right lower quadrant. He also reports feeling nauseated and has had two episodes of vomiting. On physical examination, he is febrile with a temperature of 38.4°C (101.1°F), heart rate of 104/min, and blood pressure of 138/82 mmHg. Tenderness is noted on palpation of the right lower quadrant with positive rebound tenderness. Laboratory studies show a white blood cell count of 14,500/mm³ with a left shift.",
+  "lead_in": "Which of the following is the most appropriate initial diagnostic study to confirm the diagnosis?",
+  "options": {
+    "A": "Abdominal X-ray",
+    "B": "Computed tomography of the abdomen and pelvis",
+    "C": "Magnetic resonance imaging of the abdomen",
+    "D": "Ultrasound of the right lower quadrant",
+    "E": "Diagnostic laparoscopy"
+  },
+  "correct_answer": "B",
+  "explanation": "This patient presents with a classic history and physical examination findings for acute appendicitis, including migratory pain (periumbilical to RLQ), nausea, vomiting, fever, and leukocytosis. In nonpregnant adults, the preferred initial diagnostic study to confirm appendicitis is a computed tomography (CT) scan of the abdomen and pelvis with contrast, due to its high sensitivity and specificity. While ultrasound (D) is the first-line study for children and pregnant women to avoid ionizing radiation, it is not the preferred initial study for nonpregnant adults due to lower diagnostic accuracy and higher operator dependency. Abdominal X-rays (A) are generally non-specific and not used to confirm appendicitis. MRI (C) is an alternative but is less available and more expensive than CT. Diagnostic laparoscopy (E) is an invasive procedure and is typically reserved for cases where imaging is inconclusive.",
+  "teaching_point": "In nonpregnant adults with suspected acute appendicitis, computed tomography (CT) of the abdomen and pelvis is the preferred initial diagnostic study to confirm the diagnosis.",
+  "distractor_rationale": {
+    "A": "Incorrect: X-rays have low sensitivity for appendicitis and are not used for confirmation.",
+    "B": "Correct: Gold standard for nonpregnant adults.",
+    "C": "Incorrect: MRI is accurate but not the initial preferred study due to cost and availability.",
+    "D": "Incorrect: First-line for children and pregnant women, not for nonpregnant adults.",
+    "E": "Incorrect: Invasive procedure reserved for inconclusive imaging."
+  },
+  "tags": ["step2", "surgery", "appendicitis", "imaging"],
+  "review_status": "draft",
+  "reviewer_notes": ""
+}

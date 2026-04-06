@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-036",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["polyarteritis-nodosa"],
+  "source_uworld": "18997",
+  "system": "Systemic",
+  "topic": "Polyarteritis nodosa",
+  "subtopic": "Clinical Presentation",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 48-year-old man presents to the clinic complaining of intermittent abdominal pain that occurs shortly after eating, accompanied by unintentional weight loss of 12 lbs over the last two months. He also reports persistent low-grade fever, malaise, and aching in his joints. On physical examination, his blood pressure is 158/94 mmHg. Livedo reticularis is noted on his lower extremities, and several firm, painless subcutaneous nodules are palpated over his shins. Neurologic examination reveals diminished sensation in the distribution of the right radial nerve and the left peroneal nerve. Laboratory studies show a mild anemia of chronic disease. Serologic testing for antinuclear antibodies and antineutrophil cytoplasmic antibodies is negative. A screening test for Hepatitis B surface antigen is positive.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Bacterial endocarditis",
+    "B": "Fibromuscular dysplasia",
+    "C": "Polyarteritis nodosa",
+    "D": "Rheumatoid arthritis",
+    "E": "Systemic lupus erythematosus"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient presents with a classic constellation of symptoms for Polyarteritis Nodosa (PAN), a necrotizing vasculitis of medium-sized arteries. Key findings include systemic inflammation (fever, weight loss), mesenteric ischemia (postprandial abdominal pain), hypertension, mononeuritis multiplex (radial and peroneal nerve deficits), and skin findings (livedo reticularis, subcutaneous nodules). The association with Hepatitis B is a well-known trigger. Bacterial endocarditis can cause systemic symptoms and embolic phenomena but usually presents with acute fever and heart murmurs. Fibromuscular dysplasia causes arterial narrowing (often renal) but lacks systemic inflammatory signs. SLE and RA would typically be associated with positive ANA or RF and different clinical patterns (e.g., malar rash or symmetric small joint arthritis).",
+  "teaching_point": "Polyarteritis nodosa is a medium-vessel vasculitis characterized by systemic symptoms, mononeuritis multiplex, livedo reticularis, and an association with Hepatitis B.",
+  "distractor_rationale": {
+    "A": "Presents with fever and embolic events but not with the classic mononeuritis multiplex and livedo reticularis pattern of PAN.",
+    "B": "Causes arterial stenosis (e.g., renal artery) and hypertension but lacks systemic inflammation and neurologic deficits.",
+    "D": "Presents with symmetric small joint arthritis and systemic symptoms, but not with mesenteric ischemia or mononeuritis multiplex.",
+    "E": "Can cause multisystem disease and vasculitis, but typically presents with positive ANA and classic features like a malar rash."
+  },
+  "tags": ["step2", "rheumatology", "vasculitis", "polyarteritis-nodosa", "hepatitis-b"],
+  "review_status": "draft"
+}

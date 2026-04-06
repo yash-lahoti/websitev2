@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-021",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["hypoglycemia-critical-illness"],
+  "source_uworld": "19227",
+  "system": "Endocrine",
+  "topic": "Hypoglycemia in Critical Illness",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 68-year-old man is admitted to the intensive care unit for the management of septic shock due to a suspected abdominal source. He has a history of hypertension and chronic kidney disease stage 3. He is receiving intravenous fluids and broad-spectrum antibiotics. On the second day of admission, the nurse reports that the patient has become unexpectedly agitated and diaphoretic. His vital signs are: temperature 38.4°C (101.1°F), pulse 112/min, blood pressure 94/62 mmHg, respiratory rate 22/min, and oxygen saturation 94% on 2 L/min nasal cannula. A bedside glucose monitor shows a blood glucose level of 52 mg/dL. He has no history of diabetes and is not taking any glucose-lowering medications.",
+  "lead_in": "Which of the following best explains the development of hypoglycemia in this patient?",
+  "options": {
+    "A": "Insulinoma producing autonomous insulin secretion",
+    "B": "Reduced hepatic gluconeogenesis and increased peripheral glucose utilization",
+    "C": "Primary adrenal insufficiency leading to cortisol deficiency",
+    "D": "Surreptitious administration of exogenous insulin",
+    "E": "Depletion of hepatic glycogen stores due to prolonged starvation"
+  },
+  "correct_answer": "B",
+  "explanation": "In non-diabetic patients with sepsis or critical illness, hypoglycemia occurs due to a combination of impaired hepatic gluconeogenesis and increased glucose consumption by peripheral tissues, often driven by inflammatory cytokines. This risk is further compounded by renal insufficiency (present in this patient as CKD), which reduces the renal contribution to gluconeogenesis and slows the clearance of endogenous insulin. Insulinoma (A) is a rare cause and would not typically be triggered by a septic event. Primary adrenal insufficiency (C) could cause hypoglycemia but usually presents with characteristic electrolyte abnormalities (e.g., hyponatremia, hyperkalemia) and profound hypotension. Surreptitious insulin use (D) is unlikely in a critically ill patient without a known history of diabetes. While starvation (E) can cause hypoglycemia, the acute onset in the context of sepsis points to a metabolic crisis rather than simple nutrient depletion.",
+  "teaching_point": "Hypoglycemia in non-diabetic critically ill patients, particularly those with sepsis and renal failure, is primarily driven by suppressed hepatic gluconeogenesis and increased peripheral glucose utilization.",
+  "distractor_rationale": {
+    "A": "An autonomous tumor not typically triggered by acute sepsis.",
+    "C": "Usually associated with specific electrolyte changes (low Na, high K) and profound shock.",
+    "D": "Unlikely given the clinical setting and lack of prior diabetes diagnosis.",
+    "E": "Possible in starvation, but not the primary mechanism in acute sepsis-induced metabolic dysfunction."
+  },
+  "tags": ["step2", "endocrine", "critical-care", "sepsis", "hypoglycemia"],
+  "review_status": "draft"
+}

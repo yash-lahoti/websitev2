@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NBME-Style Generated Question",
+  "description": "Schema for AI-generated NBME-format practice questions produced by the /nbme-gen skill",
+  "type": "object",
+  "required": [
+    "question_id",
+    "generated_date",
+    "source_concepts",
+    "system",
+    "topic",
+    "question_type",
+    "stem",
+    "options",
+    "correct_answer",
+    "explanation",
+    "teaching_point",
+    "distractor_rationale",
+    "tags",
+    "review_status"
+  ],
+  "properties": {
+    "question_id": {
+      "type": "string",
+      "pattern": "^nbme-gen-\\d{3}$",
+      "description": "Zero-padded sequential ID, e.g. nbme-gen-001",
+      "examples": ["nbme-gen-001"]
+    },
+    "generated_date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date the question was generated"
+    },
+    "source_concepts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Concept slugs from wiki/concepts/ that this question tests",
+      "examples": [["atrial-fibrillation"]]
+    },
+    "source_uworld": {
+      "type": ["string", "null"],
+      "description": "UWorld question ID used for clinical context inspiration (not copied). Null if not used.",
+      "examples": ["4676", null]
+    },
+    "system": {
+      "type": "string",
+      "description": "Organ system, matching wiki frontmatter convention",
+      "examples": ["Cardiovascular", "Pulmonary & Critical Care", "Renal", "Hematology", "Neurology"]
+    },
+    "topic": {
+      "type": "string",
+      "description": "Specific topic within the system",
+      "examples": ["Atrial Fibrillation", "AECOPD", "Acute Kidney Injury"]
+    },
+    "subtopic": {
+      "type": "string",
+      "description": "Optional finer granularity",
+      "examples": ["New-onset workup", "Antibiotic selection"]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"],
+      "description": "Estimated difficulty. easy=<40% miss rate, medium=40-60%, hard=>60%"
+    },
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "most-likely-diagnosis",
+        "next-best-step",
+        "best-initial-test",
+        "mechanism",
+        "pharmacology"
+      ],
+      "description": "NBME question archetype"
+    },
+    "stem": {
+      "type": "string",
+      "description": "Clinical vignette. 2-4 sentences: age, sex, presentation, PE/vitals, key objective finding. Must contain all information needed to answer. Original composition — not copied from UWorld.",
+      "minLength": 100
+    },
+    "lead_in": {
+      "type": "string",
+      "description": "The question sentence. Usually included at the end of stem for display. Stored separately for programmatic use.",
+      "examples": [
+        "Which of the following is the most appropriate next step in the evaluation of this patient?",
+        "Which of the following is the most likely diagnosis?",
+        "Which of the following best explains the mechanism of this patient's presentation?"
+      ]
+    },
+    "options": {
+      "type": "object",
+      "description": "Exactly 5 answer options, grammatically parallel",
+      "required": ["A", "B", "C", "D", "E"],
+      "properties": {
+        "A": { "type": "string", "minLength": 3 },
+        "B": { "type": "string", "minLength": 3 },
+        "C": { "type": "string", "minLength": 3 },
+        "D": { "type": "string", "minLength": 3 },
+        "E": { "type": "string", "minLength": 3 }
+      },
+      "additionalProperties": false
+    },
+    "correct_answer": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D", "E"],
+      "description": "Letter of the single correct option"
+    },
+    "explanation": {
+      "type": "string",
+      "description": "3-5 sentences. Why correct is correct; why each distractor is wrong. Paraphrase only.",
+      "minLength": 100
+    },
+    "teaching_point": {
+      "type": "string",
+      "description": "One sentence. The highest-yield flashcard-level takeaway. Must differ from the first sentence of explanation.",
+      "maxLength": 250
+    },
+    "distractor_rationale": {
+      "type": "object",
+      "description": "One phrase per wrong option explaining why it is incorrect",
+      "properties": {
+        "A": { "type": "string" },
+        "B": { "type": "string" },
+        "C": { "type": "string" },
+        "D": { "type": "string" },
+        "E": { "type": "string" }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Always include 'step2'. Add system, topic, and concept-specific tags.",
+      "examples": [["step2", "cardiology", "atrial-fibrillation", "hyperthyroidism"]]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "published", "needs-source", "rejected"],
+      "description": "draft=generated, not reviewed | reviewed=human-approved | published=ready for use | needs-source=concept page insufficient | rejected=quality failure"
+    },
+    "reviewer_notes": {
+      "type": "string",
+      "description": "Free text for human reviewer. Populated during review workflow.",
+      "default": ""
+    }
+  },
+  "additionalProperties": false
+}

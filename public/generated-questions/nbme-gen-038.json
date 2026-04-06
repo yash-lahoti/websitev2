@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-038",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["post-mi-depression"],
+  "source_uworld": "15923",
+  "system": "Psychiatric/Behavioral",
+  "topic": "Post-MI Depression",
+  "subtopic": "Pharmacotherapy Selection",
+  "difficulty": "medium",
+  "question_type": "pharmacology",
+  "stem": "A 64-year-old man is seen in the cardiology clinic for a six-month follow-up after a myocardial infarction. He has been adherent to his medications, including a beta-blocker, statin, and ACE inhibitor. He reports feeling consistently low, having anhedonia, and experiencing significant fatigue and sleep disturbance. He expresses a lack of interest in returning to his previous hobbies and states that he feels his life is no longer meaningful. His symptoms have persisted for more than two weeks and are impacting his daily functioning. Vitals are: temperature 36.6°C, pulse 68/min, blood pressure 124/76 mmHg, respiratory rate 16/min, and oxygen saturation 98% on room air. On physical examination, he appears tired with a flat affect and slow speech. A review of his medical record shows that his previous electrocardiogram demonstrated a normal QT interval.",
+  "lead_in": "Which of the following medications is the most appropriate for this patient's current condition?",
+  "options": {
+    "A": "Citalopram",
+    "B": "Desipramine",
+    "C": "Phenelzine",
+    "D": "Sertraline",
+    "E": "Venlafaxine"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient meets the criteria for Major Depressive Disorder (MDD) following a myocardial infarction (MI). In patients with cardiovascular disease, sertraline is the preferred first-line pharmacotherapy because of its safety profile and low risk of drug-drug interactions. Citalopram is avoided due to its association with dose-dependent QT interval prolongation, which could be dangerous in patients with cardiac disease. Tricyclic antidepressants (TCAs) like desipramine are avoided because they inhibit fast sodium channels and can cause cardiac conduction delays. SNRIs like venlafaxine can increase heart rate and blood pressure, which is undesirable post-MI. MAOIs like phenelzine have a high burden of side effects and dangerous dietary and drug interactions.",
+  "teaching_point": "Sertraline is the preferred antidepressant for patients with cardiovascular disease due to its low risk of cardiac adverse effects and minimal drug-drug interactions.",
+  "distractor_rationale": {
+    "A": "Causes dose-dependent QT prolongation, making it less suitable for cardiac patients.",
+    "B": "TCA that can cause cardiac conduction delays by inhibiting sodium channels.",
+    "C": "MAOI with significant side effects and contraindicated dietary/drug interactions.",
+    "D": "Preferred SSRI for post-MI depression due to its safety profile.",
+    "E": "SNRI that can lead to tachycardia and increased blood pressure."
+  },
+  "tags": ["step2", "psychiatry", "cardiovascular", "post-mi-depression", "pharmacology"],
+  "review_status": "draft"
+}

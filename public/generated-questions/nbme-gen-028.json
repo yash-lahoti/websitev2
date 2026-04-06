@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-028",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["brbpr-evaluation"],
+  "source_uworld": "3857",
+  "system": "Gastrointestinal & Nutrition",
+  "topic": "Bright Red Blood Per Rectum (BRBPR)",
+  "question_type": "next-best-step",
+  "stem": "A 31-year-old man comes to the clinic for evaluation of occasional rectal bleeding. He reports noticing a small amount of bright red blood on the toilet paper after bowel movements for the past three months. He denies any abdominal pain, fever, weight loss, or changes in bowel habits. He has no known medical conditions and takes no medications. On physical examination, his vital signs are stable. Abdominal examination is unremarkable. A digital rectal examination shows no palpable masses or abnormalities. He has no history of inflammatory bowel disease or a family history of colorectal cancer.",
+  "lead_in": "Which of the following is the most appropriate next step in the evaluation of this patient?",
+  "options": {
+    "A": "Anoscopy",
+    "B": "Colonoscopy",
+    "C": "Flexible sigmoidoscopy",
+    "D": "Carcinoembryonic antigen (CEA) measurement",
+    "E": "Observation with increased fiber intake"
+  },
+  "correct_answer": "A",
+  "explanation": "This patient is at low risk for serious colorectal pathology based on his young age (< 45 years), minimal bleeding (blood on toilet paper only), lack of systemic symptoms, no change in bowel habits, and a normal digital rectal examination. In low-risk patients with bright red blood per rectum (BRBPR), the most appropriate initial step is anoscopy to visualize the anal canal for common benign causes such as hemorrhoids or anal fissures. Colonoscopy (B) is indicated for high-risk patients, including those $\\ge 45$ years of age, those with blood mixed with stool, or those with systemic symptoms. Flexible sigmoidoscopy (C) provides less comprehensive visualization than colonoscopy. CEA (D) is used for monitoring colorectal cancer, not for initial diagnosis. Observation (E) is only appropriate after a benign cause has been confirmed via anoscopy.",
+  "teaching_point": "In patients under 45 years old with minimal bright red blood per rectum, no systemic symptoms, and a normal digital rectal exam, anoscopy is the preferred initial diagnostic step.",
+  "distractor_rationale": {
+    "B": "Reserved for high-risk patients (age $\\ge 45$, systemic symptoms, or blood mixed with stool).",
+    "C": "Less comprehensive than colonoscopy and not the first-line choice for low-risk BRBPR.",
+    "D": "A tumor marker used for monitoring recurrence, not for primary screening or diagnosis.",
+    "E": "Requires a confirmed diagnosis of benign disease (e.g., via anoscopy) before implementing conservative therapy."
+  },
+  "tags": ["step2", "medicine", "gastrointestinal", "BRBPR", "anoscopy"],
+  "review_status": "draft"
+}

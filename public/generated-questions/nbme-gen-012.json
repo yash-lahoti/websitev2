@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-012",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["diagnostic-test-accuracy"],
+  "source_uworld": "20541",
+  "system": "Biostatistics & Epidemiology",
+  "topic": "Diagnostic Test Accuracy",
+  "question_type": "mechanism",
+  "stem": "A research team is validating a new rapid antigen test for a respiratory virus in a community where the prevalence of the virus is 20%. The test has a sensitivity of 80% and a specificity of 90%. In a sample of 1,000 patients, the team calculates the overall probability that an individual is correctly classified by the test, whether as a true positive or a true negative.",
+  "lead_in": "Which of the following values represents the accuracy of this diagnostic test?",
+  "options": {
+    "A": "76%",
+    "B": "84%",
+    "C": "88%",
+    "D": "92%",
+    "E": "96%"
+  },
+  "correct_answer": "C",
+  "explanation": "Accuracy is the proportion of total tests that are correct (True Positives + True Negatives). For 1,000 patients with 20% prevalence, 200 have the disease and 800 do not. True Positives (TP) = 80% of 200 = 160. True Negatives (TN) = 90% of 800 = 720. Total correct = 160 + 720 = 880. Accuracy = 880/1,000 = 88%.",
+  "teaching_point": "Accuracy represents the overall proportion of correct results (true positives and true negatives) out of the total population tested.",
+  "distractor_rationale": {
+    "A": "Incorrect calculation of total correct outcomes.",
+    "B": "Incorrect calculation, potentially confusing sensitivity with total accuracy.",
+    "D": "Overestimation of total correct results.",
+    "E": "Overestimation, possibly reflecting only the specificity."
+  },
+  "tags": ["step2", "biostats", "diagnostic-accuracy"],
+  "review_status": "draft"
+}

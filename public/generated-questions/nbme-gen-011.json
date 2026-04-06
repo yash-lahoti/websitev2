@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-011",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["contraception-thrombophilia"],
+  "source_uworld": "12130",
+  "system": "Female Reproductive System & Breast",
+  "topic": "Contraception in Thrombophilia",
+  "question_type": "pharmacology",
+  "stem": "A 28-year-old woman G0P0 comes to the clinic for a consultation regarding contraception. She has a known history of antiphospholipid antibody syndrome, diagnosed after a previous pregnancy loss at 11 weeks gestation. She is currently healthy and not taking any medications. On physical examination, her temperature is 37.0°C (98.6°F), pulse is 72/min, blood pressure is 118/76 mmHg, and respiratory rate is 14/min. Her pelvic examination reveals a retroverted uterus. She expresses a preference for a highly effective, long-term contraceptive method that requires minimal daily adherence.",
+  "lead_in": "Which of the following is the most appropriate contraceptive option for this patient?",
+  "options": {
+    "A": "Combined oral contraceptive pill",
+    "B": "Copper-containing intrauterine device",
+    "C": "Transdermal estrogen patch",
+    "D": "Vaginal contraceptive ring",
+    "E": "Combined injectable contraceptive"
+  },
+  "correct_answer": "B",
+  "explanation": "The patient has antiphospholipid antibody syndrome (APS), a thrombophilic state that significantly increases the risk of venous and arterial thrombosis. Estrogen-containing contraceptives (combined OCPs, patches, rings, and injectables) are absolutely contraindicated in patients with APS as they further amplify this risk. A copper-containing intrauterine device (IUD) is a highly effective, non-hormonal alternative that is safe in patients with thrombophilia. The presence of a retroverted uterus does not contraindicate IUD insertion or affect its efficacy.",
+  "teaching_point": "Estrogen-containing contraceptives are absolutely contraindicated in patients with antiphospholipid antibody syndrome due to a significantly increased risk of thromboembolism.",
+  "distractor_rationale": {
+    "A": "Contains estrogen, which is contraindicated in APS.",
+    "C": "Contains estrogen, which is contraindicated in APS.",
+    "D": "Contains estrogen, which is contraindicated in APS.",
+    "E": "Contains estrogen, which is contraindicated in APS."
+  },
+  "tags": ["step2", "obgyn", "contraception", "thrombophilia", "APS"],
+  "review_status": "draft"
+}

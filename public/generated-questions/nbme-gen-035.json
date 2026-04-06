@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-035",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["pnh"],
+  "source_uworld": "2258",
+  "system": "Hematology & Oncology",
+  "topic": "Paroxysmal nocturnal hemoglobinuria",
+  "subtopic": "Diagnosis",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 38-year-old man is brought to the emergency department by his partner due to severe abdominal pain and dark-colored urine. He reports that the urine is most prominent in the morning. He has a history of chronic fatigue and shortness of breath on exertion. Vitals are: temperature 37.0°C, pulse 92/min, blood pressure 122/78 mmHg, respiratory rate 18/min, and oxygen saturation 97% on room air. Physical examination reveals mild scleral icterus and a soft, non-tender abdomen. Laboratory studies show a hemoglobin of 8.2 g/dL, a mean corpuscular volume of 91 fL, and an elevated lactate dehydrogenase. Haptoglobin is markedly decreased, and indirect bilirubin is elevated. A CT scan of the abdomen demonstrates a thrombus in the portal vein. A flow cytometry analysis of the red blood cells shows a deficiency of CD55 and CD59.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Acute intermittent porphyria",
+    "B": "Cold agglutinin disease",
+    "C": "G6PD deficiency",
+    "D": "Paroxysmal nocturnal hemoglobinuria",
+    "E": "Warm autoimmune hemolytic anemia"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient presents with classic signs of Paroxysmal Nocturnal Hemoglobinuria (PNH), including intravascular hemolysis (dark urine, low haptoglobin, high LDH), a hypercoagulable state (portal vein thrombosis), and the pathognomonic flow cytometry finding of absent CD55 and CD59. These proteins normally protect RBCs from complement-mediated lysis via a GPI anchor. Acute intermittent porphyria also causes abdominal pain and dark urine, but it does not cause hemolytic anemia or venous thrombosis. G6PD deficiency causes episodic hemolysis usually triggered by oxidative stress and does not cause thrombosis. Autoimmune hemolytic anemias (cold or warm) present with hemolysis but not typically with the specific portal vein thrombosis and CD55/59 deficiency seen here.",
+  "teaching_point": "Paroxysmal nocturnal hemoglobinuria is a clonal stem cell disorder characterized by intravascular hemolysis and venous thrombosis, confirmed by flow cytometry showing absence of CD55 and CD59 on RBCs.",
+  "distractor_rationale": {
+    "A": "Presents with abdominal pain and dark urine (porphyrins), but no hemolysis or thrombosis.",
+    "B": "Causes hemolysis triggered by cold, but does not feature portal vein thrombosis or CD55/59 deficiency.",
+    "C": "Causes episodic hemolysis after oxidative triggers, without associated venous thrombosis.",
+    "E": "Causes hemolysis via IgG antibodies, not complement-mediated lysis due to GPI-anchor deficiency."
+  },
+  "tags": ["step2", "hematology", "pnh", "hemolysis", "thrombosis"],
+  "review_status": "draft"
+}

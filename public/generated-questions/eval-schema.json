@@ -1,0 +1,338 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NBME Question Evaluation Report",
+  "description": "Schema for evaluation reports produced by /nbme-evaluate. Each report contains per-criterion rubric scores, flaw analysis, and a rewritten version of the question.",
+  "type": "object",
+  "required": [
+    "eval_id",
+    "question_id",
+    "evaluated_date",
+    "evaluator_version",
+    "scores",
+    "total_score",
+    "total_max",
+    "tier",
+    "flaws_found",
+    "recommendations",
+    "rewrite",
+    "rewrite_projected_score",
+    "rewrite_changes_summary"
+  ],
+  "properties": {
+    "eval_id": {
+      "type": "string",
+      "pattern": "^eval-nbme-gen-\\d{3}$",
+      "description": "Evaluation ID, derived from question ID",
+      "examples": ["eval-nbme-gen-001"]
+    },
+    "question_id": {
+      "type": "string",
+      "pattern": "^nbme-gen-\\d{3}$",
+      "description": "The question being evaluated"
+    },
+    "evaluated_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "evaluator_version": {
+      "type": "string",
+      "examples": ["nbme-evaluate-v1"]
+    },
+    "source_concepts_read": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Concept slugs whose wiki pages were read during evaluation"
+    },
+    "scores": {
+      "type": "object",
+      "required": ["A_stem", "B_lead_in", "C_options", "D_technical_flaws", "E_explanation"],
+      "properties": {
+        "A_stem": {
+          "type": "object",
+          "description": "Section A: Stem/Vignette Quality (30 pts max)",
+          "required": ["A1_cover_options", "A2_required_elements", "A3_clinical_authenticity", "A4_information_density", "A5_patient_characteristics", "section_total", "section_max"],
+          "properties": {
+            "A1_cover_options": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 10 },
+                "max": { "type": "integer", "enum": [10] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "A2_required_elements": {
+              "type": "object",
+              "required": ["score", "max", "rationale", "elements_present"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 8 },
+                "max": { "type": "integer", "enum": [8] },
+                "rationale": { "type": "string" },
+                "elements_present": {
+                  "type": "array",
+                  "items": { "type": "string", "enum": ["age", "sex", "symptom", "objective_finding"] }
+                }
+              }
+            },
+            "A3_clinical_authenticity": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 6 },
+                "max": { "type": "integer", "enum": [6] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "A4_information_density": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "max": { "type": "integer", "enum": [3] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "A5_patient_characteristics": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "max": { "type": "integer", "enum": [3] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "section_total": { "type": "integer", "minimum": 0, "maximum": 30 },
+            "section_max": { "type": "integer", "enum": [30] }
+          }
+        },
+        "B_lead_in": {
+          "type": "object",
+          "description": "Section B: Lead-in Quality (10 pts max)",
+          "required": ["B1_single_question", "B2_affirmative_phrasing", "B3_task_competency", "section_total", "section_max"],
+          "properties": {
+            "B1_single_question": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+                "max": { "type": "integer", "enum": [5] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "B2_affirmative_phrasing": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "max": { "type": "integer", "enum": [3] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "B3_task_competency": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 2 },
+                "max": { "type": "integer", "enum": [2] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "section_total": { "type": "integer", "minimum": 0, "maximum": 10 },
+            "section_max": { "type": "integer", "enum": [10] }
+          }
+        },
+        "C_options": {
+          "type": "object",
+          "description": "Section C: Option Set Quality (30 pts max)",
+          "required": ["C1_five_options", "C2_grammatical_parallel", "C3_homogeneous", "C4_no_all_none", "C5_distractor_plausibility", "C6_unambiguous_correct", "section_total", "section_max"],
+          "properties": {
+            "C1_five_options": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+                "max": { "type": "integer", "enum": [5] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "C2_grammatical_parallel": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+                "max": { "type": "integer", "enum": [5] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "C3_homogeneous": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+                "max": { "type": "integer", "enum": [5] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "C4_no_all_none": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "max": { "type": "integer", "enum": [3] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "C5_distractor_plausibility": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 7 },
+                "max": { "type": "integer", "enum": [7] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "C6_unambiguous_correct": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+                "max": { "type": "integer", "enum": [5] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "section_total": { "type": "integer", "minimum": 0, "maximum": 30 },
+            "section_max": { "type": "integer", "enum": [30] }
+          }
+        },
+        "D_technical_flaws": {
+          "type": "object",
+          "description": "Section D: Technical Flaw Checklist (20 pts max, -2 per flaw)",
+          "required": [
+            "D1_long_correct_option", "D2_absolute_terms", "D3_grammatical_clue",
+            "D4_clang_repetition", "D5_convergence", "D6_collectively_exhaustive",
+            "D7_vague_qualifiers", "D8_nonparallel", "D9_correct_stands_out",
+            "D10_tricky_stem", "flaws_found", "deductions", "section_total", "section_max"
+          ],
+          "properties": {
+            "D1_long_correct_option": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D2_absolute_terms": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D3_grammatical_clue": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D4_clang_repetition": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D5_convergence": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D6_collectively_exhaustive": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D7_vague_qualifiers": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D8_nonparallel": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D9_correct_stands_out": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "D10_tricky_stem": { "type": "object", "properties": { "pass": {"type": "boolean"}, "rationale": {"type": "string"} } },
+            "flaws_found": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["flaw", "location", "offending_text", "harm"],
+                "properties": {
+                  "flaw": { "type": "string" },
+                  "location": { "type": "string" },
+                  "offending_text": { "type": "string" },
+                  "harm": { "type": "string" }
+                }
+              }
+            },
+            "deductions": { "type": "integer", "minimum": 0, "maximum": 20 },
+            "section_total": { "type": "integer", "minimum": 0, "maximum": 20 },
+            "section_max": { "type": "integer", "enum": [20] }
+          }
+        },
+        "E_explanation": {
+          "type": "object",
+          "description": "Section E: Explanation & Teaching Point (10 pts max)",
+          "required": ["E1_correct_rationale", "E2_distractor_rationale", "E3_teaching_point", "section_total", "section_max"],
+          "properties": {
+            "E1_correct_rationale": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+                "max": { "type": "integer", "enum": [4] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "E2_distractor_rationale": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+                "max": { "type": "integer", "enum": [4] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "E3_teaching_point": {
+              "type": "object",
+              "required": ["score", "max", "rationale"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 0, "maximum": 2 },
+                "max": { "type": "integer", "enum": [2] },
+                "rationale": { "type": "string" }
+              }
+            },
+            "section_total": { "type": "integer", "minimum": 0, "maximum": 10 },
+            "section_max": { "type": "integer", "enum": [10] }
+          }
+        }
+      }
+    },
+    "total_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "total_max": {
+      "type": "integer",
+      "enum": [100]
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "A — Publication-ready",
+        "B — Minor revision",
+        "C — Moderate revision",
+        "D — Major revision",
+        "F — Reject / rebuild"
+      ]
+    },
+    "flaws_found": {
+      "type": "array",
+      "description": "Consolidated list of all flaws found across all sections",
+      "items": {
+        "type": "object",
+        "required": ["flaw", "location", "offending_text", "harm"],
+        "properties": {
+          "flaw": { "type": "string" },
+          "location": { "type": "string" },
+          "offending_text": { "type": "string" },
+          "harm": { "type": "string" }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "Prioritized list of specific improvements to make",
+      "items": { "type": "string" }
+    },
+    "rewrite": {
+      "type": "object",
+      "description": "Full rewritten question conforming to generated-questions/schema.json",
+      "$comment": "Must pass all validation checks from nbme-gen SKILL.md before saving"
+    },
+    "rewrite_projected_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Estimated score the rewrite would receive if evaluated by the same rubric"
+    },
+    "rewrite_changes_summary": {
+      "type": "string",
+      "description": "One paragraph describing what changed and why"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Med-Jarvis · Wiki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+    <!-- marked.js for markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <style>
+        /* ── Wiki-specific overrides (variables already loaded from styles.css) ── */
+
+        /* Reset body background image for wiki (cleaner reading) */
+        body {
+            background-image: none !important;
+        }
+
+        /* ── Layout shell ── */
+        .wiki-shell {
+            display: grid;
+            grid-template-columns: 284px 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar content";
+            min-height: 100vh;
+        }
+
+        /* ── Header ── */
+        .wiki-header {
+            grid-area: header;
+            padding: 0.9rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .wiki-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .back-link {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.65rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface-elevated);
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        .wiki-brand {
+            font-family: var(--font-display, "Fraunces", serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .wiki-brand-sep {
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .wiki-breadcrumb {
+            font-size: 0.76rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            white-space: nowrap;
+            gap: 0.25rem;
+            min-width: 0;
+        }
+
+        .wiki-breadcrumb .bc-sep {
+            opacity: 0.4;
+            flex-shrink: 0;
+        }
+
+        .wiki-breadcrumb .bc-file {
+            color: var(--text);
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wiki-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* ── Sidebar ── */
+        .wiki-sidebar {
+            grid-area: sidebar;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: rgba(21, 26, 34, 0.85);
+            border-right: 1px solid var(--border);
+            padding: 0.85rem 0 1.25rem;
+            display: flex;
+            flex-direction: column;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+
+        .sidebar-section-title {
+            margin: 0 0 0.5rem;
+            padding: 0 1rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .tree-search-wrap {
+            padding: 0 0.85rem 0.55rem;
+        }
+
+        .tree-search {
+            width: 100%;
+            padding: 0.4rem 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.8125rem;
+            outline: none;
+        }
+
+        .tree-search:focus {
+            border-color: var(--accent);
+        }
+
+        .tree-search::placeholder {
+            color: var(--muted);
+        }
+
+        /* tree nodes */
+        .tree-ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tree-li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tree-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 0.45rem;
+            padding: 0.28rem 0.85rem;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 0.8125rem;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.12s, background 0.12s;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .tree-btn:hover {
+            color: var(--text);
+            background: var(--accent-dim);
+        }
+
+        .tree-btn.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            font-weight: 600;
+        }
+
+        /* indent for sublevels */
+        .tree-btn .tree-indent {
+            display: inline-block;
+        }
+
+        .tree-btn .tree-glyph {
+            flex-shrink: 0;
+            font-size: 0.6rem;
+            width: 0.85rem;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .tree-btn .tree-glyph.open {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+
+        .tree-btn .tree-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+            flex: 1;
+        }
+
+        /* folder vs file: dir row is slightly bolder */
+        .tree-btn.tree-dir {
+            font-weight: 600;
+        }
+
+        .tree-btn.tree-dir .tree-name {
+            color: var(--text);
+        }
+
+        .tree-btn.tree-dir:hover .tree-name {
+            color: var(--text);
+        }
+
+        .tree-children {
+            overflow: hidden;
+        }
+
+        .tree-children.collapsed {
+            display: none;
+        }
+
+        /* search no-results */
+        .tree-no-results {
+            padding: 0.5rem 1rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        /* ── Content pane ── */
+        .wiki-content {
+            grid-area: content;
+            padding: 2.25rem 2.75rem 4rem;
+            min-width: 0;
+            max-width: 820px;
+        }
+
+        /* Empty state */
+        .wiki-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding-top: 4rem;
+        }
+
+        .wiki-empty h2 {
+            margin: 0 0 0.25rem;
+            font-family: var(--font-display, "Fraunces", serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .wiki-empty p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        /* Frontmatter strip — matches sidebar-card style */
+        .fm-strip {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface-elevated);
+            overflow: hidden;
+        }
+
+        .fm-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 0.5rem 0.85rem;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.15s;
+        }
+
+        .fm-toggle:hover {
+            color: var(--text);
+        }
+
+        .fm-toggle-glyph {
+            font-size: 0.55rem;
+            transition: transform 0.15s;
+        }
+
+        .fm-toggle-glyph.open {
+            transform: rotate(90deg);
+        }
+
+        .fm-body {
+            padding: 0.6rem 0.85rem 0.75rem;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.15rem 0.75rem;
+        }
+
+        .fm-body.hidden {
+            display: none;
+        }
+
+        .fm-key {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.1rem 0;
+            white-space: nowrap;
+        }
+
+        .fm-val {
+            font-size: 0.78rem;
+            color: var(--text);
+            padding: 0.1rem 0;
+            word-break: break-word;
+        }
+
+        .fm-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            padding: 0.1rem 0;
+        }
+
+        .fm-tag {
+            font-size: 0.67rem;
+            font-weight: 600;
+            padding: 0.18rem 0.5rem;
+            border-radius: 999px;
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        /* ── Markdown body ── matches qbank modal typography ── */
+        .md-body {
+            min-width: 0;
+        }
+
+        .md-body h1 {
+            font-family: var(--font-display, "Fraunces", serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 0 0.9rem;
+            line-height: 1.2;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .md-body h2 {
+            font-family: var(--font-display, "Fraunces", serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1.9rem 0 0.55rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .md-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 1.4rem 0 0.4rem;
+            color: var(--text);
+        }
+
+        .md-body h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 1.1rem 0 0.35rem;
+            color: var(--text);
+        }
+
+        .md-body p {
+            margin: 0 0 0.8rem;
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .md-body ul,
+        .md-body ol {
+            margin: 0 0 0.8rem 1.35rem;
+            padding: 0;
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .md-body li {
+            margin-bottom: 0.25rem;
+        }
+
+        .md-body li>ul,
+        .md-body li>ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .md-body a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .md-body a:hover {
+            text-decoration: underline;
+        }
+
+        .md-body strong {
+            font-weight: 700;
+        }
+
+        .md-body em {
+            font-style: italic;
+        }
+
+        .md-body code {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.82em;
+            padding: 0.12em 0.38em;
+            border-radius: 5px;
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent);
+        }
+
+        .md-body pre {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            overflow-x: auto;
+            margin: 0 0 1rem;
+        }
+
+        .md-body pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--text);
+            font-size: 0.83rem;
+            line-height: 1.55;
+        }
+
+        .md-body blockquote {
+            margin: 0 0 0.9rem;
+            padding: 0.55rem 0.95rem;
+            border-left: 3px solid var(--accent);
+            background: var(--accent-dim);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .md-body blockquote p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .md-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+
+        /* Tables — matches qbank table style */
+        .md-body .tbl-wrap {
+            overflow-x: auto;
+            margin: 0 0 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .md-body table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        .md-body thead {
+            background: var(--surface-elevated);
+        }
+
+        .md-body th {
+            padding: 0.5rem 0.85rem;
+            text-align: left;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text);
+        }
+
+        .md-body td {
+            padding: 0.45rem 0.85rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .md-body tr:last-child td {
+            border-bottom: none;
+        }
+
+        .md-body tbody tr:hover {
+            background: rgba(94, 176, 255, 0.04);
+        }
+
+        /* Wikilinks [[text]] → rendered as tag */
+        .wikilink {
+            font-size: 0.82em;
+            font-weight: 600;
+            padding: 0.12em 0.4em;
+            border-radius: 5px;
+            background: rgba(167, 139, 250, 0.12);
+            color: #a78bfa;
+            border: 1px solid rgba(167, 139, 250, 0.25);
+        }
+
+        /* Inline loading / error */
+        .wiki-loading {
+            color: var(--muted);
+            font-size: 0.875rem;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spin {
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.65s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .wiki-err {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 139, 142, 0.08);
+            border: 1px solid rgba(255, 139, 142, 0.3);
+            color: var(--wrong, #ff8b8e);
+            font-size: 0.875rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .wiki-shell {
+                grid-template-columns: 1fr;
+                grid-template-areas: "header" "sidebar" "content";
+            }
+
+            .wiki-sidebar {
+                position: static;
+                height: auto;
+                max-height: 40vh;
+            }
+
+            .wiki-content {
+                padding: 1.5rem 1.1rem 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wiki-shell">
+
+        <!-- Header -->
+        <header class="wiki-header">
+            <div class="wiki-header-left">
+                <a href="/" class="back-link">&#8592; App</a>
+                <span class="wiki-brand">Med-Jarvis <span class="wiki-brand-sep">/</span> Wiki</span>
+                <div class="wiki-breadcrumb" id="breadcrumb"></div>
+            </div>
+            <div class="wiki-header-right">
+                <button class="theme-toggle" id="btn-theme" title="Cycle theme">Light</button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <nav class="wiki-sidebar" aria-label="Wiki navigation">
+            <div class="sidebar-section-title">Knowledge Base</div>
+            <div class="tree-search-wrap">
+                <input class="tree-search" id="tree-search" type="search" placeholder="Search files…" autocomplete="off"
+                    spellcheck="false" />
+            </div>
+            <div id="tree-root">
+                <div class="wiki-loading">
+                    <div class="spin"></div>&nbsp;Loading…
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="wiki-content" id="wiki-content">
+            <div class="wiki-empty" id="wiki-empty">
+                <h2>Knowledge Wiki</h2>
+                <p>Select a file from the sidebar to read it. Folders expand on click — concepts, factoids, sources,
+                    tasks, and more.</p>
+            </div>
+
+            <div id="wiki-article" style="display:none">
+                <div id="fm-strip" class="fm-strip" style="display:none">
+                    <button class="fm-toggle" id="fm-toggle" aria-expanded="false">
+                        <span class="fm-toggle-glyph" id="fm-glyph">&#9658;</span>
+                        <span id="fm-label">Frontmatter</span>
+                    </button>
+                    <div class="fm-body hidden" id="fm-body"></div>
+                </div>
+                <div class="md-body" id="md-body"></div>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        /* ═══════════════════════════════════════════════════════
+           THEME — mirrors app.js logic
+        ═══════════════════════════════════════════════════════ */
+        const THEMES = ['dark', 'light', 'cream'];
+        let themeIdx = 0;
+        const htmlEl = document.documentElement;
+        const btnTheme = document.getElementById('btn-theme');
+
+        function applyTheme(idx) {
+            htmlEl.dataset.theme = THEMES[idx];
+            btnTheme.textContent = THEMES[(idx + 1) % THEMES.length].charAt(0).toUpperCase() + THEMES[(idx + 1) % THEMES.length].slice(1);
+            localStorage.setItem('mj-theme', THEMES[idx]);
+        }
+        (function () {
+            const saved = localStorage.getItem('mj-theme') || 'dark';
+            themeIdx = Math.max(0, THEMES.indexOf(saved));
+            applyTheme(themeIdx);
+        })();
+        btnTheme.addEventListener('click', () => { themeIdx = (themeIdx + 1) % THEMES.length; applyTheme(themeIdx); });
+
+
+        /* ═══════════════════════════════════════════════════════
+           TREE STATE
+        ═══════════════════════════════════════════════════════ */
+        // flat index: { path, name, depth, parentPaths[] }
+        let flatIndex = [];   // all file entries for search
+        let activeBtn = null;
+
+        function escH(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        /* Build flat index and DOM tree simultaneously */
+        function buildTree(nodes, parentUl, depth, parentPaths) {
+            for (const node of nodes) {
+                const li = document.createElement('li');
+                li.className = 'tree-li';
+                const indent = '\u00a0'.repeat(depth * 2); // non-breaking spaces for visual depth
+
+                if (node.type === 'dir') {
+                    const btn = document.createElement('button');
+                    btn.className = 'tree-btn tree-dir';
+                    btn.dataset.path = node.path;
+                    btn.innerHTML =
+                        `<span class="tree-glyph" id="g-${CSS.escape(node.path)}">&#9658;</span>` +
+                        `<span class="tree-name">${escH(node.name)}</span>`;
+                    // Manual indent via padding
+                    btn.style.paddingLeft = `calc(0.85rem + ${depth * 1}rem)`;
+
+                    const childUl = document.createElement('ul');
+                    childUl.className = 'tree-ul tree-children collapsed';
+                    childUl.id = 'c-' + node.path.replace(/[^a-z0-9]/gi, '_');
+
+                    btn.addEventListener('click', () => toggleDir(btn, childUl, node.path));
+                    li.appendChild(btn);
+
+                    if (node.children && node.children.length) {
+                        buildTree(node.children, childUl, depth + 1, [...parentPaths, node.path]);
+                    }
+                    li.appendChild(childUl);
+                } else {
+                    // file
+                    const displayName = node.name.replace(/\.md$/i, '');
+                    const btn = document.createElement('button');
+                    btn.className = 'tree-btn tree-file';
+                    btn.dataset.path = node.path;
+                    btn.dataset.deeppath = node.path; // full path for search
+                    btn.style.paddingLeft = `calc(0.85rem + ${depth * 1}rem)`;
+                    btn.innerHTML =
+                        `<span class="tree-glyph" style="color:var(--border)">&#9642;</span>` +
+                        `<span class="tree-name">${escH(displayName)}</span>`;
+                    btn.addEventListener('click', () => openFile(node.path, btn));
+                    li.appendChild(btn);
+
+                    // register in flat index
+                    flatIndex.push({ path: node.path, name: displayName, btn, parentPaths: [...parentPaths] });
+                }
+                parentUl.appendChild(li);
+            }
+        }
+
+        function toggleDir(btn, childUl, path) {
+            const isOpen = !childUl.classList.contains('collapsed');
+            childUl.classList.toggle('collapsed', isOpen);
+            const glyph = btn.querySelector('.tree-glyph');
+            if (glyph) glyph.classList.toggle('open', !isOpen);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           SEARCH — flat index over all files at any depth
+        ═══════════════════════════════════════════════════════ */
+        document.getElementById('tree-search').addEventListener('input', function () {
+            const q = this.value.toLowerCase().trim();
+            const treeRoot = document.getElementById('tree-root');
+
+            if (!q) {
+                // restore all visibility
+                treeRoot.querySelectorAll('.tree-li').forEach(li => li.style.display = '');
+                treeRoot.querySelectorAll('.tree-no-results').forEach(el => el.remove());
+                return;
+            }
+
+            // Find matching file paths
+            const matchPaths = new Set();
+            const expandPaths = new Set();
+            for (const entry of flatIndex) {
+                if (entry.path.toLowerCase().includes(q) || entry.name.toLowerCase().includes(q)) {
+                    matchPaths.add(entry.path);
+                    for (const pp of entry.parentPaths) expandPaths.add(pp);
+                }
+            }
+
+            // Hide all lis first
+            treeRoot.querySelectorAll('.tree-li').forEach(li => {
+                const btn = li.querySelector('.tree-btn');
+                if (!btn) { li.style.display = 'none'; return; }
+                const path = btn.dataset.path || '';
+                const isDir = btn.classList.contains('tree-dir');
+                const isFile = btn.classList.contains('tree-file');
+
+                if (isFile) {
+                    li.style.display = matchPaths.has(path) ? '' : 'none';
+                } else if (isDir) {
+                    // Show dir if any child matches
+                    li.style.display = expandPaths.has(path) ? '' : 'none';
+                }
+            });
+
+            // Expand matching dirs
+            for (const dirPath of expandPaths) {
+                const idSafe = dirPath.replace(/[^a-z0-9]/gi, '_');
+                const childUl = document.getElementById('c-' + idSafe);
+                if (childUl) {
+                    childUl.classList.remove('collapsed');
+                    const glyph = document.querySelector(`#g-${CSS.escape(dirPath)}`);
+                    if (glyph) glyph.classList.add('open');
+                }
+            }
+
+            // No results?
+            const noRes = treeRoot.querySelector('.tree-no-results');
+            if (matchPaths.size === 0 && !noRes) {
+                const msg = document.createElement('div');
+                msg.className = 'tree-no-results';
+                msg.textContent = 'No files found.';
+                treeRoot.appendChild(msg);
+            } else if (matchPaths.size > 0 && noRes) {
+                noRes.remove();
+            }
+        });
+
+
+        /* ═══════════════════════════════════════════════════════
+           LOAD TREE
+        ═══════════════════════════════════════════════════════ */
+        async function loadTree() {
+            try {
+                const res = await fetch('/api/wiki/tree');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                const ul = document.createElement('ul');
+                ul.className = 'tree-ul';
+                const SHOW_DIRS = new Set(['concepts', 'factoids', 'questions']);
+                const nodes = (data.tree || []).filter(n => n.type === 'file' || SHOW_DIRS.has(n.name));
+                buildTree(nodes, ul, 0, []);
+                const root = document.getElementById('tree-root');
+                root.innerHTML = '';
+                root.appendChild(ul);
+            } catch (e) {
+                document.getElementById('tree-root').innerHTML =
+                    `<div class="wiki-err">Failed to load wiki tree: ${escH(e.message)}</div>`;
+            }
+        }
+
+
+        /* ═══════════════════════════════════════════════════════
+           OPEN FILE
+        ═══════════════════════════════════════════════════════ */
+        async function openFile(path, btn) {
+            if (activeBtn) activeBtn.classList.remove('active');
+            activeBtn = btn;
+            btn.classList.add('active');
+
+            // breadcrumb
+            const bc = document.getElementById('breadcrumb');
+            const parts = path.split('/');
+            bc.innerHTML = parts.map((p, i) => {
+                const label = p.replace(/\.md$/i, '');
+                const last = i === parts.length - 1;
+                const sep = i < parts.length - 1 ? `<span class="bc-sep">/</span>` : '';
+                const cls = last ? 'class="bc-file"' : '';
+                return `<span ${cls}>${escH(label)}</span>${sep}`;
+            }).join('');
+
+            document.getElementById('wiki-empty').style.display = 'none';
+            document.getElementById('wiki-article').style.display = '';
+            document.getElementById('md-body').innerHTML =
+                '<div class="wiki-loading"><div class="spin"></div>&nbsp;Loading…</div>';
+            document.getElementById('fm-strip').style.display = 'none';
+            document.getElementById('fm-body').classList.add('hidden');
+            document.getElementById('fm-glyph').classList.remove('open');
+
+            try {
+                const res = await fetch('/api/wiki/file?path=' + encodeURIComponent(path));
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                renderPage(data.content, path);
+            } catch (e) {
+                document.getElementById('md-body').innerHTML =
+                    `<div class="wiki-err">Could not load file: ${escH(e.message)}</div>`;
+            }
+        }
+
+
+        /* ═══════════════════════════════════════════════════════
+           RENDER MARKDOWN
+        ═══════════════════════════════════════════════════════ */
+        function parseFrontmatter(raw) {
+            const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+            if (!match) return { fm: {}, body: raw };
+            const body = raw.slice(match[0].length);
+            const fm = {};
+            for (const line of match[1].split('\n')) {
+                const colon = line.indexOf(':');
+                if (colon < 0) continue;
+                const key = line.slice(0, colon).trim();
+                const val = line.slice(colon + 1).trim();
+                if (key) fm[key] = val;
+            }
+            return { fm, body };
+        }
+
+        function renderFm(fm) {
+            const strip = document.getElementById('fm-strip');
+            const body = document.getElementById('fm-body');
+            const label = document.getElementById('fm-label');
+            const keys = Object.keys(fm);
+            if (!keys.length) { strip.style.display = 'none'; return; }
+            strip.style.display = '';
+            let html = '';
+            for (const k of keys) {
+                const v = fm[k];
+                if (k === 'tags') {
+                    const tags = v.replace(/[\[\]]/g, '').split(',').map(t => t.trim()).filter(Boolean);
+                    html += `<span class="fm-key">${escH(k)}</span><span class="fm-tags">${tags.map(t => `<span class="fm-tag">${escH(t)}</span>`).join('')}</span>`;
+                } else {
+                    html += `<span class="fm-key">${escH(k)}</span><span class="fm-val">${escH(v)}</span>`;
+                }
+            }
+            body.innerHTML = html;
+            label.textContent = `Frontmatter · ${keys.length} field${keys.length !== 1 ? 's' : ''}`;
+        }
+
+        document.getElementById('fm-toggle').addEventListener('click', () => {
+            const body = document.getElementById('fm-body');
+            const glyph = document.getElementById('fm-glyph');
+            const btn = document.getElementById('fm-toggle');
+            const hidden = body.classList.contains('hidden');
+            body.classList.toggle('hidden', !hidden);
+            glyph.classList.toggle('open', hidden);
+            btn.setAttribute('aria-expanded', String(hidden));
+        });
+
+        function preprocessMarkdown(md) {
+            // Convert Obsidian wikilinks [[Name]] → <span class="wikilink">Name</span>
+            // (we do this before marked parses so they survive HTML escaping)
+            return md.replace(/\[\[([^\]]+)\]\]/g, (_, inner) => {
+                const parts = inner.split('|');
+                const label = parts[parts.length - 1].trim();
+                return `<span class="wikilink">${escH(label)}</span>`;
+            });
+        }
+
+        function renderPage(raw, path) {
+            const { fm, body } = parseFrontmatter(raw);
+            renderFm(fm);
+
+            // Custom marked renderer for tables (wrap for horizontal scroll)
+            const renderer = new marked.Renderer();
+            renderer.table = function (header, rows) {
+                return `<div class="tbl-wrap"><table><thead>${header}</thead><tbody>${rows}</tbody></table></div>`;
+            };
+
+            marked.setOptions({ gfm: true, breaks: false });
+
+            const preprocessed = preprocessMarkdown(body);
+            const html = marked.parse(preprocessed, { renderer });
+            const mdBody = document.getElementById('md-body');
+            mdBody.innerHTML = html;
+
+            // KaTeX — render math after DOM is set
+            if (typeof renderMathInElement !== 'undefined') {
+                try {
+                    renderMathInElement(mdBody, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true },
+                        ],
+                        throwOnError: false,
+                    });
+                } catch (e) { /* ignore KaTeX errors */ }
+            }
+
+            // Scroll top
+            document.getElementById('wiki-content').scrollTop = 0;
+            window.scrollTo(0, 0);
+        }
+
+
+        /* ═══════════════════════════════════════════════════════
+           INIT
+        ═══════════════════════════════════════════════════════ */
+        loadTree();
+    </script>
+
+</body>
+
+</html>

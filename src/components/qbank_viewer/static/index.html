@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Med-Jarvis · Step 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="header-row">
+      <div class="header-brand">
+        <h1>Med-Jarvis</h1>
+        <p>Step 2 USMLE &middot; Question Bank &middot; Knowledge Wiki</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="btn-theme"
+          title="Cycle theme: dark, light, or cream">Light</button>
+        <a href="/wiki" class="btn-secondary header-wiki-link"
+          style="text-decoration:none;font-size:0.8rem;padding:0.4rem 0.75rem">📖 Wiki</a>
+        <a href="../system-diagrams.html" target="_blank" class="btn-secondary header-wiki-link"
+          style="text-decoration:none;font-size:0.8rem;padding:0.4rem 0.75rem">🗺 Diagrams</a>
+        <nav class="tabs" role="tablist" aria-label="Main">
+          <button type="button" class="tab active" id="tab-library" role="tab" aria-selected="true">Library</button>
+          <button type="button" class="tab" id="tab-flagged" role="tab" aria-selected="false">Flagged <span
+              class="tab-count" id="tab-flag-count">0</span></button>
+          <button type="button" class="tab" id="tab-insights" role="tab" aria-selected="false">Topics</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar-panel">
+      <div class="sidebar-mobile-header">
+        <button type="button" class="sidebar-toggle" id="btn-sidebar-toggle" aria-expanded="false"
+          aria-controls="sidebar-inner">
+          <span class="sidebar-toggle-label">Filters &amp; actions</span>
+          <span class="sidebar-toggle-meta muted small" id="sidebar-toggle-meta"></span>
+        </button>
+      </div>
+      <div class="sidebar-inner" id="sidebar-inner">
+        <section class="sidebar-section">
+          <h2 class="sidebar-section-title">At a glance</h2>
+          <div class="sidebar-card">
+            <div class="stat-grid" id="stat-grid">
+              <div class="stat">
+                <div class="val" id="stat-total">—</div>
+                <div class="lbl">Questions</div>
+              </div>
+              <div class="stat">
+                <div class="val" id="stat-filtered">—</div>
+                <div class="lbl">Shown</div>
+              </div>
+              <div class="stat">
+                <div class="val" id="stat-selected">0</div>
+                <div class="lbl">Selected</div>
+              </div>
+              <div class="stat">
+                <div class="val" id="stat-flagged">0</div>
+                <div class="lbl">Flagged</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-section-title">Filters</h2>
+          <div class="filter-grid">
+            <div class="filter-block">
+              <label for="flt-subject">Subject</label>
+              <select id="flt-subject">
+                <option value="">All subjects</option>
+              </select>
+            </div>
+            <div class="filter-block">
+              <label for="flt-system">System</label>
+              <select id="flt-system">
+                <option value="">All systems</option>
+              </select>
+            </div>
+            <div class="filter-block">
+              <label for="flt-topic">Topic</label>
+              <select id="flt-topic">
+                <option value="">All topics</option>
+              </select>
+            </div>
+            <div class="filter-block">
+              <label for="flt-outcome">Outcome</label>
+              <select id="flt-outcome">
+                <option value="">All</option>
+                <option value="Incorrect">Incorrect</option>
+                <option value="Correct">Correct</option>
+              </select>
+            </div>
+            <div class="filter-block">
+              <label for="flt-study">Study</label>
+              <select id="flt-study">
+                <option value="">All</option>
+                <option value="unanswered">Unanswered</option>
+                <option value="incorrect">Incorrect</option>
+                <option value="correct">Correct</option>
+                <option value="flagged">Flagged</option>
+              </select>
+            </div>
+            <div class="filter-block filter-block-span">
+              <label for="flt-search">Search (fuzzy: QID, topic, subject, system)</label>
+              <input type="search" id="flt-search" placeholder="e.g. 2666 · limb · diafragm hernia" autocomplete="off"
+                spellcheck="false" />
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-section-title">Actions</h2>
+          <div class="action-secondary-grid">
+            <button type="button" id="btn-clear-filters" class="btn-secondary">Clear filters</button>
+            <button type="button" id="btn-select-visible" class="btn-secondary">Select visible</button>
+            <button type="button" id="btn-clear-selection" class="btn-secondary">Clear selection</button>
+          </div>
+          <div class="action-primary-stack">
+            <div class="random-quiz-row">
+              <label class="random-n-label" for="inp-random-n"
+                title="How many random questions in one session">N</label>
+              <input type="number" id="inp-random-n" class="inp-random-n" min="1" value="10" step="1"
+                inputmode="numeric" aria-label="Number of random questions" />
+              <button type="button" id="btn-random-quiz" class="primary random-quiz-btn" disabled
+                title="Start a quiz with N random questions from the current filter">Random quiz</button>
+            </div>
+            <p class="muted small quiz-actions-hint">Random quiz uses N from the box. Quiz selected uses all checked
+              rows (no separate N).</p>
+            <button type="button" id="btn-quiz-selected" class="primary" disabled
+              title="Open selected questions as a quiz session (use Next in the viewer)">Quiz selected</button>
+            <button type="button" id="btn-nbme-gen" class="btn-secondary hidden"
+              title="Copy /nbme-gen command for nano_claude">Generate question (nbme-gen)</button>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div id="load-msg" class="loading">Loading manifest…</div>
+      <div id="err-msg" class="err hidden"></div>
+
+      <div id="panel-library" class="panel hidden" role="tabpanel">
+        <div class="toolbar">
+          <h2 class="browse-heading" id="browse-heading">Library</h2>
+          <button type="button" id="btn-refresh">Refresh manifest</button>
+          <span class="meta" id="toolbar-meta"></span>
+        </div>
+        <div id="library-outcome-viz" class="outcome-viz hidden" aria-hidden="true">
+          <div class="outcome-viz-header">
+            <span class="outcome-viz-title">Outcomes in current view</span>
+            <span class="outcome-viz-total" id="outcome-viz-total"></span>
+          </div>
+          <div class="stacked-bar-track" role="img" id="stacked-bar-track" aria-label="Outcome distribution">
+            <div class="stacked-seg stacked-correct" id="stacked-seg-correct"></div>
+            <div class="stacked-seg stacked-incorrect" id="stacked-seg-incorrect"></div>
+            <div class="stacked-seg stacked-unknown" id="stacked-seg-unknown"></div>
+          </div>
+          <div class="stacked-legend">
+            <span class="lg lg-correct"><span class="lg-swatch"></span> Correct <strong id="lg-cor">0</strong></span>
+            <span class="lg lg-incorrect"><span class="lg-swatch"></span> Incorrect <strong
+                id="lg-inc">0</strong></span>
+            <span class="lg lg-unknown"><span class="lg-swatch"></span> Other <strong id="lg-oth">0</strong></span>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="th-check" style="width:36px"><input type="checkbox" id="chk-all-page" title="Toggle page" />
+                </th>
+                <th data-sort-key="qid" scope="col" aria-sort="ascending">
+                  <button type="button" class="th-sort">QID<span class="sort-ind" aria-hidden="true">▲</span></button>
+                </th>
+                <th data-sort-key="outcome" scope="col" aria-sort="none">
+                  <button type="button" class="th-sort">Outcome<span class="sort-ind"
+                      aria-hidden="true"></span></button>
+                </th>
+                <th data-sort-key="subject" scope="col" aria-sort="none">
+                  <button type="button" class="th-sort">Subject<span class="sort-ind"
+                      aria-hidden="true"></span></button>
+                </th>
+                <th data-sort-key="system" scope="col" aria-sort="none">
+                  <button type="button" class="th-sort">System<span class="sort-ind" aria-hidden="true"></span></button>
+                </th>
+                <th data-sort-key="topic" scope="col" aria-sort="none">
+                  <button type="button" class="th-sort">Topic<span class="sort-ind" aria-hidden="true"></span></button>
+                </th>
+                <th data-sort-key="pct" scope="col" aria-sort="none" id="th-pct">
+                  <button type="button" class="th-sort" id="th-pct-btn">Eval score<span class="sort-ind"
+                      aria-hidden="true"></span></button>
+                </th>
+                <th class="th-actions" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panel-insights" class="panel hidden" role="tabpanel" aria-hidden="true">
+        <div class="toolbar insights-toolbar">
+          <h2 class="browse-heading" id="insights-panel-heading">Topics</h2>
+          <span class="meta muted small" id="insights-topic-meta"></span>
+        </div>
+        <p class="muted small insights-intro" id="insights-intro">
+          Browse subject × topic pairs from the loaded bank. Pick a row to jump to the library with filters applied.
+        </p>
+        <div class="insights-search-wrap">
+          <label for="insights-topic-search">Search</label>
+          <input type="search" id="insights-topic-search" class="insights-topic-search"
+            placeholder="Filter by topic or subject…" autocomplete="off" spellcheck="false" />
+        </div>
+        <div id="insights-topic-list" class="insights-topic-list" role="list"></div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal modal-wide" id="modal">
+      <div class="modal-header">
+        <div class="modal-header-main">
+          <h2 id="modal-title">Question</h2>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <div class="modal-header-quiz hidden" id="quiz-nav-inline" role="navigation" aria-label="Quiz session">
+          <button type="button" class="quiz-step" id="quiz-prev">← Previous</button>
+          <span class="quiz-progress" id="quiz-progress"></span>
+          <button type="button" class="quiz-step" id="quiz-next">Next →</button>
+        </div>
+        <div class="modal-header-actions">
+          <div class="modal-zoom-bar" role="toolbar" aria-label="Question text size">
+            <button type="button" class="btn-zoom" id="modal-zoom-out" title="Smaller text">A−</button>
+            <button type="button" class="btn-zoom" id="modal-zoom-reset" title="Reset text size (100%)">A</button>
+            <button type="button" class="btn-zoom" id="modal-zoom-in" title="Larger text">A+</button>
+          </div>
+          <button type="button" class="btn-flag" id="modal-flag" title="Flag for later"
+            aria-pressed="false">Flag</button>
+          <details class="settings-popover">
+            <summary class="settings-trigger" aria-label="Quiz settings">Settings</summary>
+            <div class="settings-panel">
+              <label class="settings-row">
+                <input type="checkbox" id="set-quiz-mode" checked />
+                <span>Quiz mode (hide explanation until you answer)</span>
+              </label>
+              <label class="settings-row">
+                <input type="checkbox" id="set-shuffle" />
+                <span>Shuffle answer choices</span>
+              </label>
+              <label class="settings-row">
+                <input type="checkbox" id="set-ghost-mode" />
+                <span>Ghost mode (hide answer choices until you show them)</span>
+              </label>
+              <label class="settings-row">
+                <input type="checkbox" id="set-highlight-correct" checked />
+                <span>After a wrong answer, immediately highlight the correct option</span>
+              </label>
+              <label class="settings-row">
+                <input type="checkbox" id="set-track-attempts" checked />
+                <span>Track quiz attempts locally (browser) for study filters</span>
+              </label>
+            </div>
+          </details>
+          <button type="button" class="close-x" id="modal-close" aria-label="Close">×</button>
+        </div>
+      </div>
+      <div class="modal-body modal-split" id="modal-body">
+        <!-- filled by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <div id="gen-modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true"
+    aria-labelledby="gen-modal-title">
+    <div class="modal" id="gen-modal">
+      <div class="modal-header">
+        <div class="modal-header-main">
+          <h2 id="gen-modal-title">nbme-gen command</h2>
+        </div>
+        <button type="button" class="close-x" id="gen-modal-close" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="gen-modal-hint muted small">Pick a concept slug (from index.json) or leave blank for the default
+          command. Paste into nano_claude.</p>
+        <label class="settings-row" for="gen-concept-select"><span>Concept</span></label>
+        <select id="gen-concept-select" class="bank-select" style="width:100%;max-width:100%;margin-bottom:0.75rem">
+          <option value="">(default)</option>
+        </select>
+        <pre id="gen-command-text" class="meta-pre" style="white-space:pre-wrap;word-break:break-all"></pre>
+        <div class="modal-header-actions" style="margin-top:1rem;justify-content:flex-end;gap:0.5rem">
+          <button type="button" id="gen-copy-cmd" class="btn-secondary">Copy</button>
+          <button type="button" id="gen-modal-dismiss" class="primary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>
