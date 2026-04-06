@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-039",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["post-term-pregnancy"],
+  "source_uworld": "3281",
+  "system": "Pregnancy, Childbirth & Puerperium",
+  "topic": "Post-term Pregnancy",
+  "subtopic": "Placental Insufficiency",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 28-year-old woman, gravid 1, comes to the obstetric clinic for a routine prenatal visit. Her estimated date of delivery was 8 days ago based on an 8-week ultrasound. She reports normal fetal movement and no vaginal bleeding or leakage of fluid. Vitals are: temperature 36.8°C, pulse 74/min, blood pressure 112/70 mmHg, respiratory rate 16/min. Physical examination shows a fundal height of 41 cm. An ultrasound is performed, which demonstrates a single fetus in cephalic presentation with an amniotic fluid index of 3.5 cm. The fetal heart rate monitoring shows a baseline of 140/min with moderate variability and no decelerations.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Expectant management with weekly ultrasounds",
+    "B": "Immediate delivery",
+    "C": "Induction of labor",
+    "D": "Perform a nonstress test",
+    "E": "Wait 48 hours and repeat the ultrasound"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient is in a post-term pregnancy (approximately 42 weeks gestation) and has developed oligohydramnios (Amniotic Fluid Index < 5 cm). Oligohydramnios in post-term pregnancy is a critical marker of uteroplacental insufficiency, resulting from decreased fetal renal perfusion due to blood being shunted to the fetal brain. This condition increases the risk of intrauterine fetal demise and necessitates delivery. Induction of labor is the appropriate next step to prevent fetal compromise. Immediate delivery (e.g., emergent cesarean) is reserved for cases of fetal distress or unstable maternal conditions. Expectant management is contraindicated once oligohydramnios is identified in a post-term pregnancy. While nonstress tests are part of surveillance, they do not supersede the indication for delivery provided by the low AFI in this setting.",
+  "teaching_point": "In a post-term pregnancy, the development of oligohydramnios (AFI < 5 cm) is a sign of uteroplacental insufficiency and is an indication for delivery, typically via induction of labor.",
+  "distractor_rationale": {
+    "A": "Expectant management is unsafe given the evidence of placental insufficiency (low AFI).",
+    "B": "Immediate emergency delivery is not required as the fetal heart rate tracing is currently reassuring.",
+    "D": "Fetal monitoring is useful, but the low AFI already provides a definitive indication for delivery.",
+    "E": "Delaying delivery in the presence of oligohydramnios increases the risk of fetal demise."
+  },
+  "tags": ["step2", "obgyn", "post-term-pregnancy", "oligohydramnios", "placental-insufficiency"],
+  "review_status": "draft"
+}

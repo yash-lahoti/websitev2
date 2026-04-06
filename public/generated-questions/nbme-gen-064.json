@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-064",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["sensitivity-and-specificity"],
+  "system": "Biostatistics & Epidemiology",
+  "topic": "Sensitivity and Specificity",
+  "subtopic": "Error Rates",
+  "difficulty": "easy",
+  "question_type": "mechanism",
+  "stem": "A research team is validating a new rapid diagnostic test for a rare autoimmune condition. In a study of 1,000 patients with the known condition, 420 patients test positive. In a separate group of 1,000 patients without the condition, 910 patients test negative. The researchers are analyzing the clinical implications of the test's error rates.",
+  "lead_in": "Which of the following best describes the probability that a patient with the disease will be incorrectly identified as not having the disease?",
+  "options": {
+    "A": "9%",
+    "B": "42%",
+    "C": "58%",
+    "D": "91%",
+    "E": "100%"
+  },
+  "correct_answer": "C",
+  "explanation": "The question asks for the probability that a patient with the disease is incorrectly identified as negative, which is the definition of the False Negative Rate (FNR). Sensitivity is the probability that a patient with the disease tests positive: 420/1,000 = 42%. The False Negative Rate is the complement of sensitivity: 100% - 42% = 58%. Option A (9%) is the False Positive Rate (100% - Specificity, where Specificity is 910/1,000 = 91%). Option B (42%) is the sensitivity. Option D (91%) is the specificity.",
+  "teaching_point": "The False Negative Rate is the complement of sensitivity (100% - sensitivity) and represents the probability that an individual with the disease will be incorrectly identified as negative.",
+  "distractor_rationale": {
+    "A": "Incorrect: 9% is the False Positive Rate (100% - specificity).",
+    "B": "Incorrect: 42% is the sensitivity (True Positive Rate).",
+    "C": "Correct: The FNR is 100% - sensitivity (100% - 42% = 58%).",
+    "D": "Incorrect: 91% is the specificity (True Negative Rate).",
+    "E": "Incorrect: This would imply a sensitivity of 0%."
+  },
+  "tags": ["step2", "biostats", "epidemiology", "sensitivity-and-specificity"],
+  "review_status": "draft"
+}

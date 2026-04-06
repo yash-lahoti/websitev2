@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-042",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["alcoholic-hepatitis"],
+  "source_uworld": "2911",
+  "system": "Gastrointestinal & Nutrition",
+  "topic": "Alcoholic Hepatitis",
+  "subtopic": "Laboratory Diagnosis",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 45-year-old man is brought to the hospital by his family due to progressive jaundice and abdominal swelling. He has a 20-year history of consuming approximately 10-12 standard drinks of alcohol daily. He reports a three-week history of anorexia, nausea, and fatigue. On physical examination, he is icteric and has a tender, enlarged liver. Vitals are: temperature 38.1°C, pulse 94/min, blood pressure 110/72 mmHg, respiratory rate 18/min, and oxygen saturation 96% on room air. Laboratory studies reveal a serum bilirubin of 4.2 mg/dL, an AST of 185 IU/L, and an ALT of 72 IU/L. The gamma-glutamyltransferase is significantly elevated. The patient's coagulation profile shows a slightly prolonged prothrombin time.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Acute viral hepatitis",
+    "B": "Autoimmune hepatitis",
+    "C": "Hereditary hemochromatosis",
+    "D": "Alcoholic hepatitis",
+    "E": "Nonalcoholic steatohepatitis"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient presents with jaundice, tender hepatomegaly, and a history of heavy alcohol use, which is highly suggestive of alcoholic hepatitis. The key diagnostic finding is the AST/ALT ratio; in this patient, the ratio is 2.57 (185/72), which is $\\ge 2$. This pattern is characteristic of alcoholic hepatitis, where AST and ALT are modestly elevated (typically < 300-500 IU/L) and AST predominates due to the deficiency of pyridoxal 5'-phosphate, a cofactor for ALT, in alcoholics. Acute viral hepatitis would typically present with much higher transaminase levels (often > 1000 IU/L). Autoimmune hepatitis often shows a different AST/ALT ratio and is associated with other autoimmune markers. Hemochromatosis would typically show a more chronic course and different transaminase patterns. NASH can present similarly but is typically associated with metabolic syndrome and lacks the same dramatic AST/ALT ratio associated with heavy alcohol use.",
+  "teaching_point": "Alcoholic hepatitis is characterized by jaundice and tender hepatomegaly in patients with heavy alcohol use, with a characteristic AST/ALT ratio $\\ge 2$ and transaminases typically below 500 IU/L.",
+  "distractor_rationale": {
+    "A": "Presents with much more dramatic transaminase elevations (typically > 1000 IU/L).",
+    "B": "Typically presents with a different transaminase pattern and associated autoantibodies.",
+    "C": "Presents as a chronic process of iron overload, not usually as an acute inflammatory hepatitis.",
+    "E": "Associated with metabolic syndrome and lacks the distinct AST/ALT ratio $\\ge 2$ seen in heavy alcohol use."
+  },
+  "tags": ["step2", "gi", "liver", "alcoholic-hepatitis", "transaminases"],
+  "review_status": "draft"
+}

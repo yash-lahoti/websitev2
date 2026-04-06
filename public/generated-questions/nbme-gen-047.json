@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-047",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["postpartum-gdm-screening"],
+  "source_uworld": "18282",
+  "system": "Pregnancy, Childbirth & Puerperium",
+  "topic": "Postpartum GDM Screening",
+  "subtopic": "Screening Protocol",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 31-year-old woman comes to the clinic for a routine postpartum follow-up visit 8 weeks after a spontaneous vaginal delivery. Her pregnancy was complicated by gestational diabetes mellitus, which was managed with diet and exercise. She reports that her recovery has been uncomplicated, although she has noticed intermittent brown vaginal discharge over the past few weeks. Her infant is breastfeeding well. Vitals are: temperature 36.6°C, pulse 72/min, blood pressure 118/76 mmHg, respiratory rate 16/min, and oxygen saturation 99% on room air. Physical examination is unremarkable, and the vaginal discharge is consistent with normal lochia. She has no other complaints.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Endometrial biopsy",
+    "B": "Fast glucose measurement",
+    "C": "Hemoglobin A1c measurement",
+    "D": "Oral glucose tolerance test",
+    "E": "Repeat 1-hour glucose challenge test"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient was diagnosed with gestational diabetes mellitus (GDM) during her pregnancy. Women with GDM have an increased risk of developing type 2 diabetes mellitus (T2DM) and require screening in the postpartum period. The gold standard for postpartum screening, typically performed 6–12 weeks after delivery, is the 2-hour (75-g) oral glucose tolerance test (OGTT). Fasting glucose (B) and HbA1c (C) are less sensitive for diagnosing T2DM in the postpartum period compared to the OGTT. The 1-hour glucose challenge test (E) is used for screening *during* pregnancy, not for postpartum follow-up. The patient's brown vaginal discharge is consistent with normal lochia, which can persist for up to 8 weeks, and does not warrant an endometrial biopsy (A) in the absence of other red flags.",
+  "teaching_point": "Patients with a history of gestational diabetes should undergo screening for type 2 diabetes mellitus 6–12 weeks postpartum using a 2-hour 75-g oral glucose tolerance test.",
+  "distractor_rationale": {
+    "A": "Brown vaginal discharge at 8 weeks postpartum is consistent with normal lochia and not a reason for biopsy.",
+    "B": "Fasting glucose is less sensitive than the 2-hour OGTT for postpartum screening.",
+    "C": "HbA1c is a measure of long-term glycemic control but is not the preferred initial screening test postpartum.",
+    "E": "The 1-hour GCT is the screening tool for GDM during pregnancy, not for postpartum T2DM screening."
+  },
+  "tags": ["step2", "obgyn", "postpartum-gdm-screening", "diabetes"],
+  "review_status": "draft"
+}

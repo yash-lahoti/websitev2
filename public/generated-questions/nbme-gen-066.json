@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-066",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["allergic-conjunctivitis"],
+  "source_uworld": "12664",
+  "system": "Ophthalmology",
+  "topic": "Allergic Conjunctivitis",
+  "subtopic": "Management of Allergic Conjunctivitis",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 7-year-old boy is brought to the pediatric clinic by his mother due to redness and itching of both eyes. The mother reports that the symptoms began this morning after the child spent time playing in a park. The boy has a known history of atopic dermatitis and seasonal allergic rhinitis. On physical examination, there is bilateral diffuse conjunctival injection and mild eyelid edema. The child is noted to be rubbing his eyes frequently. He denies any ocular pain, photophobia, or changes in his vision. There is a thin, watery discharge present in both eyes.",
+  "lead_in": "Which of the following is the most appropriate initial supportive measure to reduce the patient's symptoms?",
+  "options": {
+    "A": "Application of warm compresses",
+    "B": "Application of cool compresses",
+    "C": "Administration of topical antibiotic drops",
+    "D": "Performance of a fluorescein stain",
+    "E": "Initiation of systemic corticosteroids"
+  },
+  "correct_answer": "B",
+  "explanation": "The patient presents with classic signs of allergic conjunctivitis: bilateral ocular pruritus, conjunctival injection, and a history of atopy (eczema, allergic rhinitis). The most appropriate initial supportive measure is the application of cool compresses, which induce vasoconstriction and reduce inflammation and itching. Warm compresses (A) are contraindicated as they can worsen histamine-mediated vasodilation and increase redness and pruritus. Topical antibiotics (C) are indicated for bacterial conjunctivitis, which typically presents with purulent discharge. Fluorescein staining (D) is used to diagnose corneal abrasions, which are characterized by pain and photophobia, both absent here. Systemic corticosteroids (E) are far too aggressive for a mild case of allergic conjunctivitis.",
+  "teaching_point": "Cool compresses are the recommended supportive care for allergic conjunctivitis to induce vasoconstriction; warm compresses should be avoided as they may exacerbate histamine-mediated vasodilation.",
+  "distractor_rationale": {
+    "A": "Incorrect: Warm compresses increase blood flow and histamine-mediated vasodilation, potentially worsening the pruritus and redness.",
+    "B": "Correct: Cool compresses provide immediate symptomatic relief by inducing vasoconstriction and reducing eyelid edema.",
+    "C": "Incorrect: This patient lacks the purulent discharge characteristic of bacterial conjunctivitis.",
+    "D": "Incorrect: Fluorescein staining is not indicated in the absence of pain, photophobia, or trauma.",
+    "E": "Incorrect: Systemic steroids are not indicated for simple allergic conjunctivitis; topical antihistamines are the pharmacologic treatment of choice."
+  },
+  "tags": ["step2", "pediatrics", "ophthalmology", "allergic-conjunctivitis"],
+  "review_status": "draft"
+}

@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-062",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["ankylosing-spondylitis"],
+  "source_uworld": "20820",
+  "system": "Cardiovascular / Musculoskeletal",
+  "topic": "Ankylosing Spondylitis",
+  "subtopic": "Cardiovascular Complications",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 34-year-old man is evaluated for a 6-month history of worsening shortness of breath on exertion. He reports that his symptoms are most severe when climbing stairs. He also describes a 4-year history of chronic lower back pain and stiffness that is worst in the morning and improves with light exercise. Physical examination shows a blood pressure of 128/78 mmHg and a pulse of 82/min. Pulmonary examination reveals decreased chest wall expansion. Cardiovascular examination demonstrates a displaced point of maximal impulse (PMI) located in the 6th intercostal space, lateral to the midclavicular line. A high-pitched, decrescendo diastolic murmur is heard loudest at the left sternal border. Neurologic examination is unremarkable.",
+  "lead_in": "Which of the following is the most likely cause of this patient's current cardiac findings?",
+  "options": {
+    "A": "Aortic root inflammation",
+    "B": "Bacterial endocarditis",
+    "C": "Connective tissue degeneration",
+    "D": "Mitral valve prolapse",
+    "E": "Rheumatic heart disease"
+  },
+  "correct_answer": "A",
+  "explanation": "The patient has ankylosing spondylitis (AS), suggested by inflammatory back pain (morning stiffness relieved by exercise) and reduced chest expansion. The findings of a displaced PMI and a decrescendo diastolic murmur at the left sternal border are characteristic of aortic regurgitation (AR). In patients with AS, chronic inflammation of the aortic root and valve cusps leads to retraction of the cusps and impaired closure, resulting in AR. Bacterial endocarditis (B) typically presents with fever and acute onset. Connective tissue degeneration (C), such as in Marfan syndrome, causes AR via root dilation rather than the chronic inflammatory process seen in AS. Rheumatic heart disease (E) typically affects the mitral valve more commonly and presents with different clinical histories.",
+  "teaching_point": "Ankylosing spondylitis can lead to aortic regurgitation through chronic inflammation of the aortic root and valve cusps, manifesting as a displaced PMI and a diastolic decrescendo murmur.",
+  "distractor_rationale": {
+    "A": "Correct: Chronic inflammation of the aortic root and cusps in AS causes valve retraction and regurgitation.",
+    "B": "Incorrect: No fever or acute presentation suggestive of an infectious process.",
+    "C": "Incorrect: While Marfan's causes root dilation, this patient's history is classic for AS inflammation.",
+    "D": "Incorrect: Mitral valve prolapse would cause a mid-systolic click and late systolic murmur, not a diastolic decrescendo murmur.",
+    "E": "Incorrect: Rheumatic heart disease is less likely given the specific axial skeletal symptoms and lack of prior streptococcal history."
+  },
+  "tags": ["step2", "rheumatology", "cardiology", "ankylosing-spondylitis"],
+  "review_status": "draft"
+}

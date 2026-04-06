@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-063",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["neonatal-polycythemia"],
+  "source_uworld": "4819",
+  "system": "Hematology & Oncology",
+  "topic": "Neonatal Polycythemia",
+  "subtopic": "Clinical Presentation and Management",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A term newborn male is evaluated in the neonatal intensive care unit. The mother has a history of type 2 diabetes mellitus, which was moderately controlled during pregnancy. The infant was born via cesarean section at 38 weeks gestation. On physical examination, the infant has a ruddy, plethoric appearance and is noted to be lethargic with poor feeding. Vitals show a respiratory rate of 68/min, heart rate of 140/min, and temperature of 36.8°C. Abdominal examination reveals mild distension. Laboratory studies show a blood glucose of 38 mg/dL and a hematocrit of 68%. Chest radiography demonstrates normal pulmonary markings and no evidence of consolidation or pleural effusion.",
+  "lead_in": "Which of the following is the most likely cause of this patient's presentation?",
+  "options": {
+    "A": "Delayed umbilical cord clamping",
+    "B": "Hyperviscosity syndrome",
+    "C": "Maternal gestational diabetes",
+    "D": "Transient tachypnea of the newborn",
+    "E": "Twin-to-twin transfusion syndrome"
+  },
+  "correct_answer": "B",
+  "explanation": "The infant presents with the classic signs of neonatal polycythemia: a ruddy/plethoric appearance, lethargy, tachypnea, and hypoglycemia, with a hematocrit > 65%. These findings are a result of hyperviscosity syndrome, where the increased red cell mass impairs organ perfusion and increases cellular consumption of glucose. The mother's diabetes likely contributed to fetal hypoxia, stimulating erythropoietin and increasing red cell production. Delayed cord clamping (A) can cause polycythemia but is not the 'cause' of the clinical symptoms—hyperviscosity is. Maternal diabetes (C) is the underlying etiology, but the 'presentation' (the symptoms and the high hematocrit) is specifically the hyperviscosity syndrome. Transient tachypnea (D) would show increased pulmonary markings on CXR. Twin-to-twin transfusion (E) is not possible in a singleton pregnancy.",
+  "teaching_point": "Neonatal polycythemia (hematocrit > 65%) leads to hyperviscosity syndrome, manifesting as plethoric skin, lethargy, tachypnea, and hypoglycemia due to increased glucose uptake by the red cell mass.",
+  "distractor_rationale": {
+    "A": "Incorrect: This is a potential cause of polycythemia, but hyperviscosity is the physiological mechanism explaining the systemic symptoms.",
+    "B": "Correct: The combination of high hematocrit and systemic symptoms (lethargy, tachypnea, hypoglycemia) defines hyperviscosity syndrome in the neonate.",
+    "C": "Incorrect: This is the precipitating factor (causing fetal hypoxia), but the clinical syndrome is hyperviscosity.",
+    "D": "Incorrect: TTN presents with tachypnea and increased pulmonary markings on CXR, whereas this patient has a normal CXR.",
+    "E": "Incorrect: Only applicable to multifetal pregnancies."
+  },
+  "tags": ["step2", "pediatrics", "hematology", "neonatal-polycythemia"],
+  "review_status": "draft"
+}

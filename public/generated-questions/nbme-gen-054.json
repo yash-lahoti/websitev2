@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-054",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["solitary-pulmonary-nodule"],
+  "source_uworld": "3453",
+  "system": "Pulmonary & Critical Care",
+  "topic": "Solitary Pulmonary Nodule (SPN)",
+  "subtopic": "Diagnostic Workup",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 58-year-old man comes to the physician for a routine physical examination. He has a 40-pack-year smoking history and a history of hypertension. He is currently asymptomatic and has no cough, hemoptysis, or weight loss. Chest radiography, performed as part of a screening protocol, reveals a 1.5-cm solitary pulmonary nodule in the right upper lobe. He has no previous imaging studies available for comparison. Physical examination is unremarkable, and vitals are: temperature 36.8°C, pulse 72/min, blood pressure 132/82 mmHg, respiratory rate 16/min, and oxygen saturation 97% on room air.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Bilateral chest CT scan",
+    "B": "Contrast-enhanced CT scan of the chest",
+    "C": "FDG-PET scan",
+    "D": "Fine-needle aspiration biopsy",
+    "E": "Surgical resection of the nodule"
+  },
+  "correct_answer": "B",
+  "explanation": "The patient has an incidental finding of a solitary pulmonary nodule (SPN). When a nodule is discovered on chest radiography and no prior imaging is available for comparison, the next best step is to perform a CT scan of the chest to further characterize the nodule's size, borders, and density. This provides critical information that helps stratify the risk of malignancy. In this patient, his age and significant smoking history already place him at higher risk. Once the CT is performed, the nodule can be classified as low, intermediate, or high risk, which then guides subsequent steps such as serial CT monitoring, PET scanning, biopsy, or surgical excision. FDG-PET (C) or biopsy (D) are typically reserved for intermediate-risk nodules or after CT characterization. Surgical resection (E) is indicated for high-risk nodules. While bilateral scans (A) aren't incorrect, a standard chest CT is the established next step for a single nodule.",
+  "teaching_point": "The first step in the evaluation of a solitary pulmonary nodule discovered on radiography, in the absence of prior imaging, is a CT scan to characterize the lesion's features and assess for malignancy risk.",
+  "distractor_rationale": {
+    "A": "Symmetry is not the goal; a standard chest CT is sufficient for characterization.",
+    "B": "Correct: CT is the gold standard for characterizing an SPN after initial detection on X-ray.",
+    "C": "PET scans are used for intermediate-risk nodules after CT characterization.",
+    "D": "Biopsy is performed after risk stratification via CT; it is not the immediate next step.",
+    "E": "Surgical resection is reserved for nodules with a high probability of malignancy based on CT features and patient risk factors."
+  },
+  "tags": ["step2", "pulmonary", "solitary-pulmonary-nodule", "diagnostic-algorithm"],
+  "review_status": "draft"
+}

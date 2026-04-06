@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-065",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["intraosseous-access"],
+  "source_uworld": "3418",
+  "system": "General Principles",
+  "topic": "Intraosseous (IO) Access",
+  "subtopic": "Emergency Vascular Access",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 4-year-old boy is brought to the emergency department by his parents after a high-speed motor vehicle collision. The child is unresponsive and appears pale and mottled. Vitals show a heart rate of 165/min, blood pressure of 62/40 mmHg, and respiratory rate of 28/min. The patient is noted to have a diminished level of consciousness and delayed capillary refill. Two attempts at peripheral intravenous access have failed due to severe vascular collapse. The patient requires immediate fluid resuscitation and administration of medications.",
+  "lead_in": "Which of the following is the most appropriate next step to establish vascular access in this patient?",
+  "options": {
+    "A": "Attempt a third peripheral intravenous line",
+    "B": "Insert a central venous catheter",
+    "C": "Place an intraosseous needle in the proximal tibia",
+    "D": "Insert a nasogastric tube for medication administration",
+    "E": "Perform an emergency cut-down of the saphenous vein"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient is in decompensated shock (tachycardia, hypotension, mottled skin, failed peripheral access) and requires immediate fluid resuscitation. In emergency situations where peripheral intravenous (IV) access cannot be established quickly and the patient is unstable, intraosseous (IO) access is the fastest and safest method to provide vascular access for fluids and medications. The proximal tibia is the preferred site. Central venous access (B) is more time-consuming and requires higher technical skill, making it less ideal than IO in the acute phase of shock. A third attempt at peripheral IV (A) would further delay critical resuscitation. Nasogastric tubes (D) are inappropriate for shock as splanchnic vasoconstriction impairs enteral absorption. Saphenous cut-down (E) is an invasive, time-consuming procedure and is not indicated when IO access is available.",
+  "teaching_point": "Intraosseous (IO) access is indicated in unstable patients when peripheral intravenous access cannot be rapidly established, providing a faster and safer alternative to central venous access for fluid and medication delivery.",
+  "distractor_rationale": {
+    "A": "Incorrect: Repeated failed attempts at peripheral IV in a critically unstable patient delay life-saving resuscitation.",
+    "B": "Incorrect: Central access takes longer to establish and is more technically demanding than IO access in an emergency.",
+    "C": "Correct: IO access in the proximal tibia is the gold standard for rapid access in unstable pediatric patients with failed peripheral IVs.",
+    "D": "Incorrect: Enteral absorption is severely reduced during shock due to splanchnic vasoconstriction.",
+    "E": "Incorrect: Cut-downs are time-consuming and invasive; IO is far more efficient in this setting."
+  },
+  "tags": ["step2", "pediatrics", "emergency", "intraosseous-access"],
+  "review_status": "draft"
+}

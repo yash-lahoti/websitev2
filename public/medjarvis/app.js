@@ -692,11 +692,11 @@
     const refDl = buildMetaDl(q._generated_meta);
 
     const tabs = [];
+    if (refDl) tabs.push({ id: "reference", label: "Reference" });
     if (explainInner.trim()) tabs.push({ id: "explain", label: "Explanation" });
     if (teaching) tabs.push({ id: "teaching", label: "Teaching" });
     if (optionsGrid) tabs.push({ id: "options", label: "Options" });
     if (evalHtml) tabs.push({ id: "eval", label: "Eval" });
-    if (refDl) tabs.push({ id: "reference", label: "Reference" });
 
     if (tabs.length === 0) {
       return `<div class="learn-tab-panel active" data-learn-panel="explain"><div class="muted small">No explanation content.</div></div>`;

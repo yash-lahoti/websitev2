@@ -1,0 +1,27 @@
+{
+  "question_id": "nbme-gen-067",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["todd-paralysis"],
+  "system": "Nervous System",
+  "topic": "Todd Paralysis",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 6-year-old boy is brought to the emergency department by his parents for right-sided weakness. The parents report that approximately 30 minutes ago, the child suddenly became unresponsive and experienced rhythmic twitching of his left arm and face, which progressed to a generalized tonic-clonic seizure lasting 2 minutes. After the seizure ended, the child remained somnolent for several minutes before waking up. Upon awakening, the parents noticed that he was unable to lift his right arm or leg.\n\nPhysical examination shows the patient is awake and alert. Vitals are: temperature 37.1°C, pulse 92/min, blood pressure 102/64 mmHg, respiratory rate 20/min, and oxygen saturation 99% on room air. Neurologic examination reveals 2/5 strength in the right upper and lower extremities, while the left side is 5/5. Reflexes are 2+ throughout. There is no facial droop or speech impairment. Non-contrast CT of the head is normal.\n\nWhich of the following is the most likely cause of this patient's current neurologic deficit?",
+  "options": {
+    "A": "Brain abscess",
+    "B": "Conversion disorder",
+    "C": "Hemiplegic migraine",
+    "D": "Ischemic stroke",
+    "E": "Todd paralysis"
+  },
+  "correct_answer": "E",
+  "explanation": "The patient is experiencing Todd paralysis, a transient focal neurologic deficit (typically hemiparesis) that occurs in the postictal period following a focal seizure. This is a clinical diagnosis based on the temporal relationship to the seizure and is characterized by self-limited symptoms that typically resolve within 36 hours. Ischemic stroke is less likely given the preceding seizure and normal head CT, though imaging is used to exclude it in unwitnessed cases. Conversion disorder lacks the objective physiological evidence of a seizure and typically follows a psychosocial stressor. Hemiplegic migraines present with a migraine aura rather than a tonic-clonic seizure. Brain abscesses typically present with more gradual onset, fever, and would be visible on CT.",
+  "teaching_point": "Todd paralysis is a transient focal neurologic deficit occurring in the postictal period following a focal seizure and typically resolves within 36 hours.",
+  "distractor_rationale": {
+    "A": "Typically presents with fever and a mass lesion on CT/MRI.",
+    "B": "Lacks preceding physiologic seizure and usually associated with psychosocial triggers.",
+    "C": "Associated with migraine aura, not postictal states following tonic-clonic seizures.",
+    "D": "Less likely given the clear preceding seizure and normal head CT."
+  },
+  "tags": ["pediatrics", "neurology", "postictal"],
+  "review_status": "draft"
+}

@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-044",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["preventable-ades"],
+  "source_uworld": "19787",
+  "system": "Social Sciences",
+  "topic": "Preventable Adverse Drug Events (ADEs)",
+  "subtopic": "Patient Education and Health Literacy",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 68-year-old man is seen in the primary care office for a follow-up visit. He has a medical history of hypertension, type 2 diabetes mellitus, and osteoarthritis. He currently takes lisinopril, metformin, and a newly prescribed diuretic for edema. At the visit, he tells the provider that he has been taking the diuretic 'as soon as he feels puffy,' and as a result, he has taken four tablets in one day on several occasions. The provider notes that the patient has low health literacy and frequently struggles to understand medical instructions. To prevent future medication errors and improve adherence, the provider wants to implement a more effective communication strategy for all future prescriptions.",
+  "lead_in": "Which of the following is the most appropriate next step to ensure the patient's understanding of his medication regimen?",
+  "options": {
+    "A": "Provide the patient with a comprehensive printed pamphlet on the drug's mechanism",
+    "B": "Ask the patient to read the medication label back to the provider",
+    "C": "Ask the patient to explain the treatment plan in his own words",
+    "D": "Arrange for a pharmacist to provide additional counseling",
+    "E": "Instruct the patient to use a pill organizer"
+  },
+  "correct_answer": "C",
+  "explanation": "The most effective method to ensure a patient with low health literacy understands their medication regimen is the 'teach-back' method. In this method, the provider asks the patient to explain the treatment plan, dosage, and timing in their own words. This allows the provider to identify specific gaps in understanding and correct them immediately. Providing a comprehensive pamphlet (A) is often ineffective for patients with low health literacy, as they may struggle to read or interpret the text. Asking the patient to read the label back (B) only tests their reading ability, not their understanding of the instructions. While pharmacists (D) and pill organizers (E) can be helpful adjuncts, they do not replace the need for the provider to verify the patient's cognitive understanding of the regimen via teach-back.",
+  "teaching_point": "The 'teach-back' method is the gold standard for verifying patient understanding of a treatment plan and is especially critical for patients with low health literacy to prevent preventable adverse drug events.",
+  "distractor_rationale": {
+    "A": "Printed materials may not be accessible or understandable for patients with low health literacy.",
+    "B": "Reading the label only verifies literacy, not the conceptual understanding of the instructions.",
+    "D": "While helpful, the primary responsibility for verifying understanding lies with the prescribing provider via direct communication.",
+    "E": "A pill organizer helps with adherence but does not fix the underlying lack of understanding of the medication's purpose and limits."
+  },
+  "tags": ["step2", "patient-safety", "preventable-ades", "health-literacy", "teach-back"],
+  "review_status": "draft"
+}

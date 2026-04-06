@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-053",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["nodular-malignant-melanoma"],
+  "source_uworld": "16864",
+  "system": "Dermatology",
+  "topic": "Nodular Malignant Melanoma",
+  "subtopic": "Clinical Presentation and Diagnosis",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 62-year-old man comes to the physician for the evaluation of a skin lesion on his right forearm. He reports that the lesion appeared approximately two months ago and has been growing steadily. On physical examination, there is a 6-mm, darkly pigmented, symmetric, firm nodule on the lateral aspect of the forearm. The lesion is elevated and has a uniform dark-brown color. He has several other smaller, flat, light-brown macules on his back and legs, all of which are symmetric with regular borders. There is no lymphadenopathy in the right axilla or supraclavicular regions.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Basal cell carcinoma",
+    "B": "Compound nevus",
+    "C": "Nodular melanoma",
+    "D": "Seborrheic keratosis",
+    "E": "Superficial spreading melanoma"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient presents with a symmetric, firm, elevated, darkly pigmented nodule that has shown continuous growth over two months. This description is classic for nodular melanoma, which grows primarily vertically (downward) rather than horizontally. The 'ugly duckling sign' is evident here, as this lesion differs significantly from the other pigmented macules on his body. Superficial spreading melanoma (E) typically presents with asymmetry, irregular borders, and color variation (the ABCDE criteria), whereas nodular melanoma is often symmetric and uniform in color. Seborrheic keratosis (D) typically has a 'stuck-on' appearance and velvety texture. Basal cell carcinoma (A) typically presents as a pearly papule with telangiectasias and central ulceration. A compound nevus (B) is a common mole that is typically stable and does not exhibit rapid growth.",
+  "teaching_point": "Nodular melanoma is an aggressive subtype of malignant melanoma characterized by vertical growth, presenting as a firm, symmetric, pigmented nodule that may not fit the traditional ABCDE criteria.",
+  "distractor_rationale": {
+    "A": "Presents as a pearly papule, not a darkly pigmented firm nodule.",
+    "B": "A benign mole, typically stable and not growing rapidly.",
+    "C": "Correct: Firm, symmetric, pigmented nodule with vertical growth pattern.",
+    "D": "Has a 'stuck-on' appearance and velvety texture, unlike the firm nodule described.",
+    "E": "Typically follows ABCDE criteria (asymmetry, irregular borders), unlike the symmetric nodular presentation."
+  },
+  "tags": ["step2", "dermatology", "nodular-malignant-melanoma", "oncology"],
+  "review_status": "draft"
+}

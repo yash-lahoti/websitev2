@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-057",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["febrile-nonhemolytic-transfusion-reaction"],
+  "source_uworld": "4160",
+  "system": "Hematology & Oncology",
+  "topic": "Febrile Nonhemolytic Transfusion Reaction",
+  "subtopic": "Diagnosis and Prevention",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 64-year-old woman with chronic anemia due to myelodysplastic syndrome is receiving a transfusion of two units of packed red blood cells. Approximately three hours after the transfusion begins, she develops a fever of 38.5°C, chills, and generalized malaise. Her blood pressure is 128/78 mmHg and her heart rate is 92/min. There is no evidence of dyspnea, wheezing, or hypotension. The transfusion is immediately stopped, and a direct antiglobulin test is performed, which is negative. Urinalysis shows no evidence of hemoglobinuria.",
+  "lead_in": "Which of the following is the most appropriate measure to prevent a recurrence of this reaction in this patient's future transfusions?",
+  "options": {
+    "A": "Pretreatment with acetaminophen",
+    "B": "Pretreatment with diphenhydramine",
+    "C": "Use of leukoreduced blood products",
+    "D": "Cross-matching with a larger pool of donors",
+    "E": "Wash the red blood cells before transfusion"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient is experiencing a febrile nonhemolytic transfusion reaction (FNHTR), characterized by fever and chills occurring after the start of a transfusion, with a negative direct antiglobulin test (DAT) and no hemoglobinuria. FNHTR is caused by the accumulation of cytokines released from leukocytes during blood product storage, which then trigger a systemic inflammatory response upon infusion. The gold standard for preventing FNHTR is the use of leukoreduced blood products, which use filters to remove leukocytes from the unit before storage, thereby preventing the accumulation of these cytokines. Pretreatment with antipyretics (A) or antihistamines (B) is not effective as prophylaxis for FNHTR. Cross-matching (D) is used to prevent acute hemolytic reactions, which present with positive DAT and hemoglobinuria. Washing red blood cells (E) is primarily used to prevent severe allergic reactions (e.g., in patients with IgA deficiency) by removing plasma proteins, but is not the standard prevention for FNHTR.",
+  "teaching_point": "Febrile nonhemolytic transfusion reactions are prevented by the use of leukoreduced blood products, which minimize the cytokine-mediated inflammatory response.",
+  "distractor_rationale": {
+    "A": "Antipyretics treat the symptoms but do not prevent the occurrence of FNHTR.",
+    "B": "Antihistamines are used for allergic reactions, not for the prevention of cytokine-mediated FNHTR.",
+    "C": "Correct: Leukoreduction removes the leukocytes responsible for cytokine release during storage.",
+    "D": "Cross-matching prevents ABO incompatibility (hemolytic reactions), not cytokine-mediated reactions.",
+    "E": "Washing is used to remove plasma proteins for severe allergic reactions, not for FNHTR."
+  },
+  "tags": ["step2", "hematology", "transfusion", "febrile-nonhemolytic-transfusion-reaction"],
+  "review_status": "draft"
+}
