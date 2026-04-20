@@ -1,0 +1,30 @@
+{
+  "question_id": "nbme-gen-025",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["motivational-interviewing"],
+  "source_uworld": "13533",
+  "system": "Social Sciences",
+  "topic": "Motivational Interviewing",
+  "question_type": "next-best-step",
+  "stem": "A 52-year-old woman is seen in the clinic for follow-up of her type 2 diabetes mellitus. Her most recent hemoglobin A1c is 8.4%, despite her current regimen of metformin and a low-fat diet. The physician discusses the importance of increasing physical activity, specifically recommending a goal of 150 minutes of moderate-intensity aerobic exercise per week. The patient states, \"I know that exercising would probably help me get my sugar down, but I'm just not sure if I have the time or the energy to start a new routine right now.\"",
+  "lead_in": "Which of the following is the most appropriate next step in the physician's communication?",
+  "options": {
+    "A": "Advise the patient that her diabetes will worsen without immediate changes to her lifestyle",
+    "B": "Collaborate with the patient to develop a specific, written exercise plan for the next two weeks",
+    "C": "Provide a detailed educational pamphlet on the benefits of aerobic exercise for glucose control",
+    "D": "Ask the patient to describe the potential pros and cons of starting an exercise routine",
+    "E": "Reassure the patient that she does not need to start exercising immediately"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient is in the contemplation stage of change; she acknowledges the benefits of exercise ('I know that exercising would probably help') but expresses ambivalence about her ability or time to implement it ('I'm just not sure if I have the time or the energy'). The most appropriate approach for a patient in the contemplation stage is to explore this ambivalence by discussing the pros and cons of the behavior change, assessing her conviction and confidence, and helping her resolve the conflict. Advising the patient of negative consequences (A) is a strategy for the precontemplation stage to build motivation. Developing a specific action plan (B) is appropriate for the preparation stage, which the patient has not yet reached. Providing further education (C) is for the precontemplation stage. Reassuring the patient (E) is dismissive and does not encourage behavior change.",
+  "teaching_point": "For patients in the contemplation stage of change, the goal of motivational interviewing is to resolve ambivalence by discussing the pros and cons of the behavior change.",
+  "distractor_rationale": {
+    "A": "Appropriate for precontemplation to build motivation through education on consequences.",
+    "B": "Appropriate for the preparation stage when the patient has already decided to change.",
+    "C": "Appropriate for precontemplation to provide necessary information about the disease.",
+    "D": "Correct: explores ambivalence in the contemplation stage.",
+    "E": "Dismissive and fails to address the patient's ambivalence or promote change."
+  },
+  "tags": ["step2", "ethics", "communication", "motivational-interviewing", "stages-of-change"],
+  "review_status": "draft"
+}

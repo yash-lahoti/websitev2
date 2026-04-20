@@ -1,0 +1,33 @@
+{
+  "question_id": "nbme-gen-003",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["animal-bite-injuries"],
+  "source_uworld": "4317",
+  "system": "Infectious Diseases",
+  "topic": "Animal Bite Injuries",
+  "subtopic": "Prophylaxis",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 24-year-old woman presents to the urgent care center with a small puncture wound on her left hand after being bitten by her pet cat. She reports that the cat was agitated and bit her during feeding. On examination, there is a 2-mm deep puncture wound over the dorsal aspect of the third metacarpophalangeal joint without evidence of erythema, warmth, or fluctuance. The patient's tetanus immunization is up to date.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Cefazolin",
+    "B": "Clindamycin",
+    "C": "Amoxicillin-clavulanate",
+    "D": "Primary closure of the wound",
+    "E": "Observation without antibiotics"
+  },
+  "correct_answer": "C",
+  "explanation": "Cat bites typically result in deep puncture wounds that inoculate oral flora, particularly Pasteurella multocida, deep into the soft tissues and joints. Due to the high risk of infection, all cat bites warrant antibiotic prophylaxis regardless of the wound's appearance. Amoxicillin-clavulanate is the drug of choice as it provides coverage for P. multocida and anaerobes. Clindamycin is insufficient as monotherapy because it does not cover P. multocida. Primary closure of animal bites is generally avoided (except on the face) to prevent the formation of deep-seated abscesses. Observation is inappropriate for cat bites due to the high risk of deep tissue inoculation.",
+  "teaching_point": "All cat bites warrant antibiotic prophylaxis with amoxicillin-clavulanate due to the high risk of Pasteurella multocida infection from deep puncture wounds.",
+  "distractor_rationale": {
+    "A": "Incorrect: Cefazolin does not provide adequate coverage for P. multocida.",
+    "B": "Incorrect: Clindamycin lacks activity against Pasteurella multocida.",
+    "C": "Correct: Gold standard for cat bite prophylaxis.",
+    "D": "Incorrect: Primary closure increases the risk of abscess formation in animal bites.",
+    "E": "Incorrect: Deep puncture wounds from cats have a high infection rate and require prophylaxis."
+  },
+  "tags": ["step2", "infectious-diseases", "animal-bite", "pasteurella"],
+  "review_status": "draft",
+  "reviewer_notes": ""
+}

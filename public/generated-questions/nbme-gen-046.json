@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-046",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["risk-reduction"],
+  "source_uworld": "20426",
+  "system": "Biostatistics",
+  "topic": "Risk Reduction",
+  "subtopic": "NNT and ARR Calculation",
+  "difficulty": "medium",
+  "question_type": "mechanism",
+  "stem": "A randomized clinical trial is conducted to evaluate the efficacy of a new antihypertensive medication in reducing the incidence of stroke in patients with stage 2 hypertension. A total of 1,000 patients are enrolled: 500 patients are assigned to the treatment group, and 500 patients are assigned to the placebo control group. After two years of follow-up, 50 patients in the control group had a stroke, while 25 patients in the treatment group had a stroke. The researchers wish to determine the number of patients who must be treated with the new medication to prevent one additional stroke over a two-year period.",
+  "lead_in": "Which of the following is the correct calculation for the number needed to treat (NNT) in this study?",
+  "options": {
+    "A": "1 / (0.10 - 0.05)",
+    "B": "1 / (0.10 / 0.05)",
+    "C": "0.10 - 0.05",
+    "D": "0.10 / 0.05",
+    "E": "1 / (0.10 + 0.05)"
+  },
+  "correct_answer": "A",
+  "explanation": "The number needed to treat (NNT) is the reciprocal of the absolute risk reduction (ARR). First, calculate the event rates for both groups: Control Rate = 50/500 = 0.10 (10%); Treatment Rate = 25/500 = 0.05 (5%). The Absolute Risk Reduction (ARR) is the difference between these rates: ARR = Control Rate - Treatment Rate = 0.10 - 0.05 = 0.05 (5%). The NNT is then calculated as 1 / ARR, which in this case is 1 / (0.10 - 0.05), equaling 20. Option B uses the relative risk (RR) in the denominator, which is incorrect. Option C is the calculation for ARR itself. Option D is the calculation for Relative Risk (RR). Option E incorrectly adds the risk rates instead of subtracting them.",
+  "teaching_point": "The number needed to treat (NNT) is calculated as the reciprocal of the absolute risk reduction (ARR), where ARR is the difference between the control event rate and the treatment event rate.",
+  "distractor_rationale": {
+    "A": "Correct formula for NNT: 1 / (Control Rate - Treatment Rate).",
+    "B": "Incorrectly uses relative risk in the denominator.",
+    "C": "This is the formula for absolute risk reduction (ARR), not NNT.",
+    "D": "This is the formula for relative risk (RR).",
+    "E": "Incorrectly adds the event rates."
+  },
+  "tags": ["step2", "biostats", "risk-reduction", "NNT", "ARR"],
+  "review_status": "draft"
+}

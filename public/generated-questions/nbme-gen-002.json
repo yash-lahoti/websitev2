@@ -1,0 +1,33 @@
+{
+  "question_id": "nbme-gen-002",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["aecopd"],
+  "source_uworld": "4039",
+  "system": "Pulmonary & Critical Care",
+  "topic": "AECOPD",
+  "subtopic": "Antibiotic selection",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 68-year-old man with a 40-pack-year smoking history and chronic obstructive pulmonary disease presents to the emergency department with worsening shortness of breath and increased cough over the past three days. On examination, he is tachypneic with a respiratory rate of 24/min and has bilateral low-pitched wheezing on expiration. He produces a significant amount of thick, dark green sputum. Pulse oximetry shows an oxygen saturation of 89% on room air, which improves to 91% with 2L nasal cannula.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Ceftriaxone",
+    "B": "Inhaled fluticasone",
+    "C": "N-acetylcysteine",
+    "D": "Respiratory culture",
+    "E": "High-flow nasal cannula"
+  },
+  "correct_answer": "A",
+  "explanation": "This patient has an acute exacerbation of COPD (AECOPD) characterized by increased dyspnea and purulent sputum. Antibiotics are indicated in AECOPD when the patient has purulent sputum or requires hospitalization. Ceftriaxone (a 3rd generation cephalosporin) or a fluoroquinolone is appropriate empiric therapy. Inhaled corticosteroids provide no additional benefit during an acute episode compared to systemic steroids. Mucolytics like N-acetylcysteine do not improve clinical outcomes. Respiratory cultures are generally not recommended as they have poor diagnostic value and treatment should be empiric.",
+  "teaching_point": "Antibiotics in AECOPD are indicated for patients requiring hospitalization or those with grossly purulent sputum.",
+  "distractor_rationale": {
+    "A": "Correct: Empiric antibiotic therapy for severe exacerbation with purulent sputum.",
+    "B": "Incorrect: ICS are for maintenance, not acute rescue treatment.",
+    "C": "Incorrect: Mucolytics do not improve outcomes in AECOPD.",
+    "D": "Incorrect: Treatment is empiric; cultures are low-yield.",
+    "E": "Incorrect: While oxygen is needed, the most appropriate medical management step for the trigger is antibiotics."
+  },
+  "tags": ["step2", "pulmonary", "aecopd", "antibiotics"],
+  "review_status": "reviewed",
+  "reviewer_notes": "Rewritten by nbme-evaluate. Original score: 96/100. Projected: 100/100. Minor polish of the explanation and distractor citations."
+}

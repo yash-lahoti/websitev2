@@ -1,0 +1,30 @@
+{
+  "question_id": "nbme-gen-026",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["myotonic-dystrophy"],
+  "source_uworld": "3661",
+  "system": "Nervous System",
+  "topic": "Myotonic Dystrophy",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 28-year-old man is brought to the clinic by his wife for evaluation of progressive weakness in his hands and forearms. He reports that his grip feels 'stiff' and that he has difficulty releasing objects after holding them. He also notes that he has been feeling more tired during the day and has noticed a change in his facial expressions. On physical examination, he has a thin, elongated face with ptosis and difficulty smiling. There is noticeable wasting of the temporal muscles and the muscles of the forearms. When the physician asks the patient to grip the physician's fingers tightly and then quickly release them, the patient's fingers remain clenched for several seconds. Testicular examination reveals bilateral testicular atrophy.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Becker muscular dystrophy",
+    "B": "Duchenne muscular dystrophy",
+    "C": "Fragile X syndrome",
+    "D": "Myotonic dystrophy",
+    "E": "Steatoid muscular dystrophy"
+  },
+  "correct_answer": "D",
+  "explanation": "This patient presents with distal muscle weakness, facial weakness (ptosis, limited expression), temporal wasting, and myotonia (delayed relaxation of the grip), all of which are hallmark signs of myotonic dystrophy. The presence of testicular atrophy further supports this diagnosis, as primary hypogonadism is a common non-muscular finding. Becker and Duchenne muscular dystrophies (A, B) primarily involve proximal muscle weakness and do not feature myotonia. Fragile X syndrome (C) is characterized by macroorchidism (enlarged testes) rather than testicular atrophy. Steatoid muscular dystrophy is not a standard clinical entity in this context. Myotonic dystrophy is an autosomal dominant trinucleotide repeat expansion of the DMPK gene.",
+  "teaching_point": "Myotonic dystrophy is characterized by distal muscle weakness, facial weakness, myotonia (delayed muscle relaxation), and non-muscular findings such as testicular atrophy and cataracts.",
+  "distractor_rationale": {
+    "A": "Involves proximal muscle weakness and lacks myotonia.",
+    "B": "Involves proximal muscle weakness and typically presents much earlier in childhood.",
+    "C": "Features macroorchidism rather than testicular atrophy.",
+    "D": "Correct: matches the pattern of distal weakness and myotonia.",
+    "E": "Not a recognized clinical diagnosis matching this presentation."
+  },
+  "tags": ["step2", "neurology", "genetics", "myotonic-dystrophy"],
+  "review_status": "draft"
+}

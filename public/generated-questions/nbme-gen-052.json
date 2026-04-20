@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-052",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["smoking-cessation-support"],
+  "source_uworld": "21976",
+  "system": "Social Sciences",
+  "topic": "Smoking Cessation Support",
+  "subtopic": "Physician-Patient Communication",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 54-year-old man comes to the clinic for a routine follow-up of hypertension. He has a 30-pack-year smoking history and has attempted to quit smoking three times in the past five years, but each attempt resulted in a relapse within two months. He expresses frustration and discouragement, stating, 'I just don't think I have the willpower to quit for good. Every time I try, I just end up starting again.' He is currently using a nicotine patch, but reports feeling jittery and irritable, which he believes contributed to his last relapse. Vitals are: temperature 36.7°C, pulse 76/min, blood pressure 138/84 mmHg, respiratory rate 16/min, and oxygen saturation 98% on room air. Physical examination is unremarkable.",
+  "lead_in": "Which of the following is the most appropriate next step in the physician's response to this patient?",
+  "options": {
+    "A": "Advise the patient that most successful quitters succeed on their first attempt",
+    "B": "Reassure the patient that multiple attempts are common before achieving long-term success",
+    "C": "Inform the patient that he needs to commit more strongly to a quit date",
+    "D": "Tell the patient not to worry and that the jitteriness is a sign the patch is working",
+    "E": "Suggest that the patient stop using the nicotine patch immediately"
+  },
+  "correct_answer": "B",
+  "explanation": "The patient is expressing frustration and a sense of failure due to multiple unsuccessful attempts to quit smoking. The most appropriate response is to normalize the experience of initial failure. Reminding the patient that multiple attempts are often necessary before achieving long-term abstinence helps maintain the patient's motivation and reduces the stigma of relapse. Option A is factually incorrect; many patients require multiple attempts. Option C is judgmental and implies the patient's failure was due to a lack of effort. Option D is dismissive of the patient's genuine symptoms (jitteriness) and feelings. Option E is premature; the jitteriness should be addressed (e.g., adjusting dose or combining therapies) rather than simply stopping a helpful tool without a replacement plan.",
+  "teaching_point": "Effective smoking cessation support involves normalizing the fact that initial failure is common and that multiple attempts are often required before long-term success is achieved.",
+  "distractor_rationale": {
+    "A": "Incorrect: Most successful quitters actually fail several times before succeeding.",
+    "B": "Correct: Normalizing failure reduces discouragement and encourages continued attempts.",
+    "C": "Incorrect: This is an unempathetic response that judges the patient's effort.",
+    "D": "Incorrect: Telling a patient 'not to worry' is dismissive of their experience.",
+    "E": "Incorrect: The goal is to address barriers to the current therapy, not abruptly stop it without an alternative."
+  },
+  "tags": ["step2", "social-sciences", "smoking-cessation", "communication"],
+  "review_status": "draft"
+}

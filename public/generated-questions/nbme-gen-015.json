@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-015",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["error-analysis-tools"],
+  "source_uworld": "22581",
+  "system": "Social Sciences",
+  "topic": "Error Analysis Tools",
+  "question_type": "mechanism",
+  "stem": "A large academic medical center is designing a new electronic medication administration record (eMAR) system to reduce dosing errors. Before implementing the software, a multidisciplinary committee of pharmacists, nurses, and IT specialists is tasked with evaluating the proposed workflow. They systematically identify potential points where a user might enter an incorrect dose and assess the severity and likelihood of the resulting error to develop safeguards.",
+  "lead_in": "Which of the following tools is the committee using to evaluate the system?",
+  "options": {
+    "A": "Common cause analysis",
+    "B": "Failure mode and effects analysis",
+    "C": "Morbidity and mortality conference",
+    "D": "Process mapping",
+    "E": "Root cause analysis"
+  },
+  "correct_answer": "B",
+  "explanation": "Failure Mode and Effects Analysis (FMEA) is a prospective tool used to identify potential system vulnerabilities and the likelihood of errors before they occur. In this case, the committee is evaluating a new system's workflow prior to implementation to proactively identify and mitigate risks. Root cause analysis and common cause analysis are retrospective tools used after an error has occurred. M&M conferences are retrospective peer reviews. Process mapping can be a component of various analyses, but the specific act of prospective vulnerability assessment describes FMEA.",
+  "teaching_point": "Failure Mode and Effects Analysis (FMEA) is a prospective review used to identify potential vulnerabilities and prevent errors before they occur in a process.",
+  "distractor_rationale": {
+    "A": "A retrospective tool used to identify trends across multiple error events.",
+    "C": "A retrospective peer review of specific cases to improve system-level care.",
+    "D": "A visual tool to outline steps in a process; often used within other analysis types but not a standalone prospective risk assessment.",
+    "E": "A retrospective tool used to identify all underlying causes of a specific error."
+  },
+  "tags": ["step2", "patient-safety", "fmea", "quality-improvement"],
+  "review_status": "draft"
+}

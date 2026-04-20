@@ -1,0 +1,29 @@
+{
+  "question_id": "nbme-gen-020",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["hypertension-lifestyle-modification"],
+  "source_uworld": "3094",
+  "system": "Cardiovascular System",
+  "topic": "Hypertension Lifestyle Modification",
+  "question_type": "next-best-step",
+  "stem": "A 46-year-old man comes to the office for a routine health maintenance visit. He has no significant medical history and takes no medications. His height is 178 cm and his weight is 95 kg. Blood pressure measurements at today's visit are 136/88 mmHg and 138/86 mmHg. A follow-up visit two weeks later reveals blood pressure readings of 134/88 mmHg and 136/86 mmHg. He is otherwise healthy with a normal physical examination. He is advised to implement nonpharmacologic interventions to lower his blood pressure before initiating medication.",
+  "lead_in": "Which of the following recommendations is likely to result in the greatest reduction in this patient's systolic blood pressure?",
+  "options": {
+    "A": "Limiting alcohol consumption to one drink per day",
+    "B": "Starting a regimen of 30 minutes of aerobic exercise 5 days per week",
+    "C": "Adopting a diet rich in fruits, vegetables, and low-fat dairy",
+    "D": "Restricting total sodium intake to less than 1,500 mg per day",
+    "E": "Smoking cessation"
+  },
+  "correct_answer": "C",
+  "explanation": "The DASH (Dietary Approaches to Stop Hypertension) diet, which emphasizes high intake of fruits, vegetables, legumes, and low-fat dairy while limiting saturated and total fats, is the most effective nonpharmacologic intervention for lowering systolic blood pressure (SBP), typically resulting in a reduction of approximately 11 mmHg. Aerobic exercise (B) reduces SBP by about 7 mmHg. Sodium restriction (D) typically reduces SBP by 5-8 mmHg. Alcohol limitation (A) results in a reduction of about 5 mmHg. Smoking cessation (E), while vital for reducing overall cardiovascular risk, has a minimal and inconsistent effect on blood pressure.",
+  "teaching_point": "Among nonpharmacologic interventions for hypertension, the DASH diet provides the greatest reduction in systolic blood pressure.",
+  "distractor_rationale": {
+    "A": "Reduces SBP by approximately 5 mmHg, which is less than the DASH diet.",
+    "B": "Reduces SBP by approximately 7 mmHg, which is less than the DASH diet.",
+    "D": "Reduces SBP by approximately 5-8 mmHg, which is less than the DASH diet.",
+    "E": "Critical for cardiovascular risk reduction but has minimal effect on blood pressure levels."
+  },
+  "tags": ["step2", "cardiology", "hypertension", "lifestyle-modification", "DASH"],
+  "review_status": "draft"
+}

@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-040",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["prerenal-acute-kidney-injury"],
+  "source_uworld": "4034",
+  "system": "Renal, Urinary Systems & Electrolytes",
+  "topic": "Prerenal Acute Kidney Injury (AKI)",
+  "subtopic": "Differential Diagnosis",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 74-year-old man is brought to the emergency department due to confusion and decreased urine output. He has a medical history of heart failure with reduced ejection fraction and osteoarthritis. He takes furosemide and ibuprofen daily. He has had a viral upper respiratory infection for the past four days, during which time he reports poor oral intake and decreased appetite. Vitals are: temperature 37.5°C, pulse 108/min, blood pressure 92/64 mmHg, respiratory rate 20/min, and oxygen saturation 94% on room air. Physical examination reveals dry mucous membranes, diminished skin turgor, and 2+ pitting edema of the lower extremities. Laboratory studies show a serum creatinine of 2.4 mg/dL (baseline 1.1 mg/dL), blood urea nitrogen (BUN) of 72 mg/dL, and serum sodium of 146 mEq/L. Urinalysis shows a specific gravity of 1.025, urinary sodium of 12 mEq/L, and a bland sediment without casts or hematuria.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Acute interstitial nephritis",
+    "B": "Acute tubular necrosis",
+    "C": "Glomerulonephritis",
+    "D": "Prerenal acute kidney injury",
+    "E": "Renal artery stenosis"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient presents with an acute increase in creatinine and BUN (BUN/Cr ratio > 20:1) in the setting of volume depletion (poor intake, furosemide use) and medication-induced renal vasoconstriction (ibuprofen). The key diagnostic features are the low urinary sodium (< 20 mEq/L), high urine specific gravity, and a bland urine sediment (absence of casts). These findings are characteristic of prerenal AKI, where the kidneys are functioning correctly but are under-perfused. Acute tubular necrosis (ATN) would typically present with a lower BUN/Cr ratio, higher urinary sodium (> 20 mEq/L), and muddy brown granular casts. Acute interstitial nephritis would typically show white blood cell casts or eosinophilia. Glomerulonephritis would show RBC casts and proteinuria. Renal artery stenosis usually presents as chronic hypertension or a flash pulmonary edema rather than acute volume-depletion-induced AKI.",
+  "teaching_point": "Prerenal acute kidney injury is characterized by a BUN/Creatinine ratio > 20:1, urinary sodium < 20 mEq/L, and a bland urine sediment, reflecting intact tubular function despite decreased renal perfusion.",
+  "distractor_rationale": {
+    "A": "Typically associated with drug reactions and characterized by WBC casts, not bland sediment.",
+    "B": "Presents with muddy brown granular casts and higher urinary sodium due to tubular damage.",
+    "C": "Characterized by hematuria and RBC casts, not a bland sediment.",
+    "E": "Usually causes chronic renal insufficiency or hypertension, not acute volume-depletion azotemia.",
+  },
+  "tags": ["step2", "renal", "prerenal-acute-kidney-injury", "azotemia", "AKI"],
+  "review_status": "draft"
+}

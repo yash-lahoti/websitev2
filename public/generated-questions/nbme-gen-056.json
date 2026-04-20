@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-056",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["tinea-corporis"],
+  "source_uworld": "16837",
+  "system": "Dermatology",
+  "topic": "Tinea Corporis",
+  "subtopic": "Associated Risk Factors",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 32-year-old man presents to the clinic for evaluation of multiple itchy, scaly plaques on his torso and thighs. He reports that the lesions first appeared on his chest and then spread over the last few weeks. On physical examination, there are several annular plaques with central clearing and a scaly border, measuring 2 to 5 cm in diameter, distributed across the chest, abdomen, and bilateral thighs. There is no evidence of lymphadenopathy. He has no other symptoms and reports no current medications. Vitals are: temperature 36.8°C, pulse 74/min, blood pressure 122/78 mmHg, respiratory rate 16/min, and oxygen saturation 99% on room air.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient?",
+  "options": {
+    "A": "Perform a skin biopsy",
+    "B": "Initiate topical terbinafine",
+    "C": "Order an HIV antibody test",
+    "D": "Perform a KOH preparation",
+    "E": "Start oral fluconazole"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient presents with widespread tinea corporis, characterized by the classic annular, scaly plaques with central clearing. While the immediate diagnostic step for any suspected tinea is a KOH preparation (D) to confirm the presence of hyphae, and the treatment would be antifungal therapy, the presence of widespread, extensive tinea corporis in a previously healthy young adult should prompt a search for an underlying cause of immunosuppression. HIV infection is a well-known risk factor for extensive and disseminated dermatophyte infections. Therefore, screening for HIV is the most appropriate next systemic step in this patient's management. A skin biopsy (A) is not indicated for this typical presentation. Topical terbinafine (B) is used for localized disease; however, extensive involvement typically requires systemic therapy (E) and, more importantly, an evaluation of why the disease is so widespread. A KOH prep (D) is an important diagnostic tool, but in the context of NBME-style questions, an extensive presentation of a typically localized infection often tests the associated systemic risk factors.",
+  "teaching_point": "Widespread or extensive tinea corporis in an adult should raise suspicion for an underlying immunocompromised state, most notably HIV infection, necessitating appropriate screening.",
+  "distractor_rationale": {
+    "A": "Biopsy is not necessary for a typical presentation of tinea corporis.",
+    "B": "Topical therapy is insufficient for extensive, widespread disease.",
+    "C": "Correct: Widespread tinea corporis is a red flag for systemic immunosuppression, such as HIV.",
+    "D": "A KOH prep confirms the diagnosis but does not address the underlying systemic risk factor prompted by the widespread nature of the lesions.",
+    "E": "Oral therapy treats the symptoms but does not address the cause of the patient's vulnerability to extensive infection."
+  },
+  "tags": ["step2", "dermatology", "tinea-corporis", "HIV", "immunosuppression"],
+  "review_status": "draft"
+}

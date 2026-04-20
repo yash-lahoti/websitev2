@@ -1,0 +1,40 @@
+{
+  "question_id": "nbme-gen-001",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["atrial-fibrillation"],
+  "source_uworld": "4676",
+  "system": "Cardiovascular",
+  "topic": "Atrial Fibrillation",
+  "subtopic": "New-onset workup",
+  "difficulty": "medium",
+  "question_type": "best-initial-test",
+
+  "stem": "A 52-year-old man presents to his primary care physician with a 2-week history of palpitations and mild fatigue. He denies chest pain, shortness of breath, or syncope. He has no significant past medical history and takes no medications. He does not use tobacco or alcohol. His pulse is 88/min and irregular; blood pressure is 128/74 mmHg. An ECG shows an irregularly irregular ventricular rate with no discernible P waves. A bedside transthoracic echocardiogram reveals normal left ventricular function and no valvular abnormalities. Which of the following is the most appropriate initial diagnostic test?",
+
+  "lead_in": "Which of the following is the most appropriate initial diagnostic test?",
+
+  "options": {
+    "A": "Cardiac catheterization",
+    "B": "Exercise stress test",
+    "C": "Holter monitor for 48 hours",
+    "D": "Serum TSH measurement",
+    "E": "Transesophageal echocardiography"
+  },
+
+  "correct_answer": "D",
+
+  "explanation": "This patient has new-onset atrial fibrillation (AF) without an obvious precipitant — he is young, has no structural heart disease on echocardiogram, and no known cardiovascular risk factors. In all patients with new-onset AF, serum TSH and free T4 should be checked because hyperthyroidism increases atrial automaticity and can trigger AF as its sole presentation; importantly, AF often resolves once euthyroidism is restored. Cardiac catheterization (A) is not indicated without signs or symptoms of coronary artery disease. Exercise stress testing (B) evaluates for CAD but is low-yield in a young man without risk factors. Holter monitoring (C) is used to detect intermittent arrhythmias, but AF has already been documented on the presenting ECG, making further rhythm capture redundant. Transesophageal echocardiography (E) is used to rule out left atrial thrombus before cardioversion — an important step later in management, but not the first diagnostic priority.",
+
+  "teaching_point": "Serum TSH must be checked in all patients with new-onset AF because hyperthyroidism is a reversible trigger that can present with AF as its only manifestation.",
+
+  "distractor_rationale": {
+    "A": "No anginal symptoms or risk factors to warrant invasive coronary evaluation",
+    "B": "CAD-related AF is unlikely in a young, otherwise healthy patient; stress test is not the initial step in AF workup",
+    "C": "AF is already documented on the 12-lead ECG; additional ambulatory monitoring does not change the immediate workup priority",
+    "E": "TEE is used pre-cardioversion to exclude left atrial appendage thrombus — appropriate later, not as the initial test"
+  },
+
+  "tags": ["step2", "cardiology", "atrial-fibrillation", "hyperthyroidism", "tsh", "new-onset-af"],
+  "review_status": "reviewed",
+  "reviewer_notes": "Rewritten by nbme-evaluate. Original score: 99/100. Projected: 100/100. No substantive changes required."
+}

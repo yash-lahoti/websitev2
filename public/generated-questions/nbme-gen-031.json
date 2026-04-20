@@ -1,0 +1,30 @@
+{
+  "question_id": "nbme-gen-031",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["normal-pressure-hydrocephalus"],
+  "source_uworld": "4651",
+  "system": "Nervous System",
+  "topic": "Normal Pressure Hydrocephalus",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 68-year-old man is brought to the physician by his wife due to a gradual decline in his functioning over the past year. She reports that he has become increasingly forgetful and often appears indifferent or depressed. She also notes that he has started having 'accidents' with his bladder, which he previously denied. On physical examination, the patient demonstrates a broad-based, shuffling gait with a tendency to lean forward. Neurologic examination is otherwise unremarkable, and there is no evidence of focal motor or sensory deficits. Brain MRI shows enlargement of the lateral and third ventricles that is disproportionate to the degree of cortical atrophy.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Alzheimer disease",
+    "B": "Huntington disease",
+    "C": "Multi-infarct dementia",
+    "D": "Normal pressure hydrocephalus",
+    "E": "Parkinson disease"
+  },
+  "correct_answer": "D",
+  "explanation": "The patient presents with the classic triad of normal pressure hydrocephalus (NPH): gait instability (broad-based, shuffling), cognitive impairment (memory loss, indifference), and urinary incontinence. The MRI finding of ventriculomegaly out of proportion to cortical atrophy is a key radiologic hallmark of NPH. Alzheimer disease (A) typically presents with prominent early memory loss and cortical atrophy, but not usually with early urinary incontinence or the specific gait pattern of NPH. Huntington disease (B) would present with choreiform movements and a family history. Multi-infarct dementia (C) usually features a 'step-wise' decline and focal neurologic deficits. Parkinson disease (E) features a shuffling gait but is typically associated with a resting tremor, rigidity, and bradykinesia, rather than the early urinary incontinence and ventriculomegaly seen here.",
+  "teaching_point": "Normal pressure hydrocephalus is characterized by the triad of gait instability, cognitive impairment, and urinary incontinence, with MRI showing ventriculomegaly out of proportion to sulcal enlargement.",
+  "distractor_rationale": {
+    "A": "Presents with memory loss and cortical atrophy; lacks the specific NPH gait and early incontinence.",
+    "B": "Characterized by chorea and psychiatric changes, not the NPH triad.",
+    "C": "Presents with a step-wise decline in cognition and evidence of multiple infarcts on imaging.",
+    "D": "Correct: matches the clinical triad and radiologic findings of ventriculomegaly.",
+    "E": "Presents with resting tremor and rigidity; does not typically cause disproportionate ventriculomegaly."
+  },
+  "tags": ["step2", "neurology", "NPH", "dementia"],
+  "review_status": "draft"
+}

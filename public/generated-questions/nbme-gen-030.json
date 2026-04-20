@@ -1,0 +1,30 @@
+{
+  "question_id": "nbme-gen-030",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["no-escalation-of-treatment"],
+  "source_uworld": "21627",
+  "system": "Social Sciences (Ethics/Legal/Professional)",
+  "topic": "No Escalation of Treatment (NEOT)",
+  "question_type": "next-best-step",
+  "stem": "A 78-year-old man with advanced metastatic pancreatic adenocarcinoma and worsening heart failure is admitted to the hospital for severe community-acquired pneumonia. He is currently receiving intravenous antibiotics and supplemental oxygen via nasal cannula. He is mentally altered but does not have a formal advanced directive. His daughter, who is his designated health care proxy, expresses that she wants 'everything done' for her father. However, during a goals-of-care discussion, she acknowledges that his condition is precarious and that she is distressed by the idea of 'pulling the plug' if he were to crash. The medical team believes that mechanical ventilation and hemodialysis would be futile and would only prolong his suffering without providing any clinical benefit.",
+  "lead_in": "Which of the following is the most appropriate next step in the management of this patient's care plan?",
+  "options": {
+    "A": "Immediately transition the patient to comfort measures only",
+    "B": "Implement a time-limited trial of mechanical ventilation",
+    "C": "Establish a 'no escalation of treatment' (NEOT) order",
+    "D": "Request a formal ethics committee review to override the proxy",
+    "E": "Advise the daughter that 'everything' will be done regardless of prognosis"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient is in a state where further escalation of care (e.g., intubation, dialysis) is clinically futile, but the family is psychologically unable to transition immediately to comfort measures only due to guilt associated with 'withdrawing' care. A 'no escalation of treatment' (NEOT) order is the most appropriate bridge in this scenario. It establishes predetermined limits on care (e.g., no mechanical ventilation) so that futile interventions are not started, while allowing the family time to process the imminent loss without feeling they are actively 'hastening' death by withdrawing existing support. Transitioning to comfort measures only (A) is premature as the daughter is not yet ready. A time-limited trial (B) is inappropriate when interventions are deemed truly futile and likely to increase suffering. Overriding a proxy via the ethics committee (D) is typically reserved for cases of clear conflict or suspected abuse, not for guiding goals-of-care in futile situations. Promising 'everything' (E) is dishonest and violates the principle of nonmaleficence by implementing futile, harmful treatments.",
+  "teaching_point": "No escalation of treatment (NEOT) orders are useful when families recognize the futility of further interventions but are psychologically reluctant to transition fully to comfort measures.",
+  "distractor_rationale": {
+    "A": "Premature; the daughter is not yet psychologically ready for full withdrawal of curative intent.",
+    "B": "Inappropriate for interventions that are definitively futile and likely to increase morbidity.",
+    "C": "Correct: provides a psychological bridge and prevents futile interventions.",
+    "D": "Too aggressive; a collaborative goals-of-care approach with NEOT is the first step.",
+    "E": "Violates medical ethics by promising futile care and ignoring the principle of nonmaleficence."
+  },
+  "tags": ["step2", "ethics", "palliative-care", "NEOT", "goals-of-care"],
+  "review_status": "draft"
+}

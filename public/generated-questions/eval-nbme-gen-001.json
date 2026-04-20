@@ -1,0 +1,99 @@
+{
+  "eval_id": "eval-nbme-gen-001",
+  "question_id": "nbme-gen-001",
+  "evaluated_date": "2026-04-05",
+  "evaluator_version": "nbme-evaluate-v1",
+  "source_concepts_read": ["atrial-fibrillation"],
+  "scores": {
+    "A_stem": {
+      "A1_cover_options": { "score": 10, "max": 10, "rationale": "The stem explicitly describes a young man with new-onset AF and a normal TTE, which directly leads to the necessity of TSH screening as the most appropriate initial test to rule out a reversible trigger." },
+      "A2_required_elements": { "score": 8, "max": 8, "rationale": "All elements present: Age (52), Sex (man), Symptom (palpitations/fatigue), Objective finding (ECG findings).", "elements_present": ["age", "sex", "symptom", "objective_finding"] },
+      "A3_clinical_authenticity": { "score": 6, "max": 6, "rationale": "Clinical scenario is realistic and consistent with a primary care presentation." },
+      "A4_information_density": { "score": 3, "max": 3, "rationale": "No redundant information; every detail supports the diagnosis of AF and the exclusion of structural heart disease." },
+      "A5_patient_characteristics": { "score": 3, "max": 3, "rationale": "Patient characteristics are appropriate and do not cue the answer via stereotype." },
+      "section_total": 30,
+      "section_max": 30
+    },
+    "B_lead_in": {
+      "B1_single_question": { "score": 5, "max": 5, "rationale": "Lead-in is a single focused question." },
+      "B2_affirmative_phrasing": { "score": 3, "max": 3, "rationale": "Lead-in uses affirmative phrasing ('most appropriate')." },
+      "B3_task_competency": { "score": 2, "max": 2, "rationale": "Correctly matches 'best-initial-test' competency." },
+      "section_total": 10,
+      "section_max": 10
+    },
+    "C_options": {
+      "C1_five_options": { "score": 5, "max": 5, "rationale": "Exactly 5 options present." },
+      "C2_grammatical_parallel": { "score": 5, "max": 5, "rationale": "All options are noun phrases." },
+      "C3_homogeneous": { "score": 5, "max": 5, "rationale": "All options are diagnostic tests/procedures." },
+      "C4_no_all_none": { "score": 3, "max": 3, "rationale": "No prohibited options present." },
+      "C5_distractor_plausibility": { "score": 6, "max": 7, "rationale": "Distractors are plausible in the context of an arrhythmia workup, although TEE (E) is a more specific 'next step' rather than 'initial' test." },
+      "C6_unambiguous_correct": { "score": 5, "max": 5, "rationale": "TSH is the definitive initial test for reversible triggers in new-onset AF." },
+      "section_total": 29,
+      "section_max": 30
+    },
+    "D_technical_flaws": {
+      "D1_long_correct_option": { "pass": true, "rationale": "Option D is not notably longer than other options." },
+      "D2_absolute_terms": { "pass": true, "rationale": "No absolute terms in distractors." },
+      "D3_grammatical_clue": { "pass": true, "rationale": "No grammatical clues." },
+      "D4_clang_repetition": { "pass": true, "rationale": "No keywords repeated only in the correct option." },
+      "D5_convergence": { "pass": true, "rationale": "No convergence strategy." },
+      "D6_collectively_exhaustive": { "pass": true, "rationale": "No exhaustive pairs." },
+      "D7_vague_qualifiers": { "pass": true, "rationale": "No vague qualifiers." },
+      "D8_nonparallel": { "pass": true, "rationale": "Options are parallel." },
+      "D9_correct_stands_out": { "pass": true, "rationale": "Correct option does not stand out visually." },
+      "D10_tricky_stem": { "pass": true, "rationale": "Stem is clear and logically structured." },
+      "flaws_found": [],
+      "deductions": 0,
+      "section_total": 20,
+      "section_max": 20
+    },
+    "E_explanation": {
+      "E1_correct_rationale": { "score": 4, "max": 4, "rationale": "Correct answer is clearly explained with grounding in hyperthyroidism as a trigger." },
+      "E2_distractor_rationale": { "score": 4, "max": 4, "rationale": "All distractors are addressed specifically and logically." },
+      "E3_teaching_point": { "score": 2, "max": 2, "rationale": "High-yield, one-sentence takeaway that differs from the explanation start." },
+      "section_total": 10,
+      "section_max": 10
+    }
+  },
+  "total_score": 99,
+  "total_max": 100,
+  "tier": "A — Publication-ready",
+  "flaws_found": [],
+  "recommendations": [
+    "The question is technically flawless. No critical improvements needed. To further increase difficulty, the TTE results could be omitted, forcing the student to consider if structural heart disease is the cause, but the current structure is a cleaner test of the TSH priority."
+  ],
+  "rewrite": {
+    "question_id": "nbme-gen-001",
+    "generated_date": "2026-04-05",
+    "source_concepts": ["atrial-fibrillation"],
+    "source_uworld": "4676",
+    "system": "Cardiovascular",
+    "topic": "Atrial Fibrillation",
+    "subtopic": "New-onset workup",
+    "difficulty": "medium",
+    "question_type": "best-initial-test",
+    "stem": "A 52-year-old man presents to his primary care physician with a 2-week history of palpitations and mild fatigue. He denies chest pain, shortness of breath, or syncope. He has no significant past medical history and takes no medications. His pulse is 88/min and irregular; blood pressure is 128/74 mmHg. An ECG shows an irregularly irregular ventricular rate with no discernible P waves. A bedside transthoracic echocardiogram reveals normal left ventricular function and no valvular abnormalities. Which of the following is the most appropriate initial diagnostic test?",
+    "lead_in": "Which of the following is the most appropriate initial diagnostic test?",
+    "options": {
+      "A": "Cardiac catheterization",
+      "B": "Exercise stress test",
+      "C": "Holter monitor for 48 hours",
+      "D": "Serum TSH measurement",
+      "E": "Transesophageal echocardiography"
+    },
+    "correct_answer": "D",
+    "explanation": "This patient has new-onset atrial fibrillation (AF) without an obvious precipitant—he is relatively young, has no structural heart disease on echocardiogram, and no known cardiovascular risk factors. In all patients with new-onset AF, serum TSH should be measured to rule out hyperthyroidism, as it is a reversible trigger that can present as AF as its sole manifestation. Cardiac catheterization (A) is not indicated without evidence of myocardial ischemia. Exercise stress testing (B) is used to evaluate for CAD, but is low-yield in an otherwise healthy patient. Holter monitoring (C) isL- yield in this case because AF has already been documented on the ECG, making further rhythm capture redundant. Transesophageal echocardiography (E) is used to exclude left atrial thrombus before cardioversion, which is a subsequent management step, not the first diagnostic priority.",
+    "teaching_point": "Serum TSH must be checked in all patients with new-onset AF because hyperthyroidism is a reversible trigger that can present with AF as its only manifestation.",
+    "distractor_rationale": {
+      "A": "No anginal symptoms or risk factors to warrant invasive coronary evaluation",
+      "B": "CAD-related AF is unlikely in a young, otherwise healthy patient; stress test is not the initial step in AF workup",
+      "C": "AF is already documented on the 12-lead ECG; additional ambulatory monitoring does not change the immediate workup priority",
+      "E": "TEE is used pre-cardioversion to exclude left atrial appendage thrombus—appropriate later, not as the initial test"
+    },
+    "tags": ["step2", "cardiology", "atrial-fibrillation", "hyperthyroidism", "tsh", "new-onset-af"],
+    "review_status": "reviewed",
+    "reviewer_notes": "Rewritten by nbme-evaluate. Original score: 99/100. Projected: 100/100. No substantive changes required."
+  },
+  "rewrite_projected_score": 100,
+  "rewrite_changes_summary": "The original item was already publication-ready. The rewrite maintains the original content with minor grammatical polishing of the explanation."
+}

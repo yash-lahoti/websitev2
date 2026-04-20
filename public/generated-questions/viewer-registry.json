@@ -1,0 +1,292 @@
+{
+  "_comment": "Tracks viewer/quiz state, ordering, visibility, and optional eval report paths for generated NBME-style questions under examples/. Safe to edit; new example JSON files are merged on sync or first manifest load.",
+  "version": 1,
+  "questions": [
+    {
+      "question_id": "nbme-gen-001",
+      "example_file": "examples/nbme-gen-001.json",
+      "eval_file": "eval-nbme-gen-001.json",
+      "sort_order": 1,
+      "hidden": false,
+      "quiz_outcome": "Incorrect",
+      "quiz_selected_letter": "C",
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-002",
+      "example_file": "examples/nbme-gen-002.json",
+      "eval_file": "eval-nbme-gen-002.json",
+      "sort_order": 2,
+      "hidden": false,
+      "quiz_outcome": "Correct",
+      "quiz_selected_letter": "A",
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-003",
+      "example_file": "examples/nbme-gen-003.json",
+      "eval_file": null,
+      "sort_order": 3,
+      "hidden": false,
+      "quiz_outcome": "Incorrect",
+      "quiz_selected_letter": "D",
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-004",
+      "example_file": "examples/nbme-gen-004.json",
+      "eval_file": "eval-nbme-gen-004.json",
+      "sort_order": 4,
+      "hidden": false,
+      "quiz_outcome": "Correct",
+      "quiz_selected_letter": "B",
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-005",
+      "example_file": "nbme-gen-005.json",
+      "eval_file": null,
+      "sort_order": 5,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-006",
+      "example_file": "nbme-gen-006.json",
+      "eval_file": null,
+      "sort_order": 6,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-007",
+      "example_file": "nbme-gen-007.json",
+      "eval_file": null,
+      "sort_order": 7,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-008",
+      "example_file": "nbme-gen-008.json",
+      "eval_file": null,
+      "sort_order": 8,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-009",
+      "example_file": "nbme-gen-009.json",
+      "eval_file": null,
+      "sort_order": 9,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-010",
+      "example_file": "nbme-gen-010.json",
+      "eval_file": null,
+      "sort_order": 10,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-011",
+      "example_file": "nbme-gen-011.json",
+      "eval_file": null,
+      "sort_order": 11,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-012",
+      "example_file": "nbme-gen-012.json",
+      "eval_file": null,
+      "sort_order": 12,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-013",
+      "example_file": "nbme-gen-013.json",
+      "eval_file": null,
+      "sort_order": 13,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-014",
+      "example_file": "nbme-gen-014.json",
+      "eval_file": null,
+      "sort_order": 14,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-015",
+      "example_file": "nbme-gen-015.json",
+      "eval_file": null,
+      "sort_order": 15,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-016",
+      "example_file": "nbme-gen-016.json",
+      "eval_file": null,
+      "sort_order": 16,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-017",
+      "example_file": "nbme-gen-017.json",
+      "eval_file": null,
+      "sort_order": 17,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-018",
+      "example_file": "nbme-gen-018.json",
+      "eval_file": null,
+      "sort_order": 18,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-019",
+      "example_file": "nbme-gen-019.json",
+      "eval_file": null,
+      "sort_order": 19,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-020",
+      "example_file": "nbme-gen-020.json",
+      "eval_file": null,
+      "sort_order": 20,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-021",
+      "example_file": "nbme-gen-021.json",
+      "eval_file": null,
+      "sort_order": 21,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-022",
+      "example_file": "nbme-gen-022.json",
+      "eval_file": null,
+      "sort_order": 22,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-023",
+      "example_file": "nbme-gen-023.json",
+      "eval_file": null,
+      "sort_order": 23,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-024",
+      "example_file": "nbme-gen-024.json",
+      "eval_file": null,
+      "sort_order": 24,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-025",
+      "example_file": "nbme-gen-025.json",
+      "eval_file": null,
+      "sort_order": 25,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "question_id": "nbme-gen-026",
+      "example_file": "nbme-gen-026.json",
+      "eval_file": null,
+      "sort_order": 26,
+      "hidden": false,
+      "quiz_outcome": null,
+      "quiz_selected_letter": null,
+      "tags": [],
+      "notes": ""
+    }
+  ]
+}

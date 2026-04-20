@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-049",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["alcohol-withdrawal"],
+  "source_uworld": "2349",
+  "system": "Psychiatric/Behavioral & Substance Use Disorder",
+  "topic": "Alcohol Withdrawal Syndrome",
+  "subtopic": "Differential Diagnosis of Withdrawal Phases",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 52-year-old man is brought to the emergency department by his spouse after developing sudden onset of visual hallucinations. He has a 20-year history of heavy alcohol use, consuming approximately 12 standard drinks daily. He was admitted to the hospital 36 hours ago for a severe pneumonia and has not had any alcohol intake since admission. Vitals are: temperature 37.2°C, pulse 88/min, blood pressure 124/78 mmHg, respiratory rate 18/min, and oxygen saturation 96% on room air. On physical examination, the patient is alert and oriented to person, place, and time. He reports seeing 'small insects crawling on the walls' but is otherwise cooperative. There is no evidence of muscle rigidity or significant autonomic instability.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Alcoholic hallucinosis",
+    "B": "Delirium tremens",
+    "C": "Wernicke encephalopathy",
+    "D": "Withdrawal seizures",
+    "E": "Kuru"
+  },
+  "correct_answer": "A",
+  "explanation": "The patient is experiencing alcohol withdrawal in the form of alcoholic hallucinosis. This phase typically occurs 12–48 hours after the last drink and is characterized by visual, auditory, or tactile hallucinations in the presence of a clear sensorium (the patient remains alert and oriented). His vital signs are stable, and he is oriented, which strongly differentiates this from delirium tremens (DTs). DTS typically occur later (48–96 hours) and are marked by disorientation, confusion, and severe sympathetic hyperactivity (tachycardia, hypertension, fever). Wernicke encephalopathy presents with a triad of ataxia, ophthalmoplegia, and confusion, which are absent here. Withdrawal seizures are generalized tonic-clonic seizures, not hallucinations. Kuru is a rare prion disease causing cerebellar ataxia and emotional instability, unrelated to alcohol withdrawal.",
+  "teaching_point": "Alcoholic hallucinosis is characterized by hallucinations in an alert and oriented patient with stable vital signs, typically occurring 12–48 hours after alcohol cessation.",
+  "distractor_rationale": {
+    "A": "Correct: Hallucinations with intact orientation and stable vitals.",
+    "B": "Incorrect: DTs feature disorientation and sympathetic hyperactivity.",
+    "C": "Incorrect: Presents with confusion, ataxia, and eye movement abnormalities.",
+    "D": "Incorrect: Presents as tonic-clonic seizures.",
+    "E": "Incorrect: A prion disease not associated with acute alcohol withdrawal."
+  },
+  "tags": ["step2", "psychiatry", "alcohol-withdrawal", "differential-diagnosis"],
+  "review_status": "draft"
+}

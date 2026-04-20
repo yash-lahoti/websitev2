@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-060",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["infertility-evaluation"],
+  "source_uworld": "4194",
+  "system": "Female Reproductive System & Breast",
+  "topic": "Infertility Evaluation",
+  "subtopic": "Initial Workup",
+  "difficulty": "easy",
+  "question_type": "next-best-step",
+  "stem": "A 32-year-old woman and her 34-year-old husband come to the physician's office because they have been unable to conceive. They report having regular, unprotected intercourse for the past 14 months. The woman has regular menstrual cycles every 28 days and no known medical conditions. The husband is healthy and takes no medications. Physical examination of the woman is normal, and her pelvic examination shows no abnormalities. Both partners are eager to begin the diagnostic process to determine the cause of their infertility.",
+  "lead_in": "Which of the following is the most appropriate next step in the evaluation of this couple?",
+  "options": {
+    "A": "Basal body temperature charting",
+    "B": "Hysterosalpingogram",
+    "C": "Midluteal phase progesterone level",
+    "D": "Semen analysis",
+    "E": "Transvaginal ultrasonography"
+  },
+  "correct_answer": "D",
+  "explanation": "Infertility is defined as the inability to conceive after 12 months of regular, unprotected intercourse in women under 35. The initial evaluation of infertility should be performed concurrently for both partners, as male factor infertility is responsible for up to 40% of cases. Semen analysis is the primary initial test for the male partner because it is noninvasive, low-cost, and provides critical information on sperm concentration, motility, and morphology. While a hysterosalpingogram (B) and midluteal progesterone (C) are important parts of the female evaluation, a semen analysis is often prioritized or performed concurrently due to its high yield and ease of execution. Basal body temperature (A) is no longer recommended as a primary tool for confirming ovulation due to poor reliability compared to progesterone levels. Transvaginal ultrasonography (E) can be used for ovarian reserve or intrauterine anomalies but is not the first-line screening step for the couple as a whole.",
+  "teaching_point": "The initial evaluation of infertility should involve both partners concurrently, with semen analysis serving as the primary initial test for the male partner due to its ease and high diagnostic yield.",
+  "distractor_rationale": {
+    "A": "Incorrect: BBT is an unreliable method for confirming ovulation compared to progesterone.",
+    "B": "Incorrect: While used to check tube patency, it is generally performed alongside or after the simpler semen analysis.",
+    "C": "Incorrect: Used to confirm ovulation, but semen analysis is a critical and simple concurrent step for the partner.",
+    "D": "Correct: Noninvasive, low-cost, and identifies male factor infertility, which is common.",
+    "E": "Incorrect: Useful for specific anomalies, but not the first-line overall screening step for the couple."
+  },
+  "tags": ["step2", "obgyn", "infertility"],
+  "review_status": "draft"
+}

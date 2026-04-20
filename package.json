@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/build_manifest.js && vite",
+    "build": "node scripts/build_manifest.js && vite build",
     "preview": "vite preview",
-    "sync-snapfolio": "node sync-snapfolio.js"
+    "sync-snapfolio": "node sync-snapfolio.js",
+    "build-qbank": "node scripts/build_manifest.js"
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",

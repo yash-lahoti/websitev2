@@ -1,0 +1,33 @@
+{
+  "question_id": "nbme-gen-007",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["clinical-equipoise"],
+  "source_uworld": "107428",
+  "system": "Social Sciences (Ethics/Legal/Professional)",
+  "topic": "Clinical Equipoise",
+  "subtopic": "Research Ethics",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 58-year-old man is being evaluated in a cardiology clinic for chronic heart failure with reduced ejection fraction. Despite optimal medical therapy, he remains symptomatic. A multi-center randomized controlled trial is currently recruiting participants to compare a new, experimental heart failure medication with the current standard-of-care therapy. The lead investigator notes that several recent small-scale pilot studies have suggested the experimental drug is superior, although these results have not yet been widely accepted as definitive by the medical community. The patient expresses a strong desire to participate in the study to gain access to the potentially more effective medication.",
+  "lead_in": "Which of the following is the most appropriate ethical justification for the use of randomization in this study?",
+  "options": {
+    "A": "The patient's informed consent allows the investigator to bypass standard care",
+    "B": "The experimental drug has demonstrated superior efficacy in pilot studies",
+    "C": "There is genuine uncertainty among experts regarding the comparative efficacy of the treatments",
+    "D": "The study design ensures that the patient will eventually receive the superior treatment",
+    "E": "The trial is necessary to determine the exact dose of the experimental medication"
+  },
+  "correct_answer": "C",
+  "explanation": "The ethical justification for randomization in a clinical trial is the existence of clinical equipoise. Clinical equipoise is the state of genuine uncertainty within the expert medical community regarding the comparative effectiveness or safety of two or more acceptable treatments. If it were already definitively known that one treatment was superior, randomizing patients to an inferior arm would violate the physician's duty to provide the best possible care. In this scenario, while pilot studies suggest superiority, the fact that the results are not yet definitive or widely accepted means equipoise still exists, making randomization ethically permissible. Informed consent (A) does not override the ethical requirement for equipoise. The fact that a drug is suspected to be superior (B) is the reason for the trial, but the *justification* for randomization is the uncertainty (equipoise) surrounding that suspicion. Guaranteed future access (D) does not justify the current randomization to a potentially inferior arm. Dose determination (E) is a separate goal and does not provide the ethical basis for randomization between two active treatment arms.",
+  "teaching_point": "Randomization in a clinical trial is ethically permissible only if clinical equipoise exists, meaning there is genuine uncertainty among experts about the comparative effectiveness of the interventions.",
+  "distractor_rationale": {
+    "A": "Incorrect: Consent is necessary but not sufficient to justify the ethical risk of randomization if equipoise is absent.",
+    "B": "Incorrect: Superiority in pilot studies is the motivation for the trial; the ethical justification for randomization is the uncertainty remaining.",
+    "C": "Correct: This describes the state of clinical equipoise required for RCTs.",
+    "D": "Incorrect: Crossover designs may exist, but they do not provide the initial ethical justification for randomization.",
+    "E": "Incorrect: Dose-finding is a separate pharmacological goal and not the ethical basis for comparative randomization."
+  },
+  "tags": ["step2", "ethics", "clinical-equipoise", "research"],
+  "review_status": "draft",
+  "reviewer_notes": ""
+}

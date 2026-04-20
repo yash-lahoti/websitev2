@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-041",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["fetal-hydantoin-syndrome"],
+  "source_uworld": "2572",
+  "system": "Pregnancy, Childbirth & Puerperium",
+  "topic": "Fetal Hydantoin Syndrome",
+  "subtopic": "Clinical Recognition",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A neonate is born to a 28-year-old woman with a history of epilepsy who has been taking phenytoin for several years. The pregnancy was uncomplicated except for the mother's medication use, and she reports no other exposure to alcohol or tobacco. The infant is born at 39 weeks gestation via normal vaginal delivery. Vitals are: temperature 36.8°C, pulse 138/min, respiratory rate 44/min, and oxygen saturation 97% on room air. On physical examination, the newborn has a small head circumference and a wide anterior fontanelle. There is a unilateral cleft lip and a narrow, hypoplastic nail bed on the fifth digit of the right hand. Cardiac auscultation reveals a grade II/VI systolic murmur at the right upper sternal border. A cranial ultrasound shows a slightly reduced ventricular volume.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "ACE-inhibitor embryopathy",
+    "B": "Fetal alcohol syndrome",
+    "C": "Fetal hydantoin syndrome",
+    "D": "Phenylketonuria",
+    "E": "Warfarin embryopathy"
+  },
+  "correct_answer": "C",
+  "explanation": "The neonate exhibits several classic features of Fetal Hydantoin Syndrome, which results from in utero exposure to phenytoin. Key findings include microcephaly (small head circumference), a wide anterior fontanelle, cleft lip, and hypoplasia of the distal phalanges (narrow nail beds). The presence of a cardiac murmur may reflect an associated congenital heart defect, such as pulmonary stenosis. Fetal alcohol syndrome (FAS) also causes microcephaly and midfacial hypoplasia but typically does not include cleft lip or distal phalange hypoplasia. ACE-inhibitor embryopathy leads to renal dysgenesis, oligohydramnios, and Potter sequence (e.g., pulmonary hypoplasia), which are absent here. Warfarin embryopathy typically presents with nasal hypoplasia and stippled epiphyses. Phenylketonuria is a metabolic disorder and does not typically present with these structural malformations at birth.",
+  "teaching_point": "Fetal hydantoin syndrome is characterized by microcephaly, a wide anterior fontanelle, cleft lip/palate, and hypoplasia of the distal phalanges, typically resulting from in utero phenytoin exposure.",
+  "distractor_rationale": {
+    "A": "Causes renal failure and Potter sequence, not the craniofacial and extremity findings seen here.",
+    "B": "Features microcephaly and midfacial hypoplasia, but lacks cleft lip and distal phalange hypoplasia.",
+    "D": "A metabolic disorder that causes intellectual disability if untreated, not these structural malformations.",
+    "E": "Associated with nasal hypoplasia and stippled epiphyses."
+  },
+  "tags": ["step2", "pediatrics", "teratogens", "fetal-hydantoin-syndrome"],
+  "review_status": "draft"
+}

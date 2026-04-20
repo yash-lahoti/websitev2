@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-055",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["response-bias"],
+  "source_uworld": "2151",
+  "system": "Biostatistics & Epidemiology",
+  "topic": "Response Bias",
+  "subtopic": "Types of Survey Bias",
+  "difficulty": "easy",
+  "question_type": "mechanism",
+  "stem": "A research team is conducting a cross-sectional study to estimate the prevalence of illicit drug use among medical students at a large university. Participants are asked to complete an anonymous survey regarding their drug use history, including the frequency and types of substances used. Despite a high response rate of 95%, the researchers suspect that the reported prevalence of drug use is significantly lower than the actual prevalence in the population.",
+  "lead_in": "Which of the following most likely explains this finding?",
+  "options": {
+    "A": "Attrition bias",
+    "B": "Nonresponse bias",
+    "C": "Recall bias",
+    "D": "Response bias",
+    "E": "Selection bias"
+  },
+  "correct_answer": "D",
+  "explanation": "The researchers are observing a discrepancy between the reported and actual prevalence of a stigmatized behavior (illicit drug use), despite a high response rate. This is a classic example of response bias, which occurs when participants provide inaccurate or untruthful answers—often to make themselves appear more desirable or to avoid the stigma associated with sensitive topics. This leads to an underestimation of the prevalence of the behavior in question. Nonresponse bias (B) occurs when those who do not participate in a study differ systematically from those who do; however, in this case, the response rate is very high (95%), making nonresponse bias unlikely. Recall bias (C) involves inaccurate remembrance of past events, typically in case-control studies. Attrition bias (A) refers to the loss of participants over time in longitudinal studies. Selection bias (E) occurs when the study population is not representative of the general population due to the way they were recruited.",
+  "teaching_point": "Response bias occurs when survey participants provide inaccurate or socially desirable answers to sensitive questions, leading to inaccurate data regardless of the response rate.",
+  "distractor_rationale": {
+    "A": "Occurs in longitudinal studies when participants drop out systematically.",
+    "B": "Occurs when the non-respondents differ from the respondents; unlikely with a 95% response rate.",
+    "C": "Involves failure to accurately recall past events, common in retrospective studies.",
+    "D": "Correct: Participants provide inaccurate answers to avoid stigma.",
+    "E": "Occurs when the sample is not representative of the target population."
+  },
+  "tags": ["step2", "biostats", "epidemiology", "response-bias"],
+  "review_status": "draft"
+}

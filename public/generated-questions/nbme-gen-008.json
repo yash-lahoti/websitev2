@@ -1,0 +1,33 @@
+{
+  "question_id": "nbme-gen-008",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["cocaine-mi"],
+  "source_uworld": "3188",
+  "system": "Cardiovascular",
+  "topic": "Cocaine-Induced Coronary Ischemia",
+  "subtopic": "Management",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 28-year-old man is brought to the emergency department by his friends for acute onset of substernal chest pressure. He reports that the symptoms began approximately 30 minutes ago after a party. On physical examination, he is agitated and diaphoretic. His temperature is 37.2°C, pulse is 118/min, blood pressure is 172/96 mmHg, and respiratory rate is 22/min. Lung auscultation is normal. An electrocardiogram shows 2-mm ST-segment elevation in leads V1 through V4. A urine toxicology screen is positive for cocaine.",
+  "lead_in": "Which of the following is the most appropriate next step in the pharmacological management of this patient's agitation and hypertension?",
+  "options": {
+    "A": "Atenolol",
+    "B": "Diazepam",
+    "C": "Esmolol",
+    "D": "Labetalol",
+    "E": "Propranolol"
+  },
+  "correct_answer": "B",
+  "explanation": "This patient has a cocaine-induced myocardial infarction (STEMI) presenting with sympathetic hyperactivity (tachycardia, hypertension, and agitation). The most appropriate next step for managing the sympathetic surge in cocaine toxicity is the administration of intravenous benzodiazepines, such as diazepam or lorazepam. Benzodiazepines reduce the central sympathetic drive, which decreases heart rate, blood pressure, and agitation, thereby reducing myocardial oxygen demand. Beta-blockers (A, C, D, E) are generally avoided in the acute phase of cocaine toxicity due to the risk of 'unopposed alpha-stimulation.' By blocking beta-2-mediated vasodilation while alpha-1-mediated vasoconstriction remains active, beta-blockers can theoretically worsen coronary artery vasoconstriction and exacerbate myocardial ischemia.",
+  "teaching_point": "Intravenous benzodiazepines are the first-line treatment for sympathetic hyperactivity in cocaine toxicity to reduce myocardial oxygen demand and avoid the risk of unopposed alpha-stimulation associated with beta-blockers.",
+  "distractor_rationale": {
+    "A": "Incorrect: Beta-1 selective blockers still risk unopposed alpha-stimulation in severe toxicity.",
+    "B": "Correct: Benzodiazepines are first-line for agitation and sympathomimetic surge.",
+    "C": "Incorrect: Esmolol is a rapid-acting beta-blocker and is contraindicated for the same reasons as other beta-blockers.",
+    "D": "Incorrect: Although labetalol has some alpha-blocking activity, pure beta-blockade is still avoided in favor of benzodiazepines.",
+    "E": "Incorrect: Non-selective beta-blockade is strongly contraindicated due to the risk of paradoxical hypertension."
+  },
+  "tags": ["step2", "cardiology", "cocaine", "toxicity", "mi"],
+  "review_status": "draft",
+  "reviewer_notes": ""
+}

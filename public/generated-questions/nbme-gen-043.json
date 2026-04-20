@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-043",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["prevalence-vs-incidence"],
+  "source_uworld": "4172",
+  "system": "Biostatistics & Epidemiology",
+  "topic": "Prevalence vs Incidence",
+  "subtopic": "Disease Duration and Prevalence",
+  "difficulty": "medium",
+  "question_type": "mechanism",
+  "stem": "A public health researcher is studying the epidemiology of a chronic autoimmune condition in a stable city population. Over a ten-year period, the researcher observes that the number of new cases diagnosed each year has remained constant. However, the total number of individuals living with the condition in the city has significantly increased. During the same interval, the introduction of a new systemic therapy has been shown to significantly reduce the mortality rate of the condition without providing a complete cure. The researcher concludes that the change in the population data is a direct result of the new therapeutic intervention.",
+  "lead_in": "Which of the following best explains the observed change in the epidemiological data?",
+  "options": {
+    "A": "An increase in the incidence of the condition",
+    "B": "A decrease in the average duration of the disease",
+    "C": "An increase in the average duration of the disease",
+    "D": "An increase in the diagnostic sensitivity for the condition",
+    "E": "A decrease in the prevalence of the condition"
+  },
+  "correct_answer": "C",
+  "explanation": "The scenario describes a stable incidence (number of new cases each year remains constant) but an increasing prevalence (total number of existing cases is increasing). In a stable population, prevalence is approximately equal to the product of incidence and the average duration of the disease (Prevalence $\\approx$ Incidence $\\times$ Duration). Therefore, if incidence is stable and prevalence increases, the average duration of the disease must have increased. This is consistent with the introduction of a new therapy that reduces mortality, allowing patients to live longer with the condition, thereby increasing the disease duration. An increase in incidence (A) would have resulted in more new cases per year. A decrease in duration (B) would have decreased prevalence. Increased diagnostic sensitivity (D) would typically increase both incidence and prevalence. A decrease in prevalence (E) contradicts the observed data.",
+  "teaching_point": "In a stable population, prevalence increases when the average duration of the disease increases, even if the incidence remains constant.",
+  "distractor_rationale": {
+    "A": "Incorrect because the number of new cases per year was explicitly stated as constant.",
+    "B": "A shorter disease duration would lead to a decrease in prevalence, not an increase.",
+    "D": "Increased sensitivity would typically increase the number of new cases (incidence).",
+    "E": "The data shows the total number of cases increased, which is an increase in prevalence."
+  },
+  "tags": ["step2", "biostats", "prevalence-vs-incidence", "epidemiology"],
+  "review_status": "draft"
+}

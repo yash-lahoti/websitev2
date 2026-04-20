@@ -1,0 +1,32 @@
+{
+  "question_id": "nbme-gen-061",
+  "generated_date": "2026-04-06",
+  "source_concepts": ["leriche-syndrome"],
+  "source_uworld": "4508",
+  "system": "Cardiovascular System",
+  "topic": "Leriche Syndrome",
+  "subtopic": "Clinical Presentation",
+  "difficulty": "medium",
+  "question_type": "most-likely-diagnosis",
+  "stem": "A 62-year-old man is brought to the physician by his wife because of progressive difficulty walking and recent onset of sexual dysfunction. He reports that for the past year, he experiences cramping pain in his hips and thighs whenever he walks more than two blocks, which resolves within minutes of resting. He also mentions that he has been unable to achieve an erection for several months. He has a 40-pack-year smoking history and a history of hypertension and type 2 diabetes mellitus. Physical examination shows a blood pressure of 152/92 mmHg and a pulse of 78/min. Femoral pulses are significantly diminished bilaterally. Distal pulses are absent in both lower extremities. Neurologic examination of the lower extremities is normal, and there is no evidence of spinal tenderness.",
+  "lead_in": "Which of the following is the most likely diagnosis?",
+  "options": {
+    "A": "Andropause",
+    "B": "Buerger disease",
+    "C": "Leriche syndrome",
+    "D": "Neurogenic erectile dysfunction",
+    "E": "Peripheral artery disease (tibio-peroneal)"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient presents with the classic clinical triad of Leriche syndrome: bilateral hip/thigh claudication, diminished femoral pulses, and erectile dysfunction. This syndrome is caused by atherosclerotic occlusion of the aortic bifurcation into the common iliac arteries. The occlusion prevents adequate blood flow to the lower extremities (causing claudication and pulse deficits) and the internal iliac/internal pudendal arteries (causing ED). Buerger disease (B) typically affects young smokers and involves distal vessels (fingers/toes) rather than the aortoiliac bifurcation. Andropause (A) and neurogenic causes (D) could explain the ED but would not cause bilateral hip claudication or diminished femoral pulses. General peripheral artery disease (E) involving distal vessels (tibio-peroneal) would typically preserve the femoral pulses.",
+  "teaching_point": "Leriche syndrome is characterized by a triad of bilateral claudication of the hips/thighs, diminished femoral pulses, and erectile dysfunction due to aortoiliac occlusion.",
+  "distractor_rationale": {
+    "A": "Incorrect: Hormonal deficiency does not explain the vascular symptoms (claudication, pulse deficit).",
+    "B": "Incorrect: Typically affects smaller distal arteries in young smokers; femoral pulses would usually be preserved.",
+    "C": "Correct: Fits the triad of bilateral hip claudication, diminished femoral pulses, and ED.",
+    "D": "Incorrect: Neurologic causes of ED do not present with vascular claudication and diminished femoral pulses.",
+    "E": "Incorrect: Distal PAD would not explain the loss of proximal femoral pulses or the specific pattern of gluteal/thigh claudication."
+  },
+  "tags": ["step2", "surgery", "vascular", "leriche-syndrome"],
+  "review_status": "draft"
+}

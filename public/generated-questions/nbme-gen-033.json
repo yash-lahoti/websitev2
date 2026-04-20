@@ -1,0 +1,31 @@
+{
+  "question_id": "nbme-gen-033",
+  "generated_date": "2026-04-05",
+  "source_concepts": ["first-seizure-workup"],
+  "source_uworld": "110558",
+  "system": "Neurology",
+  "topic": "First-Time Seizure Workup",
+  "subtopic": "Structural Lesion Indicators",
+  "difficulty": "medium",
+  "question_type": "next-best-step",
+  "stem": "A 54-year-old man is brought to the emergency department by his wife after witnessing a seizure. He was sitting in a chair when his right arm began shaking rhythmically, followed by a loss of consciousness and generalized tonic-clonic activity lasting approximately two minutes. He has a medical history of adenocarcinoma of the lung, currently treated with pembrolizumab. Vitals are: temperature 37.2°C, pulse 88/min, blood pressure 135/85 mmHg, respiratory rate 16/min, and oxygen saturation 96% on room air. On physical examination, he is drowsy but oriented to person and place. Neurologic examination reveals 4/5 strength in the right upper extremity, with all other strengths, reflexes, and cranial nerves intact. Serum glucose is 92 mg/dL and serum sodium is 138 mEq/L.",
+  "lead_in": "Which of the following is the most appropriate next step in the evaluation of this patient?",
+  "options": {
+    "A": "Electromyography and nerve conduction studies",
+    "B": "Lumbar puncture for cerebrospinal fluid analysis",
+    "C": "Magnetic resonance imaging of the brain",
+    "D": "Observation and initiation of levetiracetam",
+    "E": "Electroencephalography"
+  },
+  "correct_answer": "C",
+  "explanation": "The patient presented with a focal-onset seizure (right arm shaking) and persistent focal neurologic deficits (right upper extremity weakness), both of which are 'red flags' for a structural brain lesion. Given his history of lung adenocarcinoma, brain metastases are highly likely. MRI brain is the gold standard for identifying small metastases and structural abnormalities, offering superior sensitivity over CT. EEG is used to classify seizure types but does not identify the structural cause. Lumbar puncture is indicated for suspected meningitis or encephalitis, which is not suggested by the patient's stable vitals and focal presentation. EMG/NCS are used for peripheral nerve or muscle disorders, not cortical seizures.",
+  "teaching_point": "In adults with a first-time seizure, focal onset, focal neurologic deficits, or a history of malignancy are strong indicators of a structural lesion requiring urgent neuroimaging, preferably MRI.",
+  "distractor_rationale": {
+    "A": "Used for peripheral neuropathy or myopathy, not brain lesions.",
+    "B": "Indicated for infectious or inflammatory processes, not structural lesions.",
+    "D": "Antiepileptic drugs are typically started after a second seizure or if structural lesions are found.",
+    "E": "Useful for seizure classification but cannot rule out or identify structural lesions."
+  },
+  "tags": ["step2", "neurology", "first-seizure-workup", "brain-metastases"],
+  "review_status": "draft"
+}
