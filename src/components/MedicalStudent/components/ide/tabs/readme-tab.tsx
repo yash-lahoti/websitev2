@@ -117,7 +117,7 @@ export function ReadmeTab() {
 
         {/* Oculomics Foundation Model – compact glass tile */}
         <motion.a
-          href="https://sinai-barry-center-hub-qmed.vercel.app"
+          href="https://sinai-barry-center-hub.vercel.app/login"
           target="_blank"
           rel="noopener noreferrer"
           className="group mb-4 inline-flex items-center gap-3 rounded-lg border border-primary/25 bg-background/40 px-3 py-2 text-xs md:text-sm shadow-sm backdrop-blur-sm hover:border-primary/60 hover:bg-primary/10 transition-colors cursor-pointer"
@@ -140,6 +140,10 @@ export function ReadmeTab() {
               </p>
               <p className="mt-[2px] truncate text-[11px] text-muted-foreground">
                 Click to open the live OPTIC-Dx initiative.
+              </p>
+              <p className="mt-[2px] text-[10px] text-muted-foreground/90">
+                Username: <span className="font-mono text-foreground/90">foundation-model-proposal</span> · Password:{" "}
+                <span className="font-mono text-foreground/90">OphthoSinaiAI</span>
               </p>
             </div>
             <span className="shrink-0 inline-flex items-center gap-1 text-[11px] text-primary underline decoration-primary/60 underline-offset-2 group-hover:decoration-primary">
