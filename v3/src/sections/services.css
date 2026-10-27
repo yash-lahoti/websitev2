@@ -1,0 +1,23 @@
+.svc { padding: clamp(80px, 12vh, 140px) var(--gutter) clamp(100px, 16vh, 180px); isolation: isolate; }
+.svc__head { text-align: center; display: grid; gap: 16px; justify-items: center; margin-bottom: clamp(36px, 5vh, 64px); }
+.svc__title { font-size: clamp(30px, 3.6vw, 54px); letter-spacing: -0.02em; color: var(--ink); }
+.svc__sub { max-width: 64ch; color: var(--ink-3); line-height: 1.7; font-size: 10.5px; }
+.svc__list { max-width: 1180px; margin: 0 auto; display: grid; gap: 12px; }
+.svc__row {
+  border-radius: 14px; background: var(--paper-2); color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(18,18,18,0.06);
+  overflow: hidden; transition: background-color 0.45s var(--ease-out), color 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+}
+.svc__row.is-open { background: var(--ink); color: var(--chalk); box-shadow: 0 24px 60px rgba(18,18,18,0.25); transform: scale(1.01); }
+.svc__trigger { width: 100%; height: 64px; display: grid; grid-template-columns: 40px 1fr 40px; align-items: center; padding: 0 16px; text-align: center; }
+.svc__n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; box-shadow: inset 0 0 0 1px currentColor; opacity: 0.6; }
+.svc__name { font-size: 11px; letter-spacing: 0.16em; font-weight: 500; }
+.svc__chev { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; justify-self: end; opacity: 0.6; transition: transform 0.45s var(--ease-out); }
+.svc__row.is-open .svc__chev { transform: rotate(180deg); box-shadow: inset 0 0 0 1px currentColor; }
+.svc__panel { height: 0; opacity: 0; overflow: hidden; }
+.svc__panel-in { padding: 4px 24px 22px; display: grid; gap: 18px; }
+.svc__body { font-size: 14px; line-height: 1.55; color: var(--chalk-2); max-width: 90ch; }
+.svc__foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.svc__deliv { font-size: 9.5px; color: var(--chalk-2); }
+.svc__inquire { font-size: 10px; border-bottom: 1px solid currentColor; padding-bottom: 2px; color: var(--chalk); }
+@media (max-width: 760px) { .svc__trigger { grid-template-columns: 32px 1fr 32px; padding: 0 12px; } .svc__name { font-size: 10px; } }

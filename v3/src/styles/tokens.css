@@ -1,0 +1,39 @@
+:root {
+  /* colour — strict monochrome */
+  --paper: #efede8;
+  --paper-2: #e6e4de;
+  --paper-3: #d9d7d0;
+  --ink: #121212;
+  --ink-2: #3a3a38;
+  --ink-3: #8a8a86;
+  --night: #0b0b0d;
+  --night-2: #141518;
+  --night-3: #1e1f23;
+  --chalk: #f4f3ef;
+  --chalk-2: #b9b8b3;
+  --chalk-3: #6f6f6c;
+  --ghost: rgba(244, 243, 239, 0.07);
+
+  /* type */
+  --font-display: 'Archivo', 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fs-hero: clamp(40px, 11.2vw, 176px);
+  --fs-h2: clamp(44px, 6.4vw, 96px);
+  --fs-talk: clamp(44px, 12vw, 190px);
+  --fs-label: clamp(22px, 2.6vw, 38px);
+  --fs-body: clamp(14px, 1.1vw, 17px);
+  --fs-mono: 11px;
+
+  /* space & shape */
+  --gutter: clamp(20px, 3.2vw, 48px);
+  --nav-h: 64px;
+  --r-pill: 999px;
+  --r-card: 18px;
+  --r-card-sm: 12px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.83, 0, 0.17, 1);
+}

@@ -1,0 +1,24 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--night);
+  display: grid;
+  place-items: center;
+  color: var(--chalk);
+}
+.preloader__stage { position: relative; width: 520px; height: 400px; max-width: 100vw; display: grid; place-items: center; }
+.preloader__ring { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55)); }
+.preloader__dot { filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 14px rgba(255, 255, 255, 0.8)); }
+.preloader__word {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 44px;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+  display: inline-flex;
+  align-items: baseline;
+}
+.preloader__period { display: inline-block; margin-left: 0.18em; }

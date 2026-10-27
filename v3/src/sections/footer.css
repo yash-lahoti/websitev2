@@ -1,0 +1,24 @@
+.ft { position: sticky; bottom: 0; z-index: 0; height: 100svh; background: var(--night-2); color: var(--chalk); overflow: hidden; }
+.ft__in { position: relative; height: 100%; display: grid; place-content: center; justify-items: center; gap: clamp(28px, 5vh, 56px); padding: var(--gutter); }
+.ft__talk {
+  font-size: var(--fs-talk); letter-spacing: -0.04em; line-height: 0.9; text-align: center;
+  color: var(--chalk);
+  overflow: hidden; padding-bottom: 0.08em;
+}
+.ft__talk .word { display: inline-block; white-space: nowrap; }
+.ft__talk .char {
+  display: inline-block; will-change: transform;
+  background: linear-gradient(180deg, #ffffff 0%, #dadad6 55%, #8e8e8a 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ft__links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.ft__pill { height: 38px; padding: 0 18px; font-size: 10px; }
+.ft__legal { position: absolute; bottom: calc(var(--gutter) + 4px); color: var(--chalk-3); font-size: 9.5px; }
+.ft__legal--l { left: var(--gutter); }
+.ft__legal--r { right: var(--gutter); }
+
+@media (max-width: 760px) {
+  .ft__in { gap: 28px; }
+  .ft__legal { position: static; text-align: center; }
+  .ft__legal--l { margin-top: 24px; }
+}

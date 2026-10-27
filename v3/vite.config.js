@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: { port: 5174, strictPort: false },
+  build: {
+    target: 'es2020',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three', '@react-three/fiber'],
+          gsap: ['gsap', 'gsap/ScrollTrigger', 'gsap/SplitText', 'gsap/DrawSVGPlugin', 'gsap/MotionPathPlugin'],
+        },
+      },
+    },
+  },
+})
