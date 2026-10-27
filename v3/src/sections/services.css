@@ -19,5 +19,5 @@
 .svc__body { font-size: 14px; line-height: 1.55; color: var(--chalk-2); max-width: 90ch; }
 .svc__foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
 .svc__deliv { font-size: 9.5px; color: var(--chalk-2); }
-.svc__inquire { font-size: 10px; border-bottom: 1px solid currentColor; padding-bottom: 2px; color: var(--chalk); }
+.svc__inquire { font-size: 10px; color: var(--night); background: var(--chalk); border-radius: 999px; height: 32px; padding: 0 16px; display: inline-flex; align-items: center; gap: 6px; }
 @media (max-width: 760px) { .svc__trigger { grid-template-columns: 32px 1fr 32px; padding: 0 12px; } .svc__name { font-size: 10px; } }

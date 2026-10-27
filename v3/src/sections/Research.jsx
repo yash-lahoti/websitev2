@@ -7,42 +7,68 @@ import { useCardTextures } from '../lib/use-card-textures'
 import './research.css'
 
 /*
- * Concave "curved wall" carousel: cards are cylinder segments on the inside of a cylinder
- * of radius R; the camera sits inside, slightly forward of centre, looking at the back wall.
- * Side cards therefore bend toward the viewer — matching reference frames 51–74.
+ * "Wavy ribbon" carousel (reference frames 51–74). Cards sit side by side on a ribbon that:
+ *   • curves away from the viewer at both ends (convex arc, radius R) so edge cards shrink,
+ *   • ramps vertically in an S: left end dips, right end rises, centre flat (cubic in angle),
+ *   • bends each card's geometry along that path, so the tops of edge cards read as curved.
+ * The ribbon shape is fixed in screen space; scrolling slides the cards along it.
  */
 const N = research.items.length
-const R = 5.0
-const STEP = THREE.MathUtils.degToRad(44)      // angular spacing between cards
-const ARC = THREE.MathUtils.degToRad(34)       // angular width of one card
-const CARD_H = R * ARC * 0.62                  // keep 16:10
+const R = 6.0
+const STEP = THREE.MathUtils.degToRad(31)   // angular spacing between card centres
+const ARC = THREE.MathUtils.degToRad(27)    // angular width of one card
+const CARD_H = R * ARC * 0.6                // ≈16:10 before bending
+const RAMP = 1.1                            // vertical offset at ±90°
+const SEG = 32
 
-function Wall({ progress, drag }) {
-  const group = useRef()
-  const textures = useCardTextures(research.items, 'pub', { mirror: true })
-  const { camera } = useThree()
-  useEffect(() => { camera.position.set(0, 0, 2.2); camera.lookAt(0, 0, -R) }, [camera])
-  const geo = useMemo(() => new THREE.CylinderGeometry(R, R, CARD_H, 32, 1, true, -ARC / 2, ARC), [])
+function ribbonPoint(theta, v, out) {
+  // theta: angle along ribbon (0 = front/centre), v: -0.5..0.5 across height
+  const t = theta / (Math.PI / 2)
+  const y = RAMP * t * t * t + v * CARD_H
+  out.set(Math.sin(theta) * R, y, Math.cos(theta) * R - R)
+  return out
+}
+
+function Card({ index, texture, offset }) {
+  const mesh = useRef()
+  const geo = useMemo(() => new THREE.PlaneGeometry(1, 1, SEG, 4), [])
+  const tmp = useMemo(() => new THREE.Vector3(), [])
   useFrame(() => {
-    if (!group.current) return
-    // card i sits at angle a_i = π + i*STEP (π = back wall, facing the camera). Rotate so the
-    // active card is at the back.
-    const target = -progress.current * STEP * (N - 1) + drag.current
-    group.current.rotation.y += (target - group.current.rotation.y) * 0.12
-    group.current.children.forEach((m, i) => {
-      const a = group.current.rotation.y + i * STEP // 0 = back wall
-      const d = Math.abs(((a + Math.PI) % (Math.PI * 2)) - Math.PI) // angular distance from back
-      m.material.opacity = THREE.MathUtils.clamp(1.05 - d * 0.55, 0.15, 1)
-    })
+    const pos = geo.attributes.position
+    const center = (index * STEP) + offset.current
+    for (let i = 0; i < pos.count; i++) {
+      const u = geo.attributes.uv.getX(i) - 0.5    // -0.5..0.5 along width
+      const v = geo.attributes.uv.getY(i) - 0.5
+      ribbonPoint(center + u * ARC, v, tmp)
+      pos.setXYZ(i, tmp.x, tmp.y, tmp.z)
+    }
+    pos.needsUpdate = true
+    geo.computeVertexNormals()
+    // fade with distance from centre
+    const d = Math.abs(center)
+    const far = THREE.MathUtils.degToRad(72)
+    mesh.current.material.opacity = d > far ? 0 : THREE.MathUtils.clamp(1.1 - d * 0.5, 0.25, 1)
+    mesh.current.visible = d <= far
   })
   return (
-    <group ref={group}>
-      {research.items.map((it, i) => (
-        // CylinderGeometry's thetaStart=0 faces +Z; rotate by π + i*STEP to put card i on the back wall.
-        <mesh key={it.id} geometry={geo} rotation={[0, Math.PI + i * STEP, 0]}>
-          <meshBasicMaterial map={textures[i]} transparent toneMapped={false} side={THREE.BackSide} />
-        </mesh>
-      ))}
+    <mesh ref={mesh} geometry={geo} frustumCulled={false}>
+      <meshBasicMaterial map={texture} transparent toneMapped={false} side={THREE.DoubleSide} />
+    </mesh>
+  )
+}
+
+function Ribbon({ progress, drag }) {
+  const textures = useCardTextures(research.items, 'pub')
+  const offset = useRef(0)
+  const { camera } = useThree()
+  useEffect(() => { camera.position.set(0, 0.05, 7.2); camera.lookAt(0, -0.05, 0) }, [camera])
+  useFrame(() => {
+    const target = -progress.current * STEP * (N - 1) + drag.current
+    offset.current += (target - offset.current) * 0.16
+  })
+  return (
+    <group>
+      {research.items.map((it, i) => (<Card key={it.id} index={i} texture={textures[i]} offset={offset} />))}
     </group>
   )
 }
@@ -77,7 +103,7 @@ export default function Research() {
     let down = false, sx = 0
     const el = root.current
     const onDown = (e) => { down = true; sx = e.clientX }
-    const onMove = (e) => { if (!down) return; drag.current = ((e.clientX - sx) / window.innerWidth) * 1.0 }
+    const onMove = (e) => { if (!down) return; drag.current = ((e.clientX - sx) / window.innerWidth) * 0.9 }
     const onUp = () => { down = false; gsap.to(drag, { current: 0, duration: 0.8, ease: 'power3.out' }) }
     el.addEventListener('pointerdown', onDown); window.addEventListener('pointermove', onMove); window.addEventListener('pointerup', onUp)
     return () => { ctx.revert(); el.removeEventListener('pointerdown', onDown); window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp) }
@@ -96,9 +122,9 @@ export default function Research() {
       <div className="grain" />
       <h2 className="rs__title display">{research.title}</h2>
       <div className="rs__canvas">
-        <Canvas dpr={dpr} camera={{ fov: 34, near: 0.1, far: 100 }} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}>
+        <Canvas dpr={dpr} camera={{ fov: 32, near: 0.1, far: 100 }} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}>
           <Suspense fallback={null}>
-            <Wall progress={progress} drag={drag} />
+            <Ribbon progress={progress} drag={drag} />
           </Suspense>
         </Canvas>
       </div>

@@ -37,6 +37,12 @@ boring portfolio websites") frame by frame, with Yash's content, in a deploy-rea
   via `progress()` in tests instead.
 - Vite walks up to the parent repo's `postcss.config.cjs`; a local `postcss.config.js` isolates v3.
 
+**Second pass (same day).** Yash shared an independent 2 fps analysis (`v3/docs/REFERENCE-ANALYSIS-2.md`).
+Cross-checked against the 4 fps frames: adopted the wavy-ribbon reading for the Featured
+Project carousel (now a convex ribbon with an S ramp and bent card geometry), a navy tint for
+dark sections, a brighter About card border and a pill CTA in Services. Kept the hexagon→drum
+reading for Works '26, which the 4 fps frames show unambiguously.
+
 **Open questions for Yash.**
 1. Wordmark: `YASH.` is used as the brand (reference: `ECHO.`). Prefer `LAHOTI.` or `YL.`?
 2. Hero portrait: the transparent headshot is used as a silhouette. A dedicated

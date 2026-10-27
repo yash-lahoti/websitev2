@@ -46,11 +46,13 @@ Swirl background: 1.0× → 1.08× scale over the pin; brightness 0.9 → 0.7 as
 * Bottom-left tabs highlight the category of the active panel.
 
 ## 4. Publications carousel (pinned, 400 vh)
-* R3F scene: 6 **cylinder segments** (radius `R = 5`, arc 34°, spaced 44°) on the *inside* of a
-  cylinder; the camera sits inside at `z = 2.2` looking at the back wall (fov 34). Side cards
-  therefore bend toward the viewer, exactly like the reference's curved "screen".
-* Scroll rotates the group `rotation.y = -p * 44° * (N-1)`; the group eases toward the target
-  at 12 %/frame (inertia). Horizontal drag nudges ±1 rad and springs back.
+* R3F scene: 6 cards on a **wavy ribbon**. The ribbon is a convex arc (radius `R = 6`, cards
+  27° wide, spaced 31°) so both ends recede and shrink, plus a vertical S ramp
+  `y = 1.1·(θ/90°)³` so the left end dips and the right end rises while the centre stays flat.
+  Each card is a 32-segment plane whose vertices are re-projected onto that path every frame,
+  which gives the curved card tops seen in frames 52–56. Cards beyond ±72° are hidden.
+* Scroll slides the cards along the ribbon: `offset = -p · 31° · (N-1)`, eased at 16 %/frame.
+  Horizontal drag nudges ±0.9 rad and springs back.
 * Active index = round(p * (N-1)); caption (title, subtitle, `01 / 06`) crossfades
   (`opacity 0→1, y 8→0`, 0.35 s) on change.
 * Side planes are tilted by `rotation.y` naturally; add `material.opacity` falloff
