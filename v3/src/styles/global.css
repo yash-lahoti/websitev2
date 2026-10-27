@@ -94,6 +94,10 @@ section { position: relative; }
 }
 .theme-dark .grain { mix-blend-mode: screen; opacity: 0.05; }
 
+@media (max-width: 860px) {
+  .page__main { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }

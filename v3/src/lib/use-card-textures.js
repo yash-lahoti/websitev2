@@ -1,11 +1,15 @@
 import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
-import { renderCard } from './card-texture'
+import { renderCard, renderLectureCard } from './card-texture'
+import { renderPage } from './pdf'
 
 /* Synchronously creates CanvasTextures (so the first render already has maps),
-   then upgrades them when the optional raster images finish loading. */
+   then upgrades them when the optional raster images (or PDF covers) finish loading. */
 export function useCardTextures(items, kind, { mirror = false } = {}) {
-  const made = useMemo(() => items.map((it) => renderCard(it, { kind })), [items, kind])
+  const made = useMemo(
+    () => items.map((it) => (kind === 'lecture' ? renderLectureCard(it, () => renderPage(it.src, 1, 1280)) : renderCard(it, { kind }))),
+    [items, kind],
+  )
   const textures = useMemo(
     () =>
       made.map((m) => {

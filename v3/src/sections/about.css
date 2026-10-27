@@ -13,6 +13,7 @@
   transform-origin: 50% 50%;
   will-change: transform;
   display: grid;
+  container-type: size;
 }
 .about__photo {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 42% 50%;
@@ -36,7 +37,7 @@
 }
 .about__words {
   position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
-  font-size: clamp(76px, 10vw, 160px); line-height: 0.86; color: var(--chalk);
+  font-size: min(15cqw, 30cqh); line-height: 0.86; color: var(--chalk); white-space: nowrap;
   text-shadow: 0 0 40px rgba(255,255,255,0.25);
 }
 .about__wordA, .about__wordB { display: block; will-change: transform; }
@@ -62,7 +63,6 @@
 
 @media (max-width: 760px) {
   .about__card { width: calc(100vw - 2 * var(--gutter)); height: 72svh; }
-  .about__words { font-size: 22vw; }
   .about__headline { max-width: 80%; }
   .about__locale { display: none; }
   .about__bottom { grid-template-columns: 1fr; gap: 16px; }

@@ -3,8 +3,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
+import { useGSAP } from '@gsap/react'
 
-gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MotionPathPlugin)
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText, DrawSVGPlugin, MotionPathPlugin)
 
 gsap.defaults({ ease: 'power3.out', duration: 0.8 })
 ScrollTrigger.config({ ignoreMobileResize: true })
@@ -12,7 +13,7 @@ ScrollTrigger.config({ ignoreMobileResize: true })
 export const reducedMotion =
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export { gsap, ScrollTrigger, SplitText }
+export { gsap, ScrollTrigger, SplitText, useGSAP }
 
 // test hook (used by tests/visual.mjs to step pinned timelines deterministically)
 if (typeof window !== 'undefined') window.__ST = ScrollTrigger
