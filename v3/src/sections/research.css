@@ -1,9 +1,16 @@
 .rs { height: 100svh; overflow: hidden; isolation: isolate; }
 .rs__title { position: absolute; top: calc(var(--nav-h) + 10px); left: var(--gutter); font-size: clamp(22px, 2.4vw, 34px); letter-spacing: -0.02em; color: var(--ink); z-index: 2; }
-.rs__canvas { position: absolute; inset: 0; z-index: 1; cursor: grab; }
+.rs__canvas { position: absolute; inset: 0; z-index: 1; cursor: pointer; }
 .rs__canvas:active { cursor: grabbing; }
-.rs__caption { position: absolute; left: 50%; top: 79%; transform: translateX(-50%); text-align: center; z-index: 2; display: grid; gap: 4px; pointer-events: none; }
-.rs__cap-title { font-size: 14px; font-weight: 600; color: var(--ink); }
-.rs__cap-sub { font-size: 12px; color: var(--ink-3); }
+.rs__caption { position: absolute; left: 50%; top: 74%; transform: translateX(-50%); width: min(560px, 90vw); text-align: center; z-index: 2; display: grid; justify-items: center; gap: 6px; pointer-events: none; }
+.rs__cap-meta { color: var(--ink-3); font-size: 10px; }
+.rs__cap-title { font-family: var(--font-display); font-weight: 800; font-stretch: 108%; font-size: clamp(18px, 1.6vw, 24px); letter-spacing: -0.015em; color: var(--ink); }
+.rs__cap-sub { font-size: 13px; color: var(--ink-2); max-width: 52ch; text-wrap: balance; }
+.rs__enter { pointer-events: auto; margin-top: 10px; height: 38px; }
 .rs__cap-n { color: var(--ink-3); font-size: 10px; margin-top: 4px; }
 .rs__label { position: absolute; left: var(--gutter); bottom: var(--gutter); font-size: var(--fs-label); letter-spacing: -0.02em; color: var(--ink); z-index: 2; }
+
+@media (max-width: 760px) {
+  .rs__caption { top: 68%; }
+  .rs__cap-sub { display: none; }
+}

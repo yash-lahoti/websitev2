@@ -22,15 +22,15 @@ export default function About() {
         scrollTrigger: {
           trigger: root.current,
           start: 'top top',
-          end: '+=300%',
+          end: '+=140%',
           pin: true,
-          scrub: 0.6,
+          scrub: 0.35,
           anticipatePin: 1,
         },
         defaults: { ease: 'none' },
       })
-      // card grows from a small tile to the full frame
-      tl.fromTo(q('.about__card'), { scale: 0.3, y: '6vh', clipPath: 'inset(0% 31% 0% 31% round 40px)' }, { scale: 1, y: 0, clipPath: 'inset(0% 0% 0% 0% round 18px)', duration: 0.35, ease: 'power1.inOut' }, 0)
+      // card grows uniformly from a small landscape tile to the full frame (no horizontal crop)
+      tl.fromTo(q('.about__card'), { scale: 0.42, y: '4vh', clipPath: 'inset(0% 0% 0% 0% round 40px)' }, { scale: 1, y: 0, clipPath: 'inset(0% 0% 0% 0% round 18px)', duration: 0.35, ease: 'power1.inOut' }, 0)
         // words slide apart and fade
         .to(q('.about__wordA'), { xPercent: -260, duration: 0.22, ease: 'power2.in' }, 0.25)
         .to(q('.about__wordB'), { xPercent: 260, duration: 0.22, ease: 'power2.in' }, 0.25)

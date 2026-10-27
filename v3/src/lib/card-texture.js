@@ -60,6 +60,48 @@ function drawArt(ctx, kind, theme, x, y, w, h) {
   ctx.restore()
 }
 
+/* Where the slide sits inside a lecture card, as fractions of the card (used for the viewer FLIP). */
+export const LECTURE_SLIDE = { x: 28 / W, y: 24 / H, w: 968 / W, h: 544 / H }
+
+export function renderLectureCard(item, cover) {
+  const c = document.createElement('canvas')
+  c.width = W; c.height = H
+  const ctx = c.getContext('2d')
+  const sx = 28, sy = 24, sw = 968, sh = 544
+  const draw = (img) => {
+    ctx.fillStyle = '#0c0d11'; ctx.fillRect(0, 0, W, H)
+    ctx.save(); roundRect(ctx, sx, sy, sw, sh, 10); ctx.clip()
+    ctx.fillStyle = '#16181f'; ctx.fillRect(sx, sy, sw, sh)
+    if (img) {
+      const s = Math.min(sw / img.width, sh / img.height)
+      const iw = img.width * s, ih = img.height * s
+      ctx.drawImage(img, sx + (sw - iw) / 2, sy + (sh - ih) / 2, iw, ih)
+    } else {
+      ctx.fillStyle = '#f4f3ef'; ctx.font = '800 54px Archivo, Arial'
+      ctx.fillText(item.title.toUpperCase().slice(0, 26), sx + 40, sy + sh / 2)
+      ctx.fillStyle = '#8d8d89'; ctx.font = '500 16px "JetBrains Mono", monospace'
+      ctx.fillText('LOADING SLIDES', sx + 42, sy + sh / 2 + 44)
+    }
+    ctx.restore()
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.lineWidth = 2; roundRect(ctx, sx, sy, sw, sh, 10); ctx.stroke()
+    ctx.textBaseline = 'middle'
+    ctx.fillStyle = '#f4f3ef'; ctx.font = '700 24px Archivo, Arial'
+    ctx.fillText(item.title, sx + 4, 604)
+    ctx.textAlign = 'right'; ctx.fillStyle = '#8d8d89'; ctx.font = '500 13px "JetBrains Mono", monospace'
+    ctx.fillText((item.event + '  ·  ' + item.date).toUpperCase(), W - sx - 4, 604)
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'
+  }
+  draw(null)
+  const ready = (cover ? cover() : Promise.resolve(null)).then((p) => new Promise((res) => {
+    if (!p) return res(c)
+    const img = new Image()
+    img.onload = () => { draw(img); res(c) }
+    img.onerror = () => res(c)
+    img.src = p.url
+  }), () => c)
+  return { canvas: c, ready }
+}
+
 export function renderCard(item, { kind = 'work' } = {}) {
   const c = document.createElement('canvas')
   c.width = W; c.height = H

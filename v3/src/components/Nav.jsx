@@ -4,6 +4,10 @@ import { brand, nav, socials } from '../data/content'
 import { useLenis } from '../lib/smooth-scroll.jsx'
 import './nav.css'
 
+/*
+ * Functional-layer glass bar (Apple Liquid Glass: blur only on navigation, not content).
+ * Active item gets a soft luminous pill — monochrome, one accent of light at a time.
+ */
 const Icon = ({ k }) => {
   switch (k) {
     case 'linkedin':
@@ -17,16 +21,37 @@ const Icon = ({ k }) => {
   }
 }
 
+const SHORT = {
+  Home: 'Home',
+  About: 'About',
+  Journey: 'Path',
+  Lectures: 'Talks',
+  Works: 'Works',
+  Publications: 'Pubs',
+  Capabilities: 'Craft',
+}
+
+function sampleDark() {
+  const el = document.elementFromPoint(window.innerWidth / 2, Math.min(40, window.innerHeight * 0.06))
+  const sec = el?.closest('section, footer')
+  return !!sec && sec.classList.contains('theme-dark')
+}
+
 export default function Nav() {
   const root = useRef(null)
+  const dock = useRef(null)
+  const openRef = useRef(false)
   const lenis = useLenis()
   const [active, setActive] = useState('#home')
+  const [open, setOpen] = useState(false)
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => { openRef.current = open }, [open])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(root.current, { autoAlpha: 0, y: -12 })
       gsap.to(root.current, { autoAlpha: 1, y: 0, duration: 0.8, delay: 2.4, ease: 'power3.out' })
-      // hide on scroll down, show on scroll up
       let last = 0
       ScrollTrigger.create({
         start: 0,
@@ -35,8 +60,15 @@ export default function Nav() {
           const y = self.scroll()
           const dir = y > last ? 1 : -1
           last = y
-          gsap.to(root.current, { yPercent: dir > 0 && y > 200 ? -110 : 0, duration: 0.5, ease: 'power3.out', overwrite: 'auto' })
-          root.current.classList.toggle('nav--dark', isOverDark())
+          if (!openRef.current) {
+            gsap.to(root.current, { yPercent: dir > 0 && y > 200 ? -110 : 0, duration: 0.5, ease: 'power3.out', overwrite: 'auto' })
+          } else {
+            gsap.to(root.current, { yPercent: 0, duration: 0.3, overwrite: 'auto' })
+          }
+          const d = sampleDark()
+          setDark(d)
+          root.current?.classList.toggle('nav--dark', d)
+          dock.current?.classList.toggle('nav-dock--dark', d)
         },
       })
     }, root)
@@ -49,14 +81,9 @@ export default function Nav() {
     return () => { ctx.revert(); io.disconnect() }
   }, [])
 
-  function isOverDark() {
-    const el = document.elementFromPoint(window.innerWidth / 2, 32)
-    const sec = el?.closest('section, footer')
-    return !!sec && sec.classList.contains('theme-dark')
-  }
-
   const go = (e, href) => {
     e.preventDefault()
+    setOpen(false)
     const target = document.querySelector(href)
     if (!target) return
     if (lenis?.current) lenis.current.scrollTo(target, { offset: 0, duration: 1.4 })
@@ -64,28 +91,80 @@ export default function Nav() {
   }
 
   return (
-    <header className="nav" ref={root}>
-      <a className="nav__logo" href="#home" onClick={(e) => go(e, '#home')} aria-label={brand.name + ' — home'}>
-        {brand.wordmark}<span className="nav__dot" />
-      </a>
-      <nav className="nav__links" aria-label="Primary">
-        <ul>
+    <>
+      <header className={'nav' + (dark ? ' nav--dark' : '') + (open ? ' is-open' : '')} ref={root}>
+        <a className="nav__logo" href="#home" onClick={(e) => go(e, '#home')} aria-label={brand.name + ' — home'}>
+          {brand.wordmark}<span className="nav__dot" />
+        </a>
+
+        <nav className="nav__glass" aria-label="Primary">
+          <ul className="nav__links">
+            {nav.map((n) => (
+              <li key={n.href}>
+                <a
+                  className={'nav__link' + (active === n.href ? ' is-active' : '')}
+                  href={n.href}
+                  onClick={(e) => go(e, n.href)}
+                  aria-current={active === n.href ? 'page' : undefined}
+                >
+                  <span className="nav__glow" aria-hidden="true" />
+                  <span className="nav__label">{n.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="nav__end">
+          <div className="nav__social">
+            {socials.map((s) => (
+              <a key={s.key} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="nav__icon">
+                <Icon k={s.key} />
+              </a>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="nav__menu"
+            aria-expanded={open}
+            aria-controls="nav-drawer"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span /><span />
+          </button>
+        </div>
+      </header>
+
+      <nav ref={dock} className={'nav-dock' + (dark ? ' nav-dock--dark' : '')} aria-label="Sections">
+        <ul className="nav-dock__glass">
           {nav.map((n) => (
             <li key={n.href}>
-              <a className={'nav__link' + (active === n.href ? ' is-active' : '')} href={n.href} onClick={(e) => go(e, n.href)}>
-                {n.label}
+              <a
+                className={'nav-dock__link' + (active === n.href ? ' is-active' : '')}
+                href={n.href}
+                onClick={(e) => go(e, n.href)}
+                aria-current={active === n.href ? 'page' : undefined}
+              >
+                <span className="nav-dock__glow" aria-hidden="true" />
+                <span>{SHORT[n.label] || n.label}</span>
               </a>
             </li>
           ))}
         </ul>
       </nav>
-      <div className="nav__social">
-        {socials.map((s) => (
-          <a key={s.key} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="nav__icon">
-            <Icon k={s.key} />
-          </a>
-        ))}
+
+      <div id="nav-drawer" className={'nav-drawer' + (open ? ' is-open' : '') + (dark ? ' nav-drawer--dark' : '')} hidden={!open}>
+        <ul>
+          {nav.map((n) => (
+            <li key={n.href}>
+              <a className={active === n.href ? 'is-active' : ''} href={n.href} onClick={(e) => go(e, n.href)}>
+                {n.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </header>
+    </>
   )
 }

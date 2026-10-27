@@ -92,7 +92,7 @@ async function scrollTo(y) {
   await page.waitForTimeout(1200)
 }
 
-const steps = { about: [0.05, 0.3, 0.45, 0.7, 1], experience: [0, 0.25, 0.5, 0.75, 1], research: [0, 0.3, 0.6, 1], works: [0, 0.15, 0.3, 0.5, 0.75, 1] }
+const steps = { about: [0.05, 0.3, 0.45, 0.7, 1], journey: [0, 0.2, 0.45, 0.7, 1], lectures: [0, 0.5, 1], works: [0, 0.15, 0.3, 0.5, 0.75, 1] }
 let k = 3
 for (const p of pins) {
   const list = steps[p.id] || [0, 0.5, 1]
@@ -102,10 +102,32 @@ for (const p of pins) {
   }
   k++
 }
-// services + footer
+const sectionY = (sel, off = 80) => page.evaluate(([s, o]) => document.querySelector(s).getBoundingClientRect().top + window.scrollY - o, [sel, off])
+
+// lecture viewer: open from the ribbon, step a slide, grid overview, close
+const lec = pins.find((p) => p.id === 'lectures')
+if (lec) {
+  await scrollTo(lec.start + 2)
+  await page.click('.rs__enter')
+  await page.waitForSelector('.sv__frame')
+  await page.waitForTimeout(1400); await shot(`${k++}-viewer-open`)
+  await page.keyboard.press('ArrowRight'); await page.waitForTimeout(900); await shot(`${k++}-viewer-next`)
+  await page.keyboard.press('g'); await page.waitForTimeout(1400); await shot(`${k++}-viewer-grid`)
+  await page.keyboard.press('Escape'); await page.waitForTimeout(900)
+  await page.keyboard.press('Escape'); await page.waitForTimeout(1400)
+  if (await page.$('.sv')) errors.push('viewer did not close')
+}
+
+// publications: top, then one expanded row
+await scrollTo(await sectionY('#publications', 0)); await page.waitForTimeout(600); await shot(`${k++}-publications`)
+await page.click('.pb__row .pb__head')
+await page.waitForTimeout(800)
+await scrollTo(await sectionY('.pb__row.is-open', 200)); await shot(`${k++}-publications-expanded`)
+
+// capabilities + footer
 const docH = await page.evaluate(() => document.documentElement.scrollHeight)
-const svcY = await page.evaluate(() => document.querySelector('#services').getBoundingClientRect().top + window.scrollY - 80)
-await scrollTo(svcY); await page.waitForTimeout(600); await shot(`${k++}-services`)
+await scrollTo(await sectionY('#capabilities')); await page.waitForTimeout(900); await shot(`${k++}-capabilities`)
+await scrollTo(await sectionY('.cap__split')); await page.waitForTimeout(900); await shot(`${k++}-capabilities-skills`)
 await scrollTo(docH); await page.waitForTimeout(900); await shot(`${k++}-footer`)
 
 // mobile pass (hero + about open + footer)
@@ -113,7 +135,15 @@ await page.setViewportSize({ width: 390, height: 844 })
 await page.waitForTimeout(500)
 await page.evaluate(() => window.__ST.refresh())
 await scrollTo(0); await shot(`${k++}-mobile-hero`)
-await scrollTo(docH); await page.waitForTimeout(600); await shot(`${k++}-mobile-footer`)
+const mPins = await page.evaluate(() => window.__ST.getAll().filter((t) => t.pin).map((t) => ({ id: t.trigger.id, start: t.start, end: t.end })))
+for (const id of ['journey', 'lectures']) {
+  const p = mPins.find((x) => x.id === id)
+  if (p) { await scrollTo(p.start + (p.end - p.start) * 0.3); await shot(`${k++}-mobile-${id}`) }
+}
+await scrollTo(await sectionY('#publications', 0)); await page.waitForTimeout(600); await shot(`${k++}-mobile-publications`)
+await scrollTo(await sectionY('#capabilities', 0)); await page.waitForTimeout(600); await shot(`${k++}-mobile-capabilities`)
+const mDocH = await page.evaluate(() => document.documentElement.scrollHeight)
+await scrollTo(mDocH); await page.waitForTimeout(600); await shot(`${k++}-mobile-footer`)
 
 const report = { url, viewport: [W, H], shots, errors, warnings: warnings.slice(0, 20), pins }
 writeFileSync(join(here, 'report.json'), JSON.stringify(report, null, 2))
@@ -124,10 +154,12 @@ server?.kill()
 // contact sheet via python/PIL if available
 try {
   const { execSync } = await import('node:child_process')
-  execSync(`python3 - <<'PY'
+  const py = process.platform === 'win32' ? 'python' : 'python3'
+  const dir = outDir.replace(/\\/g, '/')
+  execSync(py + ' -', { input: `
 from PIL import Image, ImageDraw
 import glob, os
-files=sorted(glob.glob('${outDir}/*.png'))
+files=sorted(glob.glob('${dir}/*.png'))
 files=[f for f in files if 'mobile' not in f]
 ims=[Image.open(f) for f in files]
 w=480; tiles=[im.resize((w,int(im.height*w/im.width))) for im in ims]
@@ -135,8 +167,8 @@ cols=4; rows=(len(tiles)+cols-1)//cols; h=max(t.height for t in tiles)+18
 sheet=Image.new('RGB',(cols*w,rows*h),'black'); d=ImageDraw.Draw(sheet)
 for i,(f,t) in enumerate(zip(files,tiles)):
     x=(i%cols)*w; y=(i//cols)*h; sheet.paste(t,(x,y+18)); d.text((x+4,y+3),os.path.basename(f),fill='yellow')
-sheet.save('${outDir}/contact.png')
-PY`)
+sheet.save('${dir}/contact.png')
+` })
   console.log('contact sheet:', join(outDir, 'contact.png'))
 } catch (e) { console.log('no contact sheet:', e.message) }
 process.exit(errors.filter((e) => !e.includes('favicon')).length ? 1 : 0)
